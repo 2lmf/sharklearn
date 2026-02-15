@@ -4,6 +4,7 @@
     "description": "Zabavna edukativna platforma za Biologiju i Geografiju.",
     "start_url": "index.html",
     "display": "standalone",
+    "orientation": "portrait",
     "background_color": "#020817",
     "theme_color": "#00f3ff",
     "icons": [
