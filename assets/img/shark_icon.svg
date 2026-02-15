@@ -1,7 +1,32 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded Background -->
   <rect width="512" height="512" rx="100" fill="#020817"/>
-  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#00f3ff">
-    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
-  </path>
-  <path d="M150 380C160 360 220 320 250 220C280 120 370 110 370 110C350 200 300 280 240 330C180 380 150 380 150 380Z" fill="#0066cc" opacity="0.5"/>
+  
+  <!-- Outer Glow Pin -->
+  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#00f3ff" opacity="0.1" filter="blur(10px)"/>
+  
+  <!-- Core Shark Fin -->
+  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#020817" stroke="#00f3ff" stroke-width="4"/>
+  
+  <!-- Circuit Traces (Left Side) -->
+  <path d="M160 380 L180 360 L180 330" stroke="#00f3ff" stroke-width="2" opacity="0.6"/>
+  <circle cx="180" cy="330" r="3" fill="#00f3ff"/>
+  
+  <path d="M200 360 L230 330 L230 280" stroke="#ff8c00" stroke-width="2" opacity="0.8"/>
+  <circle cx="230" cy="280" r="3" fill="#ff8c00"/>
+  
+  <!-- Circuit Traces (Top/Right Side) -->
+  <path d="M360 140 L320 180 L280 180" stroke="#00f3ff" stroke-width="2" opacity="0.6"/>
+  <circle cx="280" cy="180" r="3" fill="#00f3ff"/>
+  
+  <path d="M320 250 L280 290 L240 290" stroke="#ff8c00" stroke-width="2" opacity="0.8"/>
+  <circle cx="240" cy="290" r="3" fill="#ff8c00"/>
+
+  <!-- Glowing Accents -->
+  <circle cx="220" cy="250" r="4" fill="#00f3ff">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="340" cy="160" r="3" fill="#ff8c00">
+    <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
+  </circle>
 </svg>
