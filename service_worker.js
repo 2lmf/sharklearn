@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sharklearn-v16';
+const CACHE_NAME = 'sharklearn-v17';
 const ASSETS = [
     './',
     'index.html',
