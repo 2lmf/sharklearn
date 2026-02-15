@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SharkLearn | Biologija 7</title>
-    <link rel="stylesheet" href="shark_style.css">
+    <link rel="stylesheet" href="shark_style.css?v=11">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#020817">
 
@@ -20,7 +20,18 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./service_worker.js')
-                    .then(reg => console.log('SharkLearn: ServiceWorker registered!', reg))
+                    .then(reg => {
+                        console.log('SharkLearn: ServiceWorker registered!');
+                        reg.onupdatefound = () => {
+                            const installingWorker = reg.installing;
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New version found, reload!
+                                    window.location.reload();
+                                }
+                            };
+                        };
+                    })
                     .catch(err => console.error('SharkLearn: ServiceWorker registration failed!', err));
             });
         }
