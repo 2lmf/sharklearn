@@ -2,8 +2,9 @@
     "name": "SharkLearn Edukacija",
     "short_name": "SharkLearn",
     "description": "Zabavna edukativna platforma za Biologiju i Geografiju.",
-    "start_url": "./",
-    "scope": ".",
+    "id": "/sharklearn/",
+    "start_url": "./index.html",
+    "scope": "./",
     "display": "standalone",
     "orientation": "portrait",
     "background_color": "#020817",
@@ -11,19 +12,15 @@
     "icons": [
         {
             "src": "assets/img/shark_icon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any maskable"
-        },
-        {
-            "src": "assets/img/icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "assets/img/icon-512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/img/shark_icon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
         }
     ]
 }

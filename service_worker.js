@@ -1,5 +1,6 @@
-const CACHE_NAME = 'sharklearn-v3';
+const CACHE_NAME = 'sharklearn-v4';
 const ASSETS = [
+    './',
     'index.html',
     'shark_style.css',
     'quiz_engine.js',

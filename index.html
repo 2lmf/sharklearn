@@ -14,11 +14,15 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="SharkLearn">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/img/shark_icon.svg">
 
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service_worker.js');
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service_worker.js')
+                    .then(reg => console.log('SharkLearn: ServiceWorker registered!', reg))
+                    .catch(err => console.error('SharkLearn: ServiceWorker registration failed!', err));
+            });
         }
     </script>
 </head>
