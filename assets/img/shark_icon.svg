@@ -1,32 +1,90 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Rounded Background -->
-  <rect width="512" height="512" rx="100" fill="#020817"/>
-  
-  <!-- Outer Glow Pin -->
-  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#00f3ff" opacity="0.1" filter="blur(10px)"/>
-  
-  <!-- Core Shark Fin -->
-  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#020817" stroke="#00f3ff" stroke-width="4"/>
-  
-  <!-- Circuit Traces (Left Side) -->
-  <path d="M160 380 L180 360 L180 330" stroke="#00f3ff" stroke-width="2" opacity="0.6"/>
-  <circle cx="180" cy="330" r="3" fill="#00f3ff"/>
-  
-  <path d="M200 360 L230 330 L230 280" stroke="#ff8c00" stroke-width="2" opacity="0.8"/>
-  <circle cx="230" cy="280" r="3" fill="#ff8c00"/>
-  
-  <!-- Circuit Traces (Top/Right Side) -->
-  <path d="M360 140 L320 180 L280 180" stroke="#00f3ff" stroke-width="2" opacity="0.6"/>
-  <circle cx="280" cy="180" r="3" fill="#00f3ff"/>
-  
-  <path d="M320 250 L280 290 L240 290" stroke="#ff8c00" stroke-width="2" opacity="0.8"/>
-  <circle cx="240" cy="290" r="3" fill="#ff8c00"/>
+  <defs>
+    <!-- Dark Ocean Night Gradient -->
+    <radialGradient id="ocean_night" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#0b1d3d" />
+      <stop offset="100%" style="stop-color:#01040a" />
+    </radialGradient>
+    
+    <!-- Neon Glow Filter -->
+    <filter id="neon_glow_cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <filter id="neon_glow_orange" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
 
-  <!-- Glowing Accents -->
-  <circle cx="220" cy="250" r="4" fill="#00f3ff">
-    <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="340" cy="160" r="3" fill="#ff8c00">
-    <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
-  </circle>
+    <!-- 3D Fin Gradient -->
+    <linearGradient id="fin_3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#163a5f" />
+      <stop offset="40%" style="stop-color:#0a1a2e" />
+      <stop offset="100%" style="stop-color:#01070f" />
+    </linearGradient>
+
+    <!-- Water Reflection Gradient -->
+    <linearGradient id="water_reflect" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f3ff; stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#00f3ff; stop-opacity:0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="url(#ocean_night)"/>
+
+  <!-- Water Surface & Reflections -->
+  <ellipse cx="256" cy="440" rx="200" ry="50" fill="url(#water_reflect)" filter="blur(20px)"/>
+  <path d="M 50 440 Q 150 420, 256 440 T 462 440" stroke="#00f3ff" stroke-width="1" opacity="0.1" fill="none"/>
+
+  <!-- THE FIN: Realistic Silhouette -->
+  <!-- Replicating the user's image shape: strong leading curve, pointed top, curved back -->
+  <path d="M 140 440 
+           C 160 400, 200 350, 240 250 
+           C 280 150, 360 100, 420 80 
+           C 400 200, 350 350, 280 410 
+           C 250 430, 200 440, 140 440 Z" 
+        fill="url(#fin_3d)" 
+        stroke="#00f3ff" 
+        stroke-width="1.5" 
+        opacity="0.95"/>
+
+  <!-- CIRCUIT OVERLAY (Following the fin shape) -->
+  <g stroke="#00f3ff" stroke-width="2" opacity="0.8" filter="url(#neon_glow_cyan)">
+    <!-- Main spine circuits -->
+    <path d="M200 420 Q 240 350 290 220" fill="none"/>
+    <path d="M230 400 Q 270 330 320 180" fill="none"/>
+    
+    <!-- Geometric interconnects -->
+    <path d="M220 380 L260 380 L280 340" fill="none"/>
+    <path d="M290 220 L330 220 L350 160" fill="none"/>
+    <path d="M320 280 L360 280 L380 220" fill="none"/>
+    
+    <!-- Nodes -->
+    <circle cx="280" cy="340" r="2.5" fill="#00f3ff"/>
+    <circle cx="350" cy="160" r="2.5" fill="#00f3ff"/>
+    <circle cx="380" cy="220" r="2.5" fill="#00f3ff"/>
+  </g>
+
+  <!-- STRATEGIC ORANGE POWER CORES -->
+  <g filter="url(#neon_glow_orange)">
+    <!-- Central Main Core -->
+    <circle cx="310" cy="230" r="5" fill="#ff8c00">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    
+    <!-- Secondary Cores -->
+    <circle cx="240" cy="360" r="3.5" fill="#ff8c00">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite" />
+    </circle>
+    
+    <circle cx="365" cy="180" r="3" fill="#ff8c00" opacity="0.8"/>
+  </g>
+
+  <!-- Sharp edge lighting (top highlight) -->
+  <path d="M 240 250 C 280 150, 360 100, 420 80" stroke="white" stroke-width="0.8" opacity="0.3"/>
+
+  <!-- Water Ripples at the base -->
+  <path d="M 140 440 C 180 435, 220 445, 260 440" stroke="#00f3ff" stroke-width="2" opacity="0.4" filter="blur(2px)"/>
 </svg>
