@@ -111,13 +111,13 @@ class QuizEngine {
         } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
             // Local fallback based on subject
-            if (this.selectedSubject === "Biology7" && typeof QUIZ_DATA !== 'undefined') {
+            if (this.selectedSubject === "Biologija7" && typeof QUIZ_DATA !== 'undefined') {
                 this.allQuestions = QUIZ_DATA;
-            } else if (this.selectedSubject === "Geography5" && typeof GEO_DATA !== 'undefined') {
+            } else if (this.selectedSubject === "Geografija5" && typeof GEO_DATA !== 'undefined') {
                 this.allQuestions = GEO_DATA;
-            } else if (this.selectedSubject === "English5" && typeof ENG_DATA !== 'undefined') {
+            } else if (this.selectedSubject === "Engleski5" && typeof ENG_DATA !== 'undefined') {
                 this.allQuestions = ENG_DATA;
-            } else if (this.selectedSubject === "German5" && typeof GER_DATA !== 'undefined') {
+            } else if (this.selectedSubject === "Njemacki5" && typeof GER_DATA !== 'undefined') {
                 this.allQuestions = GER_DATA;
             }
         }
@@ -276,7 +276,7 @@ class QuizEngine {
             const stats = {
                 action: 'save_stats',
                 studentName: this.studentName,
-                subject: this.selectedSubject === "Questions" ? "Biologija 7" : "Geografija 5",
+                subject: this.selectedSubject,
                 score: this.score,
                 livesLeft: this.lives,
                 totalQuestions: this.currentIndex
