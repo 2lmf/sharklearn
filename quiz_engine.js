@@ -119,6 +119,10 @@ class QuizEngine {
                 this.allQuestions = ENG_DATA;
             } else if (this.selectedSubject === "Njemacki5" && typeof GER_DATA !== 'undefined') {
                 this.allQuestions = GER_DATA;
+            } else if (this.selectedSubject === "Povijest7" && typeof HIS_DATA !== 'undefined') {
+                this.allQuestions = HIS_DATA;
+            } else if (this.selectedSubject === "Geografija7" && typeof GEO_7_DATA !== 'undefined') {
+                this.allQuestions = GEO_7_DATA;
             }
         }
 
