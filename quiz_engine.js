@@ -12,7 +12,13 @@ class QuizEngine {
         this.score = 0;
         this.lives = 5;
         this.questionsPerMission = 10;
+
+        // Registration & Tracking
         this.studentName = localStorage.getItem('sharklearn_user_name') || "";
+        this.parentEmail = localStorage.getItem('sharklearn_parent_email') || "";
+        this.startTime = null;
+        this.duration = 0;
+        this.isRegistered = !!(this.studentName && this.parentEmail);
 
         // Config
         this.storageKey = 'sharklearn_seen_ids';
@@ -40,16 +46,28 @@ class QuizEngine {
             explanationText: document.getElementById('explanation-text'),
             nextBtn: document.getElementById('next-after-exp-btn'),
             semesterOptions: document.querySelectorAll('.sem-opt'),
-            semesterHidden: document.getElementById('selected-semester-hidden')
+            semesterHidden: document.getElementById('selected-semester-hidden'),
+
+            // Registration Elements
+            registrationModal: document.getElementById('registration-modal'),
+            regStudentName: document.getElementById('reg-student-name'),
+            regParentEmail: document.getElementById('reg-parent-email'),
+            saveProfileBtn: document.getElementById('save-profile-btn'),
+            userInfoBar: document.getElementById('user-info-bar'),
+            displayStudentName: document.getElementById('display-student-name'),
+            displayParentEmail: document.getElementById('display-parent-email')
         };
 
         this.init();
     }
 
     async init() {
-        // Setup Login UI
-        if (this.studentName) {
-            this.elements.studentInput.value = this.studentName;
+        // Show Registration if needed
+        if (!this.isRegistered) {
+            this.elements.registrationModal.style.display = 'flex';
+            this.elements.saveProfileBtn.onclick = () => this.saveProfile();
+        } else {
+            this.updateProfileUI();
         }
 
         // Subject Card Selection Logic
@@ -81,6 +99,33 @@ class QuizEngine {
         this.elements.startBtn.onclick = () => this.startGame();
     }
 
+    saveProfile() {
+        const name = this.elements.regStudentName.value.trim();
+        const email = this.elements.regParentEmail.value.trim();
+
+        if (name.length < 3 || !email.includes('@')) {
+            alert("Molim te unesi ispravno ime i email roditelja!");
+            return;
+        }
+
+        this.studentName = name;
+        this.parentEmail = email;
+        this.isRegistered = true;
+
+        localStorage.setItem('sharklearn_user_name', name);
+        localStorage.setItem('sharklearn_parent_email', email);
+
+        this.elements.registrationModal.style.display = 'none';
+        this.updateProfileUI();
+        console.log("SharkLearn: Profile saved for", name);
+    }
+
+    updateProfileUI() {
+        this.elements.displayStudentName.innerText = this.studentName;
+        this.elements.displayParentEmail.innerText = `Roditelj: ${this.parentEmail}`;
+        this.elements.userInfoBar.style.display = 'flex';
+    }
+
     async startGame() {
         const nameInput = this.elements.studentInput.value.trim();
         if (!nameInput) {
@@ -93,9 +138,16 @@ class QuizEngine {
         this.selectedSemester = this.elements.semesterHidden.value;
         localStorage.setItem('sharklearn_user_name', this.studentName);
 
+        // Tracking Init
+        this.startTime = new Date();
+        this.duration = 0;
+
         // UI Transition to Loading State
         this.elements.startBtn.disabled = true;
         this.elements.startBtn.innerText = "UČITAVAM...";
+
+        // Send Initial Attempt Stats (Cloud track that session started)
+        this.saveStatsToCloud(false);
 
         // Load Questions for selected subject
         try {
@@ -265,6 +317,12 @@ class QuizEngine {
     }
 
     endGame(success) {
+        // Calculate final duration
+        if (this.startTime) {
+            const endTime = new Date();
+            this.duration = Math.floor((endTime - this.startTime) / 1000); // seconds
+        }
+
         this.elements.quizWrapper.style.display = 'none';
         this.elements.resultScreen.style.display = 'block';
         this.elements.progressBar.style.width = '100%';
@@ -276,18 +334,22 @@ class QuizEngine {
             this.elements.finalStats.style.color = "var(--neon-orange)";
         }
 
-        this.saveStatsToCloud();
+        this.saveStatsToCloud(true);
     }
 
-    async saveStatsToCloud() {
+    async saveStatsToCloud(isCompleted = false) {
         try {
             const stats = {
                 action: 'save_stats',
                 studentName: this.studentName,
+                parentEmail: this.parentEmail,
                 subject: this.selectedSubject,
                 score: this.score,
                 livesLeft: this.lives,
-                totalQuestions: this.currentIndex
+                totalQuestions: this.currentIndex,
+                duration: this.duration,
+                isCompleted: isCompleted,
+                version: 'v24'
             };
             fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
         } catch (e) {
