@@ -10,7 +10,7 @@ class QuizEngine {
         this.currentMission = [];
         this.currentIndex = 0;
         this.score = 0;
-        this.lives = 3;
+        this.lives = 5;
         this.questionsPerMission = 10;
         this.studentName = localStorage.getItem('sharklearn_user_name') || "";
 
