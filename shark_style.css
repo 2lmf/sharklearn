@@ -279,6 +279,34 @@ body {
     box-shadow: var(--neon-glow);
 }
 
+/* Semester Selector */
+.semester-options {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50px;
+    padding: 5px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    gap: 5px;
+}
+
+.sem-opt {
+    padding: 8px 15px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    color: var(--text-muted);
+    flex: 1;
+    text-align: center;
+}
+
+.sem-opt.active {
+    background: var(--neon-cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 0 15px var(--neon-cyan);
+    font-weight: bold;
+}
+
 /* Animations */
 @keyframes shake {
 

@@ -14,7 +14,7 @@ function doGet(e) {
   const sheetName = e.parameter.subject || "Questions"; // Default to Bio if not specified
   
   if (action === 'get_questions') {
-    return getQuestionsFromSheet(sheetName);
+    return getQuestionsFromSheet(sheetName, e.parameter.semester);
   }
   
   return ContentService.createTextOutput("SharkLearn API Active")
@@ -45,14 +45,14 @@ function doPost(e) {
 
 // --- CORE FUNCTIONS ---
 
-function getQuestionsFromSheet(sheetName) {
+function getQuestionsFromSheet(sheetName, semesterFilter) {
   const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
   const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
   const data = sheet.getDataRange().getValues();
   
   if (data.length < 2) return createJsonResponse([]); // Empty or header only
 
-  const questions = data.slice(1)
+  let questions = data.slice(1)
     .map((row, index) => {
       return {
         id: index + 1,
@@ -60,10 +60,16 @@ function getQuestionsFromSheet(sheetName) {
         opcije: [row[1], row[2], row[3], row[4]],
         tocan_odgovor: parseInt(row[5]),
         slika: row[6] || null,
-        obasnjenje: row[7] || ""
+        obasnjenje: row[7] || "",
+        semester: row[8] || "all" // New Column I
       };
     })
     .filter(q => q.pitanje && !isNaN(q.tocan_odgovor)); // Skip placeholders
+
+  // Optional: Backend filtering
+  if (semesterFilter && semesterFilter !== 'all') {
+    questions = questions.filter(q => q.semester == semesterFilter);
+  }
   
   return createJsonResponse(questions);
 }
@@ -101,7 +107,8 @@ function handleAddQuestion(payload) {
     payload.opcije[3],
     payload.tocan_odgovor,
     payload.slika || "",
-    payload.obasnjenje || ""
+    payload.obasnjenje || "",
+    payload.semester || "all" // Save to Column I
   ]);
   
   return createJsonResponse({ status: 'success', message: "Pitanje spremljeno u: " + sheetName });

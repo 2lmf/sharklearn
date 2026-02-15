@@ -38,7 +38,9 @@ class QuizEngine {
             finalStats: document.getElementById('final-stats'),
             explanationModal: document.getElementById('explanation-modal'),
             explanationText: document.getElementById('explanation-text'),
-            nextBtn: document.getElementById('next-after-exp-btn')
+            nextBtn: document.getElementById('next-after-exp-btn'),
+            semesterOptions: document.querySelectorAll('.sem-opt'),
+            semesterHidden: document.getElementById('selected-semester-hidden')
         };
 
         this.init();
@@ -63,6 +65,16 @@ class QuizEngine {
             };
         });
 
+        // Semester Selection Logic
+        this.elements.semesterOptions.forEach(opt => {
+            opt.onclick = () => {
+                this.elements.semesterOptions.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
+                this.elements.semesterHidden.value = opt.getAttribute('data-semester');
+                console.log("SharkLearn: Semester changed to", this.elements.semesterHidden.value);
+            };
+        });
+
         // Enable Start
         this.elements.startBtn.disabled = false;
         this.elements.startBtn.innerText = "ZAPOČNI MISIJU";
@@ -78,6 +90,7 @@ class QuizEngine {
 
         this.studentName = nameInput;
         this.selectedSubject = this.elements.subjectHidden.value;
+        this.selectedSemester = this.elements.semesterHidden.value;
         localStorage.setItem('sharklearn_user_name', this.studentName);
 
         // UI Transition to Loading State
@@ -86,7 +99,7 @@ class QuizEngine {
 
         // Load Questions for selected subject
         try {
-            console.log(`SharkLearn: Loading ${this.selectedSubject}...`);
+            console.log(`SharkLearn: Loading ${this.selectedSubject} (Sem: ${this.selectedSemester})...`);
             const response = await fetch(`${this.apiUrl}?action=get_questions&subject=${this.selectedSubject}`);
             const cloudData = await response.json();
 
@@ -106,6 +119,16 @@ class QuizEngine {
         }
 
         if (this.allQuestions.length > 0) {
+            // Apply Semester Filter locally if not already done by backend
+            if (this.selectedSemester !== "all") {
+                const filtered = this.allQuestions.filter(q => q.semester == this.selectedSemester);
+                if (filtered.length > 0) {
+                    this.allQuestions = filtered;
+                } else {
+                    console.warn(`No questions for semester ${this.selectedSemester}, showing all.`);
+                }
+            }
+
             this.elements.welcomeScreen.style.display = 'none';
             this.elements.quizWrapper.style.display = 'block';
             this.setupMission();
