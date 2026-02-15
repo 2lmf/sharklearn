@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharkLearn | Dashboard za Učitelje</title>
+    <link rel="stylesheet" href="shark_style.css">
+    <style>
+        .admin-form {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: var(--font-body);
+        }
+
+        .label {
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ocean-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="logo-text">
+                <span class="logo-shark">TEACHER</span><span class="logo-learn">PORTAL</span>
+            </div>
+            <a href="index.html" class="stat-item" style="text-decoration:none; color: var(--neon-orange);">← NAZAD</a>
+        </header>
+
+        <main class="glass-card">
+            <h2 style="font-family: var(--font-heading); color: var(--neon-cyan);">DODAJ NOVO PITANJE</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px;">
+                Unesi pitanje. Ono će se automatski pojaviti svim tvojim učenicima u idućoj misiji.
+            </p>
+
+            <form id="question-form" class="admin-form">
+                <div class="input-group">
+                    <span class="label">Pitanje</span>
+                    <textarea id="pitanje" placeholder="Npr. Što je stanična membrana?" required></textarea>
+                </div>
+
+                <div class="input-group">
+                    <span class="label">Opcije (A, B, C, D)</span>
+                    <input type="text" id="opt0" placeholder="A" required>
+                    <input type="text" id="opt1" placeholder="B" required>
+                    <input type="text" id="opt2" placeholder="C" required>
+                    <input type="text" id="opt3" placeholder="D" required>
+                </div>
+
+                <div class="input-group">
+                    <span class="label">Točan Odgovor (0=A, 1=B...)</span>
+                    <select id="tocan">
+                        <option value="0">A</option>
+                        <option value="1">B</option>
+                        <option value="2">C</option>
+                        <option value="3">D</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <span class="label">URL Slike (Opcionalno)</span>
+                    <input type="text" id="slika" placeholder="https://example.com/slika.png">
+                </div>
+
+                <div class="input-group">
+                    <span class="label">Objašnjenje (Nakon odgovora)</span>
+                    <input type="text" id="obasnjenje" placeholder="Jezgra upravlja stanicom...">
+                </div>
+
+                <div class="input-group">
+                    <span class="label">Lozinka za Sinkronizaciju</span>
+                    <input type="password" id="pass" placeholder="Unesi shark" required>
+                </div>
+
+                <button type="submit" class="btn-primary">POŠALJI U OBLAK</button>
+            </form>
+            <p id="status" style="margin-top: 15px; text-align: center;"></p>
+        </main>
+    </div>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbyb8wmUOU--5fjmfsZr24l9WkYQRs8r0jVqSwEywEopStKCSjlqoTXIABQf1bAV3JU_/exec";
+
+        document.getElementById('question-form').onsubmit = async (e) => {
+            e.preventDefault();
+            const status = document.getElementById('status');
+            const submitBtn = e.target.querySelector('button');
+
+            status.innerText = "Šaljem u oblak...";
+            status.style.color = "var(--text-main)";
+            submitBtn.disabled = true;
+
+            const payload = {
+                action: 'add_question',
+                password: document.getElementById('pass').value,
+                pitanje: document.getElementById('pitanje').value,
+                opcije: [
+                    document.getElementById('opt0').value,
+                    document.getElementById('opt1').value,
+                    document.getElementById('opt2').value,
+                    document.getElementById('opt3').value
+                ],
+                tocan_odgovor: document.getElementById('tocan').value,
+                slika: document.getElementById('slika').value,
+                obasnjenje: document.getElementById('obasnjenje').value
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    status.innerText = "Uspješno spremljeno! Pitanje je sada u bazi.";
+                    status.style.color = "var(--success)";
+                    e.target.reset();
+                } else {
+                    status.innerText = "Greška: " + result.message;
+                    status.style.color = "var(--error)";
+                }
+            } catch (err) {
+                console.error(err);
+                status.innerText = "Greška u komunikaciji sa serverom!";
+                status.style.color = "var(--error)";
+            } finally {
+                submitBtn.disabled = false;
+            }
+        };
+    </script>
+</body>
+
+</html>

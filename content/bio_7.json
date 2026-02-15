@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "pitanje": "Koji dio stanice upravlja svim životnim procesima i sadrži nasljedne upute?",
+    "opcije": ["Mitohondrij", "Kloroplast", "Jezgra", "Citoplazma"],
+    "tocan_odgovor": 2,
+    "obasnjenje": "Jezgra je 'mozak' stanice u kojem se nalazi DNA."
+  },
+  {
+    "id": 2,
+    "pitanje": "U kojoj se organeli odvija proces staničnog disanja i oslobađanje energije?",
+    "opcije": ["Ribosom", "Mitohondrij", "Golgijevo tijelo", "Vakuola"],
+    "tocan_odgovor": 1,
+    "obasnjenje": "Mitohondriji su 'elektrane' stanice koje proizvode energiju."
+  },
+  {
+    "id": 3,
+    "pitanje": "Koju organelu imaju isključivo biljne stanice, a služi za fotosintezu?",
+    "opcije": ["Kloroplast", "Mitohondrij", "Jezgra", "Stanična membrana"],
+    "tocan_odgovor": 0,
+    "obasnjenje": "Kloroplasti sadrže klorofil koji biljci omogućuje stvaranje hrane pomoću svjetlosti."
+  },
+  {
+    "id": 4,
+    "pitanje": "Što okružuje i štiti biljnu stanicu te joj daje čvrst oblik?",
+    "opcije": ["Stanična membrana", "Citoplazma", "Stanična stijenka", "Vakuola"],
+    "tocan_odgovor": 2,
+    "obasnjenje": "Stanična stijenka je čvrsta i nalazi se samo kod biljaka, gljiva i nekih bakterija."
+  },
+  {
+    "id": 5,
+    "pitanje": "Kako se naziva želatinasta masa koja ispunjava unutrašnjost stanice?",
+    "opcije": ["DNA", "Citoplazma", "Klorofil", "Krvna plazma"],
+    "tocan_odgovor": 1,
+    "obasnjenje": "Citoplazma je tekućina u kojoj su smještene sve ostale organele."
+  }
+]

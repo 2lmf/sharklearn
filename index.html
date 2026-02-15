@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharkLearn | Biologija 7</title>
+    <link rel="stylesheet" href="shark_style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#020817">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service_worker.js');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="ocean-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="app-container">
+        <!-- WELCOME SCREEN -->
+        <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 50px;">
+            <h1 class="logo-text" style="font-size: 2.5rem; margin-bottom: 20px;">
+                <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
+            </h1>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">Spreman za novu misiju iz Biologije 7?</p>
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 300px; margin: 0 auto;">
+                <input type="text" id="student-name-input" placeholder="Unesi svoje ime"
+                    style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; padding: 15px; border-radius: 50px; text-align: center; font-family: var(--font-body);">
+                <div class="subject-cards" id="subject-cards-container">
+                    <div class="subject-card active" data-subject="Questions">
+                        <span class="icon">🧬</span>
+                        <span class="label">Biologija 7. r</span>
+                    </div>
+                    <div class="subject-card" data-subject="Geography5">
+                        <span class="icon">🌍</span>
+                        <span class="label">Geografija 5. r</span>
+                    </div>
+                </div>
+                <input type="hidden" id="selected-subject-hidden" value="Questions">
+                <button class="btn-primary" id="start-btn" disabled>UČITAVAM BAZU...</button>
+            </div>
+        </section>
+
+        <!-- QUIZ UI (Hidden until start) -->
+        <div id="quiz-ui-wrapper" style="display: none;">
+            <!-- HEADER -->
+            <header class="header">
+                <div class="logo-text">
+                    <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>❤️</span><span id="lives" class="lives-count">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>⭐</span><span id="score" class="score-count">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PROGRESS -->
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <!-- MAIN QUIZ AREA -->
+            <main id="quiz-area">
+                <div class="glass-card">
+                    <div id="media-container" class="question-media">
+                        <img id="question-image" src="" alt="Pitanje" class="question-img">
+                    </div>
+                    <div id="question" class="question-text">
+                        Učitavam misiju...
+                    </div>
+                    <div id="options" class="options-grid">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- EXPLANATION MODAL (Hidden) -->
+        <div id="explanation-modal" class="modal-overlay" style="display: none;">
+            <div class="glass-card modal-content">
+                <h2 style="color: var(--neon-orange); margin-bottom: 10px;">UPS! SKORO... 🦈</h2>
+                <div id="explanation-text" style="margin-bottom: 20px; font-size: 1.1rem;"></div>
+                <button class="btn-primary" id="next-after-exp-btn">NASTAVI DALJE</button>
+            </div>
+        </div>
+
+        <!-- RESULT SCREEN (Hidden initially) -->
+        <section id="result-screen" class="result-screen">
+            <div class="glass-card">
+                <h1 class="result-title">MISIJA GOTOVA!</h1>
+                <p id="final-stats" style="font-size: 1.2rem; margin-bottom: 20px;">
+                    Osvojio si 0 bodova.
+                </p>
+                <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+            </div>
+        </section>
+    </div> <!-- END APP CONTAINER -->
+
+    <script src="content/geo_5.js"></script>
+    <script src="content/bio_7.js"></script>
+    <script src="quiz_engine.js"></script>
+</body>
+
+</html>
