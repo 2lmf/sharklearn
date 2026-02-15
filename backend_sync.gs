@@ -53,15 +53,15 @@ function getQuestionsFromSheet(sheetName, semesterFilter) {
   if (data.length < 2) return createJsonResponse([]); // Empty or header only
 
   let questions = data.slice(1)
-    .map((row, index) => {
+    .map((row) => {
       return {
-        id: index + 1,
-        pitanje: row[0],
-        opcije: [row[1], row[2], row[3], row[4]],
-        tocan_odgovor: parseInt(row[5]),
-        slika: row[6] || null,
-        obasnjenje: row[7] || "",
-        semester: row[8] || "all" // New Column I
+        id: row[0] || "N/A", // Column A
+        pitanje: row[1],      // Column B
+        opcije: [row[2], row[3], row[4], row[5]], // C, D, E, F
+        tocan_odgovor: parseInt(row[6]), // G
+        slika: row[7] || null, // H
+        obasnjenje: row[8] || "", // I
+        semester: row[9] || "all" // J
       };
     })
     .filter(q => q.pitanje && !isNaN(q.tocan_odgovor)); // Skip placeholders
@@ -100,6 +100,7 @@ function handleAddQuestion(payload) {
   const sheet = ss.getSheetByName(sheetName) || ss.insertSheet(sheetName);
   
   sheet.appendRow([
+    "=ROW()-1", // Auto-ID formula or placeholder
     payload.pitanje,
     payload.opcije[0],
     payload.opcije[1],
@@ -108,7 +109,7 @@ function handleAddQuestion(payload) {
     payload.tocan_odgovor,
     payload.slika || "",
     payload.obasnjenje || "",
-    payload.semester || "all" // Save to Column I
+    payload.semester || "all"
   ]);
   
   return createJsonResponse({ status: 'success', message: "Pitanje spremljeno u: " + sheetName });
