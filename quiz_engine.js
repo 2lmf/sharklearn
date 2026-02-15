@@ -111,10 +111,14 @@ class QuizEngine {
         } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
             // Local fallback based on subject
-            if (this.selectedSubject === "Questions" && typeof QUIZ_DATA !== 'undefined') {
+            if (this.selectedSubject === "Biology7" && typeof QUIZ_DATA !== 'undefined') {
                 this.allQuestions = QUIZ_DATA;
             } else if (this.selectedSubject === "Geography5" && typeof GEO_DATA !== 'undefined') {
                 this.allQuestions = GEO_DATA;
+            } else if (this.selectedSubject === "English5" && typeof ENG_DATA !== 'undefined') {
+                this.allQuestions = ENG_DATA;
+            } else if (this.selectedSubject === "German5" && typeof GER_DATA !== 'undefined') {
+                this.allQuestions = GER_DATA;
             }
         }
 
