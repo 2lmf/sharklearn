@@ -1,10 +1,11 @@
-const CACHE_NAME = 'sharklearn-v2';
+const CACHE_NAME = 'sharklearn-v3';
 const ASSETS = [
     'index.html',
     'shark_style.css',
     'quiz_engine.js',
     'content/bio_7.js',
     'content/geo_5.js',
+    'assets/img/shark_icon.svg',
     'manifest.json'
 ];
 

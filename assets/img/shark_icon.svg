@@ -1,0 +1,7 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="100" fill="#020817"/>
+  <path d="M120 400C120 400 180 350 220 250C260 150 400 100 400 100C400 100 350 250 280 320C210 390 120 400 120 400Z" fill="#00f3ff">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
+  </path>
+  <path d="M150 380C160 360 220 320 250 220C280 120 370 110 370 110C350 200 300 280 240 330C180 380 150 380 150 380Z" fill="#0066cc" opacity="0.5"/>
+</svg>
