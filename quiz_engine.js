@@ -27,7 +27,6 @@ class QuizEngine {
         // DOM Elements
         this.elements = {
             welcomeScreen: document.getElementById('welcome-screen'),
-            studentInput: document.getElementById('student-name-input'),
             subjectHidden: document.getElementById('selected-subject-hidden'),
             subjectCards: document.querySelectorAll('.subject-card'),
             startBtn: document.getElementById('start-btn'),
@@ -127,13 +126,10 @@ class QuizEngine {
     }
 
     async startGame() {
-        const nameInput = this.elements.studentInput.value.trim();
-        if (!nameInput) {
-            alert("Molim te unesi svoje ime!");
+        if (!this.isRegistered) {
+            this.elements.registrationModal.style.display = 'flex';
             return;
         }
-
-        this.studentName = nameInput;
         this.selectedSubject = this.elements.subjectHidden.value;
         this.selectedSemester = this.elements.semesterHidden.value;
         localStorage.setItem('sharklearn_user_name', this.studentName);
