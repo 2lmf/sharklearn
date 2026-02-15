@@ -123,6 +123,10 @@ class QuizEngine {
                 this.allQuestions = HIS_DATA;
             } else if (this.selectedSubject === "Geografija7" && typeof GEO_7_DATA !== 'undefined') {
                 this.allQuestions = GEO_7_DATA;
+            } else if (this.selectedSubject === "Hrvatski5" && typeof HRV_5_DATA !== 'undefined') {
+                this.allQuestions = HRV_5_DATA;
+            } else if (this.selectedSubject === "Hrvatski7" && typeof HRV_7_DATA !== 'undefined') {
+                this.allQuestions = HRV_7_DATA;
             }
         }
 
