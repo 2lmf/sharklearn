@@ -16,7 +16,7 @@ class QuizEngine {
 
         // Config
         this.storageKey = 'sharklearn_seen_ids';
-        this.apiUrl = "https://script.google.com/macros/s/AKfycbyb8wmUOU--5fjmfsZr24l9WkYQRs8r0jVqSwEywEopStKCSjlqoTXIABQf1bAV3JU_/exec";
+        this.apiUrl = "https://script.google.com/macros/s/AKfycbxcJWoGRtBLRHs-aOH4HwoMESKEj5_CAbV67GZRFD54xQeJluQcGheoCYOjQelxxm0W/exec";
 
         // DOM Elements
         this.elements = {
