@@ -131,7 +131,7 @@ class QuizEngine {
         this.currentMission = this.shuffleArray([...pool]);
         this.currentIndex = 0;
         this.score = 0;
-        this.lives = 3;
+        this.lives = 5;
 
         this.updateStatsUI();
         this.renderQuestion();
