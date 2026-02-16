@@ -358,7 +358,7 @@ class QuizEngine {
                 totalQuestions: this.currentIndex,
                 duration: this.duration,
                 isCompleted: isCompleted,
-                version: 'v24'
+                version: 'v38'
             };
             fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
         } catch (e) {

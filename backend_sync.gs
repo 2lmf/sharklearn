@@ -131,6 +131,9 @@ function initializeStatsSheet(ss) {
 /**
  * Šalje dnevni sažetak roditeljima. 
  */
+/**
+ * Šalje napredni dnevni izvještaj roditeljima s ocjenama i trajanjem.
+ */
 function sendDailySummaries() {
   const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
   const sheet = ss.getSheetByName("Stats");
@@ -140,7 +143,7 @@ function sendDailySummaries() {
   const today = new Date().toDateString();
   const reports = {}; // key: unique identifier (parentEmail1 + studentName)
 
-  // 1. Group today's results
+  // 1. Group data by student and subject
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
     const dateStr = new Date(row[0]).toDateString();
@@ -149,66 +152,121 @@ function sendDailySummaries() {
     const name = row[1];
     const p1 = row[2];
     const p2 = row[3];
+    const subject = row[4];
+    const score = row[6]; // Bodovi (obično 0-1000)
+    const totalQ = row[8] || 10;
+    const duration = row[7] || 0;
+    const isCompleted = row[9] === "DA";
     
     if (p1 && p1 !== "N/A") {
-      const key = p1 + "_" + name;
-      if (!reports[key]) {
-        reports[key] = {
+      const parentKey = p1 + "_" + name;
+      if (!reports[parentKey]) {
+        reports[parentKey] = {
           studentName: name,
           emails: [p1],
-          attempts: 0,
-          completed: 0,
-          totalScore: 0,
-          totalDuration: 0,
-          subjects: []
+          subjects: {} // Data per subject
         };
-        if (p2) reports[key].emails.push(p2);
+        if (p2) reports[parentKey].emails.push(p2);
       }
       
-      reports[key].attempts++;
-      if (row[9] === "DA") reports[key].completed++;
-      reports[key].totalScore += row[5];
-      reports[key].totalDuration += row[8];
-      if (!reports[key].subjects.includes(row[4])) {
-        reports[key].subjects.push(row[4]);
+      if (!reports[parentKey].subjects[subject]) {
+        reports[parentKey].subjects[subject] = {
+          attempts: 0,
+          completedCount: 0,
+          interruptedCount: 0,
+          totalDuration: 0,
+          completedDuration: 0,
+          interruptedDuration: 0,
+          scores: []
+        };
+      }
+      
+      const sub = reports[parentKey].subjects[subject];
+      sub.attempts++;
+      sub.totalDuration += duration;
+      
+      if (isCompleted) {
+        sub.completedCount++;
+        sub.completedDuration += duration;
+        sub.scores.push(score / (payload.scorePerQuestion || 100)); // Pretvori u 0-10
+      } else {
+        sub.interruptedCount++;
+        sub.interruptedDuration += duration;
       }
     }
   }
 
-  // 2. Send emails
-  for (const key in reports) {
-    const r = reports[key];
-    const avgScore = r.completed > 0 ? (r.totalScore / r.completed).toFixed(1) : 0;
-    const avgDuration = r.attempts > 0 ? (r.totalDuration / r.attempts / 60).toFixed(1) : 0;
-    
-    const subjectLine = `SharkLearn: Dnevni izvještaj za učenika: ${r.studentName}`;
-    const message = `
-      Pozdrav,
+  // 2. Generate and send emails
+  for (const parentKey in reports) {
+    const r = reports[parentKey];
+    let message = `Pozdrav,\n\nEvo današnjeg izvještaja o vježbanju za: ${r.studentName}\n`;
+    message += `--------------------------------------------------\n`;
+
+    let totalDayDuration = 0;
+
+    for (const subjectName in r.subjects) {
+      const s = r.subjects[subjectName];
+      totalDayDuration += s.totalDuration;
       
-      Evo današnjeg sažetka aktivnosti za učenika: ${r.studentName}
-      
-      - Ukupno pokušaja rješavanja: ${r.attempts}
-      - Završeno ispita do kraja: ${r.completed}
-      - Prosječan broj bodova po završenom ispitu: ${avgScore}
-      - Ukupno provedeno vrijeme: ${(r.totalDuration / 60).toFixed(1)} min
-      - Prosječno trajanje jednog ispita: ${avgDuration} min
-      - Predmeti koji su vježbani: ${r.subjects.join(", ")}
-      
-      Aplikacija je bez reklama i služi isključivo za vježbanje gradiva.
-      
-      Srdačan pozdrav,
-      Vaš SharkLearn Tim
-    `;
-    
+      const avgScore = s.scores.length > 0 ? (s.scores.reduce((a, b) => a + b, 0) / s.scores.length) : 0;
+      const grade = calculateGradeFromPoints(avgScore);
+
+      const avgCompletedTime = s.completedCount > 0 ? (s.completedDuration / s.completedCount) : 0;
+      const avgInterruptedTime = s.interruptedCount > 0 ? (s.interruptedDuration / s.interruptedCount) : 0;
+
+      message += `\nPREDMET: ${subjectName}\n`;
+      message += `- Ukupno pokušaja: ${s.attempts}\n`;
+      message += `- Završeni ispiti: ${s.completedCount} (Prosjek: ${formatDuration(avgCompletedTime)})\n`;
+      message += `- Prekinuti ispiti: ${s.interruptedCount} (Prosjek: ${formatDuration(avgInterruptedTime)})\n`;
+      if (s.completedCount > 0) {
+        message += `- PROSJEČNA OCJENA: ${grade}\n`;
+      }
+      message += `--------------------------------------------------\n`;
+    }
+
+    message += `\nUKUPNO VRIJEME DANAS: ${formatDuration(totalDayDuration)}\n\n`;
+    message += `SharkLearn Tim`;
+
+    const subjectLine = `SharkLearn Izvještaj: ${r.studentName} (${today})`;
+
     r.emails.forEach(email => {
       try {
         MailApp.sendEmail(email, subjectLine, message);
-        console.log("Email poslan na: " + email);
+        console.log("Izvještaj poslan na: " + email);
       } catch (e) {
-        console.error("Greška pri slanju na " + email, e);
+        console.error("Greška pri slanju: " + e.toString());
       }
     });
   }
+}
+
+/**
+ * Konverzija bodova (0-10) u ocjenu (1-5) prema tvojoj skali.
+ */
+function calculateGradeFromPoints(points) {
+  if (points >= 10) return "5 (Odličan)";
+  if (points >= 9) return "5- (Izvrstan)";
+  if (points >= 8) return "4 (Vrlo dobar)";
+  if (points >= 6) return "3 (Dobar)";
+  if (points >= 5) return "2 (Dovoljan)";
+  return "1 (Nedovoljan)";
+}
+
+/**
+ * Formatiranje sekundi u format: X sati, Y min, Z sek.
+ */
+function formatDuration(seconds) {
+  if (seconds === 0) return "0 sek";
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+
+  let parts = [];
+  if (h > 0) parts.push(h + " sati");
+  if (m > 0) parts.push(m + " min");
+  if (s > 0 || parts.length === 0) parts.push(s + " sek");
+  
+  return parts.join(" ");
 }
 
 function createJsonResponse(data) {
