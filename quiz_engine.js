@@ -234,6 +234,27 @@ class QuizEngine {
         console.log("SharkLearn: Grade selected", grade);
     }
 
+
+    activateSubjectCard(card) {
+        // Remove active from all visible cards of this grade
+        this.elements.subjectCards.forEach(c => c.classList.remove('active'));
+        // Add to clicked
+        card.classList.add('active');
+        // Update hidden input
+        this.elements.subjectHidden.value = card.getAttribute('data-subject');
+
+        // Also update selectedSubject if tracked live
+        this.selectedSubject = this.elements.subjectHidden.value;
+        this.selectedSemester = "all";
+
+        // Reset semester UI to 'all'
+        this.elements.semesterHidden.value = "all";
+        this.elements.semesterOptions.forEach(o => o.classList.remove('active'));
+        this.elements.semesterOptions[0].classList.add('active');
+
+        console.log("SharkLearn: Subject activated:", this.selectedSubject);
+    }
+
     generateUserId() {
         return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
     }
