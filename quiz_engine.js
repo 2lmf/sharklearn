@@ -314,6 +314,8 @@ class QuizEngine {
                 this.allQuestions = HRV_7_DATA;
             } else if (this.selectedSubject === "Kemija7" && typeof KEM_DATA !== 'undefined') {
                 this.allQuestions = KEM_DATA;
+            } else if (this.selectedSubject === "Fizika7" && typeof FIZ_DATA !== 'undefined') {
+                this.allQuestions = FIZ_DATA;
             }
         }
 
