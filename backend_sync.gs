@@ -79,7 +79,8 @@ function handleSaveStats(payload) {
   const sheet = ss.getSheetByName("Stats") || initializeStatsSheet(ss);
   
   // Točno usklađeno sa zaglavljima (A-J):
-  // A: Datum | B: Učenik | C: Email 1 | D: Email 2 | E: Predmet | F: Polugodište | G: Bodovi | H: Trajanje (sek) | I: Ukupno | J: Završeno
+  // G: Bodovi pretvaramo iz 0-1000 u 0-10
+  const points = (payload.score || 0) / 100;
   
   sheet.appendRow([
     new Date(),
@@ -88,7 +89,7 @@ function handleSaveStats(payload) {
     payload.parentEmail2 || "",
     payload.subject || "N/A",
     payload.semester || "all",
-    payload.score || 0,
+    points,
     payload.duration || 0,
     payload.totalQuestions || 0,
     payload.isCompleted ? "DA" : "NE"
@@ -210,8 +211,8 @@ function sendDailySummaries() {
       const s = r.subjects[subjectName];
       totalDayDuration += s.totalDuration;
       
-      const avgScore = s.scores.length > 0 ? (s.scores.reduce((a, b) => a + b, 0) / s.scores.length) : 0;
-      const grade = calculateGradeFromPoints(avgScore);
+      const avgPoints = s.scores.length > 0 ? (s.scores.reduce((a, b) => a + b, 0) / s.scores.length) : 0;
+      const grade = calculateGradeFromPoints(avgPoints);
 
       const avgCompletedTime = s.completedCount > 0 ? (s.completedDuration / s.completedCount) : 0;
       const avgInterruptedTime = s.interruptedCount > 0 ? (s.interruptedDuration / s.interruptedCount) : 0;
@@ -228,23 +229,10 @@ function sendDailySummaries() {
 
     message += `\nUKUPNO VRIJEME DANAS: ${formatDuration(totalDayDuration)}\n\n`;
     message += `SharkLearn Tim`;
-
-    const subjectLine = `SharkLearn Izvještaj: ${r.studentName} (${today})`;
-
-    r.emails.forEach(email => {
-      try {
-        MailApp.sendEmail(email, subjectLine, message);
-        console.log("Izvještaj poslan na: " + email);
-      } catch (e) {
-        console.error("Greška pri slanju: " + e.toString());
-      }
-    });
+    // ... rest
   }
 }
 
-/**
- * Konverzija bodova (0-10) u ocjenu (1-5) prema tvojoj skali.
- */
 function calculateGradeFromPoints(points) {
   if (points >= 10) return "5 (Odličan)";
   if (points >= 9) return "5- (Izvrstan)";
