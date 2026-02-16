@@ -1,0 +1,103 @@
+﻿# V55 SHUFFLED (11:15:27) - V55 SHUFFLED (11:15:08) - Povijest 7. r - Bulk tablica (100 Pitanja)
+| ID | Pitanje | Opcija A | Opcija B | Opcija C | Opcija D | Točan (0-3) | URL slike | Objašnjenje | Semestar |
+|----|---------|----------|----------|----------|----------|-------------|-----------|-------------|----------|
+| 1 | Koji je moreplovac 1492. godine otkrio Ameriku? | Amerigo Vespucci | Ferdinand Magellan | Vasco da Gama | Kristofor Kolumbo | 3 | | Kolumbo je 1492. doplovio do Bahama misleći da je u Indiji. | 1 |
+| 2 | Tko je predvodio prvu ekspediciju koja je oplovila svijet? | James Cook | Bartolomeu Dias | Marco Polo | Ferdinand Magellan | 3 | | Magellanova ekspedicija (1519.-1522.) prva je dokazala da je Zemlja okrugla. | 1 |
+| 3 | Koji je izum Johannes Gutenberg usavršio oko 1450. godine? | Barut | Parni stroj | Kompas | Tiskarski stroj | 3 | | Tisak je omogućio brže širenje ideja i znanja. | 1 |
+| 4 | Kako se naziva razdoblje 'ponovnog rađanja' antičke kulture? | Romantizam | Barok | Srednji vijek | Renesansa | 3 | | Renesansa (preporod) stavlja čovjeka u središte zanimanja. | 1 |
+| 5 | Tko je autor slike 'Mona Lisa'? | Leonardo da Vinci | Raphael | Michelangelo | Donatello | 0 | | Leonardo da Vinci bio je vrhunski umjetnik i znanstvenik renesanse. | 1 |
+| 6 | Koji je redovnik 1517. istaknuo 95 teza protiv prodaje oprosta? | Jean Calvin | Martin Luther | Ignacije Loyola | Jan Hus | 1 | | Lutherov istup označio je početak crkvene reformacije. | 1 |
+| 7 | Kako se naziva pokret Katoličke crkve za obnovu i borbu protiv protestantizma? | Humanizam | Protureformacija | Prosvjetiteljstvo | Inkvizicija | 1 | | Katolička obnova ili protureformacija započela je Tridentskim saborom. | 1 |
+| 8 | Koja je bitka 1493. nazvana 'rasapom kraljevstva hrvatskoga'? | Opsada Sigeta | Bitka kod Siska | Bitka na Krbavskom polju | Bitka na Mohačkom polju | 2 | | Na Krbavskom polju je stradalo cvijet hrvatskog plemstva. | 1 |
+| 9 | Tko je bio 'posljednji vitez', hrvatski ban poginuo kod Sigeta 1566.? | Petar Berislavić | Nikola Šubić Zrinski | Krsto Frankopan | Toma Bakač Erdedi | 1 | | Zrinski je junački branio Siget od vojske Sulejmana Veličanstvenog. | 1 |
+| 10 | Koja je pobjeda 1593. zaustavila turska osvajanja prema zapadu? | Bitka kod Siska | Bitka kod Senja | Bitka kod Beča | Bitka kod Lepanta | 0 | | Pobjeda kod Siska bila je prekretnica u obrani od Osmanlija. | 1 |
+| 11 | Koji je moreplovac prvi doplovio do Indije oko Afrike (rt Dobre nade)? | Vasco da Gama | Francis Drake | Bartolomeu Dias | Amerigo Vespucci | 0 | | Vasco da Gama je 1498. otvorio pomorski put za Indiju. | 1 |
+| 12 | Inke su starosjedioci na području koje današnje države? | Peru | Argentina | Brazil | Meksiko | 0 | | Carstvo Inka nalazilo se na Andama, uglavnom u Peruu. | 1 |
+| 13 | Koji je astronom dokazao heliocentrični sustav (Zemlja se okreće oko Sunca)? | Isaac Newton | Nikola Tesla | Nikola Kopernik | Aristotel | 2 | | Kopernik je srušio tezu da je Zemlja središte svemira. | 1 |
+| 14 | Koja je obitelj vladala Svetim Rimskim Carstvom i Habsburškom Monarhijom? | Anžuvinci | Bourboni | Habsburgovci | Tudori | 2 | | Habsburgovci su bili jedna od najmoćnijih europskih dinastija. | 1 |
+| 15 | Koji je hrvatski književnik autor prvog romana 'Planine'? | Marin Držić | Marko Marulić | Petar Zoranić | Ivan Gundulić | 2 | | Zoranić je Planine objavio 1536. godine. | 1 |
+| 16 | Tko je bio 'otac hrvatske književnosti', autor epa 'Judita'? | August Šenoa | Antun Gustav Matoš | Ivan Mažuranić | Marko Marulić | 3 | | Marulić je Juditu napisao 1501. na hrvatskom jeziku. | 1 |
+| 17 | Koja je hrvatska kneževina/državica bila slobodna uz plaćanje danka Osmanlijama? | Varaždinski generalat | Dubrovačka Republika | Vojna krajina | Banska Hrvatska | 1 | | Dubrovnik je mudrom diplomacijom zadržao slobodu. | 1 |
+| 18 | Kako se naziva obrambeni pojas utvrda protiv Turaka utemeljen u 16. st.? | Vojna krajina | Limes | Dubrovačke zidine | Kineski zid | 0 | | Vojna krajina je bila pod izravnom vlašću Beča (Habsburgovaca). | 1 |
+| 19 | Koji je grad osnovan 1579. kao središte hrvatske Vojne krajine? | Karlovac | Varaždin | Zagreb | Osijek | 0 | | Karlovac je izgrađen kao idealna renesansna utvrda u obliku zvijezde. | 1 |
+| 20 | Koji je sabor 1527. izabrao Ferdinanda Habsburškog za hrvatskog kralja? | Sabor u Kninu | Sabor u Varaždinu | Sabor u Cetinu | Sabor u Topuskom | 2 | | Cetinskim saborom Hrvatska je ušla u zajednicu s Austrijom. | 1 |
+| 21 | Koja je biljka donesena iz Amerike temeljito promijenila prehranu Europe? | Kava | Pšenica | Krumpir | Riža | 2 | | Krumpir i kukuruz su spasili Europu od čestih gladi. | 1 |
+| 22 | Tko je oslikao svod Sikstinske kapele? | Donatello | Michelangelo Buonarroti | Tizian | Leonardo | 1 | | Michelangelo je bio kipar i slikar, velikan talijanske renesanse. | 1 |
+| 23 | Engleska crkva (anglikanska) odvojila se od pape za vrijeme kojeg kralja? | Richard Lavljeg Srca | Henrik VIII. | William Osvajač | Eduard VI. | 1 | | Henrik VIII. se proglasio poglavarom Crkve u Engleskoj. | 1 |
+| 24 | Koji je hrvatski znanstvenik renesanse izumio padobran (Homo Volans)? | Nikola Tesla | Marin Getaldić | Faust Vrančić | Ruđer Bošković | 2 | | Vrančić je nacrt padobrana objavio u knjizi Machinae Novae. | 1 |
+| 25 | Kako se nazivaju španjolski osvajači u Americi? | Samuraji | Konkvistadori | Indijanci | Vikinzi | 1 | | Conquistadores (osvajači) uništili su civilizacije Asteka i Inka. | 1 |
+| 26 | Tko je bio najmoćniji sultan Osmanskog carstva u 16. stoljeću? | Sulejman Veličanstveni | Selim I. | Murat IV. | Mehmed Osvajač | 0 | | Pod Sulejmanom je Carstvo doseglo vrhunac moći. | 1 |
+| 27 | Koja je bitka 1526. dovela do propasti Hrvatsko-Ugarskog Kraljevstva? | Bitka kod Lepanta | Bitka na Mohačkom polju | Bitka kod Beča | Bitka kod Nikopolja | 1 | | U bitci je poginuo i kralj Ludovik II. Jagelović. | 1 |
+| 28 | Tko su bili uskoci? | Hrvatski vojnici koji su uznemiravali Turke iz Senja i Klisa | Seljaci kmetovi | Mletački trgovci | Turski konjanici | 0 | | Uskoci su bili poznati po gerilskom ratovanju s Osmanlijama. | 1 |
+| 29 | Izum tiska doveo je do porasta čega? | Ratova | Nepismenosti | Opće pismenosti i širenja vijesti | Cijena knjiga | 2 | | Knjige su postale jeftinije i dostupnije širem krugu ljudi. | 1 |
+| 30 | Kako se naziva učenje po kojem je Zemlja središte svemira? | Feudalizam | Pacifizam | Heliocentrizam | Geocentrizam | 3 | | Geocentrizam je bio službeno učenje Crkve do Kopernika. | 1 |
+| 31 | Koja grupa Europljana je prva stigla do Amerike oko 1000. godine? | Rimljani | Vikinzi | Grci | Francuzi | 1 | | Leif Erikson je doplovio do današnjeg Newfoundlanda. | 1 |
+| 32 | Tko je bio Hernán Cortés? | Papa | Osvajač carstva Asteka | Otkrivač Brazila | Kralj Španjolske | 1 | | Cortés je s malom vojskom srušio moćno astečko carstvo u Meksiku. | 1 |
+| 33 | Koji je turski naziv za dječaka otetog od kršćanskih obitelji za vojsku? | Paša | Janjičar | Spahija | Vezir | 1 | | Janjičari su bili elitna turska pješačka postrojba. | 1 |
+| 34 | Što je 'danak u krvi'? | Porez na sol | Obaveza kmetova | Otimanje kršćanske djece u tursku vojsku | Trgovina robljem | 2 | | Naziv za nasilno odvođenje dječaka koje su Turci pretvarali u islamiste vojnike. | 1 |
+| 35 | Koji je hrvatski grad renesansni biser poznat po katedrali sv. Jakova? | Dubrovnik | Šibenik | Split | Zadar | 1 | | Katedrala u Šibeniku djelo je Jurja Dalmatinca i Nikole Firentinca. | 1 |
+| 36 | Kako su se zvali protestanti u Francuskoj? | Kvekeri | Pravoslavci | Anglikanci | Hugenoti | 3 | | Hugenoti su bili proganjani tijekom vjerskih ratova u Francuskoj. | 1 |
+| 37 | Koji se novi društveni sloj razvija tijekom renesanse (trgovci, bankari)? | Plemstvo | Građanstvo | Kmetstvo | Svećenstvo | 1 | | S razvojem gradova i trgovine raste moć građanskog sloja. | 1 |
+| 38 | Koja je država u 16. st. bila 'gospodarica mora'? | Austrija | Venecija | Španjolska | Portugal | 2 | | Španjolska je imala najjaču flotu (Armada) i goleme kolonije. | 1 |
+| 39 | Tko je Francisco Pizarro? | Osvajač carstva Inka | Moreplovac | Slikar | Pisac | 0 | | Pizarro je zarobio i pogubio vladara Inka, Atahualpu. | 1 |
+| 40 | Kako se naziva sustav u kojem seljak radi na gospodarevoj zemlji? | Komunizam | Demokracija | Kapitalizam | Feudalizam | 3 | | Feudalizam je prevladavao u Europi kroz cijeli srednji i dio novog vijeka. | 1 |
+| 41 | Koji je red osnovao Ignacije Loyola u 16. stoljeću? | Franjevci | Dominikanci | Isusovci (Jezuiti) | Benediktinci | 2 | | Isusovci su postali ključni u protureformaciji i obrazovanju. | 1 |
+| 42 | Što je 'vjerski mir u Augsburgu' (1555.) odlučio? | Ukidanje crkve | Čija zemlja, njegova i vjera | Sloboda za sve | Svi moraju biti katolici | 1 | | Cuius regio, eius religio - vladar bira vjeru za svoje podanike. | 1 |
+| 43 | Kako se naziva najsjeverniji dio Dalmacije koji je ostao slobodan od Mlečana? | Dubrovačka krajina | Kotarski distrikt | Istra | Senjska kapetanija | 3 | | Senj je bio pod hrvatsko-ugarskom vlašću. | 1 |
+| 44 | Koji je turski vladar osvojio Carigrad 1453. godine? | Mehmed II. Osvajač | Bajazid I. | Murat II. | Osman I. | 0 | | Padom Carigrada prestalo je postojati Bizantsko Carstvo. | 1 |
+| 45 | Kako su Europljani nazvali Ameriku nakon otkrića? | Novi svijet | Indija | Atlantida | Stari svijet | 0 | | Novi svijet je bio suprotnost dotad poznatoj Europi, Aziji i Africi. | 1 |
+| 46 | Tko je napisao 'Svemirski glasnik' i podržao Kopernika? | Aristotel | Platon | Galileo Galilei | Sokrat | 2 | | Galilei je pomoću teleskopa potvrdio da se planeti okreću oko Sunca. | 1 |
+| 47 | Koji je hrvatski knez poginuo na Krbavskom polju? | Branimir | Bernardin Frankopan | Petar Berislavić | Ivan Frankopan | 3 | | Ivan Frankopan Cetinski bio je jedan od vođa hrvatske vojske. | 1 |
+| 48 | Izvorni stanovnici Amerike dobili su naziv 'Indijanci' jer je Kolumbo mislio da je stigao u: | Indiju | Kinu | Japan | Australiju | 0 | | Kolumbo je do smrti vjerovao da je pronašao zapadni put za Indiju. | 1 |
+| 49 | Koji je renesansni pisac u 'Dundu Maroju' prikazao ljude 'nazbilj' i 'nahvao'? | Šime Budinić | Ivan Gundulić | Petar Hektorović | Marin Držić | 3 | | Držić je najveći hrvatski komediograf renesanse. | 1 |
+| 50 | Što je indulgencija? | Porez | Znanstvena teza | Prodaja crkvenih oprosta od grijeha | Vojna obveza | 2 | | Protiv te prakse se pobunio Martin Luther. | 1 |
+| 51 | Koji je francuski kralj izjavio 'Država, to sam ja!'? | Karlo Veliki | Luj XIV. | Napoleon | Luj XVI. | 1 | | Luj XIV., poznat kao Kralj Sunce, uzor je apsolutnog vladara. | 2 |
+| 52 | Kako se naziva pokret koji se temelji na vjeri u ljudski razum (18. st.)? | Renesansa | Srednji vijek | Fašizam | Prosvjetiteljstvo | 3 | | Prosvjetitelji su se borili protiv neznanja, predrasuda i tiranije. | 2 |
+| 53 | Koja je carica u 18. st. uvela obavezno osnovno školovanje u Hrvatskoj? | Sisi | Katarina Velika | Elizabeta I. | Marija Terezija | 3 | | Marija Terezija provela je brojne upravne, porezne i prosvjetne reforme. | 2 |
+| 54 | Koji je vladar ukinuo kmetstvo u Hrvatskoj 1785. godine? | Franjo Josip I. | Napoleon | Marija Terezija | Josip II. | 3 | | Sin Marije Terezije, Josip II., bio je radikalni prosvijećeni reformator. | 2 |
+| 55 | Koje je godine započela Francuska građanska revolucija padom Bastille? | 1804. | 1776. | 1848. | 1789. | 3 | | 14. srpnja 1789. narod je zauzeo Bastillu, simbol kraljeve vlasti. | 2 |
+| 56 | Kako se zvao vojskovođa koji se proglasio carem Francuza 1804.? | Luj Filip | Napoleon Bonaparte | Charles de Gaulle | Robespierre | 1 | | Napoleon je osvojio velik dio Europe i donio Građanski zakonik. | 2 |
+| 57 | Koji je izum Jamesa Watta pokrenuo industrijsku revoluciju? | Kotač | Parni stroj | Žarulja | Telefon | 1 | | Parni stroj omogućio je razvoj tvornica, željeznice i parobroda. | 2 |
+| 58 | Gdje je započela prva industrijska revolucija? | Njemačka | Rusija | Engleska | Francuska | 2 | | Engleska je imala bogata nalazišta ugljena i razvijeno rudarstvo. | 2 |
+| 59 | Tko je predvodio hrvatski narodni preporod? | Josip Jelačić | Ante Starčević | Ljudevit Gaj | Ivan Mažuranić | 2 | | Gaj je bio pokretač Ilirskog pokreta i autor hrvatskog pravopisa. | 2 |
+| 60 | Koje je godine u Hrvatskoj ukinuto kmetstvo odlukom bana Jelačića? | 1914. | 1867. | 1785. | 1848. | 3 | | Ban Jelačić proglasom iz 1848. konačno oslobađa seljake svih davanja. | 2 |
+| 61 | Kako se nazivaju prve hrvatske novine koje je Gaj pokrenuo 1835.? | Danica | Večernji list | Obzor | Novine horvatzke | 3 | | Uz novine je izlazio i književni podlistak 'Danica'. | 2 |
+| 62 | Koji je jezik proglašen službenim u Hrvatskoj 1847. godine? | Njemački | Mađarski | Hrvatski | Latinski | 2 | | Hrvatski sabor je na prijedlog Ivana Kukuljevića Sakcinskog donio tu odluku. | 2 |
+| 63 | Tko je bio autor prve hrvatske opere 'Ljubav i zloba'? | Ivan Zajc | Vatroslav Lisinski | Josip Runjanin | Petar Preradović | 1 | | Praizvedba opere 1846. bila je veliki događaj za hrvatsku kulturu. | 2 |
+| 64 | George Washington bio je prvi predsjednik koje države? | SAD-a | Francuske | Kanade | Meksika | 0 | | Washington je predvodio Amerikance u ratu za neovisnost od Britanije. | 2 |
+| 65 | Gdje je Napoleon doživio konačni poraz 1815. godine? | Moskva | Elba | Leipzig | Waterloo | 3 | | Bitkom kod Waterlooa završila je Napoleonova vladavina. | 2 |
+| 66 | Što su bile 'Ilirske provincije'? | Dubrovačka Republika | Austrijska pokrajina | Dijelovi Hrvatske i susjedstva pod Napoleonovom vlašću | Srednjovjekovna država | 2 | | Napoleon je ujedinio južnohrvatske zemlje pod francuskom upravom. | 2 |
+| 67 | Koji je hrvatski grad bio glavni grad Ilirskih provincija? | Zagreb | Rijeka | Zadar | Ljubljana | 3 | | Ljubljana je bila administrativno središte francuske Ilirije. | 2 |
+| 68 | Kako se naziva 'ludo ljeto' revolucija u Europi? | 1789. | 1871. | 1848. | 1905. | 2 | | Mnogi su narodi 1848. tražili slobodu, ustav i građanska prava. | 2 |
+| 69 | Što je 'Austro-ugarska nagodba' (1867.) stvorila? | Jugoslaviju | Slobodnu Hrvatsku | Dvojnu monarhiju (Austro-Ugarsku) | Republiku | 2 | | Monarhija je podijeljena na austrijski i mađarski dio. | 2 |
+| 70 | Mađarizacija je bila politika nametanja mađarskog jezika. Tko se tome oštro protivio u Hrvatskoj? | Ilirci / Narodna stranka | Turci | Napoleon | Mlečani | 0 | | Hrvati su se borili za službenu upotrebu narodnog (hrvatskog) jezika. | 2 |
+| 71 | Koji je izumitelj otkrio izmjeničnu struju? | Alexander Bell | Nikola Tesla | Guglielmo Marconi | Thomas Edison | 1 | | Tesla je jedan od najvećih genija u povijesti čovječanstva. | 2 |
+| 72 | Koji je grad u 19. st. spojen željeznicom s Bečom i Budimpeštom? | Zagreb | Dubrovnik | Zadar | Split | 0 | | To je potaknulo nagli gospodarski razvoj Zagreba. | 2 |
+| 73 | Što je Deklaracija neovisnosti (1776.)? | Mirovni ugovor | Plan za rat | Zakon o porezu | Dokument kojim je SAD proglasio neovisnost | 3 | | Autor Deklaracije bio je Thomas Jefferson. | 2 |
+| 74 | Kako se zvala skupina radnika koja je uništavala strojeve u 19. st.? | Proroci | Luditi | Trgovci | Plemići | 1 | | Radnici su mislili da im strojevi 'kradu' posao. | 2 |
+| 75 | Tko je bila Marija Terezija? | Prva liječnica | Hrvatska banica | Francuska književnica | Habsburška carica i hrvatsko-ugarska kraljica | 3 | | Vladala je punih 40 godina i provela važne reforme u Hrvatskoj. | 2 |
+| 76 | Koje je godine Napoleon ukinuo Dubrovačku Republiku? | 1848. | 1808. | 1815. | 1789. | 1 | | Nakon više stoljeća samostalnosti, Francuzi su ukinuli Republiku. | 2 |
+| 77 | Kako se zove hrvatska himna autora Antuna Mihanovića? | Zora puca | Protuletje rano | Još Hrvatska ni propala | Lijepa naša domovino | 3 | | Mihanović je pjesmu objavio u Danici 1835. pod naslovom Horvatska domovina. | 2 |
+| 78 | Koji je ban proglašen 1848. i preveo vojsku preko Drave? | Maksimilijan Vrhovac | Khuen-Héderváry | Josip Jelačić | Levin Rauh | 2 | | Jelačić se borio za interese Hrvatske protiv mađarske prevlasti. | 2 |
+| 79 | Koji je političar nazvan 'Ocem Domovine'? | Ivan Mažuranić | Ante Starčević | Ljudevit Gaj | Stjepan Radić | 1 | | Starčević je osnovao Stranku prava i zagovarao punu samostalnost Hrvatske. | 2 |
+| 80 | Što je Matica hrvatska (osnovana 1842. kao Matica ilirska)? | Vojna postrojba | Sveučilište | Banka | Najstarija kulturna ustanova za izdavanje knjiga | 3 | | Glavni cilj bio je očuvanje i širenje hrvatske kulture i jezika. | 2 |
+| 81 | Koju državu je ujedinio Otto von Bismarck u 19. st.? | Italiju | Austriju | Njemačku | Francusku | 2 | | Bismarck je bio 'željezni kancelar' koji je stvorio njemačko carstvo. | 2 |
+| 82 | Tko je ujedinio Italiju predvodeći 'tisuću crvenokošuljaša'? | Cavour | Mussolini | Vittorio Emanuele | Giuseppe Garibaldi | 3 | | Italija se ujedinila u 19. stoljeću. | 2 |
+| 83 | Kako se naziva razdoblje stroge apsolutne vlasti u Beču od 1851.-1859.? | Bachov apsolutizam | Demokracija | Zlatno doba | Srednji vijek | 0 | | Nazvan po ministru Bachu, sustav je gušio sve narodne slobode. | 2 |
+| 84 | Koji je hrvatski književnik bio prvi ban pučanin? | Ljudevit Gaj | Antun Mihanović | August Šenoa | Ivan Mažuranić | 3 | | Mažuranić je bio ban od 1873. do 1880. (razdoblje reformi). | 2 |
+| 85 | Tko je napisao roman 'Zlatarovo zlato'? | Silvije Strahimir Kranjčević | August Šenoa | Ivan Mažuranić | Miroslav Krleža | 1 | | Šenoa je stvorio modernu hrvatsku publiku svojim povijesnim romanima. | 2 |
+| 86 | Što je 'Hrvatsko-ugarska nagodba' (1868.)? | Priznanje Osmanlije | Trgovački ugovor | Sporazum kojim je uređen odnos Hrvatske i Mađarske | Potpuna sloboda | 2 | | Hrvatska je dobila autonomiju u unutarnjim poslovima, ali ovisnost je ostala velika. | 2 |
+| 87 | Kako se zove ban koji je vladao Hrvatskom mađaronskim duhom 20 godina (1883.-1903.)? | Ivan Mažuranić | Nikola Zrinski | Károly Khuen-Héderváry | Josip Jelačić | 2 | | Khuenova vladavina obilježena je nasiljem i pokušajima mađarizacije. | 2 |
+| 88 | Što je 'Buna u Rakovici' (1871.)? | Vojna parada | Ustanak Eugena Kvaternika za slobodnu Hrvatsku | Pobuna kmetova | Prosvjed radnika | 1 | | Ustanak je brzo ugušen, a Kvaternik poginuo. | 2 |
+| 89 | Koji je izumitelj izradio prvi telefon? | Isaac Newton | Albert Einstein | Alexander Graham Bell | Nikola Tesla | 2 | | Bell je patentirao telefon 1876. godine. | 2 |
+| 90 | Što je sufražetski pokret? | Sportsko društvo | Pokret za kralja | Borba žena za pravo glasa | Pokret za mir | 2 | | Sufražetkinje su tražile ravnopravnost žena u društvu. | 2 |
+| 91 | Koje je godine otvoreno Sveučilište u Zagrebu u modernom obliku (pod Mažuranićem)? | 1914. | 1848. | 1669. | 1874. | 3 | | Iako ima dugu povijest, moderno sveučilište utemeljio je ban Mažuranić. | 2 |
+| 92 | Koja je zgrada u Zagrebu izgrađena 1895. i otvorena dolaskom cara Franje Josipa I.? | Katedrala | Palača Dverce | Hrvatsko narodno kazalište (HNK) | Glavni kolodvor | 2 | | Zagreb je tada bio važno kulturno središte Monarhije. | 2 |
+| 93 | Što je 'Boston Tea Party' (Bostonska čajanka)? | Mirovni sastanak | Plesna zabava | Prosvjed američkih kolonista protiv britanskih poreza | Trgovina čajem | 2 | | Kolonisti su bacili čaj u more, što je ubrzalo put prema ratu. | 2 |
+| 94 | Koji je prosvjetitelj napisao 'Duh zakona' i predložio trodiobu vlasti? | Rousseau | Montesquieu | Voltaire | Kant | 1 | | Njegov princip (zakonodavna, izvršna i sudbena vlast) temelj je demokracija. | 2 |
+| 95 | Što je guillotine (giljotina)? | Sprava za pogubljenje u Francuskoj revoluciji | Glazbeni instrument | Lijek | Mjerni instrument | 0 | | Postala je simbol terora tijekom revolucije. | 2 |
+| 96 | Koji je grad u Hrvatskoj pretvoren u najveću ratnu luku Monarhije krajem 19. st.? | Rijeka | Dubrovnik | Zadar | Pula | 3 | | Pula je tada doživjela ogroman demografski i industrijski rast. | 2 |
+| 97 | Što je 'Vijenac' u 19. st.? | Simbol pobjede | Najvažniji književni časopis | Politička stranka | Nakit | 1 | | U njemu su objavljivali svi važni pisci (Šenoa i drugi). | 2 |
+| 98 | Što je kolonijalizam? | Slobodna trgovina | Štednja | Turizam | Osvajanje i upravljanje udaljenim područjima radi bogatstva | 3 | | Europske sile su podijelile Afriku i Aziju. | 2 |
+| 99 | Koji je skladatelj napisao operu 'Nikola Šubić Zrinski'? | Jakov Gotovac | Ivan Zajc | Vatroslav Lisinski | Dora Pejačević | 1 | | Opera je postala simbol domoljublja ('U boj, u boj!'). | 2 |
+| 100 | Koje je razdoblje povijesti obuhvaćeno gradivom 7. razreda? | Novi vijek (do početka 20. st.) | Suvremena povijest | Prapovijest | Srednji vijek | 0 | | U 7. razredu se uči o velikim promjenama i revolucijama koje su stvorile moderni svijet. | 2 |
