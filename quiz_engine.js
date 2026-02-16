@@ -67,6 +67,13 @@ class QuizEngine {
         };
 
         this.init();
+
+        // Exit listener for interrupted sessions
+        window.addEventListener('beforeunload', () => {
+            if (this.startTime && this.currentIndex > 0 && this.elements.resultScreen.style.display === 'none') {
+                this.saveStatsToCloud(false);
+            }
+        });
     }
 
     async init() {
@@ -200,13 +207,19 @@ class QuizEngine {
         // Tracking Init
         this.startTime = new Date();
         this.duration = 0;
+        this.currentIndex = 0;
+        this.score = 0;
+        this.lives = 5;
 
-        // UI Transition to Loading State
-        this.elements.startBtn.disabled = true;
-        this.elements.startBtn.innerText = "UČITAVAM...";
+        // Start Heartbeat for duration
+        if (this.heartbeat) clearInterval(this.heartbeat);
+        this.heartbeat = setInterval(() => {
+            if (this.startTime) {
+                this.duration = Math.floor((new Date() - this.startTime) / 1000);
+            }
+        }, 2000);
 
-        // Send Initial Attempt Stats (Cloud track that session started)
-        this.saveStatsToCloud(false);
+        // UI Transition
 
         // Load Questions for selected subject
         try {
@@ -376,10 +389,11 @@ class QuizEngine {
     }
 
     endGame(success) {
-        // Calculate final duration
+        if (this.heartbeat) clearInterval(this.heartbeat);
+
+        // Final duration calculation
         if (this.startTime) {
-            const endTime = new Date();
-            this.duration = Math.floor((endTime - this.startTime) / 1000); // seconds
+            this.duration = Math.floor((new Date() - this.startTime) / 1000);
         }
 
         this.elements.quizWrapper.style.display = 'none';
@@ -388,12 +402,12 @@ class QuizEngine {
 
         if (success) {
             this.elements.finalStats.innerText = `Misija uspješna, ${this.studentName}! Osvojio si ${this.score} bodova.`;
+            this.saveStatsToCloud(true); // Completed = DA
         } else {
             this.elements.finalStats.innerText = `Misija neuspješna. Pokušaj ponovno, ${this.studentName}!`;
             this.elements.finalStats.style.color = "var(--neon-orange)";
+            this.saveStatsToCloud(false); // Completed = NE (but has duration/score)
         }
-
-        this.saveStatsToCloud(true);
     }
 
     async saveStatsToCloud(isCompleted = false) {
@@ -410,9 +424,16 @@ class QuizEngine {
                 duration: this.duration,
                 isCompleted: isCompleted,
                 userId: this.userId,
-                version: 'v44'
+                version: 'v45'
             };
-            fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
+
+            // Use keepalive if supported for exit tracking
+            if (navigator.sendBeacon && !isCompleted) {
+                const blob = new Blob([JSON.stringify(stats)], { type: 'application/json' });
+                navigator.sendBeacon(this.apiUrl, blob);
+            } else {
+                fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
+            }
         } catch (e) {
             console.error("Cloud: Failed to save stats.", e);
         }
