@@ -1,9 +1,12 @@
-const CACHE_NAME = 'sharklearn-v24';
+/**
+ * SharkLearn Service Worker - v26
+ */
+const CACHE_NAME = 'sharklearn-v26';
 const ASSETS = [
     './',
-    'index.html',
-    'shark_style.css?v=12',
-    'quiz_engine.js?v=12',
+    'index.html?v=26',
+    'shark_style.css?v=26',
+    'quiz_engine.js?v=26',
     'content/bio_7.js?v=12',
     'content/geo_5.js?v=12',
     'content/eng_5.js?v=12',

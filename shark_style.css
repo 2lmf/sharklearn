@@ -67,7 +67,8 @@ body {
 .app-container {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0;
+    /* Changed to 0 to manage info bar at top */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -78,7 +79,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
@@ -122,7 +123,7 @@ body {
     height: 6px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin: 0 20px 30px;
     overflow: hidden;
 }
 
@@ -141,7 +142,7 @@ body {
     backdrop-filter: blur(15px);
     border-radius: 20px;
     padding: 30px;
-    margin-bottom: 20px;
+    margin: 0 20px 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
@@ -265,6 +266,7 @@ body {
 .result-screen {
     text-align: center;
     display: none;
+    padding: 20px;
 }
 
 .result-title {
@@ -311,7 +313,7 @@ body {
 
 .sem-opt.active {
     background: var(--neon-cyan);
-    color: var(--bg-deep);
+    color: #000;
     box-shadow: 0 0 15px var(--neon-cyan);
     font-weight: bold;
 }
@@ -341,13 +343,13 @@ body {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .modal-content {
@@ -368,6 +370,89 @@ body {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+/* Registration & Profile UI */
+.reg-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid var(--neon-orange) !important;
+    color: white !important;
+    padding: 16px 20px !important;
+    border-radius: 12px !important;
+    font-family: var(--font-heading) !important;
+    /* Orbitron for typing */
+    font-size: 1rem !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.reg-input:focus {
+    background: rgba(255, 157, 0, 0.1) !important;
+    border-color: var(--neon-orange) !important;
+    box-shadow: 0 0 20px rgba(255, 157, 0, 0.3) !important;
+    outline: none !important;
+}
+
+.user-info-bar {
+    display: flex !important;
+    justify-content: space-between !important;
+    /* RAZMAKNUTO LIJEVO I DESNO */
+    align-items: center !important;
+    background: rgba(0, 243, 255, 0.07) !important;
+    border-bottom: 1px solid var(--neon-cyan) !important;
+    padding: 15px 25px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    color: var(--neon-cyan) !important;
+    font-family: var(--font-heading) !important;
+    width: 100% !important;
+}
+
+.parent-info-group {
+    text-align: right !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.parent-tag {
+    color: var(--text-muted) !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.7rem !important;
+    font-weight: 400 !important;
+}
+
+/* App Footer Branding */
+.app-footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 60px 20px 40px !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 10 !important;
+    border-top: 1px solid var(--glass-border) !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+.powered-by {
+    font-size: 0.75rem !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 8px !important;
+    font-family: var(--font-heading) !important;
+    opacity: 0.8 !important;
+}
+
+.footer-logo {
+    font-family: var(--font-heading) !important;
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.5)) !important;
 }
 
 input:focus {
