@@ -125,20 +125,21 @@ class QuizEngine {
 
         // Back to Grades Logic
         if (this.elements.backToGradesBtn) {
-            this.elements.backToGradesBtn.onclick = () => this.showGradeSelection();
+            this.elements.backToGradesBtn.onclick = () => this.handleEarlyExit(() => this.showGradeSelection());
         }
 
         // Subject Card Selection Logic
         this.elements.subjectCards.forEach(card => {
             if (card.classList.contains('placeholder')) return;
             card.onclick = () => {
-                // Remove active from all visible cards of this grade
-                this.elements.subjectCards.forEach(c => c.classList.remove('active'));
-                // Add to clicked
-                card.classList.add('active');
-                // Update hidden input
-                this.elements.subjectHidden.value = card.getAttribute('data-subject');
-                console.log("SharkLearn: Subject changed to", this.elements.subjectHidden.value);
+                // If quiz is running, save stats first
+                if (this.elements.quizWrapper.style.display === 'block') {
+                    this.handleEarlyExit(() => {
+                        this.activateSubjectCard(card);
+                    });
+                } else {
+                    this.activateSubjectCard(card);
+                }
             };
         });
 
@@ -442,10 +443,8 @@ class QuizEngine {
     nextQuestion() {
         this.currentIndex++;
 
-        // Save progress every 3 questions to ensure data in case of unexpected closure
-        if (this.currentIndex % 3 === 0) {
-            this.saveStatsToCloud(false);
-        }
+
+        // Save progress disabled
 
         if (this.currentIndex < this.currentMission.length) {
             this.renderQuestion();
@@ -457,6 +456,21 @@ class QuizEngine {
     updateStatsUI() {
         this.elements.scoreDisplay.innerText = this.score;
         this.elements.livesDisplay.innerText = this.lives;
+    }
+
+    handleEarlyExit(callback) {
+        if (confirm("Želiš li prekinuti misiju? Tvoj napredak bit će spremljen.")) {
+            if (this.heartbeat) clearInterval(this.heartbeat);
+
+            // Calculate duration up to this point
+            if (this.startTime) {
+                this.duration = Math.floor((new Date() - this.startTime) / 1000);
+            }
+
+            this.saveStatsToCloud(false).then(() => {
+                if (callback) callback();
+            });
+        }
     }
 
     endGame(success) {
