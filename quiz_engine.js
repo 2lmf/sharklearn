@@ -431,7 +431,7 @@ class QuizEngine {
                 duration: this.duration,
                 isCompleted: isCompleted,
                 userId: this.userId,
-                version: 'v46'
+                version: 'v47'
             };
 
             // Using fetch with keepalive: true (Modern alternative to sendBeacon)
