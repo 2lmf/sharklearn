@@ -1,5 +1,6 @@
+/**
  * SharkLearn Service Worker - v57
-    */
+ */
 const CACHE_NAME = 'sharklearn-v57';
 const ASSETS = [
     './',
