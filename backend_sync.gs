@@ -78,18 +78,20 @@ function handleSaveStats(payload) {
   const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
   const sheet = ss.getSheetByName("Stats") || initializeStatsSheet(ss);
   
+  // Točno usklađeno sa zaglavljima (A-J):
+  // A: Datum | B: Učenik | C: Email 1 | D: Email 2 | E: Predmet | F: Polugodište | G: Bodovi | H: Trajanje (sek) | I: Ukupno | J: Završeno
+  
   sheet.appendRow([
     new Date(),
     payload.studentName || "Anonymous",
-    payload.parentEmail1 || "N/A",      // Email roditelja 1
-    payload.parentEmail2 || "",         // Email roditelja 2
-    payload.subject || "Unknown", 
-    payload.score,
-    payload.livesLeft,
-    payload.totalQuestions,
-    payload.duration || 0,             
-    payload.isCompleted ? "DA" : "NE", 
-    payload.version || "v25"           
+    payload.parentEmail1 || "N/A",
+    payload.parentEmail2 || "",
+    payload.subject || "N/A",
+    payload.semester || "all",
+    payload.score || 0,
+    payload.duration || 0,
+    payload.totalQuestions || 0,
+    payload.isCompleted ? "DA" : "NE"
   ]);
   
   return createJsonResponse({ status: 'success' });
