@@ -104,23 +104,23 @@
             </h1>
             <div class="grade-grid"
                 style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 320px; margin: 0 auto;">
-                <button class="grade-btn" data-grade="5">5. R</button>
-                <button class="grade-btn" data-grade="6">6. R</button>
-                <button class="grade-btn" data-grade="7">7. R</button>
-                <button class="grade-btn" data-grade="8">8. R</button>
+                <button class="grade-btn" data-grade="5">5. r</button>
+                <button class="grade-btn" data-grade="6">6. r</button>
+                <button class="grade-btn" data-grade="7">7. r</button>
+                <button class="grade-btn" data-grade="8">8. r</button>
             </div>
-            <p style="margin-top: 30px; font-size: 0.9rem; color: var(--neon-cyan); opacity: 0.8; font-weight: 600;">
+            <p id="grade-note"
+                style="margin-top: 35px; font-size: 0.9rem; color: var(--neon-cyan); opacity: 0.9; font-weight: 600;">
                 Možeš ući u bilo koji razred bez obzira koji razred trenutno pohađaš.</p>
         </section>
 
         <!-- WELCOME SCREEN (Subject Selection - Hidden by default) -->
         <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 20px; display: none;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <div class="welcome-header">
                 <button id="back-to-grades">← PROMIJENI RAZRED</button>
-                <h1 class="logo-text" style="font-size: 1.8rem;">
-                    <span id="selected-grade-title" class="logo-shark">7. RAZRED</span>
+                <h1 class="logo-text subject-title">
+                    <span id="selected-grade-title" class="logo-learn">7. razred</span>
                 </h1>
-                <div style="width: 100px;"></div> <!-- Spacer -->
             </div>
 
             <p style="margin-bottom: 25px; color: var(--text-muted);">Spreman za misiju?</p>

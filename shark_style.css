@@ -197,18 +197,53 @@ body {
     transform: translateY(-2px) scale(0.98);
 }
 
+.welcome-header {
+    position: relative;
+    padding-top: 60px;
+    /* Space for absolute back button */
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 #back-to-grades {
+    position: absolute;
+    top: 5px;
+    left: 5px;
     background: rgba(255, 157, 0, 0.05);
     border: 1px solid var(--neon-orange);
-    color: #fff;
-    padding: 8px 15px;
+    color: #ffffff !important;
+    padding: 10px 18px;
     border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 100;
     font-family: var(--font-heading);
-    margin-bottom: 10px;
+}
+
+.subject-title {
+    font-size: 1.8rem !important;
+    margin: 0;
+    color: var(--neon-cyan);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 40px;
+    min-height: 50px;
+}
+
+.header-title {
+    font-size: 2rem !important;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
 }
 
 #back-to-grades:hover {

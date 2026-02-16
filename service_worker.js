@@ -1,12 +1,12 @@
 /**
- * SharkLearn Service Worker - v47
+ * SharkLearn Service Worker - v49
  */
-const CACHE_NAME = 'sharklearn-v48';
+const CACHE_NAME = 'sharklearn-v49';
 const ASSETS = [
     './',
-    'index.html?v=26',
-    'shark_style.css?v=26',
-    'quiz_engine.js?v=26',
+    'index.html?v=27',
+    'shark_style.css?v=27',
+    'quiz_engine.js?v=27',
     'content/bio_7.js?v=12',
     'content/geo_5.js?v=12',
     'content/eng_5.js?v=12',
