@@ -157,6 +157,18 @@ class QuizEngine {
         this.elements.startBtn.disabled = false;
         this.elements.startBtn.innerText = "ZAPOČNI MISIJU";
         this.elements.startBtn.onclick = () => this.startGame();
+
+        // Safety Save on Tab Close / App Switch
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                // If quiz is running, try to save stats
+                if (this.elements.quizWrapper && this.elements.quizWrapper.style.display === 'block') {
+                    console.log("SharkLearn: App went background, saving stats...");
+                    // Use keepalive which is already in saveStatsToCloud
+                    this.saveStatsToCloud(false);
+                }
+            }
+        });
     }
 
     saveProfile() {
