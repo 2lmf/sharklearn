@@ -376,6 +376,12 @@ class QuizEngine {
 
     nextQuestion() {
         this.currentIndex++;
+
+        // Save progress every 3 questions to ensure data in case of unexpected closure
+        if (this.currentIndex % 3 === 0) {
+            this.saveStatsToCloud(false);
+        }
+
         if (this.currentIndex < this.currentMission.length) {
             this.renderQuestion();
         } else {
@@ -418,22 +424,26 @@ class QuizEngine {
                 parentEmail1: this.parentEmail1,
                 parentEmail2: this.parentEmail2,
                 subject: this.selectedSubject,
+                semester: this.selectedSemester,
                 score: this.score,
                 livesLeft: this.lives,
                 totalQuestions: this.currentIndex,
                 duration: this.duration,
                 isCompleted: isCompleted,
                 userId: this.userId,
-                version: 'v45'
+                version: 'v46'
             };
 
-            // Use keepalive if supported for exit tracking
-            if (navigator.sendBeacon && !isCompleted) {
-                const blob = new Blob([JSON.stringify(stats)], { type: 'application/json' });
-                navigator.sendBeacon(this.apiUrl, blob);
-            } else {
-                fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
-            }
+            // Using fetch with keepalive: true (Modern alternative to sendBeacon)
+            // It's more reliable with JSON and Google Apps Script
+            fetch(this.apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(stats),
+                keepalive: true,
+                mode: 'no-cors' // Use no-cors to avoid preflight issues with GAS
+            });
+
+            console.log("SharkLearn: Stats sync attempted...", isCompleted ? "FINAL" : "PROGRESS");
         } catch (e) {
             console.error("Cloud: Failed to save stats.", e);
         }
