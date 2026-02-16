@@ -156,18 +156,18 @@ function sendDailySummaries() {
     const p1 = row[2];
     const p2 = row[3];
     const subject = row[4];
-    const score = row[6]; // Bodovi (obično 0-1000)
-    const totalQ = row[8] || 10;
+    const score = row[6]; // Bodovi
     const duration = row[7] || 0;
     const isCompleted = row[9] === "DA";
+    const userId = row[10]; // Column K
     
-    if (p1 && p1 !== "N/A") {
-      const parentKey = p1 + "_" + name;
+    if (userId && p1 && p1 !== "N/A") {
+      const parentKey = userId; 
       if (!reports[parentKey]) {
         reports[parentKey] = {
           studentName: name,
           emails: [p1],
-          subjects: {} // Data per subject
+          subjects: {} 
         };
         if (p2) reports[parentKey].emails.push(p2);
       }

@@ -14,6 +14,9 @@ class QuizEngine {
         this.questionsPerMission = 10;
 
         // Registration & Tracking
+        this.userId = localStorage.getItem('sharklearn_user_id') || this.generateUserId();
+        localStorage.setItem('sharklearn_user_id', this.userId);
+
         this.studentName = localStorage.getItem('sharklearn_user_name') || "";
         this.parentEmail1 = localStorage.getItem('sharklearn_parent_email_1') || "";
         this.parentEmail2 = localStorage.getItem('sharklearn_parent_email_2') || "";
@@ -148,6 +151,10 @@ class QuizEngine {
         this.elements.registrationModal.style.display = 'none';
         this.updateProfileUI();
         console.log("SharkLearn: Profile saved for", name);
+    }
+
+    generateUserId() {
+        return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
     }
 
     handleNewUser() {
@@ -402,7 +409,8 @@ class QuizEngine {
                 totalQuestions: this.currentIndex,
                 duration: this.duration,
                 isCompleted: isCompleted,
-                version: 'v40'
+                userId: this.userId,
+                version: 'v42'
             };
             fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
         } catch (e) {
