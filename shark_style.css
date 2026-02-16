@@ -150,7 +150,7 @@ body {
 
 .grade-btn {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--neon-orange);
     color: var(--text-main);
     padding: 25px 15px;
     border-radius: 15px;
@@ -170,16 +170,16 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(255, 157, 0, 0.1), transparent);
     transform: translateX(-100%);
     transition: transform 0.5s ease;
 }
 
 .grade-btn:hover {
-    background: rgba(0, 243, 255, 0.15);
-    border-color: var(--neon-cyan);
+    background: rgba(255, 157, 0, 0.15);
+    border-color: var(--neon-orange);
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.3), 0 0 10px rgba(0, 243, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(255, 157, 0, 0.3), 0 0 10px rgba(255, 157, 0, 0.2);
 }
 
 .grade-btn:hover::before {
@@ -187,10 +187,10 @@ body {
 }
 
 .grade-btn.active {
-    background: var(--neon-cyan);
+    background: var(--neon-orange);
     color: black;
-    box-shadow: 0 0 25px var(--neon-cyan);
-    border-color: var(--neon-cyan);
+    box-shadow: 0 0 25px var(--neon-orange);
+    border-color: var(--neon-orange);
 }
 
 .grade-btn:active {
@@ -201,9 +201,9 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    background: rgba(0, 243, 255, 0.05);
-    border: 1px solid var(--neon-cyan);
-    color: var(--neon-cyan);
+    background: rgba(255, 157, 0, 0.05);
+    border: 1px solid var(--neon-orange);
+    color: var(--neon-orange);
     padding: 8px 15px;
     border-radius: 50px;
     font-size: 0.8rem;
@@ -215,9 +215,9 @@ body {
 }
 
 #back-to-grades:hover {
-    background: var(--neon-cyan);
+    background: var(--neon-orange);
     color: black;
-    box-shadow: 0 0 15px var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-orange);
 }
 
 .subject-cards {
