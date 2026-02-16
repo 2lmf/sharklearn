@@ -1,0 +1,101 @@
+ID;Pitanje;Opcija A;Opcija B;Opcija C;Opcija D;Točan (0-3);URL slike;Objašnjenje;Semestar
+1;Koja je osnovna SI jedinica za duljinu?;Centimetar (cm);Metar (m);Kilometar (km);Milimetar (mm);1;;Metar je osnovna mjerna jedinica za duljinu u SI sustavu.;1
+2;Koliko jedan kilometar ima metara?;100 m;10 m;1000 m;10000 m;2;;Prefiks kilo- znači tisuću.;1
+3;Što mjerimo menzurom?;Masu;Duljinu;Temperaturu;Volumen tekućine;3;;Menzura je mjerna posuda za određivanje obujma (volumena).;1
+4;Koja je oznaka za fizikalnu veličinu vrijeme?;t;v;T;m;0;;Dolazi od engleske riječi 'time'.;1
+5;Koliko minuta ima pola sata?;15 min;30 min;60 min;45 min;1;;1 sat = 60 min, pola sata = 30 min.;1
+6;Formula za gustoću tvari je:;ro = m / V;ro = V / m;ro = m * V;ro = F * s;0;;Gustoća je omjer mase i volumena (ro = m kroz ve).;1
+7;Koja je mjerna jedinica za masu u SI sustavu?;Gram (g);Dekagram (dag);Kilogram (kg);Tona (t);2;;Kilogram (kg) je osnovna jedinica.;1
+8;Instrument za mjerenje mase tijela naziva se:;Termometar;Vaga;Dinamometar;Sat;1;;Masa se mjeri vaganjem na vagi.;1
+9;Što je tromost ili inercija?;Svojstvo tijela da se samo pokrene;Svojstvo tijela da se opire promjeni stanja gibanja;Sila kojom Zemlja privlači tijela;Brzina tijela;1;;Što je tijelo veće mase, to je tromije.;1
+10;Koja je mjerna jedinica za silu?;Pascal (Pa);Newton (N);Watt (W);Joule (J);1;;Nazvana je po Isaacu Newtonu.;1
+11;Instrument za mjerenje sile naziva se:;Barometar;Vaga;Dinamometar;Manometar;2;;Dinamometar radi na principu istezanja opruge.;1
+12;Kako se zove sila kojom Zemlja privlači sva tijela prema svom središtu?;Magnetska sila;Sila teža (težina);Elastična sila;Trenje;1;;Sila teža djeluje vertikalno prema dolje.;1
+13;Formula za težinu tijela (G) je:;G = m * g;G = m / g;G = F * s;G = p * A;0;;Težina je umnožak mase i ubrzanja sile teže (g ≈ 10 N/kg).;1
+14;Kolika je otprilike težina tijela mase 1 kg na Zemlji?;1 N;10 N;100 N;0.1 N;1;;G = 1 kg * 10 N/kg = 10 N.;1
+15;Što je trenje?;Sila koja pomaže gibanju;Sila koja se opire gibanju tijela u dodiru s drugim tijelom;Sila koja privlači tijela;Sila kojom opruga vraća svoj oblik;1;;Trenje nastaje zbog hrapavosti ploha.;1
+16;Kako nazivamo silu kojom rastegnuta ili stisnuta opruga nastoji vratiti svoj prvobitni oblik?;Magnetska sila;Elastična sila;Gravitacijska sila;Električna sila;1;;Hookeov zakon opisuje elastičnu silu.;1
+17;Što je rezultantna sila?;Bilo koja sila koja djeluje na tijelo;Sila koja ima isti učinak kao sve ostale sile koje djeluju na tijelo zajedno;Sila koja je uvijek nula;Sila koja nastaje u svemiru;1;;Dobiva se zbrajanjem ili oduzimanjem sila.;1
+18;Ako na tijelo djeluju dvije sile od 5 N i 5 N u istom smjeru, rezultanta je:;0 N;10 N;5 N;25 N;1;;Sile u istom smjeru se zbrajaju (5 + 5 = 10).;1
+19;Ako na tijelo djeluju dvije sile od 10 N i 4 N u suprotnim smjerovima, rezultanta je:;14 N;6 N;40 N;0 N;1;;Sile u suprotnim smjerovima se oduzimaju (10 - 4 = 6).;1
+20;Što je tlak?;Umnožak sile i površine;Omjer pritisne sile i površine na koju ta sila djeluje;Duljina puta u vremenu;Masa tijela;1;;Formula je p = F / A.;1
+21;Koja je mjerna jedinica za tlak?;Newton (N);Joker (J);Pascal (Pa);Watt (W);2;;1 Pa = 1 N / m2.;1
+22;Kako se mijenja tlak ako istom silom djelujemo na manju površinu?;Tlak se smanjuje;Tlak se povećava;Tlak ostaje isti;Tlak nestaje;1;;Manja površina (npr. oštrica noža) stvara veći tlak.;1
+23;Tlak u tekućinama koji nastaje zbog težine same tekućine naziva se:;Atmosferski tlak;Hidrostatski tlak;Mehanički tlak;Zračni tlak;1;;Hidrostatski tlak raste s dubinom.;1
+24;Hidrostatski tlak na nekoj dubini ovisi o:;Boji tekućine;Dubini, gustoći tekućine i ubrzanju sile teže;Širini posude;Masu posude;1;;p = ro * g * h.;1
+25;Kako nazivamo tlak zračnog omotača (atmosfere) na površinu Zemlje?;Hidrostatski tlak;Atmosferski tlak;Potisak;Vodeni tlak;1;;Mjeru se barometrom.;1
+26;Što je atmosferski tlak?;Tlak koji nastaje u gumama;Tlak stupca zraka iznad nas;Tlak unutar oceana;Tlak koji stvara usisavač;1;;Iznosi oko 101 325 Pa na razini mora.;1
+27;Kako se zove sila koja u tekućinama djeluje vertikalno prema gore i nastoji tijelo izgurati na površinu?;Težina;Potisak (uzgon);Trenje;Magnetska sila;1;;Arhimedov zakon opisuje potisak.;1
+28;Arhimedov zakon kaže da je potisak na tijelo uronjeno u tekućinu jednak:;Težini samog tijela;Težini tekućine koju je tijelo istisnulo;Volumenu tijela;Dubini uranjanja;1;;Fp = ro * g * Vistisnutog.;1
+29;Tijelo će plivati na površini tekućine ako je njegova gustoća:;Veća od gustoće tekućine;Manja od gustoće tekućine;Jednaka gustoći tekućine;Nula;1;;Npr. drvo pliva u vodi jer mu je gustoća manja.;1
+30;Što je putanja ili staza gibanja?;Vrijeme gibanja;Brzina tijela;Linija po kojoj se tijelo giba;Masa tijela;2;;Putanja može biti ravna ili krivudava.;1
+31;Što je prevaljeni put (oznaka s)?;Duljina putanje koju tijelo prijeđe u nekom vremenu;Brzina tijela;Instrument za mjerenje;Težina tijela;0;;Mjerna jedinica je metar (m).;1
+32;Kako definiramo brzinu tijela (v)?;Kao umnožak puta i vremena (s*t);Kao omjer puta i vremena (s/t);Kao razliku puta i vremena;Kao masu tijela;1;;v = s / t.;1
+33;Koja je osnovna SI jedinica za brzinu?;km/h;m/s;m/min;cm/s;1;;Metar u sekundi.;1
+34;Ako tijelo prijeđe 10 metara u 2 sekunde, kolika mu je brzina?;20 m/s;5 m/s;2 m/s;8 m/s;1;;v = 10 m / 2 s = 5 m/s.;1
+35;Gibanje pri kojem tijelo u jednakim vremenskim intervalima prelazi jednake putove naziva se:;Nejednoliko gibanje;Jednoliko pravocrtno gibanje;Kružno gibanje;Ubrzano gibanje;1;;Brzina je stalna (konstantna).;1
+36;Instrument u automobilu koji pokazuje trenutnu brzinu naziva se:;Dinamometar;Brzinomjer (tahometar);Ampermetar;Barometar;1;;Pokazuje brzinu najčešće u km/h.;1
+37;Koliko s ima jedan sat (1 h)?;60 s;3600 s;100 s;1000 s;1;;60 min * 60 s = 3600 s.;1
+38;Što mjerimo štopericom?;Masu;Duljinu;Vremenske intervale;Silu;2;;Štoperica je precizan mjerni instrument za kratka vremena.;1
+39;Srednja brzina tijela se računa kao:;Zbroj svih brzina;Omjer ukupnog puta i ukupnog vremena;Najveća brzina;Početna brzina;1;;v_sr = s_uk / t_uk.;1
+40;Ako trkač pretrči 100 m za 10 s, kolika mu je srednja brzina?;1000 m/s;10 m/s;1 m/s;90 m/s;1;;v = 100 / 10 = 10 m/s.;1
+41;Koja je mjerna jedinica za temperaturu u SI sustavu?;Celzijev stupanj (°C);Kelvin (K);Fahrenheit (°F);Joule (J);1;;Kelvin (K) je osnovna jedinica.;2
+42;Kolika je normalna temperatura ljudskog tijela u Celzijusima?;0 °C;100 °C;36.5 °C do 37 °C;25 °C;2;;Iznad toga govorimo o povišenoj temperaturi.;2
+43;Sprava za mjerenje temperature naziva se:;Manometar;Termometar;Barometar;Dinamometar;1;;Termometar.;2
+44;Što se događa s većinom tvari pri zagrijavanju?;One se skupljaju;One se šire (povećavaju volumen/duljinu);One postaju teže;One mijenjaju boju;1;;Toplinsko širenje.;2
+45;Kako nazivamo prijelaz topline s tijela na tijelo dodirom?;Zračenje;Konvekcija;Vođenje (kondukcija);Isparavanje;2;;Toplina prelazi dodirom.;2
+46;Materijali koji slabo vode toplinu nazivaju se:;Toplinski vodiči;Toplinski izolatori;Poluvodiči;Metali;1;;Izolatori poput vune ili stiropora.;2
+47;Što je mehanički rad (W)?;Umnožak sile i prijeđenog puta u smjeru djelovanja sile;Samo masa tijela;Umnožak brzine i vremena;Temperatura tijela;0;;W = F * s.;2
+48;Koja je mjerna jedinica za mehanički rad?;Newton (N);Watt (W);Joule (J);Pascal (Pa);2;;1 J = 1 N * 1 m.;2
+49;Ako tijelo podignemo silom od 10 N na visinu od 2 m, koliki smo rad obavili?;5 J;20 J;8 J;12 J;1;;W = 10 N * 2 m = 20 J.;2
+50;Mehanički rad se ne obavlja ako:;Guraš zid (nema pomaka);Nosiš torbu po ravnom (sila okomita);Tijelo stoji;Sve navedeno;3;;Rad zahtijeva pomak u smjeru sile.;2
+51;Što je snaga (P)?;Sposobnost tijela da obavlja rad;Brzina obavljanja rada (rad u jedinici vremena);Ukupna energija;Težina tijela;1;;Formula je P = W / t.;2
+52;Koja je mjerna jedinica za snagu?;Joule (J);Newton (N);Watt (W);Pascal (Pa);2;;1 W = 1 J / s.;2
+53;Ako stroj obavi rad od 100 J u 10 s, kolika mu je snaga?;1000 W;10 W;110 W;90 W;1;;P = 100 / 10 = 10 W.;2
+54;Što je energija?;Brzina kretanja;Sposobnost tijela da obavlja rad;Vrsta sile;Masa tijela;1;;Sposobnost obavljanja rada.;2
+55;Energija koju tijelo ima zbog svog gibanja naziva se:;Potencijalna energija;Kinetička energija;Elastična energija;Kemijska energija;1;;E_k ovisi o brzini.;2
+56;Energija koju tijelo ima zbog svog položaja u visini naziva se:;Kinetička energija;Gravitacijska potencijalna energija;Električna energija;Toplinska energija;1;;E_p = m * g * h.;2
+57;Zakon očuvanja energije kaže da se energija:;Može stvoriti iz ničega;Ne može stvoriti ni uništiti, samo prelazi iz jednog oblika u drugi;Stalno smanjuje;Stalno povećava sami;1;;Ukupna energija u zatvorenom sustavu je stalna.;2
+58;Energija elastično deformiranog tijela (npr. napeti luk) je:;Kinetička;Elastična potencijalna energija;Magnetska;Svjetlosna;1;;Napeta opruga ima elastičnu energiju.;2
+59;Koja je mjerna jedinica za energiju?;Watt (W);Joule (J);Newton (N);Pascal (Pa);1;;Džul (J).;2
+60;Što je unutarnja energija tijela?;Zbroj kinetičke i potencijalne energije svih čestica;Samo brzina trčanja;Ukupna masa tijela;Boja tijela;0;;Povezana je s temperaturom.;2
+61;Što je toplina (Q)?;Temperatura tijela;Energija koja prelazi s toplijeg tijela na hladnije;Sila koja grije;Težina tijela;1;;Energija u prijelazu.;2
+62;Koja je mjerna jedinica za toplinu?;Celzijev stupanj;Joule (J);Watt (W);Newton (N);1;;Joule (J).;2
+63;Temperatura na kojoj tekućina prelazi u plin?;Vrelište;Talište;Kondenzacija;Sublimacija;0;;Voda vrije na 100 °C.;2
+64;Temperatura na kojoj krutina prelazi u tekućinu?;Vrelište;Talište;Kristalizacija;Kondenzacija;1;;Led se tali na 0 °C.;2
+65;Što je mjerna nesigurnost?;Pogreška instrumenta;Raspon vrijednosti unutar kojeg se nalazi prava vrijednost;Točan rezultat;Masa tijela;1;;Nesavršenost mjerenja.;1
+66;Koja je oznaka za površinu tijela?;V;s;A;m;2;;A (Area).;1
+67;Koja je oznaka za volumen (obujam) tijela?;A;V;m;t;1;;V (Volume).;1
+68;Koliko je 1 decimetar (dm) u centimetrima?;1 cm;10 cm;100 cm;1000 cm;1;;1 dm = 10 cm.;1
+69;Gustoća vode iznosi otprilike:;1 kg/m3;1000 kg/m3;10 kg/m3;0.5 kg/m3;1;;1 kg po litri.;1
+70;Što je poluga?;Kružna ploča;Čvrsto tijelo koje se može zakretati oko nepomičnog oslonca;Vrsta užeta;Električni motor;1;;Klackalica, škare.;2
+71;Gdje kod klackalice mora sjediti teža osoba za ravnotežu?;Dalje od oslonca;Bliže osloncu;Točno na osloncu;Bilo gdje;1;;Veća sila treba manji krak.;2
+72;Što je moment sile (M)?;Zbroj sila;Umnožak sile i kraka sile (F * d);Brzina okretanja;Težina tijela;1;;M = F * d.;2
+73;Koja je mjerna jedinica za moment sile?;Newton (N);Newtonmetar (Nm);Joule (J);Watt (W);1;;Nm.;2
+74;Koji alat koristi princip poluge?;Škare;Odvijač;Kliješta;Sve navedeno;3;;Većina ručnih alata.;2
+75;Što je hidraulički tlak?;Tlak zraka;Tlak koji se prenosi kroz tekućinu u zatvorenoj posudi;Tlak vode u moru;Snaga pumpe;1;;Pascalov zakon.;1
+76;Pascalov zakon je osnova rada kojeg uređaja?;Usisavača;Hidrauličke dizalice;Dinamometar;Vaga;1;;Podizanje tereta malom silom.;1
+77;Što je barometar?;Instrument za mjerenje dubine;Instrument za mjerenje atmosferskog tlaka;Instrument za brzinu;Instrument za masu;1;;Mjeru tlak zraka.;1
+78;Atmosferski tlak s povećanjem nadmorske visine?;Povećava se;Smanjuje se;Ostaje isti;Nestaje;1;;Zrak je rjeđi na visini.;1
+79;Tijelo tone u tekućini ako mu je težina:;Manja od potiska;Veća od potiska;Jednaka potisku;Nula;1;;Sila prema dolje nadjača potisak.;1
+80;Što je vakuumska pumpa?;Pumpa za vodu;Uređaj koji isisava zrak iz zatvorene posude;Dinamo;Motor;1;;Stvara vakuum.;1
+81;Koja je oznaka za brzinu?;s;v;a;t;1;;velocity.;1
+82;Pretvorba brzine: 36 km/h iznosi koliko m/s?;36 m/s;10 m/s;1 m/s;100 m/s;1;;10 m/s.;1
+83;Ako tijelo miruje, brzina mu iznosi:;1 m/s;Bezbroj;0 m/s;10 m/s;2;;Mirovanje = 0.;1
+84;Što prikazuje s-t graf (put-vrijeme)?;Kako se mijenja put s vremenom;Kako se mijenja sila;Masu tijela;Boju gibanja;0;;Grafički prikaz gibanja.;1
+85;Što je akceleracija (ubrzanje)?;Mirovanje;Brzina promjene brzine;Kilogram masa;Duljina puta;1;;a = promjena v / t.;1
+86;Koja je mjerna jedinica za ubrzanje?;m/s;m/s2;m2/s;km/h;1;;Metar u sekundi na kvadrat.;1
+87;Kako se zove najniža moguća temperatura (0 K)?;Apsolutna nula;Ledena točka;Vrelište;Talište;0;;-273.15 °C.;2
+88;Što je specifični toplinski kapacitet (c)?;Količina topline za 1 kg tvari za 1 °C;Težina vode;Veličina posude;Snaga grijača;0;;Svojstvo materijala.;2
+89;Gibanje zraka (vjetar) zbog temperature?;Vođenja topline;Toplinskog zračenja;Konvekcije (strujanja);Sublimacije;2;;Topli zrak se diže.;2
+90;Koji je metal najbolji vodič topline od ponuđenih?;Bakar;Plastika;Drvo;Guma;0;;Metali dobro vode toplinu.;2
+91;Sunce nas grije procesom koji nazivamo:;Vođenje;Strujanje;Toplinsko zračenje (radijacija);Odlaganje;2;;Elektromagnetski valovi.;2
+92;Kada se tekućina hladi i prelazi u krutinu?;Kondenzacija;Isparavanje;Skrutnjivanje;Sublimacija;2;;Smrzavanje.;2
+93;Što je isparavanje?;Prijelaz iz krutine u tekućinu;Prijelaz iz tekućine u plin s površine;Hlađenje;Mljevenje;1;;S površine tekućine.;2
+94;Rad se mjeri u džulima (J). 1 kJ?;10 J;1000 J;100 J;1000000 J;1;;Kilo = 1000.;2
+95;Što NIJE obnovljivi izvor energije?;Sunce;Vjetar;Nafta (fosilna goriva);Voda;2;;Fosilna goriva su ograničena.;2
+96;Solarna ploča pretvara energiju Sunca u:;Hladnoću;Električnu energiju;Naftu;Masu;1;;Fotonaponski efekt.;2
+97;Što je gravitacijsko polje?;Dio svemira bez gravitacije;Prostor oko Zemlje u kojem djeluje privlačna sila;Brzina pada;Masa zraka;1;;Prostor djelovanja sile.;1
+98;Masa stane u jedinicu volumena?;Težina;Gustoća;Volumen;Tlak;1;;ro = m / V.;1
+99;Što je kohezija?;Sila privlačenja između čestica iste tvari;Sila privlačenja različitih tvari;Trenje;Tlak;0;;Drži molekule vode.;1
+100;Proučavanje fizike nam pomaže razumjeti:;Samo planete;Osnovne zakone prirode koji upravljaju svijetom;Samo struju;Povijest;1;;Temeljna znanost o prirodi.;1

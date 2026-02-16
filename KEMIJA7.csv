@@ -1,0 +1,101 @@
+ID;Pitanje;Opcija A;Opcija B;Opcija C;Opcija D;Točan (0-3);URL slike;Objašnjenje;Semestar
+1;Što je materija ili tvar?;Samo plinovi;Sve što nas okružuje i ima masu i volumen;Samo ono što možemo vidjeti;Samo tekućine;1;;Sve što zauzima prostor i ima masu je tvar.;1
+2;Koje su tri osnovna agregacijska stanja tvari?;Čvrsto, tekuće, plinovito;Hladno, toplo, vruće;Malo, srednje, veliko;Tvrdo, meko, elastično;0;;Standardna stanja su krutina (s), tekućina (l) i plin (g).;1
+3;Kemijska formula vode je:;CO2;H2O2;H2O;HO2;2;;Molekula vode sastoji se od dva atoma vodika i jednog atoma kisika.;1
+4;Kako nazivamo prijelaz tvari iz čvrstog u tekuće stanje?;Kondenzacija;Taloženje;Isparavanje;Taljenje;3;;Taljenje je proces pretvorbe krutine u tekućinu grijanjem.;1
+5;Što je kondenzacija?;Prijelaz iz plinovitog u tekuće stanje;Prijelaz iz tekućeg u čvrsto stanje;Prijelaz iz čvrstog u plinovito;Sagorijevanje;0;;Kondenzacija je npr. rošenje stakla.;1
+6;Koja je oznaka za kemijski element kisik?;Ki;O;K;Ox;1;;Simbol kisika je O (Oxygenium).;1
+7;Smjesa tvari u kojoj se sastojci ne mogu vidjeti golim okom je:;Homogena smjesa;Heterogena smjesa;Mehanička smjesa;Talog;0;;Homogena smjesa (npr. zrak ili otopina soli u vodi) izgleda jednolično.;1
+8;Voda i ulje tvore kakvu smjesu?;Kemijski spoj;Homogenu;Heterogenu;Otopinu;2;;Sastojci se jasno vide kao zasebni slojevi.;1
+9;Postupak odvajanja čvrste tvari od tekućine pomoću filtarskog papira zove se:;Kristalizacija;Filtracija;Destilacija;Sublimacija;1;;Filtracija se temelji na različitoj veličini čestica.;1
+10;Simbol 'Fe' označava koji metal?;Željezo;Fluor;Ferari;Fosfor;0;;Simbol dolazi od latinskog Ferrum.;1
+11;Što je atom?;Velika molekula;Vrsta energije;Najmanja kemijski nedjeljiva čestica tvari;Tekući metal;2;;Atom je osnovna građevna jedinica tvari.;1
+12;Od čega se sastoji jezgra atoma?;Samo od elektrona;Od protona i neutrona;Samo od protona;Od molekula;1;;Neutroni su neutralni, a protoni pozitivni.;1
+13;Koji naboj imaju elektroni?;Negativan (-);Pozitivan (+);Neutralan (0);Promjenjiv;0;;Elektroni se gibaju u elektronskom omotaču oko jezgre.;1
+14;Ako atom izgubi ili primi elektron, on postaje:;Molekula;Izotop;Neutron;Ion;3;;Ioni su električki nabijene čestice.;1
+15;Kako nazivamo pozitivno nabijeni ion?;Kation;Anion;Proton;Neutron;0;;Kationi nastaju gubitkom elektrona.;1
+16;Kemijska formula za kuhinjsku sol (natrijev klorid) je:;NaOH;NaCl;HCl;KCl;1;;Spoj natrija i klora.;1
+17;Što je maseni udio sastojka u smjesi?;Omjer mase sastojka i mase cijele smjese;Težina cijele smjese;Boja smjese;Volumen smjese;0;;Iskazuje se kao broj (0-1) ili u postocima.;1
+18;Koja je oznaka za kemijski element ugljik?;C;Ca;U;Cu;0;;Simbol dolazi od latinskog Carbonium.;1
+19;Destilacija je postupak razdvajanja smjesa koji se temelji na:;Razlici u vrelištima sastojaka;Razlikovni gustoće;Boći tvari;Magnetičnosti;0;;Koristi se za odvajanje npr. alkohola od vode.;1
+20;Oznaka 'Cu' pripada kojem elementu?;Bakru;Cinku;Kositru;Zlatu;0;;Simbol dolazi od latinskog Cuprum.;1
+21;Što su elementarne tvari?;Tvari koje se ne mogu rastaviti na jednostavnije kemijskim putem;Sve tekuće tvari;Samo tvari u zraku;Vrsta gnojiva;0;;Sastoje se od atoma iste vrste.;1
+22;Koliko atoma vodika ima u jednoj molekuli metana (CH4)?;2;4;3;1;1;;Indeks pored H je 4.;1
+23;Proces pri kojem tvar izravno prelazi iz čvrstog u plinovito stanje je:;Kondenzacija;Isparavanje;Sublimacija;Taljenje;2;;Primjer je suhi led (čvrsti CO2).;1
+24;Koji je najrasprostranjeniji element u svemiru?;Kisik;Vodik;Ugljik;Dušik;1;;Vodik (H) čini većinu zvijezda.;1
+25;Kako nazivamo negativno nabijeni ion?;Kation;Elektron;Anion;Proton;2;;Anioni nastaju primanjem elektrona.;1
+26;Fizička promjena tvari je promjena pri kojoj:;Nastaje nova tvar;Se mijenja samo vanjski izgled ili stanje, ali sastav ostaje isti;Se mijenja kemijski sastav;Se oslobađa energija u obliku svjetlosti;1;;Primjer je gužvanje papira ili otapanje leda.;1
+27;Kemijska promjena (kemijska reakcija) je promjena pri kojoj:;Tvar samo mijenja oblik;Se tvar samo melje;Nastaje nova tvar s drugačijim svojstvima;Se tvar samo zagrijava bez promjene sastava;2;;Primjer je hrđanje željeza ili gorenje drveta.;1
+28;Molekula kisika koju udišemo ima formulu:;O;O3;O4;O2;3;;Kisik u prirodi najčešće dolazi kao dvoatomna molekula.;1
+29;Što je otopina?;Homogena smjesa otapala i otopljene tvari;Bilo koja tekućina;Heterogena smjesa;Kemijski spoj;0;;Npr. šećer otopljen u vodi.;1
+30;Koji je simbol za element dušik?;Ni;Du;N;D;2;;Simbol dolazi od latinskog Nitrogenium.;1
+31;Oznaka 'Au' pripada kojem plemenitom metalu?;Zlatu;Srebru;Platini;Živi;0;;Simbol dolazi od latinskog Aurum.;1
+32;Što je kemijski simbol?;Broj u periodnom sustavu;Međunarodna oznaka za kemijski element;Skraćenica za kemijski spoj;Naljepnica na epruveti;1;;Prvo slovo je uvijek veliko, drugo (ako postoji) malo.;1
+33;Koliko protona ima atom s rednim brojem 6 (ugljik)?;3;6;12;1;1;;Redni (atomski) broj označava broj protona u jezgri.;1
+34;Zbroj broja protona i neutrona u jezgri je:;Maseni broj;Atomski broj;Molarni broj;Gustoća;0;;Određuje masu cijelog atoma.;1
+35;Tvari koje nastaju spajanjem atoma različitih elemenata su:;Izotopi;Kemijski spojevi;Smjese;Metali;1;;Imaju stalan sastav i svojstva.;1
+36;Koji od navedenih elemenata je nemetal?;Željezo;Bakar;Sumpor;Zlato;2;;Sumpor je žuti nemetal.;1
+37;Sastojci smjese koji se mogu razdvojiti magnetom moraju biti:;Samo metali (željezo, kobalt ili nikal);Plastika i guma;Sve tekućine;Staklo;0;;Magnet privlači feromagnetične tvari.;1
+38;Što označava indeks u kemijskoj formuli (mali broj desno dolje)?;Broj atoma određenog elementa u molekuli;Broj molekula;Masu atoma;Temperaturu;0;;Npr. u H2O, broj 2 je indeks za vodik.;1
+39;Što označava koeficijent (veliki broj ispred formule)?;Broj atoma u molekuli;Volumen tvari;Broj molekula ili formulskih jedinki;Gustoću;2;;Npr. 2 H2O označava dvije molekule vode.;1
+40;Zrak je po sastavu:;Kemijski spoj;Homogena smjesa plinova;Heterogena smjesa;Elementarna tvar;1;;Sadrži najviše dušika (78%) i kisika (21%).;1
+41;Što je difuzija?;Samovoljno miješanje čestica dviju tvari koje su u dodiru;Zamrzavanje vode;Padanje snijega;Kuhanje ručka;0;;Brža je u plinovima i tekućinama nego u čvrstim tvarima.;1
+42;Koji element ima simbol 'Al'?;Argon;Aluminij;Antimon;Arsen;1;;Laki metal, srebrne boje.;1
+43;Oznaka 'Ag' pripada:;Srebru;Bakru;Živi;Zlatu;0;;Simbol dolazi od latinskog Argentum.;1
+44;Što su otopine u kojima se više ne može otopiti tvar na određenoj temperaturi?;Zasićene otopine;Nezasićene otopine;Prezasićene otopine;Vruće otopine;0;;Otopile su maksimalnu količinu tvari.;1
+45;Odvajanje sastojaka na temelju različite brzine kretanja kroz podlogu je:;Filtracija;Kromatografija;Destilacija;Magnetno odvajanje;1;;Koristi se npr. za razdvajanje boja u flomasteru.;1
+46;Kemijski simbol za helij je:;Hl;He;Hi;H;1;;Element s rednim brojem 2.;1
+47;Ukupno atoma u molekuli sumporove kiseline (H2SO4)?;5;3;7;6;2;;2H + 1S + 4O = 7.;1
+48;Što je gustoća tvari?;Tvrdoća tvari;Boja tvari;Omjer mase i volumena tvari;Težina predmeta;2;;Oznaka je grčko slovo ro (ρ).;1
+49;Simbol 'Hg' označava koji jedini tekući metal na sobnoj temperaturi?;Srebro;Živu;Hidrauliku;Bakar;1;;Oprez, živine pare su otrovne!;1
+50;Kako se naziva periodična tablica elemenata na kojoj su poredani atomi?;Tablica množenja;Periodni sustav elemenata (PSE);Menuerova tablica;Povijesna karta;1;;Sastavio ju je Mendeljejev.;1
+51;Zakon o očuvanju mase: masa reaktanata je...;Uvijek veća od mase produkata;Uvijek manja od mase produkata;Jednaka masi produkata;Nema veze;2;;Masa se ne gubi, samo prelazi iz forme u formu.;2
+52;Što su reaktanti u kemijskoj reakciji?;Tvari koje ulaze u reakciju;Tvari koje nastaju reakcijom;Samo metali;Nosači energije;0;;Reaktanti su "ulazni materijali".;2
+53;Što su produkti u kemijskoj reakciji?;Katalizatori;Tvari koje nastaju reakcijom;Tvari koje ulaze u reakciju;Samo plinovi;1;;Produkti nastaju na kraju reakcije.;2
+54;Kemijska jednadžba mora biti izjednačena jer:;Mora lijepo izgledati;Broj atoma svakog elementa mora biti isti s obje strane;Koeficijenti moraju biti 1;Indeksi moraju biti 2;1;;To je zakon prirode.;2
+55;Tvari koje ubrzavaju kemijsku reakciju, a ne mijenjaju se?;Reaktanti;Produkti;Katalizatori;Ioni;2;;Katalizatori (enzimi) ubrzavaju procese.;2
+56;Kemijska formula ugljikovog dioksida je:;C2O;CO2;CO;C2O2;1;;Nastaje potpunim sagorijevanjem ugljika.;2
+57;Simbol 'Ca' označava :;Kalcij;Ugljik;Kalij;Kadmij;0;;Calcium, gradi naše kosti.;2
+58;Simbol 'K' označava:;Kalij;Kalcij;Klor;Kobalt;0;;Kalium, važan elektrolit u tijelu.;2
+59;Što su oksidi?;Spojevi klora i metala;Spojevi elemenata s kisikom;Samo tekućine;Mješavine ulja i vode;1;;Nastaju oksidacijom.;2
+60;Koji je najčešći metal u Zemljinoj kori?;Željezo;Zlato;Bakar;Aluminij;3;;Aluminij je najobilniji metal.;2
+61;Što je egzotermna reakcija?;Reakcija pri kojoj se toplina oslobađa u okolinu;Reakcija pri kojoj se sustav hladi;Reakcija koja ne mijenja energiju;Promjena stanja;0;;Oslobađa energiju (grije).;2
+62;Što je endotermna reakcija?;Reakcija pri kojoj se toplina troši ili apsorbira;Reakcija pri kojoj se toplina oslobađa;Samo fizička promjena;Električni krug;0;;Upija energiju iz okoline (hladi).;2
+63;Simbol 'Cl' označava:;Klor;Cink;Cezij;Kozmetiku;0;;Karakt. žuto-zeleni plin.;2
+64;Simbol 'Mg' pripada kojem metalu?;Magneziju;Manganu;Molibdenu;Bakru;0;;Magnesium.;2
+65;Koja je najvažnija ruda željeza?;Vapnenac;Magnetit;Kuhinjska sol;Aluminij;1;;Ruda iz koje vadimo sirovo željezo.;2
+66;Što je hrđanje (korozija) željeza?;Kemijska reakcija željeza s kisikom i vlagom;Fizička promjena;Samo prljanje željeza;Isparavanje željeza;0;;Oksidacija željeza.;2
+67;Koji plin podržava gorenje, ali sam ne gori?;Vodik;Dušik;Kisik;CO2;2;;Bez kisika nema vatre.;2
+68;Simbol 'S' označava:;Srebro;Silicij;Sumpor;Natrij;2;;Sulphur, žuti mineral.;2
+69;Oznaka 'Na' pripada:;Natriju;Dušiku;Neonu;Niklu;0;;Natrium, ključan za sol.;2
+70;Što je maseni broj?;Redni broj u PSE;Zbroj protona i neutrona u jezgri;Samo broj neutrona;Relativna masa;1;;Ukupni broj čestica u jezgri atoma.;2
+71;Relativna atomska masa (Ar) može se pronaći u:;Knjizi iz povijesti;Periodnom sustavu elemenata (PSE);U trgovini;Na vagi;1;;Navedena u tablici PSE.;2
+72;Simbol 'P' označava:;Fosfor;Platinu;Paladij;Kalij;0;;Phosphorus.;2
+73;Što je kristalizacija?;Nastajanje kristala iz otopine isparavanjem;Sagorijevanje soli;Prozirna boja;Mljevenje šećera;0;;Proces hlađenja ili isparavanja.;2
+74;Koji metal ima simbol 'Zn'?;Cink;Zlato;Bakar;Živa;0;;Zincum.;2
+75;Koja kiselina se nalazi u našem želucu?;Sumporna kiselina;Solna (klorovodična) kiselina;Octena kiselina;Limunska kiselina;1;;Pomaže u razgradnji proteina.;2
+76;Simbol 'Pb' pripada kojem metalu?;Olovu;Bakru;Srebru;Kositru;0;;Plumbum.;2
+77;Elementi s rednim brojevima u PSE poredani su po broju:;Protona;Neutrona;Elektrona u omotaču;Molekula;0;;Redni broj = broj protona po definiciji.;2
+78;Horizontalni redovi u PSE zovu se:;Skupine;Redovi;Klanovi;Periodi;3;;Postoji ih ukupno 7.;2
+79;Vertikalni stupci u PSE zovu se:;Periodi;Skupine;Zone;Redovi;1;;Ima ih 18 glavnih skupina.;1
+80;Što su plemeniti plinovi?;Stabilni plinovi u 18. skupini koji rijetko reagiraju;Plinovi koji jako reagiraju;Samo kisik i dušik;Mirisni plinovi;0;;Helij, Neon, Argon...;1
+81;Kemijski simbol za jod je:;Jo;I;Id;J;1;;Iodine.;2
+82;Molekula amonijaka (NH3) sastoji se od koliko atoma?;2;4;3;5;1;;Jedan N i tri H.;2
+83;Oznaka 'Sn' pripada:;Kositru;Srebru;Sumporu;Natriju;0;;Stannum.;2
+84;Koji plin je lakši od zraka i služi za balone?;Kisik;CO2;Helij;Sumpor;2;;He je vrlo lagan i inertan plin.;2
+85;Relativna molekulska masa (Mr) računa se kao:;Zbrajanjem Ar svih atoma u molekuli;Masa vage;Broj molekula;Volumen otopine;0;;Masa cijele molekulske jedinice.;2
+86;Simbol 'Si' pripada:;Siliciju;Srebru;Sumporu;Željezu;0;;Silicium, važan za tehnologiju.;2
+87;Što su izotopi?;Atomi istog elementa s različitim brojem neutrona;Različiti metali;Spojevi vode i ulja;Bakterije;0;;Različite mase istog kemijskog svojstva.;2
+88;Kemijski simbol za magnezij je:;Mg;Ma;Mn;Mi;0;;Magnesium.;2
+89;Produkt potpunog gorenja ugljika?;CO;CO2;Metan;H2O;1;;Ugljikov dioksid.;2
+90;Koji je plin otrovan (nepotpuno gorenje)?;CO;CO2;Dušik;Kisik;0;;Ugljikov monoksid.;2
+91;Gorenje je brza kemijska reakcija s:;Kisikom;Vodikom;Dušikom;Ugljikom;0;;Oksidacija visoke energije.;2
+92;Koliko elektrona ima neutralni atom s 8 protona?;4;8;16;2;1;;Atom mora biti električki neutralan.;2
+93;Atomska formula dvoatomne molekule klora?;2 Cl;Cl2;Cl^2;C-L;1;;Klor je uvijek vezan u paru.;2
+94;Simbol 'He' označava:;Helij;Vodik;Željezo;Homer;0;;Prvi element plemenite skupine.;1
+95;Maseni udio 20g tvari u 100g smjese?;0.2;0.1;5%;10%;0;;20 / 100.;1
+96;Što dobijemo miješanjem bakra i cinka?;Mesing;Zlato;Broncu;Željezo;0;;Žuta legura mesing.;1
+97;Kemija se razvila iz:;Alkemije;Biologije;Fizike;Povijesti;0;;Stara vještina transformacije tvari.;1
+98;Simbol 'F' označava:;Fosfor;Fluor;Fiziku;Film;1;;Fluorum.;2
+99;Oznaka '(aq)' znači:;Otopljena u vodi;Plinovita;Kruta;Vruća;0;;Aqua (voda).;2
+100;Proučavanje kemije važno je jer:;Pomaže razumjeti građu i svojstva tvari;Pomaže raditi bombe;Pomaže raditi s kraljevima;Pomaže oko karata;0;;Temeljna znanost o materiji.;1
