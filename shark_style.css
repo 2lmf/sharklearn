@@ -140,6 +140,86 @@ body {
     display: none;
 }
 
+.grade-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.grade-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 25px 15px;
+    border-radius: 15px;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.grade-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.grade-btn:hover {
+    background: rgba(0, 243, 255, 0.15);
+    border-color: var(--neon-cyan);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 243, 255, 0.3), 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+.grade-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.grade-btn.active {
+    background: var(--neon-cyan);
+    color: black;
+    box-shadow: 0 0 25px var(--neon-cyan);
+    border-color: var(--neon-cyan);
+}
+
+.grade-btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+#back-to-grades {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 243, 255, 0.05);
+    border: 1px solid var(--neon-cyan);
+    color: var(--neon-cyan);
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-family: var(--font-heading);
+}
+
+#back-to-grades:hover {
+    background: var(--neon-cyan);
+    color: black;
+    box-shadow: 0 0 15px var(--neon-cyan);
+}
+
 .subject-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;

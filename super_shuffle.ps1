@@ -12,7 +12,7 @@ $files = @(
     "bulk_hrv7.md"
 )
 
-function FisherYates-Shuffle {
+function Invoke-FisherYatesShuffle {
     param($arr, $correctIdx)
     $obj = $arr[$correctIdx]
     # Fisher-Yates

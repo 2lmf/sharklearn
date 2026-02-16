@@ -12,7 +12,7 @@ $files = @(
     "bulk_hrv7.md"
 )
 
-function Shuffle-Options {
+function Invoke-ShuffleOptions {
     param ($options, $correctIndex)
     
     $correctText = $options[$correctIndex]
@@ -31,8 +31,7 @@ foreach ($filename in $files) {
         $totalQuestions = 0
         
         $newLines = @()
-        $needsRewrite = $false
-        
+            
         # First verify distribution
         foreach ($line in $lines) {
             if ($line -match "^\|\s*\d+\s*\|") {
