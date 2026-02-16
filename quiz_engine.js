@@ -28,12 +28,19 @@ class QuizEngine {
         this.storageKey = 'sharklearn_seen_ids';
         this.apiUrl = "https://script.google.com/macros/s/AKfycbxcJWoGRtBLRHs-aOH4HwoMESKEj5_CAbV67GZRFD54xQeJluQcGheoCYOjQelxxm0W/exec";
 
+        this.selectedGrade = localStorage.getItem('sharklearn_selected_grade') || null;
+
         // DOM Elements
         this.elements = {
+            gradeScreen: document.getElementById('grade-selection-screen'),
+            gradeBtns: document.querySelectorAll('.grade-btn'),
+            gradeTitle: document.getElementById('selected-grade-title'),
+            backToGradesBtn: document.getElementById('back-to-grades'),
             welcomeScreen: document.getElementById('welcome-screen'),
             subjectHidden: document.getElementById('selected-subject-hidden'),
             subjectCards: document.querySelectorAll('.subject-card'),
             startBtn: document.getElementById('start-btn'),
+            // ... (keep others)
             quizWrapper: document.getElementById('quiz-ui-wrapper'),
             question: document.getElementById('question'),
             mediaContainer: document.getElementById('media-container'),
@@ -92,6 +99,7 @@ class QuizEngine {
             if (this.elements.continueBtn) {
                 this.elements.continueBtn.onclick = () => {
                     this.elements.welcomeBackModal.style.display = 'none';
+                    this.showGradeSelection();
                     this.updateProfileUI();
                 };
             }
@@ -107,10 +115,24 @@ class QuizEngine {
             this.elements.saveProfileBtn.onclick = () => this.saveProfile();
         }
 
+        // Grade Selection Logic
+        this.elements.gradeBtns.forEach(btn => {
+            btn.onclick = () => {
+                const grade = btn.getAttribute('data-grade');
+                this.selectGrade(grade);
+            };
+        });
+
+        // Back to Grades Logic
+        if (this.elements.backToGradesBtn) {
+            this.elements.backToGradesBtn.onclick = () => this.showGradeSelection();
+        }
+
         // Subject Card Selection Logic
         this.elements.subjectCards.forEach(card => {
+            if (card.classList.contains('placeholder')) return;
             card.onclick = () => {
-                // Remove active from all
+                // Remove active from all visible cards of this grade
                 this.elements.subjectCards.forEach(c => c.classList.remove('active'));
                 // Add to clicked
                 card.classList.add('active');
@@ -157,7 +179,46 @@ class QuizEngine {
 
         this.elements.registrationModal.style.display = 'none';
         this.updateProfileUI();
+        this.showGradeSelection();
         console.log("SharkLearn: Profile saved for", name);
+    }
+
+    showGradeSelection() {
+        this.elements.gradeScreen.style.display = 'block';
+        this.elements.welcomeScreen.style.display = 'none';
+        this.elements.quizWrapper.style.display = 'none';
+        this.elements.resultScreen.style.display = 'none';
+    }
+
+    selectGrade(grade) {
+        this.selectedGrade = grade;
+        localStorage.setItem('sharklearn_selected_grade', grade);
+
+        // Update UI
+        this.elements.gradeScreen.style.display = 'none';
+        this.elements.welcomeScreen.style.display = 'block';
+        this.elements.gradeTitle.innerText = `${grade}. RAZRED`;
+
+        // Filter Subject Cards
+        let firstVisible = null;
+        this.elements.subjectCards.forEach(card => {
+            const cardGrade = card.getAttribute('data-grade');
+            if (cardGrade === grade) {
+                card.style.display = 'flex';
+                if (!firstVisible && !card.classList.contains('placeholder')) firstVisible = card;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // Auto-select first subject
+        if (firstVisible) {
+            this.elements.subjectCards.forEach(c => c.classList.remove('active'));
+            firstVisible.classList.add('active');
+            this.elements.subjectHidden.value = firstVisible.getAttribute('data-subject');
+        }
+
+        console.log("SharkLearn: Grade selected", grade);
     }
 
     generateUserId() {
@@ -425,13 +486,14 @@ class QuizEngine {
                 parentEmail2: this.parentEmail2,
                 subject: this.selectedSubject,
                 semester: this.selectedSemester,
+                grade: this.selectedGrade,
                 score: this.score,
                 livesLeft: this.lives,
                 totalQuestions: this.currentIndex,
                 duration: this.duration,
                 isCompleted: isCompleted,
                 userId: this.userId,
-                version: 'v47'
+                version: 'v48'
             };
 
             // Using fetch with keepalive: true (Modern alternative to sendBeacon)

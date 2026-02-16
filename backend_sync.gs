@@ -87,6 +87,7 @@ function handleSaveStats(payload) {
     payload.studentName || "Anonymous",
     payload.parentEmail1 || "N/A",
     payload.parentEmail2 || "",
+    payload.grade || "N/A", // NOVI STUPAC E
     payload.subject || "N/A",
     payload.semester || "all",
     points,
@@ -156,11 +157,13 @@ function sendDailySummaries() {
     const name = row[1];
     const p1 = row[2];
     const p2 = row[3];
-    const subject = row[4];
-    const score = row[6]; // Bodovi
-    const duration = row[7] || 0;
-    const isCompleted = row[9] === "DA";
-    const userId = row[10]; // Column K
+    const gradeVal = row[4]; // Stupac E
+    const subject = row[5];  // Stupac F
+    const semesterVal = row[6]; // Stupac G
+    const score = row[7]; // Bodovi
+    const duration = row[8] || 0;
+    const isCompleted = row[10] === "DA";
+    const userId = row[11]; // Column L
     
     if (userId && p1 && p1 !== "N/A") {
       const parentKey = userId; 
@@ -168,35 +171,19 @@ function sendDailySummaries() {
         reports[parentKey] = {
           studentName: name,
           emails: [p1],
-          subjects: {} 
+          results: [] 
         };
         if (p2) reports[parentKey].emails.push(p2);
       }
       
-      if (!reports[parentKey].subjects[subject]) {
-        reports[parentKey].subjects[subject] = {
-          attempts: 0,
-          completedCount: 0,
-          interruptedCount: 0,
-          totalDuration: 0,
-          completedDuration: 0,
-          interruptedDuration: 0,
-          scores: []
-        };
-      }
-      
-      const sub = reports[parentKey].subjects[subject];
-      sub.attempts++;
-      sub.totalDuration += duration;
-      
-      if (isCompleted) {
-        sub.completedCount++;
-        sub.completedDuration += duration;
-        sub.scores.push(score); // Score is already 0-10 from handeSaveStats
-      } else {
-        sub.interruptedCount++;
-        sub.interruptedDuration += duration;
-      }
+      reports[parentKey].results.push({
+        grade: gradeVal,
+        subject: subject,
+        semester: semesterVal,
+        score: score,
+        duration: duration,
+        isCompleted: isCompleted
+      });
     }
   }
 
@@ -207,23 +194,44 @@ function sendDailySummaries() {
     message += `--------------------------------------------------\n`;
 
     let totalDayDuration = 0;
+    
+    // Group results by unique (Grade + Subject + Semester) for summary
+    const grouped = {};
+    r.results.forEach(res => {
+      totalDayDuration += res.duration;
+      const key = `${res.grade}_${res.subject}_${res.semester}`;
+      if (!grouped[key]) {
+        grouped[key] = {
+          grade: res.grade,
+          subject: res.subject,
+          semester: res.semester,
+          attempts: 0,
+          completedCount: 0,
+          scores: [],
+          totalDur: 0
+        };
+      }
+      grouped[key].attempts++;
+      grouped[key].totalDur += res.duration;
+      if (res.isCompleted) {
+        grouped[key].completedCount++;
+        grouped[key].scores.push(res.score);
+      }
+    });
 
-    for (const subjectName in r.subjects) {
-      const s = r.subjects[subjectName];
-      totalDayDuration += s.totalDuration;
-      
-      const avgPoints = s.scores.length > 0 ? (s.scores.reduce((a, b) => a + b, 0) / s.scores.length) : 0;
-      const grade = calculateGradeFromPoints(avgPoints);
+    for (const key in grouped) {
+      const g = grouped[key];
+      const semesterText = g.semester === "all" ? "Sve teme" : (g.semester + ". polugodište");
+      const avgPoints = g.scores.length > 0 ? (g.scores.reduce((a, b) => a + b, 0) / g.scores.length) : 0;
+      const finalGrade = calculateGradeFromPoints(avgPoints);
 
-      const avgCompletedTime = s.completedCount > 0 ? (s.completedDuration / s.completedCount) : 0;
-      const avgInterruptedTime = s.interruptedCount > 0 ? (s.interruptedDuration / s.interruptedCount) : 0;
-
-      message += `\nPREDMET: ${subjectName}\n`;
-      message += `- Ukupno pokušaja: ${s.attempts}\n`;
-      message += `- Završeni ispiti: ${s.completedCount} (Prosjek: ${formatDuration(avgCompletedTime)})\n`;
-      message += `- Prekinuti ispiti: ${s.interruptedCount} (Prosjek: ${formatDuration(avgInterruptedTime)})\n`;
-      if (s.completedCount > 0) {
-        message += `- PROSJEČNA OCJENA: ${grade}\n`;
+      message += `\nRAZRED: ${g.grade}. r\n`;
+      message += `PREDMET: ${g.subject} (${semesterText})\n`;
+      message += `- Ukupno pokušaja: ${g.attempts}\n`;
+      if (g.completedCount > 0) {
+        message += `- PROSJEČNA OCJENA: ${finalGrade}\n`;
+      } else {
+        message += `- Status: Nema završenih ispita (vježba u tijeku)\n`;
       }
       message += `--------------------------------------------------\n`;
     }

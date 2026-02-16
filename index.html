@@ -97,53 +97,87 @@
             <div id="display-parent-emails" class="parent-tag" style="text-align: right; opacity: 0.8;"></div>
         </div>
 
-        <!-- WELCOME SCREEN -->
-        <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 20px;">
-            <h1 class="logo-text" style="font-size: 2.5rem; margin-bottom: 20px;">
-                <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
+        <!-- GRADE SELECTION SCREEN -->
+        <section id="grade-selection-screen" class="glass-card" style="text-align: center; margin-top: 20px;">
+            <h1 class="logo-text" style="font-size: 2.2rem; margin-bottom: 20px;">
+                <span class="logo-shark">ODABERI</span> <span class="logo-learn">RAZRED</span>
             </h1>
-            <p style="margin-bottom: 30px; color: var(--text-muted);">Spreman za novu misiju?</p>
-            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 300px; margin: 0 auto;">
+            <p style="margin-bottom: 30px; color: var(--text-muted);">U kojem si razredu?</p>
+            <div class="grade-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 320px; margin: 0 auto;">
+                <button class="grade-btn" data-grade="5">5. R</button>
+                <button class="grade-btn" data-grade="6">6. R</button>
+                <button class="grade-btn" data-grade="7">7. R</button>
+                <button class="grade-btn" data-grade="8">8. R</button>
+            </div>
+            <p style="margin-top: 25px; font-size: 0.8rem; color: var(--text-muted); opacity: 0.7;">Možeš ući u bilo
+                koji razred bez obzira na školu.</p>
+        </section>
+
+        <!-- WELCOME SCREEN (Subject Selection - Hidden by default) -->
+        <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 20px; display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <button id="back-to-grades"
+                    style="background: transparent; border: none; color: var(--neon-cyan); cursor: pointer; font-size: 0.9rem;">←
+                    PROMIJENI RAZRED</button>
+                <h1 class="logo-text" style="font-size: 1.8rem;">
+                    <span id="selected-grade-title" class="logo-shark">7. RAZRED</span>
+                </h1>
+                <div style="width: 100px;"></div> <!-- Spacer -->
+            </div>
+
+            <p style="margin-bottom: 25px; color: var(--text-muted);">Spreman za misiju?</p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
                 <div class="subject-cards" id="subject-cards-container">
-                    <div class="subject-card active" data-subject="Biologija7">
+                    <div class="subject-card" data-subject="Biologija7" data-grade="7">
                         <span class="icon">🧬</span>
-                        <span class="label">Biologija <span class="class-badge">7. r</span></span>
+                        <span class="label">Biologija</span>
                     </div>
-                    <div class="subject-card" data-subject="Geografija5">
+                    <div class="subject-card" data-subject="Geografija5" data-grade="5">
                         <span class="icon">🌍</span>
-                        <span class="label">Geografija <span class="class-badge">5. r</span></span>
+                        <span class="label">Geografija</span>
                     </div>
-                    <div class="subject-card" data-subject="Engleski5">
+                    <div class="subject-card" data-subject="Engleski5" data-grade="5">
                         <span class="icon">🇬🇧</span>
-                        <span class="label">Engleski <span class="class-badge">5. r</span></span>
+                        <span class="label">Engleski</span>
                     </div>
-                    <div class="subject-card" data-subject="Njemacki5">
+                    <div class="subject-card" data-subject="Njemacki5" data-grade="5">
                         <span class="icon">🇩🇪</span>
-                        <span class="label">Njemački <span class="class-badge">5. r</span></span>
+                        <span class="label">Njemački</span>
                     </div>
-                    <div class="subject-card" data-subject="prirodaidrustvo5">
-                        <span class="subject-icon">🌿</span>
-                        <span class="subject-name">Priroda 5</span>
+                    <div class="subject-card" data-subject="prirodaidrustvo5" data-grade="5">
+                        <span class="icon">🌿</span>
+                        <span class="label">Priroda 5</span>
                     </div>
-                    <div class="subject-card" data-subject="njemacki7">
-                        <span class="subject-icon">🇩🇪</span>
-                        <span class="subject-name">Njemački 7</span>
+                    <div class="subject-card" data-subject="njemacki7" data-grade="7">
+                        <span class="icon">🇩🇪</span>
+                        <span class="label">Njemački 7</span>
                     </div>
-                    <div class="subject-card" data-subject="Povijest7">
+                    <div class="subject-card" data-subject="Povijest7" data-grade="7">
                         <span class="icon">📜</span>
-                        <span class="label">Povijest <span class="class-badge">7. r</span></span>
+                        <span class="label">Povijest</span>
                     </div>
-                    <div class="subject-card" data-subject="Geografija7">
+                    <div class="subject-card" data-subject="Geografija7" data-grade="7">
                         <span class="icon">🌍</span>
-                        <span class="label">Geografija <span class="class-badge">7. r</span></span>
+                        <span class="label">Geografija</span>
                     </div>
-                    <div class="subject-card" data-subject="Hrvatski5">
+                    <div class="subject-card" data-subject="Hrvatski5" data-grade="5">
                         <span class="icon">🇭🇷</span>
-                        <span class="label">Hrvatski <span class="class-badge">5. r</span></span>
+                        <span class="label">Hrvatski</span>
                     </div>
-                    <div class="subject-card" data-subject="Hrvatski7">
+                    <div class="subject-card" data-subject="Hrvatski7" data-grade="7">
                         <span class="icon">🇭🇷</span>
-                        <span class="label">Hrvatski <span class="class-badge">7. r</span></span>
+                        <span class="label">Hrvatski</span>
+                    </div>
+                    <!-- Empty placeholders for 6 and 8 -->
+                    <div class="subject-card placeholder" data-grade="6" style="opacity: 0.5; cursor: default;">
+                        <span class="icon">🔍</span>
+                        <span class="label">U pripremi...</span>
+                    </div>
+                    <div class="subject-card placeholder" data-grade="8" style="opacity: 0.5; cursor: default;">
+                        <span class="icon">🔍</span>
+                        <span class="label">U pripremi...</span>
                     </div>
                 </div>
                 <input type="hidden" id="selected-subject-hidden" value="Biologija7">
