@@ -45,26 +45,33 @@
     <div class="app-container">
         <!-- REGISTRATION MODAL (Shown only once) -->
         <div id="registration-modal" class="modal-overlay" style="display: none;">
-            <div class="glass-card modal-content">
-                <h1 class="logo-text" style="font-size: 2rem; margin-bottom: 10px;">
+            <div class="glass-card modal-content" style="max-width: 400px; padding: 40px 30px;">
+                <h1 class="logo-text" style="font-size: 1.8rem; margin-bottom: 5px;">
                     <span class="logo-shark">DOBRODOŠAO</span>
                 </h1>
-                <p style="color: var(--text-muted); margin-bottom: 20px;">Postavi svoj profil za početak avanture.</p>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Postavi svoj profil za
+                    početak avanture.</p>
                 <div style="display: flex; flex-direction: column; gap: 15px;">
                     <input type="text" id="reg-student-name" placeholder="Tvoje Ime i Prezime" class="reg-input">
-                    <input type="email" id="reg-parent-email" placeholder="Email roditelja (za izvještaje)"
+                    <input type="email" id="reg-parent-email-1" placeholder="Email roditelja 1" class="reg-input">
+                    <input type="email" id="reg-parent-email-2" placeholder="Email roditelja 2 (opcionalno)"
                         class="reg-input">
-                    <p style="font-size: 0.8rem; color: var(--neon-orange);">⚠️ Jednom spremljeno, ime se više ne može
-                        mijenjati.</p>
-                    <button class="btn-primary" id="save-profile-btn">SPREMI I KRENI</button>
+                    <p style="font-size: 0.75rem; color: var(--neon-orange); line-height: 1.4; margin-top: 5px;">⚠️ Ime
+                        se ne može naknadno mijenjati radi točnosti izvještaja.</p>
+                    <button class="btn-primary" id="save-profile-btn"
+                        style="width: 100%; margin-top: 10px; padding: 18px;">SPREMI I KRENI</button>
                 </div>
             </div>
         </div>
 
         <!-- USER INFO BAR (Visible after registration) -->
         <div id="user-info-bar" class="user-info-bar" style="display: none;">
-            <span id="display-student-name">Učenik</span>
-            <span class="parent-tag" id="display-parent-email">roditelj@mail.com</span>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="logo-shark"
+                    style="font-size: 0.7rem; filter: drop-shadow(0 0 5px var(--neon-cyan));">●</span>
+                <span id="display-student-name">Učenik</span>
+            </div>
+            <div id="display-parent-emails" class="parent-tag" style="text-align: right; opacity: 0.8;"></div>
         </div>
 
         <!-- WELCOME SCREEN -->

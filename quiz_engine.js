@@ -15,10 +15,11 @@ class QuizEngine {
 
         // Registration & Tracking
         this.studentName = localStorage.getItem('sharklearn_user_name') || "";
-        this.parentEmail = localStorage.getItem('sharklearn_parent_email') || "";
+        this.parentEmail1 = localStorage.getItem('sharklearn_parent_email_1') || "";
+        this.parentEmail2 = localStorage.getItem('sharklearn_parent_email_2') || "";
         this.startTime = null;
         this.duration = 0;
-        this.isRegistered = !!(this.studentName && this.parentEmail);
+        this.isRegistered = !!(this.studentName && this.parentEmail1);
 
         // Config
         this.storageKey = 'sharklearn_seen_ids';
@@ -50,11 +51,12 @@ class QuizEngine {
             // Registration Elements
             registrationModal: document.getElementById('registration-modal'),
             regStudentName: document.getElementById('reg-student-name'),
-            regParentEmail: document.getElementById('reg-parent-email'),
+            regParentEmail1: document.getElementById('reg-parent-email-1'),
+            regParentEmail2: document.getElementById('reg-parent-email-2'),
             saveProfileBtn: document.getElementById('save-profile-btn'),
             userInfoBar: document.getElementById('user-info-bar'),
             displayStudentName: document.getElementById('display-student-name'),
-            displayParentEmail: document.getElementById('display-parent-email')
+            displayParentEmails: document.getElementById('display-parent-emails')
         };
 
         this.init();
@@ -100,19 +102,22 @@ class QuizEngine {
 
     saveProfile() {
         const name = this.elements.regStudentName.value.trim();
-        const email = this.elements.regParentEmail.value.trim();
+        const email1 = this.elements.regParentEmail1.value.trim();
+        const email2 = this.elements.regParentEmail2.value.trim();
 
-        if (name.length < 3 || !email.includes('@')) {
-            alert("Molim te unesi ispravno ime i email roditelja!");
+        if (name.length < 3 || !email1.includes('@')) {
+            alert("Molim te unesi svoje ime i barem jedan ispravan email roditelja!");
             return;
         }
 
         this.studentName = name;
-        this.parentEmail = email;
+        this.parentEmail1 = email1;
+        this.parentEmail2 = email2;
         this.isRegistered = true;
 
         localStorage.setItem('sharklearn_user_name', name);
-        localStorage.setItem('sharklearn_parent_email', email);
+        localStorage.setItem('sharklearn_parent_email_1', email1);
+        if (email2) localStorage.setItem('sharklearn_parent_email_2', email2);
 
         this.elements.registrationModal.style.display = 'none';
         this.updateProfileUI();
@@ -121,7 +126,9 @@ class QuizEngine {
 
     updateProfileUI() {
         this.elements.displayStudentName.innerText = this.studentName;
-        this.elements.displayParentEmail.innerText = `Roditelj: ${this.parentEmail}`;
+        let emailsStr = this.parentEmail1;
+        if (this.parentEmail2) emailsStr += " | " + this.parentEmail2;
+        this.elements.displayParentEmails.innerText = emailsStr;
         this.elements.userInfoBar.style.display = 'flex';
     }
 
@@ -338,7 +345,8 @@ class QuizEngine {
             const stats = {
                 action: 'save_stats',
                 studentName: this.studentName,
-                parentEmail: this.parentEmail,
+                parentEmail1: this.parentEmail1,
+                parentEmail2: this.parentEmail2,
                 subject: this.selectedSubject,
                 score: this.score,
                 livesLeft: this.lives,

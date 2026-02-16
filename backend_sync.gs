@@ -81,14 +81,15 @@ function handleSaveStats(payload) {
   sheet.appendRow([
     new Date(),
     payload.studentName || "Anonymous",
-    payload.parentEmail || "N/A",      // New: Parent Email
+    payload.parentEmail1 || "N/A",      // Email roditelja 1
+    payload.parentEmail2 || "",         // Email roditelja 2
     payload.subject || "Unknown", 
     payload.score,
     payload.livesLeft,
     payload.totalQuestions,
-    payload.duration || 0,             // New: Duration in seconds
-    payload.isCompleted ? "DA" : "NE", // New: Completion status
-    payload.version || "v24"
+    payload.duration || 0,             
+    payload.isCompleted ? "DA" : "NE", 
+    payload.version || "v25"           
   ]);
   
   return createJsonResponse({ status: 'success' });
@@ -123,13 +124,12 @@ function handleAddQuestion(payload) {
 
 function initializeStatsSheet(ss) {
   const sheet = ss.insertSheet("Stats");
-  sheet.appendRow(["Datum", "Učenik", "Email Roditelja", "Predmet", "Bodovi", "Preostalo Života", "Ukupno Pitanja", "Trajanje (sek)", "Završeno", "Verzija"]);
+  sheet.appendRow(["Datum", "Učenik", "Email Roditelja 1", "Email Roditelja 2", "Predmet", "Bodovi", "Preostalo Života", "Ukupno Pitanja", "Trajanje (sek)", "Završeno", "Verzija"]);
   return sheet;
 }
 
 /**
  * Šalje dnevni sažetak roditeljima. 
- * Treba postaviti Time-driven trigger u Apps Script dashboardu (npr. svaki dan u 20:00).
  */
 function sendDailySummaries() {
   const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
@@ -138,39 +138,46 @@ function sendDailySummaries() {
 
   const data = sheet.getDataRange().getValues();
   const today = new Date().toDateString();
-  const reports = {}; // key: parentEmail
+  const reports = {}; // key: unique identifier (parentEmail1 + studentName)
 
-  // 1. Group today's results by parent email
+  // 1. Group today's results
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
     const dateStr = new Date(row[0]).toDateString();
-    const parentEmail = row[2];
+    if (dateStr !== today) continue;
+
+    const name = row[1];
+    const p1 = row[2];
+    const p2 = row[3];
     
-    if (dateStr === today && parentEmail && parentEmail !== "N/A") {
-      if (!reports[parentEmail]) {
-        reports[parentEmail] = {
-          studentName: row[1],
+    if (p1 && p1 !== "N/A") {
+      const key = p1 + "_" + name;
+      if (!reports[key]) {
+        reports[key] = {
+          studentName: name,
+          emails: [p1],
           attempts: 0,
           completed: 0,
           totalScore: 0,
           totalDuration: 0,
           subjects: []
         };
+        if (p2) reports[key].emails.push(p2);
       }
       
-      reports[parentEmail].attempts++;
-      if (row[8] === "DA") reports[parentEmail].completed++;
-      reports[parentEmail].totalScore += row[4];
-      reports[parentEmail].totalDuration += row[7];
-      if (!reports[parentEmail].subjects.includes(row[3])) {
-        reports[parentEmail].subjects.push(row[3]);
+      reports[key].attempts++;
+      if (row[9] === "DA") reports[key].completed++;
+      reports[key].totalScore += row[5];
+      reports[key].totalDuration += row[8];
+      if (!reports[key].subjects.includes(row[4])) {
+        reports[key].subjects.push(row[4]);
       }
     }
   }
 
   // 2. Send emails
-  for (const email in reports) {
-    const r = reports[email];
+  for (const key in reports) {
+    const r = reports[key];
     const avgScore = r.completed > 0 ? (r.totalScore / r.completed).toFixed(1) : 0;
     const avgDuration = r.attempts > 0 ? (r.totalDuration / r.attempts / 60).toFixed(1) : 0;
     
@@ -193,8 +200,14 @@ function sendDailySummaries() {
       Vaš SharkLearn Tim
     `;
     
-    MailApp.sendEmail(email, subjectLine, message);
-    console.log("Email poslan na: " + email);
+    r.emails.forEach(email => {
+      try {
+        MailApp.sendEmail(email, subjectLine, message);
+        console.log("Email poslan na: " + email);
+      } catch (e) {
+        console.error("Greška pri slanju na " + email, e);
+      }
+    });
   }
 }
 
