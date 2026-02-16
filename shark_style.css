@@ -293,9 +293,11 @@ body {
 }
 
 .subject-card.active {
-    background: rgba(0, 243, 255, 0.1);
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+    background: rgba(255, 157, 0, 0.15);
+    border-color: var(--neon-orange);
+    box-shadow: 0 0 25px var(--neon-orange), inset 0 0 10px rgba(255, 157, 0, 0.2);
+    transform: translateY(-5px) scale(1.02);
+    z-index: 10;
 }
 
 .subject-card.active .label {
