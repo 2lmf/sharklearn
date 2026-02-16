@@ -151,7 +151,7 @@ body {
 .grade-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--neon-orange);
-    color: var(--text-main);
+    color: var(--neon-cyan);
     padding: 25px 15px;
     border-radius: 15px;
     font-family: var(--font-heading);
