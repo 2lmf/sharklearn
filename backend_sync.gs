@@ -129,7 +129,21 @@ function handleAddQuestion(payload) {
 
 function initializeStatsSheet(ss) {
   const sheet = ss.insertSheet("Stats");
-  sheet.appendRow(["Datum", "Učenik", "Email Roditelja 1", "Email Roditelja 2", "Predmet", "Bodovi", "Preostalo Života", "Ukupno Pitanja", "Trajanje (sek)", "Završeno", "Verzija"]);
+  // Ažurirano zaglavlje da prati handleSaveStats (12 stupaca)
+  sheet.appendRow([
+    "Datum", 
+    "Učenik", 
+    "Email Roditelja 1", 
+    "Email Roditelja 2", 
+    "Razred",       // Col E
+    "Predmet",      // Col F
+    "Semestar",     // Col G
+    "Bodovi",       // Col H
+    "Trajanje (s)", // Col I
+    "Ukupno Pitanja", // Col J
+    "Završeno",     // Col K
+    "User ID"       // Col L
+  ]);
   return sheet;
 }
 
