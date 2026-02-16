@@ -380,38 +380,46 @@ body {
     text-align: right !important;
 }
 
-/* App Footer Branding (Extreme Fix) */
+/* App Footer Branding (Extreme Fix v2) */
 .app-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 80px 20px 60px !important;
-    margin-top: auto !important;
-    /* Push to the very bottom */
+    padding: 60px 20px 80px !important;
+    /* Increased bottom padding */
+    margin-top: 50px !important;
     width: 100% !important;
-    min-height: 150px !important;
-    border-top: 1px solid var(--glass-border) !important;
-    background: rgba(0, 0, 0, 0.5) !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+    /* Darker background */
+    border-top: 1px solid var(--neon-cyan) !important;
+    /* Cyan border for visibility */
     position: relative !important;
-    z-index: 5 !important;
+    z-index: 9999 !important;
     visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .powered-by {
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
+    /* Larger font */
     color: var(--text-muted) !important;
     text-transform: uppercase !important;
     letter-spacing: 5px !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 15px !important;
     font-family: var(--font-heading) !important;
+    opacity: 1 !important;
+    /* Full opacity */
+    font-weight: bold !important;
 }
 
 .footer-logo {
     font-family: var(--font-heading) !important;
-    font-size: 2.2rem !important;
+    font-size: 2.5rem !important;
+    /* Larger logo */
     font-weight: 900 !important;
-    filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.6)) !important;
+    filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.8)) !important;
+    /* Stronger glow */
 }
 
 input:focus {
