@@ -9,7 +9,9 @@ $files = @(
     "bulk_geo7_full.md",
     "bulk_his7.md",
     "bulk_hrv5.md",
-    "bulk_hrv7.md"
+    "bulk_hrv7.md",
+    "bulk_eng7.md",
+    "bulk_his5.md"
 )
 
 function Invoke-FisherYatesShuffle {
