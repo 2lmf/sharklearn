@@ -153,44 +153,64 @@ function initializeStatsSheet(ss) {
 /**
  * Šalje napredni dnevni izvještaj roditeljima s ocjenama i trajanjem.
  */
+/**
+ * Šalje napredni dnevni izvještaj roditeljima s ocjenama i trajanjem.
+ * Prošireno na zadnjih 48h, grupirano po danima i brendirano.
+ */
 function sendDailySummaries() {
   const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
   const sheet = ss.getSheetByName("Stats");
   if (!sheet) return;
 
   const data = sheet.getDataRange().getValues();
-  const today = new Date().toDateString();
-  const reports = {}; // key: unique identifier (parentEmail1 + studentName)
+  const now = new Date();
+  const fortyEightHoursAgo = new Date(now.getTime() - (48 * 60 * 60 * 1000));
+  
+  const COLORS = {
+    "5": "#4a86e8", // Blue
+    "6": "#6aa84f", // Green
+    "7": "#ff9900", // Orange
+    "8": "#ea4335", // Red
+    "default": "#333333"
+  };
 
-  // 1. Group data by student and subject
+  const reports = {}; // key: userId
+
+  // 1. Group data by student, date, and subject
   for (let i = 1; i < data.length; i++) {
     const row = data[i];
-    const dateStr = new Date(row[0]).toDateString();
-    if (dateStr !== today) continue;
+    const originalDate = new Date(row[0]);
+    
+    // Only process last 48 hours
+    if (originalDate < fortyEightHoursAgo) continue;
 
+    const dateKey = originalDate.toLocaleDateString('hr-HR');
     const name = row[1];
     const p1 = row[2];
     const p2 = row[3];
-    const gradeVal = row[4]; // Stupac E
-    const subject = row[5];  // Stupac F
-    const semesterVal = row[6]; // Stupac G
-    const score = row[7]; // Bodovi
+    const gradeVal = row[4];
+    const subject = row[5];
+    const semesterVal = row[6];
+    const score = row[7];
     const duration = row[8] || 0;
     const isCompleted = row[10] === "DA";
-    const userId = row[11]; // Column L
+    const userId = row[11];
     
     if (userId && p1 && p1 !== "N/A") {
-      const parentKey = userId; 
-      if (!reports[parentKey]) {
-        reports[parentKey] = {
+      if (!reports[userId]) {
+        reports[userId] = {
           studentName: name,
           emails: [p1],
-          results: [] 
+          dates: {} 
         };
-        if (p2) reports[parentKey].emails.push(p2);
+        if (p2 && p2 !== "") reports[userId].emails.push(p2);
       }
       
-      reports[parentKey].results.push({
+      if (!reports[userId].dates[dateKey]) {
+        reports[userId].dates[dateKey] = [];
+      }
+      
+      reports[userId].dates[dateKey].push({
         grade: gradeVal,
         subject: subject,
         semester: semesterVal,
@@ -201,62 +221,86 @@ function sendDailySummaries() {
     }
   }
 
-  // 2. Generate and send emails
-  for (const parentKey in reports) {
-    const r = reports[parentKey];
-    let message = `Pozdrav,\n\nEvo današnjeg izvještaja o vježbanju za: ${r.studentName}\n`;
-    message += `--------------------------------------------------\n`;
+  // 2. Generate and send HTML emails
+  for (const userId in reports) {
+    const r = reports[userId];
+    let htmlBody = `<div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; border: 1px solid #eee; padding: 20px; border-radius: 10px;">`;
+    htmlBody += `<h2 style="color: #008CBA;">SharkLearn: Izvještaj o učenju</h2>`;
+    htmlBody += `<p>Pozdrav, evo pregleda vježbanja za učenika: <b>${r.studentName}</b> u zadnjih 48 sati.</p>`;
 
-    let totalDayDuration = 0;
-    
-    // Group results by unique (Grade + Subject + Semester) for summary
-    const grouped = {};
-    r.results.forEach(res => {
-      totalDayDuration += res.duration;
-      const key = `${res.grade}_${res.subject}_${res.semester}`;
-      if (!grouped[key]) {
-        grouped[key] = {
-          grade: res.grade,
-          subject: res.subject,
-          semester: res.semester,
-          attempts: 0,
-          completedCount: 0,
-          scores: [],
-          totalDur: 0
-        };
+    // Sort dates descending
+    const sortedDates = Object.keys(r.dates).sort((a, b) => new Date(b) - new Date(a));
+
+    sortedDates.forEach(date => {
+      htmlBody += `<div style="background: #f9f9f9; padding: 10px; margin: 15px 0; border-left: 5px solid #008CBA;">`;
+      htmlBody += `<h3 style="margin: 0;">📅 Datum: ${date}</h3>`;
+      htmlBody += `</div>`;
+
+      let dayDuration = 0;
+      const dayResults = r.dates[date];
+      
+      // Group by subject for the day
+      const grouped = {};
+      dayResults.forEach(res => {
+        dayDuration += res.duration;
+        const key = `${res.grade}_${res.subject}_${res.semester}`;
+        if (!grouped[key]) {
+          grouped[key] = {
+            grade: String(res.grade),
+            subject: res.subject,
+            semester: res.semester,
+            attempts: 0,
+            completedCount: 0,
+            scores: [],
+            totalDur: 0
+          };
+        }
+        grouped[key].attempts++;
+        grouped[key].totalDur += res.duration;
+        if (res.isCompleted) {
+          grouped[key].completedCount++;
+          grouped[key].scores.push(res.score);
+        }
+      });
+
+      for (const key in grouped) {
+        const g = grouped[key];
+        const gradeColor = COLORS[g.grade] || COLORS.default;
+        const semesterText = g.semester === "all" ? "Sve teme" : (g.semester + ". polugodište");
+        const avgPoints = g.scores.length > 0 ? (g.scores.reduce((a, b) => a + b, 0) / g.scores.length) : 0;
+        const finalGrade = calculateGradeFromPoints(avgPoints);
+
+        htmlBody += `<div style="margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">`;
+        htmlBody += `<p style="font-size: 16px; margin: 5px 0;">`;
+        htmlBody += `<b style="color: ${gradeColor}; font-size: 18px;">${g.grade}. RAZRED</b> - <b>${g.subject}</b> (${semesterText})`;
+        htmlBody += `</p>`;
+        htmlBody += `<ul style="list-style: none; padding-left: 10px; margin: 5px 0;">`;
+        htmlBody += `<li>🔹 Pokušaja: <b>${g.attempts}</b></li>`;
+        htmlBody += `<li>⏱️ Vrijeme: <b>${formatDuration(g.totalDur)}</b></li>`;
+        if (g.completedCount > 0) {
+          htmlBody += `<li>🎓 PROSJEČNA OCJENA: <span style="background: ${gradeColor}; color: white; padding: 2px 8px; border-radius: 4px; font-weight: bold;">${finalGrade}</span></li>`;
+        } else {
+          htmlBody += `<li>⚠️ Status: <i style="color: #666;">Vježba u tijeku (nema završenih ispita)</i></li>`;
+        }
+        htmlBody += `</ul></div>`;
       }
-      grouped[key].attempts++;
-      grouped[key].totalDur += res.duration;
-      if (res.isCompleted) {
-        grouped[key].completedCount++;
-        grouped[key].scores.push(res.score);
-      }
+
+      htmlBody += `<p style="text-align: right; font-weight: bold; color: #555;">Ukupno vrijeme za ovaj dan: ${formatDuration(dayDuration)}</p>`;
     });
 
-    for (const key in grouped) {
-      const g = grouped[key];
-      const semesterText = g.semester === "all" ? "Sve teme" : (g.semester + ". polugodište");
-      const avgPoints = g.scores.length > 0 ? (g.scores.reduce((a, b) => a + b, 0) / g.scores.length) : 0;
-      const finalGrade = calculateGradeFromPoints(avgPoints);
-
-      message += `\nRAZRED: ${g.grade}. r\n`;
-      message += `PREDMET: ${g.subject} (${semesterText})\n`;
-      message += `- Ukupno pokušaja: ${g.attempts}\n`;
-      message += `- Vrijeme vježbanja: ${formatDuration(g.totalDur)}\n`;
-      if (g.completedCount > 0) {
-        message += `- PROSJEČNA OCJENA: ${finalGrade}\n`;
-      } else {
-        message += `- Status: Nema završenih ispita (vježba u tijeku)\n`;
-      }
-      message += `--------------------------------------------------\n`;
-    }
-
-    message += `\nUKUPNO VRIJEME DANAS: ${formatDuration(totalDayDuration)}\n\n`;
-    message += `SharkLearn Tim`;
+    // Footer with Logo
+    htmlBody += `<hr style="border: 0; border-top: 2px solid #eee; margin-top: 30px;">`;
+    htmlBody += `<div style="text-align: center; color: #999; font-size: 12px;">`;
+    htmlBody += `<p>Powered by<br><b style="color: #333; font-size: 16px;">Sharpsharkdigital</b></p>`;
+    htmlBody += `<p>SharkLearn v1.2 - Automatski sustav izvještavanja</p>`;
+    htmlBody += `</div></div>`;
     
-    // Send to both emails if present
     r.emails.forEach(email => {
-      MailApp.sendEmail(email, "SharkLearn: Dnevni izvještaj o učenju - " + r.studentName, message);
+      MailApp.sendEmail({
+        to: email,
+        subject: "SharkLearn: Izvještaj o učenju - " + r.studentName,
+        htmlBody: htmlBody
+      });
     });
   }
 }
@@ -297,4 +341,54 @@ function formatDuration(seconds) {
 function createJsonResponse(data) {
   return ContentService.createTextOutput(JSON.stringify(data))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
+ * AUTOMATION: Colors tabs based on grade detected in sheet name.
+ * 5 = Blue, 6 = Green, 7 = Orange, 8 = Red
+ */
+function autoColorSheets() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheets = ss.getSheets();
+  
+  const COLORS = {
+    "5": "#4a86e8", // Blue
+    "6": "#6aa84f", // Green
+    "7": "#ff9900", // Orange
+    "8": "#ea4335", // Red (User requested)
+    "stats": "#434343" // Dark Grey
+  };
+
+  sheets.forEach(sheet => {
+    const name = sheet.getName();
+    
+    // System sheets
+    if (name === "Stats") {
+      sheet.setTabColor(COLORS.stats);
+      return;
+    }
+
+    // Subject sheets (e.g., "Biologija7", "Matematika5")
+    const match = name.match(/\d$/); // Find digit at the end
+    if (match) {
+      const grade = match[0];
+      if (COLORS[grade]) {
+        sheet.setTabColor(COLORS[grade]);
+      }
+    } else {
+      sheet.setTabColor(null); // Reset if no grade found
+    }
+  });
+}
+
+/**
+ * Adds a custom menu to the spreadsheet.
+ */
+function onOpen() {
+  const ui = SpreadsheetApp.getUi();
+  ui.createMenu('🦈 SHARKLEARN')
+      .addItem('🎨 Organiziraj Boje Tabova', 'autoColorSheets')
+      .addSeparator()
+      .addItem('📊 Pošalji Dnevne Izvještaje', 'sendDailySummaries')
+      .addToUi();
 }

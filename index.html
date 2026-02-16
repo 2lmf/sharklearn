@@ -207,6 +207,10 @@
                         <span class="icon">🇭🇷</span>
                         <span class="label">Hrvatski</span>
                     </div>
+                    <div class="subject-card" data-subject="Matematika5" data-grade="5">
+                        <span class="icon">🧮</span>
+                        <span class="label">Matematika</span>
+                    </div>
                     <!-- Empty placeholders for 6 and 8 -->
                     <div class="subject-card placeholder" data-grade="6" style="opacity: 0.5; cursor: default;">
                         <span class="icon">🔍</span>
@@ -281,27 +285,63 @@
         </div>
 
         <!-- RESULT SCREEN (Hidden initially) -->
-        <section id="result-screen" class="result-screen">
+        <section id="result-screen" class="result-screen" style="display: none;">
             <div class="glass-card">
                 <h1 class="result-title">MISIJA GOTOVA!</h1>
                 <p id="final-stats" style="font-size: 1.2rem; margin-bottom: 20px;">
                     Osvojio si 0 bodova.
                 </p>
-                <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+                    <button class="btn-primary" id="stats-btn" style="background: var(--neon-blue);">📊
+                        STATISTIKA</button>
+                </div>
             </div>
         </section>
 
-    </div> <!-- END APP CONTAINER -->
+        <!-- STATISTICS OVERLAY -->
+        <div id="stats-overlay" class="modal-overlay" style="display: none; z-index: 1000;">
+            <div class="glass-card modal-content"
+                style="max-width: 800px; width: 95%; max-height: 90vh; overflow-y: auto;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="color: var(--neon-orange); margin: 0;">📊 TVOJA STATISTIKA</h2>
+                    <button class="btn-primary" onclick="document.getElementById('stats-overlay').style.display='none'"
+                        style="padding: 5px 15px;">ZATVORI</button>
+                </div>
 
-    <script src="content/geo_5.js?v=12"></script>
-    <script src="content/bio_7.js?v=12"></script>
-    <script src="content/eng_5.js?v=13"></script>
-    <script src="content/ger_5.js?v=13"></script>
-    <script src="content/his_7.js?v=13"></script>
-    <script src="content/geo_7.js?v=13"></script>
-    <script src="content/hrv_5.js?v=13"></script>
-    <script src="content/hrv_7.js?v=13"></script>
-    <script src="quiz_engine.js?v=47"></script>
+                <div class="stats-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <!-- Activity Chart -->
+                    <div class="glass-card" style="padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1rem; text-align: center; margin-bottom: 15px;">AKTIVNOST MISIJA</h3>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+
+                    <!-- Grades Chart -->
+                    <div class="glass-card" style="padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1rem; text-align: center; margin-bottom: 15px;">USPJEŠNOST (OCJENE)</h3>
+                        <canvas id="gradesChart"></canvas>
+                    </div>
+                </div>
+
+                <div id="stats-summary-text"
+                    style="margin-top: 20px; padding: 15px; text-align: center; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <!-- Textual summary injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="content/geo_5.js?v=12"></script>
+        <script src="content/bio_7.js?v=12"></script>
+        <script src="content/eng_5.js?v=13"></script>
+        <script src="content/ger_5.js?v=13"></script>
+        <script src="content/his_7.js?v=13"></script>
+        <script src="content/geo_7.js?v=13"></script>
+        <script src="content/hrv_5.js?v=13"></script>
+        <script src="content/hrv_7.js?v=13"></script>
+        <script src="content/mat_5.js?v=1"></script>
+        <script src="quiz_engine.js?v=47"></script>
 </body>
 
 </html>

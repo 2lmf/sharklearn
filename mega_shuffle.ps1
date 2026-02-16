@@ -1,15 +1,15 @@
 $path = "C:\Users\Karlo\.gemini\antigravity\brain\223b23d5-3f10-45f7-9806-53de5c111c1d"
 $files = @(
-    "bulk_pri5.md",
-    "bulk_ger7.md",
-    "bulk_bio7_full.md",
-    "bulk_geo5_full.md",
-    "bulk_eng5_full.md",
+    "QUIZ_pri5.md",
+    "QUIZ_ger7.md",
+    "QUIZ_bio7_full.md",
+    "QUIZ_geo5_full.md",
+    "QUIZ_eng5_full.md",
     "bulk_ger5_full.md",
-    "bulk_geo7_full.md",
-    "bulk_his7.md",
-    "bulk_hrv5.md",
-    "bulk_hrv7.md"
+    "QUIZ_geo7_full.md",
+    "QUIZ_his7.md",
+    "QUIZ_hrv5.md",
+    "QUIZ_hrv7.md"
 )
 
 function Shuffle-Array {
@@ -92,6 +92,6 @@ foreach ($f in $files) {
     
     # Write back to file ENCODING is important
     $newLines | Out-File $fp -Encoding UTF8 -Force
-    Write-Host "Final Distribution for $f: 0:$($counts[0]), 1:$($counts[1]), 2:$($counts[2]), 3:$($counts[3])"
+    Write-Host ("Final Distribution for {0}: 0:{1}, 1:{2}, 2:{3}, 3:{4}" -f $f, $counts[0], $counts[1], $counts[2], $counts[3])
 }
 Write-Host "`nAll files processed successfully."

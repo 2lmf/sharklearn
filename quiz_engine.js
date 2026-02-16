@@ -70,7 +70,9 @@ class QuizEngine {
             saveProfileBtn: document.getElementById('save-profile-btn'),
             userInfoBar: document.getElementById('user-info-bar'),
             displayStudentName: document.getElementById('display-student-name'),
-            displayParentEmails: document.getElementById('display-parent-emails')
+            displayParentEmails: document.getElementById('display-parent-emails'),
+            statsBtn: document.getElementById('stats-btn'),
+            statsOverlay: document.getElementById('stats-overlay')
         };
 
         this.init();
@@ -157,6 +159,11 @@ class QuizEngine {
         this.elements.startBtn.disabled = false;
         this.elements.startBtn.innerText = "ZAPOČNI MISIJU";
         this.elements.startBtn.onclick = () => this.startGame();
+
+        // Stats Button Logic
+        if (this.elements.statsBtn) {
+            this.elements.statsBtn.onclick = () => this.showStatistics();
+        }
 
         // Safety Save on Tab Close / App Switch
         document.addEventListener('visibilitychange', () => {
@@ -350,6 +357,8 @@ class QuizEngine {
                 this.allQuestions = KEM_DATA;
             } else if (this.selectedSubject === "Fizika7" && typeof FIZ_DATA !== 'undefined') {
                 this.allQuestions = FIZ_DATA;
+            } else if (this.selectedSubject === "Matematika5" && typeof MAT_DATA !== 'undefined') {
+                this.allQuestions = MAT_DATA;
             }
         }
 
@@ -557,6 +566,10 @@ class QuizEngine {
             });
 
             console.log("SharkLearn: Stats sync attempted...", isCompleted ? "FINAL" : "PROGRESS");
+
+            // LOCAL HISTORY TRACKING
+            this.trackLocalHistory(stats);
+
         } catch (e) {
             console.error("Cloud: Failed to save stats.", e);
         }
@@ -581,6 +594,119 @@ class QuizEngine {
     getRandomSubarray(arr, size) {
         let shuffled = this.shuffleArray([...arr]);
         return shuffled.slice(0, size);
+    }
+
+    trackLocalHistory(stats) {
+        let history = JSON.parse(localStorage.getItem('sharklearn_history')) || [];
+        // Add timestamp if missing
+        stats.timestamp = new Date().toISOString();
+        history.push(stats);
+        // Keep last 100 entries
+        if (history.length > 100) history.shift();
+        localStorage.setItem('sharklearn_history', JSON.stringify(history));
+    }
+
+    showStatistics() {
+        const history = JSON.parse(localStorage.getItem('sharklearn_history')) || [];
+        this.elements.statsOverlay.style.display = 'flex';
+
+        if (history.length === 0) {
+            document.getElementById('stats-summary-text').innerHTML = "Nema još podataka za prikaz. Završi barem jednu misiju! 🦈";
+            return;
+        }
+
+        // 1. Activity Data (Completed vs Interrupted)
+        const completed = history.filter(h => h.isCompleted).length;
+        const interrupted = history.length - completed;
+
+        this.renderPieChart('activityChart', ['Završeno', 'Prekinuto'], [completed, interrupted], ['#4a86e8', '#ea4335']);
+
+        // 2. Success Data (Grades Distribution)
+        const grades = { '5': 0, '4': 0, '3': 0, '2': 0, '1': 0 };
+        let totalPoints = 0;
+        let completedCount = 0;
+
+        history.forEach(h => {
+            if (h.isCompleted) {
+                const g = this.calculateGradeFromPoints(h.score);
+                grades[g]++;
+                totalPoints += h.score;
+                completedCount++;
+            }
+        });
+
+        const gradeLabels = Object.keys(grades).reverse(); // 5, 4, 3, 2, 1
+        const gradeValues = gradeLabels.map(l => grades[l]);
+
+        this.renderBarChart('gradesChart', gradeLabels, gradeValues, '#ff9900');
+
+        // 3. Summary Text
+        const avgScore = completedCount > 0 ? Math.round(totalPoints / completedCount) : 0;
+        const totalMinutes = Math.round(history.reduce((acc, curr) => acc + (curr.duration || 0), 0) / 60);
+
+        document.getElementById('stats-summary-text').innerHTML = `
+            🚀 Ukupno vrijeme učenja: <b>${totalMinutes} min</b><br>
+            🎯 Prosječan uspjeh: <b>${avgScore}%</b> (Ocjena: <b>${this.calculateGradeFromPoints(avgScore)}</b>)
+        `;
+    }
+
+    calculateGradeFromPoints(points) {
+        if (points >= 90) return "5";
+        if (points >= 80) return "4";
+        if (points >= 70) return "3";
+        if (points >= 60) return "2";
+        return "1";
+    }
+
+    renderPieChart(canvasId, labels, data, colors) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        if (window[canvasId + 'Ref']) window[canvasId + 'Ref'].destroy();
+
+        window[canvasId + 'Ref'] = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: data,
+                    backgroundColor: colors,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { labels: { color: 'white' } }
+                }
+            }
+        });
+    }
+
+    renderBarChart(canvasId, labels, data, color) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        if (window[canvasId + 'Ref']) window[canvasId + 'Ref'].destroy();
+
+        window[canvasId + 'Ref'] = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Broj postignutih ocjena',
+                    data: data,
+                    backgroundColor: color,
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } },
+                    x: { ticks: { color: 'white' } }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
     }
 }
 
