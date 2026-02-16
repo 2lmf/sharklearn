@@ -1,12 +1,10 @@
 /* 
-   SHARKLEARN v1 - DEEP OCEAN NEON THEME 
-   Aesthetic: Abyssal Dark, Cyber-Marine, Neon Accents, Glassmorphism
+   SHARKLEARN v1 - DEEP OCEAN NEON THEME (v27)
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;600&display=swap');
 
 :root {
-    /* -- PALETTE -- */
     --bg-abyss: #010103;
     --bg-surface: #0a0a1a;
     --neon-cyan: #00f3ff;
@@ -17,14 +15,8 @@
     --text-muted: #8892b0;
     --success: #2ecc71;
     --error: #e74c3c;
-
-    /* -- EFFECTS -- */
     --glass-panel: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --neon-glow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.2);
-    --orange-glow: 0 0 15px rgba(255, 157, 0, 0.4);
-
-    /* -- TYPOGRAPHY -- */
     --font-heading: 'Orbitron', sans-serif;
     --font-body: 'Outfit', sans-serif;
 }
@@ -44,43 +36,37 @@ body {
     min-height: 100vh;
 }
 
-/* Background Atmosphere */
 .ocean-bg {
     position: fixed;
     inset: 0;
     z-index: -2;
-    background: radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(188, 19, 254, 0.05) 0%, transparent 40%);
+    background: radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 85% 30%, rgba(188, 19, 254, 0.05) 0%, transparent 40%);
 }
 
 .grid-overlay {
     position: fixed;
     inset: 0;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     z-index: -1;
 }
 
-/* Layout */
 .app-container {
     max-width: 600px;
     margin: 0 auto;
     padding: 0;
-    /* Changed to 0 to manage info bar at top */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Header & Gamification Stats */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .logo-text {
@@ -118,7 +104,6 @@ body {
     color: var(--neon-cyan);
 }
 
-/* Progress Bar */
 .progress-container {
     height: 6px;
     background: rgba(255, 255, 255, 0.1);
@@ -135,7 +120,6 @@ body {
     transition: width 0.4s ease;
 }
 
-/* Quiz UI */
 .glass-card {
     background: var(--glass-panel);
     border: 1px solid var(--glass-border);
@@ -146,7 +130,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Question Media */
 .question-media {
     width: 100%;
     margin-bottom: 20px;
@@ -157,7 +140,6 @@ body {
     display: none;
 }
 
-/* SUBJECT SELECTION CARDS */
 .subject-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -262,7 +244,6 @@ body {
     border-color: var(--error);
 }
 
-/* Result Screen */
 .result-screen {
     text-align: center;
     display: none;
@@ -287,10 +268,15 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     margin-top: 20px;
-    box-shadow: var(--neon-glow);
+    box-shadow: 0 0 15px var(--neon-cyan);
+    transition: all 0.3s ease;
 }
 
-/* Semester Selector */
+.btn-primary:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
 .semester-options {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 50px;
@@ -318,28 +304,6 @@ body {
     font-weight: bold;
 }
 
-/* Animations */
-@keyframes shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    75% {
-        transform: translateX(5px);
-    }
-}
-
-.shake {
-    animation: shake 0.3s ease-in-out;
-}
-
-/* Modals */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -356,7 +320,7 @@ body {
     max-width: 450px;
     width: 100%;
     text-align: center;
-    border-color: var(--neon-orange);
+    border: 1px solid var(--neon-orange);
     animation: slideUp 0.3s ease-out;
 }
 
@@ -372,7 +336,7 @@ body {
     }
 }
 
-/* Registration & Profile UI */
+/* --- Polished UI Elements (v27) --- */
 .reg-input {
     background: rgba(255, 255, 255, 0.05) !important;
     border: 2px solid var(--neon-orange) !important;
@@ -383,23 +347,21 @@ body {
     /* Orbitron for typing */
     font-size: 1rem !important;
     width: 100% !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 15px !important;
     transition: all 0.3s ease !important;
 }
 
 .reg-input:focus {
     background: rgba(255, 157, 0, 0.1) !important;
-    border-color: var(--neon-orange) !important;
     box-shadow: 0 0 20px rgba(255, 157, 0, 0.3) !important;
-    outline: none !important;
 }
 
 .user-info-bar {
     display: flex !important;
     justify-content: space-between !important;
-    /* RAZMAKNUTO LIJEVO I DESNO */
+    /* MAKSIMALNI RAZMAK */
     align-items: center !important;
-    background: rgba(0, 243, 255, 0.07) !important;
+    background: rgba(0, 243, 255, 0.08) !important;
     border-bottom: 1px solid var(--neon-cyan) !important;
     padding: 15px 25px !important;
     font-size: 0.9rem !important;
@@ -407,52 +369,49 @@ body {
     color: var(--neon-cyan) !important;
     font-family: var(--font-heading) !important;
     width: 100% !important;
-}
-
-.parent-info-group {
-    text-align: right !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .parent-tag {
     color: var(--text-muted) !important;
     font-family: var(--font-body) !important;
-    font-size: 0.7rem !important;
+    font-size: 0.75rem !important;
     font-weight: 400 !important;
+    text-align: right !important;
 }
 
-/* App Footer Branding */
+/* App Footer Branding (Extreme Fix) */
 .app-footer {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 60px 20px 40px !important;
+    padding: 80px 20px 60px !important;
     margin-top: auto !important;
+    /* Push to the very bottom */
     width: 100% !important;
-    position: relative !important;
-    z-index: 10 !important;
+    min-height: 150px !important;
     border-top: 1px solid var(--glass-border) !important;
-    background: rgba(0, 0, 0, 0.4) !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    z-index: 5 !important;
+    visibility: visible !important;
 }
 
 .powered-by {
-    font-size: 0.75rem !important;
+    font-size: 0.8rem !important;
     color: var(--text-muted) !important;
     text-transform: uppercase !important;
-    letter-spacing: 4px !important;
-    margin-bottom: 8px !important;
+    letter-spacing: 5px !important;
+    margin-bottom: 10px !important;
     font-family: var(--font-heading) !important;
-    opacity: 0.8 !important;
 }
 
 .footer-logo {
     font-family: var(--font-heading) !important;
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
     font-weight: 900 !important;
-    filter: drop-shadow(0 0 12px rgba(0, 243, 255, 0.5)) !important;
+    filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.6)) !important;
 }
 
 input:focus {
