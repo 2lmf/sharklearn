@@ -192,7 +192,7 @@ function sendDailySummaries() {
       if (isCompleted) {
         sub.completedCount++;
         sub.completedDuration += duration;
-        sub.scores.push(score / (payload.scorePerQuestion || 100)); // Pretvori u 0-10
+        sub.scores.push(score); // Score is already 0-10 from handeSaveStats
       } else {
         sub.interruptedCount++;
         sub.interruptedDuration += duration;
