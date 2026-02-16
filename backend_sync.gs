@@ -92,7 +92,8 @@ function handleSaveStats(payload) {
     points,
     payload.duration || 0,
     payload.totalQuestions || 0,
-    payload.isCompleted ? "DA" : "NE"
+    payload.isCompleted ? "DA" : "NE",
+    payload.userId || "N/A"
   ]);
   
   return createJsonResponse({ status: 'success' });

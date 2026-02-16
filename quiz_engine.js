@@ -410,7 +410,7 @@ class QuizEngine {
                 duration: this.duration,
                 isCompleted: isCompleted,
                 userId: this.userId,
-                version: 'v42'
+                version: 'v43'
             };
             fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
         } catch (e) {

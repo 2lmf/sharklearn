@@ -1,7 +1,7 @@
 /**
- * SharkLearn Service Worker - v42
+ * SharkLearn Service Worker - v43
  */
-const CACHE_NAME = 'sharklearn-v42';
+const CACHE_NAME = 'sharklearn-v43';
 const ASSETS = [
     './',
     'index.html?v=26',
