@@ -63,6 +63,11 @@ class QuizEngine {
     }
 
     async init() {
+        // Clear registration inputs for fresh start
+        this.elements.regStudentName.value = "";
+        this.elements.regParentEmail1.value = "";
+        this.elements.regParentEmail2.value = "";
+
         // Show Registration if needed
         if (!this.isRegistered) {
             this.elements.registrationModal.style.display = 'flex';
