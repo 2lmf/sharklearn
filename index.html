@@ -109,147 +109,147 @@
                 <button class="grade-btn" data-grade="7">7. r</button>
                 <button class="grade-btn" data-grade="8">8. r</button>
             </div>
-            <p id="grade-note"
-                style="margin-top: 35px; font-size: 0.9rem; color: var(--neon-cyan); opacity: 0.9; font-weight: 600;">
-                Možeš ući u bilo koji razred bez obzira koji razred trenutno pohađaš.</p>
+            <p style="margin-top: 35px; font-size: 0.9rem; color: #00f3ff; opacity: 0.9; font-weight: 600;">Možeš ući u
+                bilo koji razred bez obzira koji razred trenutno pohađaš.</p>
         </section>
 
         <!-- WELCOME SCREEN (Subject Selection - Hidden by default) -->
         <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 20px; display: none;">
             <div class="welcome-header">
                 <button id="back-to-grades">← PROMIJENI RAZRED</button>
-                <h1 class="logo-text subject-title">
-                    <span id="selected-grade-title" class="logo-learn">7. razred</span>
-                </h1>
             </div>
+            <h1 class="logo-text subject-title">
+                <span id="selected-grade-title" class="logo-learn">7. razred</span>
+            </h1>
+    </div>
 
-            <p style="margin-bottom: 25px; color: var(--text-muted);">Spreman za misiju?</p>
+    <p style="margin-bottom: 25px; color: var(--text-muted);">Spreman za misiju?</p>
 
-            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
-                <div class="subject-cards" id="subject-cards-container">
-                    <div class="subject-card" data-subject="Biologija7" data-grade="7">
-                        <span class="icon">🧬</span>
-                        <span class="label">Biologija</span>
-                    </div>
-                    <div class="subject-card" data-subject="Geografija5" data-grade="5">
-                        <span class="icon">🌍</span>
-                        <span class="label">Geografija</span>
-                    </div>
-                    <div class="subject-card" data-subject="Engleski5" data-grade="5">
-                        <span class="icon">🇬🇧</span>
-                        <span class="label">Engleski</span>
-                    </div>
-                    <div class="subject-card" data-subject="Njemacki5" data-grade="5">
-                        <span class="icon">🇩🇪</span>
-                        <span class="label">Njemački</span>
-                    </div>
-                    <div class="subject-card" data-subject="prirodaidrustvo5" data-grade="5">
-                        <span class="icon">🌿</span>
-                        <span class="label">Priroda 5</span>
-                    </div>
-                    <div class="subject-card" data-subject="njemacki7" data-grade="7">
-                        <span class="icon">🇩🇪</span>
-                        <span class="label">Njemački 7</span>
-                    </div>
-                    <div class="subject-card" data-subject="Povijest7" data-grade="7">
-                        <span class="icon">📜</span>
-                        <span class="label">Povijest</span>
-                    </div>
-                    <div class="subject-card" data-subject="Geografija7" data-grade="7">
-                        <span class="icon">🌍</span>
-                        <span class="label">Geografija</span>
-                    </div>
-                    <div class="subject-card" data-subject="Hrvatski5" data-grade="5">
-                        <span class="icon">🇭🇷</span>
-                        <span class="label">Hrvatski</span>
-                    </div>
-                    <div class="subject-card" data-subject="Hrvatski7" data-grade="7">
-                        <span class="icon">🇭🇷</span>
-                        <span class="label">Hrvatski</span>
-                    </div>
-                    <!-- Empty placeholders for 6 and 8 -->
-                    <div class="subject-card placeholder" data-grade="6" style="opacity: 0.5; cursor: default;">
-                        <span class="icon">🔍</span>
-                        <span class="label">U pripremi...</span>
-                    </div>
-                    <div class="subject-card placeholder" data-grade="8" style="opacity: 0.5; cursor: default;">
-                        <span class="icon">🔍</span>
-                        <span class="label">U pripremi...</span>
-                    </div>
-                </div>
-                <input type="hidden" id="selected-subject-hidden" value="Biologija7">
-
-                <!-- Semester Selector -->
-                <div class="semester-selector" style="margin-top: 10px;">
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Odaberi period:</p>
-                    <div class="semester-options" style="display: flex; gap: 10px; justify-content: center;">
-                        <div class="sem-opt active" data-semester="all">Sve</div>
-                        <div class="sem-opt" data-semester="1">1. Pol.</div>
-                        <div class="sem-opt" data-semester="2">2. Pol.</div>
-                    </div>
-                    <input type="hidden" id="selected-semester-hidden" value="all">
-                </div>
-                <button class="btn-primary" id="start-btn" disabled>UČITAVAM BAZU...</button>
+    <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+        <div class="subject-cards" id="subject-cards-container">
+            <div class="subject-card" data-subject="Biologija7" data-grade="7">
+                <span class="icon">🧬</span>
+                <span class="label">Biologija</span>
             </div>
-        </section>
-
-        <!-- QUIZ UI (Hidden until start) -->
-        <div id="quiz-ui-wrapper" style="display: none;">
-            <!-- HEADER -->
-            <header class="header">
-                <div class="logo-text">
-                    <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
-                </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span>❤️</span><span id="lives" class="lives-count">3</span>
-                    </div>
-                    <div class="stat-item">
-                        <span>⭐</span><span id="score" class="score-count">0</span>
-                    </div>
-                </div>
-            </header>
-
-            <!-- PROGRESS -->
-            <div class="progress-container">
-                <div id="progress-bar" class="progress-bar"></div>
+            <div class="subject-card" data-subject="Geografija5" data-grade="5">
+                <span class="icon">🌍</span>
+                <span class="label">Geografija</span>
             </div>
-
-            <!-- MAIN QUIZ AREA -->
-            <main id="quiz-area">
-                <div class="glass-card">
-                    <div id="media-container" class="question-media">
-                        <img id="question-image" src="" alt="Pitanje" class="question-img">
-                    </div>
-                    <div id="question" class="question-text">
-                        Učitavam misiju...
-                    </div>
-                    <div id="options" class="options-grid">
-                        <!-- Options injected by JS -->
-                    </div>
-                </div>
-            </main>
-        </div>
-
-        <!-- EXPLANATION MODAL (Hidden) -->
-        <div id="explanation-modal" class="modal-overlay" style="display: none;">
-            <div class="glass-card modal-content">
-                <h2 style="color: var(--neon-orange); margin-bottom: 10px;">UPS! SKORO... 🦈</h2>
-                <div id="explanation-text" style="margin-bottom: 20px; font-size: 1.1rem;"></div>
-                <button class="btn-primary" id="next-after-exp-btn">NASTAVI DALJE</button>
+            <div class="subject-card" data-subject="Engleski5" data-grade="5">
+                <span class="icon">🇬🇧</span>
+                <span class="label">Engleski</span>
+            </div>
+            <div class="subject-card" data-subject="Njemacki5" data-grade="5">
+                <span class="icon">🇩🇪</span>
+                <span class="label">Njemački</span>
+            </div>
+            <div class="subject-card" data-subject="prirodaidrustvo5" data-grade="5">
+                <span class="icon">🌿</span>
+                <span class="label">Priroda 5</span>
+            </div>
+            <div class="subject-card" data-subject="njemacki7" data-grade="7">
+                <span class="icon">🇩🇪</span>
+                <span class="label">Njemački 7</span>
+            </div>
+            <div class="subject-card" data-subject="Povijest7" data-grade="7">
+                <span class="icon">📜</span>
+                <span class="label">Povijest</span>
+            </div>
+            <div class="subject-card" data-subject="Geografija7" data-grade="7">
+                <span class="icon">🌍</span>
+                <span class="label">Geografija</span>
+            </div>
+            <div class="subject-card" data-subject="Hrvatski5" data-grade="5">
+                <span class="icon">🇭🇷</span>
+                <span class="label">Hrvatski</span>
+            </div>
+            <div class="subject-card" data-subject="Hrvatski7" data-grade="7">
+                <span class="icon">🇭🇷</span>
+                <span class="label">Hrvatski</span>
+            </div>
+            <!-- Empty placeholders for 6 and 8 -->
+            <div class="subject-card placeholder" data-grade="6" style="opacity: 0.5; cursor: default;">
+                <span class="icon">🔍</span>
+                <span class="label">U pripremi...</span>
+            </div>
+            <div class="subject-card placeholder" data-grade="8" style="opacity: 0.5; cursor: default;">
+                <span class="icon">🔍</span>
+                <span class="label">U pripremi...</span>
             </div>
         </div>
+        <input type="hidden" id="selected-subject-hidden" value="Biologija7">
 
-        <!-- RESULT SCREEN (Hidden initially) -->
-        <section id="result-screen" class="result-screen">
+        <!-- Semester Selector -->
+        <div class="semester-selector" style="margin-top: 10px;">
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Odaberi period:</p>
+            <div class="semester-options" style="display: flex; gap: 10px; justify-content: center;">
+                <div class="sem-opt active" data-semester="all">Sve</div>
+                <div class="sem-opt" data-semester="1">1. Pol.</div>
+                <div class="sem-opt" data-semester="2">2. Pol.</div>
+            </div>
+            <input type="hidden" id="selected-semester-hidden" value="all">
+        </div>
+        <button class="btn-primary" id="start-btn" disabled>UČITAVAM BAZU...</button>
+    </div>
+    </section>
+
+    <!-- QUIZ UI (Hidden until start) -->
+    <div id="quiz-ui-wrapper" style="display: none;">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo-text">
+                <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span>❤️</span><span id="lives" class="lives-count">3</span>
+                </div>
+                <div class="stat-item">
+                    <span>⭐</span><span id="score" class="score-count">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- PROGRESS -->
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <!-- MAIN QUIZ AREA -->
+        <main id="quiz-area">
             <div class="glass-card">
-                <h1 class="result-title">MISIJA GOTOVA!</h1>
-                <p id="final-stats" style="font-size: 1.2rem; margin-bottom: 20px;">
-                    Osvojio si 0 bodova.
-                </p>
-                <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+                <div id="media-container" class="question-media">
+                    <img id="question-image" src="" alt="Pitanje" class="question-img">
+                </div>
+                <div id="question" class="question-text">
+                    Učitavam misiju...
+                </div>
+                <div id="options" class="options-grid">
+                    <!-- Options injected by JS -->
+                </div>
             </div>
-        </section>
+        </main>
+    </div>
+
+    <!-- EXPLANATION MODAL (Hidden) -->
+    <div id="explanation-modal" class="modal-overlay" style="display: none;">
+        <div class="glass-card modal-content">
+            <h2 style="color: var(--neon-orange); margin-bottom: 10px;">UPS! SKORO... 🦈</h2>
+            <div id="explanation-text" style="margin-bottom: 20px; font-size: 1.1rem;"></div>
+            <button class="btn-primary" id="next-after-exp-btn">NASTAVI DALJE</button>
+        </div>
+    </div>
+
+    <!-- RESULT SCREEN (Hidden initially) -->
+    <section id="result-screen" class="result-screen">
+        <div class="glass-card">
+            <h1 class="result-title">MISIJA GOTOVA!</h1>
+            <p id="final-stats" style="font-size: 1.2rem; margin-bottom: 20px;">
+                Osvojio si 0 bodova.
+            </p>
+            <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+        </div>
+    </section>
 
     </div> <!-- END APP CONTAINER -->
 
