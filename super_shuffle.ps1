@@ -11,7 +11,8 @@ $files = @(
     "bulk_hrv5.md",
     "bulk_hrv7.md",
     "bulk_eng7.md",
-    "bulk_his5.md"
+    "bulk_his5.md",
+    "bulk_kem7.md"
 )
 
 function Invoke-FisherYatesShuffle {
@@ -38,13 +39,24 @@ foreach ($f in $files) {
     $counts = @{0 = 0; 1 = 0; 2 = 0; 3 = 0 }
     
     foreach ($l in $lines) {
-        if ($l -match "^\|\s*\d+\s*\|") {
+        if ($l -match "^\|\s*[^|]+\s*\|") {
             $p = $l.Split('|')
             if ($p.Count -ge 8) {
+                $opts = @($p[2].Trim(), $p[3].Trim(), $p[4].Trim(), $p[5].Trim()) # Adjusting indices for ID and Question
+                # Wait, the indices in my Viewed super_shuffle were:
+                # $p[3], $p[4], $p[5], $p[6] for options and $p[7] for correct index.
+                # Let's check the viewed super_shuffle indices again.
+                # Viewed super_shuffle Step 3327:
+                # $opts = @($p[3].Trim(), $p[4].Trim(), $p[5].Trim(), $p[6].Trim())
+                # $cIdx = [int]($p[7].Trim())
+                
+                # ... wait, if I have | ID | Pitanje | Opt A |... then:
+                # p[0] is empty (before first pipe), p[1] is ID, p[2] is Pitanje, p[3] is Opt A
+                
                 $opts = @($p[3].Trim(), $p[4].Trim(), $p[5].Trim(), $p[6].Trim())
                 $cIdx = [int]($p[7].Trim())
                 
-                $res = FisherYates-Shuffle -arr $opts -correctIdx $cIdx
+                $res = Invoke-FisherYatesShuffle -arr $opts -correctIdx $cIdx
                 $newOpts = $res.Options
                 $newIdx = $res.Index
                 
@@ -63,6 +75,9 @@ foreach ($f in $files) {
         else { $newLines += $l }
     }
     
-    $newLines | Set-Content $fp -Encoding UTF8 -Force
-    Write-Host "Finished $f. Distribution: 0:$($counts[0]) 1:$($counts[1]) 2:$($counts[2]) 3:$($counts[3])"
+    $v55FileName = "V55_QUIZ_" + ($f -replace "bulk_", "")
+    $v55Path = Join-Path $path $v55FileName
+    
+    $newLines | Set-Content $v55Path -Encoding UTF8 -Force
+    Write-Host "Finished $f. Saved to $v55FileName. Distribution: 0:$($counts[0]) 1:$($counts[1]) 2:$($counts[2]) 3:$($counts[3])"
 }

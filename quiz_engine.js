@@ -312,6 +312,8 @@ class QuizEngine {
                 this.allQuestions = HRV_5_DATA;
             } else if (this.selectedSubject === "Hrvatski7" && typeof HRV_7_DATA !== 'undefined') {
                 this.allQuestions = HRV_7_DATA;
+            } else if (this.selectedSubject === "Kemija7" && typeof KEM_DATA !== 'undefined') {
+                this.allQuestions = KEM_DATA;
             }
         }
 
