@@ -228,6 +228,7 @@ function sendDailySummaries() {
       message += `\nRAZRED: ${g.grade}. r\n`;
       message += `PREDMET: ${g.subject} (${semesterText})\n`;
       message += `- Ukupno pokušaja: ${g.attempts}\n`;
+      message += `- Vrijeme vježbanja: ${formatDuration(g.totalDur)}\n`;
       if (g.completedCount > 0) {
         message += `- PROSJEČNA OCJENA: ${finalGrade}\n`;
       } else {
@@ -238,7 +239,11 @@ function sendDailySummaries() {
 
     message += `\nUKUPNO VRIJEME DANAS: ${formatDuration(totalDayDuration)}\n\n`;
     message += `SharkLearn Tim`;
-    // ... rest
+    
+    // Send to both emails if present
+    r.emails.forEach(email => {
+      MailApp.sendEmail(email, "SharkLearn: Dnevni izvještaj o učenju - " + r.studentName, message);
+    });
   }
 }
 
@@ -255,13 +260,20 @@ function calculateGradeFromPoints(points) {
  * Formatiranje sekundi u format: X sati, Y min, Z sek.
  */
 function formatDuration(seconds) {
-  if (seconds === 0) return "0 sek";
+  if (typeof seconds === 'string') seconds = parseInt(seconds);
+  if (!seconds || seconds === 0) return "0 sek";
+  
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   const s = Math.floor(seconds % 60);
 
   let parts = [];
-  if (h > 0) parts.push(h + " sati");
+  if (h > 0) {
+    let hLabel = "sati";
+    if (h === 1) hLabel = "sat";
+    else if (h >= 2 && h <= 4) hLabel = "sata";
+    parts.push(h + " " + hLabel);
+  }
   if (m > 0) parts.push(m + " min");
   if (s > 0 || parts.length === 0) parts.push(s + " sek");
   
