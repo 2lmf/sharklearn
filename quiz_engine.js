@@ -50,6 +50,10 @@ class QuizEngine {
 
             // Registration Elements
             registrationModal: document.getElementById('registration-modal'),
+            welcomeBackModal: document.getElementById('welcome-back-modal'),
+            welcomeBackName: document.getElementById('welcome-back-name'),
+            continueBtn: document.getElementById('continue-btn'),
+            newUserBtn: document.getElementById('new-user-btn'),
             regStudentName: document.getElementById('reg-student-name'),
             regParentEmail1: document.getElementById('reg-parent-email-1'),
             regParentEmail2: document.getElementById('reg-parent-email-2'),
@@ -68,12 +72,29 @@ class QuizEngine {
         this.elements.regParentEmail1.value = "";
         this.elements.regParentEmail2.value = "";
 
-        // Show Registration if needed
-        if (!this.isRegistered) {
+        // Logic for returning vs new user
+        if (this.isRegistered) {
+            // Returning user -> Show Welcome Back Modal
+            if (this.elements.welcomeBackName) this.elements.welcomeBackName.innerText = this.studentName;
+            if (this.elements.welcomeBackModal) this.elements.welcomeBackModal.style.display = 'flex';
+
+            // Setup listeners for this modal
+            if (this.elements.continueBtn) {
+                this.elements.continueBtn.onclick = () => {
+                    this.elements.welcomeBackModal.style.display = 'none';
+                    this.updateProfileUI();
+                };
+            }
+
+            if (this.elements.newUserBtn) {
+                this.elements.newUserBtn.onclick = () => {
+                    this.handleNewUser();
+                };
+            }
+        } else {
+            // New user -> Show Registration
             this.elements.registrationModal.style.display = 'flex';
             this.elements.saveProfileBtn.onclick = () => this.saveProfile();
-        } else {
-            this.updateProfileUI();
         }
 
         // Subject Card Selection Logic
@@ -127,6 +148,29 @@ class QuizEngine {
         this.elements.registrationModal.style.display = 'none';
         this.updateProfileUI();
         console.log("SharkLearn: Profile saved for", name);
+    }
+
+    handleNewUser() {
+        // Clear local data
+        if (confirm("Jesi li siguran? Tvoji lokalni podaci bit će zamijenjeni novim korisnikom.")) {
+            localStorage.removeItem('sharklearn_user_name');
+            localStorage.removeItem('sharklearn_parent_email_1');
+            localStorage.removeItem('sharklearn_parent_email_2');
+
+            this.studentName = "";
+            this.parentEmail1 = "";
+            this.parentEmail2 = "";
+            this.isRegistered = false;
+
+            // Switch modals
+            this.elements.welcomeBackModal.style.display = 'none';
+            this.elements.registrationModal.style.display = 'flex';
+
+            // Clear inputs just in case
+            this.elements.regStudentName.value = "";
+            this.elements.regParentEmail1.value = "";
+            this.elements.regParentEmail2.value = "";
+        }
     }
 
     updateProfileUI() {
@@ -358,7 +402,7 @@ class QuizEngine {
                 totalQuestions: this.currentIndex,
                 duration: this.duration,
                 isCompleted: isCompleted,
-                version: 'v38'
+                version: 'v39'
             };
             fetch(this.apiUrl, { method: 'POST', body: JSON.stringify(stats) });
         } catch (e) {
