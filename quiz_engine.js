@@ -163,9 +163,9 @@ class QuizEngine {
             if (document.visibilityState === 'hidden') {
                 // If quiz is running, try to save stats
                 if (this.elements.quizWrapper && this.elements.quizWrapper.style.display === 'block') {
-                    console.log("SharkLearn: App went background, saving stats...");
-                    // Use keepalive which is already in saveStatsToCloud
-                    this.saveStatsToCloud(false);
+                    console.log("SharkLearn: App went background, ending game...");
+                    // Force end game to prevent cheating/pausing and save stats
+                    this.endGame(false);
                 }
             }
         });
