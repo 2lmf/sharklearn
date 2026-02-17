@@ -42,7 +42,7 @@ foreach ($f in $files) {
     $counts = @{0 = 0; 1 = 0; 2 = 0; 3 = 0 }
     
     foreach ($l in $lines) {
-        if ($l -match "^\|\s*[^|]+\s*\|") {
+        if ($l -match "^\|\s*\d+\s*\|") {
             $p = $l.Split('|')
             if ($p.Count -ge 8) {
                 $opts = @($p[2].Trim(), $p[3].Trim(), $p[4].Trim(), $p[5].Trim()) # Adjusting indices for ID and Question

@@ -359,6 +359,16 @@ class QuizEngine {
                 this.allQuestions = FIZ_DATA;
             } else if (this.selectedSubject === "Matematika5" && typeof MAT_DATA !== 'undefined') {
                 this.allQuestions = MAT_DATA;
+            } else if (this.selectedSubject === "Matematika7" && typeof MAT_7_DATA !== 'undefined') {
+                this.allQuestions = MAT_7_DATA;
+            } else if (this.selectedSubject === "Engleski7" && typeof ENG_7_DATA !== 'undefined') {
+                this.allQuestions = ENG_7_DATA;
+            } else if (this.selectedSubject === "Povijest5" && typeof HIS_5_DATA !== 'undefined') {
+                this.allQuestions = HIS_5_DATA;
+            } else if (this.selectedSubject === "njemacki7" && typeof GER_7_DATA !== 'undefined') {
+                this.allQuestions = GER_7_DATA;
+            } else if (this.selectedSubject === "prirodaidrustvo5" && typeof PRI_5_DATA !== 'undefined') {
+                this.allQuestions = PRI_5_DATA;
             }
         }
 
