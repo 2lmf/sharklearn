@@ -72,7 +72,10 @@ class QuizEngine {
             displayStudentName: document.getElementById('display-student-name'),
             displayParentEmails: document.getElementById('display-parent-emails'),
             statsBtn: document.getElementById('stats-btn'),
-            statsOverlay: document.getElementById('stats-overlay')
+            statsOverlay: document.getElementById('stats-overlay'),
+            reportBugBtn: document.getElementById('report-bug-btn'),
+            bugNote: document.getElementById('bug-note'),
+            bugStatus: document.getElementById('bug-status')
         };
 
         this.init();
@@ -163,6 +166,10 @@ class QuizEngine {
         // Stats Button Logic
         if (this.elements.statsBtn) {
             this.elements.statsBtn.onclick = () => this.showStatistics();
+        }
+
+        if (this.elements.reportBugBtn) {
+            this.elements.reportBugBtn.onclick = () => this.reportBug();
         }
 
         // Safety Save on Tab Close / App Switch
@@ -717,6 +724,45 @@ class QuizEngine {
                 }
             }
         });
+    }
+
+    async reportBug() {
+        if (!this.currentMission[this.currentIndex]) return;
+
+        const q = this.currentMission[this.currentIndex];
+        const note = this.elements.bugNote.value.trim();
+        const payload = {
+            action: 'report_bug',
+            questionId: q.id,
+            subject: this.selectedSubject,
+            userId: this.userId, // User ID is unique across sessions
+            note: note
+        };
+
+        this.elements.reportBugBtn.disabled = true;
+        this.elements.reportBugBtn.innerText = "SLANJE...";
+
+        try {
+            const response = await fetch(this.apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                this.elements.bugStatus.style.display = 'inline';
+                this.elements.bugNote.value = "";
+                setTimeout(() => {
+                    this.elements.bugStatus.style.display = 'none';
+                    this.elements.reportBugBtn.disabled = false;
+                    this.elements.reportBugBtn.innerText = "PRIJAVI BUG 🐞";
+                }, 3000);
+            }
+        } catch (error) {
+            console.error("Bug report failed:", error);
+            this.elements.reportBugBtn.disabled = false;
+            this.elements.reportBugBtn.innerText = "POKUŠAJ PONOVNO";
+        }
     }
 }
 

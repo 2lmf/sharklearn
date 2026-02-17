@@ -33,6 +33,8 @@ function doPost(e) {
       return handleSaveStats(data);
     } else if (action === 'add_question') {
       return handleAddQuestion(data);
+    } else if (action === 'report_bug') {
+      return handleReportBug(data);
     }
     
     return createJsonResponse({ status: 'error', message: 'Unknown action' });
@@ -144,6 +146,28 @@ function initializeStatsSheet(ss) {
     "Završeno",     // Col K
     "User ID"       // Col L
   ]);
+  return sheet;
+}
+
+function handleReportBug(payload) {
+  const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+  const sheet = ss.getSheetByName("Bugs") || initializeBugsSheet(ss);
+  
+  sheet.appendRow([
+    new Date(),
+    payload.questionId || "N/A",
+    payload.subject || "N/A",
+    payload.userId || "N/A",
+    payload.note || ""
+  ]);
+  
+  return createJsonResponse({ status: 'success' });
+}
+
+function initializeBugsSheet(ss) {
+  const sheet = ss.insertSheet("Bugs");
+  sheet.appendRow(["Timestamp", "Question ID", "Predmet", "User ID", "Napomena"]);
+  sheet.setTabColor("#ea4335"); // Red
   return sheet;
 }
 
