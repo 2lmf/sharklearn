@@ -872,4 +872,3 @@ window.onload = () => {
     const engine = new QuizEngine();
     window.gameEngine = engine; // Expose for inline onclick handlers
 };
-```
