@@ -240,50 +240,66 @@ class QuizEngine {
     }
 
     saveProfile() {
-        const name = this.elements.regStudentName.value.trim();
-        const email1 = this.elements.regParentEmail1.value.trim();
-        const email2 = this.elements.regParentEmail2.value.trim();
+        try {
+            const name = this.elements.regStudentName.value.trim();
+            const email1 = this.elements.regParentEmail1.value.trim();
+            const email2 = this.elements.regParentEmail2.value.trim();
 
-        this.elements.regValidationMsg.style.display = 'none';
+            this.elements.regValidationMsg.style.display = 'none';
+            this.elements.registrationModal.classList.remove('modal-shake');
 
-        if (name.length < 3) {
-            this.showValidationError("Unesi puno ime (min 3 znaka).");
-            return;
-        }
-
-        const v1 = this.validateEmail(email1);
-        if (!v1.valid) {
-            this.showValidationError(v1.msg);
-            return;
-        }
-
-        if (email2) {
-            const v2 = this.validateEmail(email2);
-            if (!v2.valid) {
-                this.showValidationError("Email 2: " + v2.msg);
+            if (name.length < 3) {
+                this.showValidationError("Unesi ime i prezime (min 3 znaka).");
                 return;
             }
+
+            const v1 = this.validateEmail(email1);
+            if (!v1.valid) {
+                this.showValidationError(v1.msg);
+                return;
+            }
+
+            if (email2) {
+                const v2 = this.validateEmail(email2);
+                if (!v2.valid) {
+                    this.showValidationError("Email 2: " + v2.msg);
+                    return;
+                }
+            }
+
+            this.studentName = name;
+            this.parentEmail1 = email1;
+            this.parentEmail2 = email2;
+            this.isRegistered = true;
+
+            localStorage.setItem('sharklearn_user_name', name);
+            localStorage.setItem('sharklearn_parent_email_1', email1);
+            localStorage.setItem('sharklearn_parent_email_2', email2);
+
+            this.elements.registrationModal.style.display = 'none';
+            this.updateProfileUI();
+            this.showGradeSelection();
+            this.syncUserToCloud();
+
+            console.log("SharkLearn: Profile saved/updated:", name);
+        } catch (err) {
+            console.error("SharkLearn Critical Error:", err);
+            alert("Greška kod spremanja: " + err.message);
         }
-
-        this.studentName = name;
-        this.parentEmail1 = email1;
-        this.parentEmail2 = email2;
-        this.isRegistered = true;
-
-        localStorage.setItem('sharklearn_user_name', name);
-        localStorage.setItem('sharklearn_parent_email_1', email1);
-        localStorage.setItem('sharklearn_parent_email_2', email2);
-
-        this.elements.registrationModal.style.display = 'none';
-        this.updateProfileUI();
-        this.showGradeSelection();
-        this.syncUserToCloud();
-        console.log("SharkLearn: Profile saved/updated for", name);
     }
 
     showValidationError(msg) {
-        this.elements.regValidationMsg.innerText = "⚠️ " + msg;
+        console.warn("SharkLearn Validation Failed:", msg);
+        this.elements.regValidationMsg.innerText = "🛑 " + msg;
         this.elements.regValidationMsg.style.display = 'block';
+
+        // Modal shake effect
+        const modal = this.elements.registrationModal.querySelector('.modal-content');
+        if (modal) {
+            modal.classList.remove('modal-shake');
+            void modal.offsetWidth; // Force reflow
+            modal.classList.add('modal-shake');
+        }
     }
 
     showGradeSelection() {
