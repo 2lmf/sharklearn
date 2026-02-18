@@ -442,7 +442,6 @@ class QuizEngine {
                 throw new Error("Empty response");
             }
         } catch (e) {
-        } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
 
             // AUTOMATIC FALLBACK MAPPING
