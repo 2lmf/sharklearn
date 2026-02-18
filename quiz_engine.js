@@ -433,8 +433,14 @@ class QuizEngine {
         // Load Questions for selected subject
         try {
             console.log(`SharkLearn: Loading ${this.selectedSubject} (Sem: ${this.selectedSemester})...`);
-            // ALWAYS use local data — Google Sheets auto-converts fractions to dates
-            throw new Error("Using local data (cloud disabled for question content)");
+            const response = await fetch(`${this.apiUrl}?action=get_questions&subject=${this.selectedSubject}`);
+            const cloudData = await response.json();
+
+            if (Array.isArray(cloudData) && cloudData.length > 0) {
+                this.allQuestions = cloudData;
+            } else {
+                throw new Error("Empty response");
+            }
         } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
 
