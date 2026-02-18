@@ -868,5 +868,8 @@ class QuizEngine {
 
 // Initial Launch
 window.onload = () => {
-    window.quiz = new QuizEngine();
+    // Initialize
+    const engine = new QuizEngine();
+    window.gameEngine = engine; // Expose for inline onclick handlers
 };
+```
