@@ -442,40 +442,63 @@ class QuizEngine {
                 throw new Error("Empty response");
             }
         } catch (e) {
+        } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
-            // Local fallback based on subject
-            if (this.selectedSubject === "Biologija7" && typeof QUIZ_DATA !== 'undefined') {
-                this.allQuestions = QUIZ_DATA;
-            } else if (this.selectedSubject === "Geografija5" && typeof GEO_DATA !== 'undefined') {
-                this.allQuestions = GEO_DATA;
-            } else if (this.selectedSubject === "Engleski5" && typeof ENG_DATA !== 'undefined') {
-                this.allQuestions = ENG_DATA;
-            } else if (this.selectedSubject === "Njemacki5" && typeof GER_DATA !== 'undefined') {
-                this.allQuestions = GER_DATA;
-            } else if (this.selectedSubject === "Povijest7" && typeof HIS_DATA !== 'undefined') {
-                this.allQuestions = HIS_DATA;
-            } else if (this.selectedSubject === "Geografija7" && typeof GEO_7_DATA !== 'undefined') {
-                this.allQuestions = GEO_7_DATA;
-            } else if (this.selectedSubject === "Hrvatski5" && typeof HRV_5_DATA !== 'undefined') {
-                this.allQuestions = HRV_5_DATA;
-            } else if (this.selectedSubject === "Hrvatski7" && typeof HRV_7_DATA !== 'undefined') {
-                this.allQuestions = HRV_7_DATA;
-            } else if (this.selectedSubject === "Kemija7" && typeof KEM_DATA !== 'undefined') {
-                this.allQuestions = KEM_DATA;
-            } else if (this.selectedSubject === "Fizika7" && typeof FIZ_DATA !== 'undefined') {
-                this.allQuestions = FIZ_DATA;
-            } else if (this.selectedSubject === "Matematika5" && typeof MAT_DATA !== 'undefined') {
-                this.allQuestions = MAT_DATA;
-            } else if (this.selectedSubject === "Matematika7" && typeof MAT_7_DATA !== 'undefined') {
-                this.allQuestions = MAT_7_DATA;
-            } else if (this.selectedSubject === "Engleski7" && typeof ENG_7_DATA !== 'undefined') {
-                this.allQuestions = ENG_7_DATA;
-            } else if (this.selectedSubject === "Povijest5" && typeof HIS_5_DATA !== 'undefined') {
-                this.allQuestions = HIS_5_DATA;
-            } else if (this.selectedSubject === "njemacki7" && typeof GER_7_DATA !== 'undefined') {
-                this.allQuestions = GER_7_DATA;
-            } else if (this.selectedSubject === "prirodaidrustvo5" && typeof PRI_5_DATA !== 'undefined') {
-                this.allQuestions = PRI_5_DATA;
+
+            // AUTOMATIC FALLBACK MAPPING
+            // Maps subject names to their global variable data sources
+            const dataMap = {
+                // 5. RAZRED
+                "Matematika5": "MAT_DATA",
+                "Hrvatski5": "HRV_5_DATA",
+                "Engleski5": "ENG_DATA",
+                "Njemacki5": "GER_DATA",
+                "Geografija5": "GEO_DATA",
+                "Povijest5": "HIS_5_DATA",
+                "prirodaidrustvo5": "PRI_5_DATA",
+                "Informatika5": "INF_5_DATA",
+                "Tehnicki5": "TEH_5_DATA",
+                "Likovni5": "LIK_5_DATA",
+                "Glazbeni5": "GLA_5_DATA",
+
+                // 6. RAZRED
+                "Matematika6": "MAT_6_DATA",
+                "Hrvatski6": "HRV_6_DATA",
+                "Engleski6": "ENG_6_DATA",
+                "Njemacki6": "GER_6_DATA",
+                "Geografija6": "GEO_6_DATA",
+                "Povijest6": "HIS_6_DATA",
+                "Priroda6": "PRI_6_DATA",
+                "Informatika6": "INF_6_DATA",
+                "Tehnicki6": "TEH_6_DATA",
+                "Likovni6": "LIK_6_DATA",
+                "Glazbeni6": "GLA_6_DATA",
+
+                // 7. RAZRED
+                "Biologija7": "QUIZ_DATA", // Legacy name kept for safety
+                "Matematika7": "MAT_7_DATA",
+                "Hrvatski7": "HRV_7_DATA",
+                "Engleski7": "ENG_7_DATA",
+                "njemacki7": "GER_7_DATA", // Small 'n' legacy check
+                "Geografija7": "GEO_7_DATA",
+                "Povijest7": "HIS_DATA", // Legacy name
+                "Kemija7": "KEM_DATA",
+                "Fizika7": "FIZ_DATA",
+                "Informatika7": "INF_7_DATA",
+                "Tehnicki7": "TEH_7_DATA",
+                "Likovni7": "LIK_7_DATA",
+                "Glazbeni7": "GLAZ_7_DATA"
+            };
+
+            // Normalize subject name just in case (e.g. "Njemacki7" vs "njemacki7")
+            // Note: In the map above keys must match exactly what is in index.html data-subject attributes
+
+            const varName = dataMap[this.selectedSubject];
+            if (varName && window[varName]) {
+                console.log(`SharkLearn: Using local fallback for ${this.selectedSubject} (${varName})`);
+                this.allQuestions = window[varName];
+            } else {
+                console.error(`SharkLearn: No local data found for ${this.selectedSubject}`);
             }
         }
 
