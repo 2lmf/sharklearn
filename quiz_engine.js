@@ -240,28 +240,36 @@ class QuizEngine {
     }
 
     saveProfile() {
+        console.log("SharkLearn: saveProfile triggered");
         try {
             const name = this.elements.regStudentName.value.trim();
             const email1 = this.elements.regParentEmail1.value.trim();
             const email2 = this.elements.regParentEmail2.value.trim();
 
+            console.log("SharkLearn: Inputs -", { name, email1, email2 });
+
             this.elements.regValidationMsg.style.display = 'none';
             this.elements.registrationModal.classList.remove('modal-shake');
 
             if (name.length < 3) {
+                console.warn("SharkLearn: Name too short");
                 this.showValidationError("Unesi ime i prezime (min 3 znaka).");
                 return;
             }
 
+            console.log("SharkLearn: Validating email 1...");
             const v1 = this.validateEmail(email1);
             if (!v1.valid) {
+                console.warn("SharkLearn: Email 1 invalid -", v1.msg);
                 this.showValidationError(v1.msg);
                 return;
             }
 
             if (email2) {
+                console.log("SharkLearn: Validating email 2...");
                 const v2 = this.validateEmail(email2);
                 if (!v2.valid) {
+                    console.warn("SharkLearn: Email 2 invalid -", v2.msg);
                     this.showValidationError("Email 2: " + v2.msg);
                     return;
                 }
