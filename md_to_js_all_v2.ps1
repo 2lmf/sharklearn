@@ -87,11 +87,11 @@ foreach ($item in $mappings.GetEnumerator()) {
                 $p = $line.Split('|')
                 if ($p.Count -ge 11) {
                     $id = $p[1].Trim()
-                    $q = $p[2].Trim() -replace '"', '\"'
-                    $a = $p[3].Trim() -replace '"', '\"'
-                    $b = $p[4].Trim() -replace '"', '\"'
-                    $c = $p[5].Trim() -replace '"', '\"'
-                    $d = $p[6].Trim() -replace '"', '\"'
+                    $q = [string]$p[2].Trim() -replace '"', '\"'
+                    $a = [string]$p[3].Trim() -replace '"', '\"'
+                    $b = [string]$p[4].Trim() -replace '"', '\"'
+                    $c = [string]$p[5].Trim() -replace '"', '\"'
+                    $d = [string]$p[6].Trim() -replace '"', '\"'
                     $correct = $p[7].Trim()
                     $exp = $p[9].Trim() -replace '"', '\"'
                     $sem = $p[10].Trim()
