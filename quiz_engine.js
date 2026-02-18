@@ -286,7 +286,7 @@ class QuizEngine {
 
             this.elements.registrationModal.style.display = 'none';
             this.updateProfileUI();
-            this.showGradeSelection();
+            this.showGradeSelection(); // Direct redirect to grades
             this.syncUserToCloud();
 
             console.log("SharkLearn: Profile saved/updated:", name);
