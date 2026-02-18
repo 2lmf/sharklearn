@@ -1,7 +1,7 @@
 # md_to_js_ALL_V2.ps1
 # Converts all V55 Markdown tables to JS data files for the quiz engine.
 
-$dir = "C:\Users\Karlo\.gemini\antigravity\brain\223b23d5-3f10-45f7-9806-53de5c111c1d"
+$dir = "C:\Users\Karlo\.gemini\antigravity\brain\bd5895eb-bf2b-4f7a-ad08-034d1e3999d3"
 $outDir = "C:\Users\Karlo\.gemini\antigravity\scratch\edukacija-app\content"
 
 $mappings = @{
