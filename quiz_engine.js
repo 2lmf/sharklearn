@@ -75,7 +75,9 @@ class QuizEngine {
             statsOverlay: document.getElementById('stats-overlay'),
             reportBugBtn: document.getElementById('report-bug-btn'),
             bugNote: document.getElementById('bug-note'),
-            bugStatus: document.getElementById('bug-status')
+            bugStatus: document.getElementById('bug-status'),
+            editProfileBtn: document.getElementById('edit-profile-btn'),
+            regValidationMsg: document.getElementById('reg-validation-msg')
         };
 
         this.init();
@@ -172,6 +174,10 @@ class QuizEngine {
             this.elements.reportBugBtn.onclick = () => this.reportBug();
         }
 
+        if (this.elements.editProfileBtn) {
+            this.elements.editProfileBtn.onclick = () => this.editProfile();
+        }
+
         // Safety Save on Tab Close / App Switch
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'hidden') {
@@ -185,14 +191,78 @@ class QuizEngine {
         });
     }
 
+    validateEmail(email) {
+        if (!email) return { valid: false, msg: "Email nedostaje!" };
+
+        // Basic Regex
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(email)) return { valid: false, msg: "Neispravan format emaila!" };
+
+        // Common typos
+        if (email.includes('..')) return { valid: false, msg: "Email ima dvije točke za redom (..)" };
+        if (email.includes('.@')) return { valid: false, msg: "Email ima točku ispred @ signa (.@)" };
+
+        const parts = email.split('@');
+        if (parts[1] && parts[1].startsWith('.')) return { valid: false, msg: "Domena ne smije početi točkom!" };
+
+        return { valid: true };
+    }
+
+    async syncUserToCloud() {
+        try {
+            const payload = {
+                action: 'sync_user',
+                userId: this.userId,
+                studentName: this.studentName,
+                parentEmail1: this.parentEmail1,
+                parentEmail2: this.parentEmail2
+            };
+            fetch(this.apiUrl, {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                mode: 'no-cors'
+            });
+        } catch (e) {
+            console.warn("SharkLearn: User sync failed", e);
+        }
+    }
+
+    editProfile() {
+        // Populate inputs with current data
+        this.elements.regStudentName.value = this.studentName;
+        this.elements.regParentEmail1.value = this.parentEmail1;
+        this.elements.regParentEmail2.value = this.parentEmail2 || "";
+
+        // Change button text and show modal
+        this.elements.saveProfileBtn.innerText = "SPREMI PROMJENE";
+        this.elements.registrationModal.style.display = 'flex';
+        this.elements.regValidationMsg.style.display = 'none';
+    }
+
     saveProfile() {
         const name = this.elements.regStudentName.value.trim();
         const email1 = this.elements.regParentEmail1.value.trim();
         const email2 = this.elements.regParentEmail2.value.trim();
 
-        if (name.length < 3 || !email1.includes('@')) {
-            alert("Molim te unesi svoje ime i barem jedan ispravan email roditelja!");
+        this.elements.regValidationMsg.style.display = 'none';
+
+        if (name.length < 3) {
+            this.showValidationError("Unesi puno ime (min 3 znaka).");
             return;
+        }
+
+        const v1 = this.validateEmail(email1);
+        if (!v1.valid) {
+            this.showValidationError(v1.msg);
+            return;
+        }
+
+        if (email2) {
+            const v2 = this.validateEmail(email2);
+            if (!v2.valid) {
+                this.showValidationError("Email 2: " + v2.msg);
+                return;
+            }
         }
 
         this.studentName = name;
@@ -202,12 +272,18 @@ class QuizEngine {
 
         localStorage.setItem('sharklearn_user_name', name);
         localStorage.setItem('sharklearn_parent_email_1', email1);
-        if (email2) localStorage.setItem('sharklearn_parent_email_2', email2);
+        localStorage.setItem('sharklearn_parent_email_2', email2);
 
         this.elements.registrationModal.style.display = 'none';
         this.updateProfileUI();
         this.showGradeSelection();
-        console.log("SharkLearn: Profile saved for", name);
+        this.syncUserToCloud();
+        console.log("SharkLearn: Profile saved/updated for", name);
+    }
+
+    showValidationError(msg) {
+        this.elements.regValidationMsg.innerText = "⚠️ " + msg;
+        this.elements.regValidationMsg.style.display = 'block';
     }
 
     showGradeSelection() {

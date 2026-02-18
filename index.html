@@ -86,8 +86,8 @@
                         autocomplete="one-time-code">
                     <input type="email" id="reg-parent-email-2" placeholder="Email roditelja 2 (opcionalno)"
                         class="reg-input" autocomplete="one-time-code">
-                    <p style="font-size: 0.75rem; color: var(--neon-orange); line-height: 1.4; margin-top: 5px;">⚠️ Ime
-                        se ne može naknadno mijenjati radi točnosti izvještaja.</p>
+                    <div id="reg-validation-msg"
+                        style="color: #ff4444; font-size: 0.8rem; display: none; margin-bottom: 5px;"></div>
                     <button class="btn-primary" id="save-profile-btn"
                         style="width: 100%; margin-top: 10px; padding: 18px;">SPREMI I KRENI</button>
 
@@ -110,7 +110,10 @@
                     style="font-size: 0.7rem; filter: drop-shadow(0 0 5px var(--neon-cyan));">●</span>
                 <span id="display-student-name">Učenik</span>
             </div>
-            <div id="display-parent-emails" class="parent-tag" style="text-align: right; opacity: 0.8;"></div>
+            <div id="display-parent-emails" class="parent-tag" style="text-align: right; opacity: 0.8; flex: 1;"></div>
+            <button id="edit-profile-btn"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 4px; padding: 2px 8px; font-size: 0.7rem; cursor: pointer; margin-left: 10px;">UREDI
+                ✏️</button>
         </div>
 
         <!-- GRADE SELECTION SCREEN -->

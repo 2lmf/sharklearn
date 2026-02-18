@@ -35,6 +35,8 @@ function doPost(e) {
       return handleAddQuestion(data);
     } else if (action === 'report_bug') {
       return handleReportBug(data);
+    } else if (action === 'sync_user') {
+      return handleSyncUser(data);
     }
     
     return createJsonResponse({ status: 'error', message: 'Unknown action' });
@@ -168,6 +170,48 @@ function initializeBugsSheet(ss) {
   const sheet = ss.insertSheet("Bugs");
   sheet.appendRow(["Timestamp", "Question ID", "Predmet", "User ID", "Napomena"]);
   sheet.setTabColor("#ea4335"); // Red
+  return sheet;
+}
+
+function handleSyncUser(payload) {
+  const ss = SpreadsheetApp.openById(CONFIG.SHEET_ID);
+  const sheet = ss.getSheetByName("Users") || initializeUsersSheet(ss);
+  const data = sheet.getDataRange().getValues();
+  const userId = payload.userId;
+  
+  if (!userId) {
+    return createJsonResponse({ status: 'error', message: 'Missing User ID' });
+  }
+
+  let rowToUpdate = -1;
+  for (let i = 1; i < data.length; i++) {
+    if (data[i][0] === userId) {
+      rowToUpdate = i + 1;
+      break;
+    }
+  }
+
+  const rowData = [
+    userId,
+    new Date(),
+    payload.studentName || "Anonymous",
+    payload.parentEmail1 || "",
+    payload.parentEmail2 || ""
+  ];
+
+  if (rowToUpdate !== -1) {
+    sheet.getRange(rowToUpdate, 1, 1, rowData.length).setValues([rowData]);
+  } else {
+    sheet.appendRow(rowData);
+  }
+
+  return createJsonResponse({ status: 'success' });
+}
+
+function initializeUsersSheet(ss) {
+  const sheet = ss.insertSheet("Users");
+  sheet.appendRow(["User ID", "Last Sync", "Učenik", "Email 1", "Email 2"]);
+  sheet.setTabColor("#9b59b6"); // Purple
   return sheet;
 }
 
