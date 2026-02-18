@@ -668,12 +668,12 @@ class QuizEngine {
 
         if (success) {
             this.elements.finalStats.innerText = `Misija uspješna, ${this.studentName}! Osvojio si ${this.score} bodova.`;
-            this.saveStatsToCloud(true); // Completed = DA
         } else {
-            this.elements.finalStats.innerText = `Misija neuspješna. Pokušaj ponovno, ${this.studentName}!`;
+            this.elements.finalStats.innerText = `Misija neuspješna. Tvoja ocjena je 1. Pokušaj ponovno, ${this.studentName}!`;
             this.elements.finalStats.style.color = "var(--neon-orange)";
-            this.saveStatsToCloud(false); // Completed = NE (but has duration/score)
         }
+        // Save as COMPLETED even if failed (Game Over counts as Grade 1 attempt)
+        this.saveStatsToCloud(true);
     }
 
     async saveStatsToCloud(isCompleted = false) {
