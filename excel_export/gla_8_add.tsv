@@ -1,0 +1,101 @@
+﻿ID	Semestar	Pitanje	Opcija A	Opcija B	Opcija C	Opcija D	Tocan odgovor	Objasnjenje
+101	1	Pentatonska ljestvica ima:	7 tonova	5 tonova	12 tonova	3 tona	1	Penta = 5. Česta u folk i rock glazbi.
+102	1	Kromatska ljestvica ima:	7 tonova	5 tonova	12 tonova (svi polutonovi)	8 tonova	2	Svaki ton udaljen je poluton od sljedećeg.
+103	1	Modulacija u glazbi je:	Promjena ritma	Prijelaz iz jednog tonaliteta u drugi	Promjena tempa	Promjena glasnoće	1	Česta u klasičnoj i pop glazbi.
+104	1	Predznaci (#, b) na početku notnog zapisa:	Samo ukras	Određuju tonalitet skladbe	Samo za ritam	Samo za tempo	1	# = povisilica, b = snizilica.
+105	2	Soul glazba nastala je iz:	Klasike	Gospela i R&B-a	Rocka	Jazzu	1	Aretha Franklin, Marvin Gaye, Otis Redding.
+106	2	Funk glazba karakterizira:	Tihi zvuk	Naglašenu bas liniju i ritmičku sekciju	Samo pjevanje	Samo gudače	1	James Brown — 'Godfather of Funk'.
+107	2	Disco glazba bila je popularna u:	1950-ima	1960-ima	1970-ima	1990-ima	2	Bee Gees, Donna Summer, Saturday Night Fever.
+108	2	Indie rok/pop je:	Mainstream	Nezavisna glazba izdana izvan velikih diskografskih kuća	Samo klasika	Samo jazz	1	Radiohead, Arctic Monkeys — kreativna sloboda.
+109	1	Orgulje su:	Samo gudački instrument	Puhačko-tipkački instrument, najveći klasični instrument	Samo udaraljka	Samo elektronički instrument	1	Crkve, dvorane — moćan zvuk.
+110	1	Harmonika (harmonijka) je:	Gudač	Aerofonni instrument s tipkama i mjehom	Udaraljka	Samo elektronski instrument	1	Popularna u folk glazbi diljem svijeta.
+111	1	Saksofon pripada skupini:	Limenih puhača	Drvenih puhača (ima trsku)	Gudača	Udaraljki	1	Adolphe Sax — izumio ga 1846.
+112	1	Klarinet je:	Limeni puhač	Drveni puhač s jednom trskom	Gudač	Udaraljka	1	Topao, mekan zvuk — od klasike do jazza.
+113	1	Oboa je:	Limeni puhač	Drveni puhač s dvostrukom trskom	Gudač	Udaraljka	1	Karakterističan nazalan zvuk.
+114	2	Sintesajzer je:	Akustički instrument	Elektronički instrument koji sintetizira zvukove	Samo bubanj	Samo gitara	1	Moog, Roland, Korg — revolucija zvuka.
+115	2	MIDI je:	Vrsta gitare	Digitalni protokol za komunikaciju glazbenih uređaja	Vrsta mikrofona	Vrsta pojačala	1	Musical Instrument Digital Interface.
+116	2	Auto-Tune koristi se za:	Pojačavanje	Korekciju intonacije glasa u studijskim snimkama	Samo za bubnjeve	Samo za gitaru	1	Čer — Believe (1998) — popularizirala efekt.
+117	1	Rondo forma je:	ABA	ABACADA (refren se ponavlja)	AB	AABB	1	Refren (A) se izmjenjuje s epizodama (B, C...).
+118	1	Trodijelna forma je:	AB	ABA	ABCD	AABB	1	Tema — kontrast — povratak teme.
+119	1	Varijacije su glazbena forma u kojoj:	Nema promjena	Tema se ponavlja s promjenama (ritam, harmonija, melodija)	Samo se ubrzava	Samo se usporava	1	Mozart: Ah! vous dirai-je, Maman (Twinkle Twinkle).
+120	2	Recitativ u operi je:	Plesna točka	Pjevani govor koji vodi radnju između arija	Zbor	Instrumentalni solo	1	Pripovjedni, govorno-pjevačkim stilom.
+121	2	Duet u glazbi je:	Solo	Skladba za dva izvođača	Trio	Kvartet	1	Dva pjevača ili instrumentalista.
+122	2	Requiem je:	Vesela skladba	Misa za pokojne	Ples	Marš	1	Mozartov, Verdijev, Brahmsov requiem.
+123	2	Oratorij je:	Samo opera	Velikla vokalno-instrumentalna skladba na religioznu temu (bez scenografije)	Samo balet	Samo simfonija	1	Händel: Mesija — Aleluja.
+124	1	Kanon je:	Samo jedan glas	Imitacijska forma — glasovi ulaze jedan za drugim s istom melodijom	Samo akordi	Samo ritam	1	Frère Jacques — najpoznatiji kanon.
+125	1	Ostinato je:	Solo	Ponavljajući glazbeni obrazac (ritam ili melodija)	Samo pjevanje	Samo pauza	1	Basso ostinato — Bolero (Ravel).
+126	2	Jingle je:	Dugačka skladba	Kratka glazbena fraza za reklamu ili identifikaciju	Opera	Simfonija	1	Glazba koja se lako pamti.
+127	2	Podcast može uključivati:	Samo glazbu	Govor, intervjue, glazbu i zvučne efekte	Samo video	Samo slike	1	Audio sadržaj za slušanje na zahtjev.
+128	1	Crescendo i decrescendo su elementi:	Melodije	Dinamike	Ritma	Harmonije	1	Dinamika = glasnoća u glazbi.
+129	1	Allegro znači:	Lagano	Brzo i veselo	Umjereno	Vrlo lagano	1	Tempooznaka — oko 120-160 BPM.
+130	1	Adagio znači:	Brzo	Lagano i dostojanstveno	Umjereno	Jako brzo	1	Tempooznaka — oko 55-65 BPM.
+131	1	Andante znači:	Brzo	Hodeći tempo (umjereno)	Vrlo lagano	Jako brzo	1	Tempooznaka — oko 76-108 BPM.
+132	1	Presto znači:	Lagano	Umjereno	Jako brzo	Tiho	2	Tempooznaka — oko 168-200 BPM.
+133	2	Fermat u glazbi:	Skraćuje notu	Produžava notu ili pauzu po želji izvođača	Mijenja visinu	Mijenja boju	1	Znak: polukrug s točkom iznad note.
+134	2	Triller je:	Pjevačka tehnika	Brzo izmjenjivanje tona i susjednog tona	Samo za bubnjeve	Samo za klavir	1	Ukrasniki (ornamenti) u glazbi.
+135	2	Vibrato je:	Samo za gitaru	Blago titranje visine tona za topliji zvuk	Samo za bubnjeve	Staccato	1	Koriste ga pjevači i gudači.
+136	1	Mješoviti zbor se sastoji od:	Samo muškaracas	Muških i ženskih glasova (SATB)	Samo žena	Samo djece	1	Sopran, Alt, Tenor, Bas.
+137	1	Dječji zbor pjeva u:	Samo niskim registrima	Višim registrima — sopran i alt	Samo bas	Samo tenor	1	Čisto, zvonko pjevanje.
+138	2	Claude Debussy bio je:	Barokni	Francuski impresionistički skladatel	Rock glazbenik	Jazz glazbenik	1	Clair de Lune, La Mer.
+139	2	Igor Stravinski je poznat po:	Oiperama	Posvećenju proljeća (Rite of Spring)	Jazzom	Pop glazbom	1	Revolucionarno djelo — skandal na premijeri 1913.
+140	2	Béla Bartók koristio je:	Samo pop	Elemente folk glazbe u modernim klasičnim skladbama	Samo jazz	Samo elektroniku	1	Mađarski folklor + moderna harmonija.
+141	1	Boris Papandopulo bio je:	Pop glazbenik	Istaknuti hrvatski skladatel 20. stoljeća	Rock glazbenik	Jazz glazbenik	1	Sinfonietta, koncerti, kantate.
+142	1	Ivo Tijardović napisao je:	Samo simfonije	Malu Floramy i Split sjene	Samo zbor	Samo solo pjesme	1	Splitske operete.
+143	1	Oliver Dragojević bio je:	Klasični pijanist	Legendarni hrvatski pop pjevač	Jazz trubač	Rock gitarist	1	Cesarica, Kad mi dođeš ti.
+144	2	Arsen Dedić bio je:	Classical glazbenik	Hrvatski kantautor i šansonjer	Rock glazbenik	DJ	1	Kuća pored mora, Ti si meni sve.
+145	2	Eurosong/Eurovision Song Contest je:	Samo europsko natjecanje	Međunarodno natjecanje pjesmanice u Europi (i šire)	Samo američki show	Samo TV emisija	1	Od 1956. — ABBA, Celine Dion itd.
+146	1	Xilofon pripada skupini:	Gudača	Udaraljki s tonovima	Puhača	Žičanih instrumenta	1	Drvene pločice koje se udaraju palicama.
+147	1	Timpani ( kotlovi) su:	Gudači	Udaraljke s određenom visinom tona	Puhači	Tipkači	1	Veliki bakreni bubnjevi u orkestru.
+148	2	Glazbena terapija koristi:	Samo slušanje	Glazbu za liječenje i poboljšanje mentalnog zdravlja	Samo sviranje	Samo pjevanje	1	Dokazani pozitivni učinci na stres, bol, emocije.
+149	2	Autorska prava u glazbi:	Ne postoje	Štite originalni rad glazbenika i skladatelja	Samo za klasiku	Samo za rock	1	Copyright, tantiijeme, licencije.
+150	2	Plagijat u glazbi znači:	Originalnost	Prisvajanje tuđe melodije ili teksta bez dopuštenja	Inspiracija	Hommage	1	Pravni i etički problem.
+151	1	Ballada može biti:	Samo brza	I pjesma i instrumentalna skladba narativnog karaktera	Samo u jazzu	Samo u operi	1	Balada = pripovijedanje kroz glazbu.
+152	1	Rock balada je:	Brza pjesma	Lagana, emocionalna rock pjesma	Samo instrumentalna	Samo plesna	1	Guns N' Roses — November Rain.
+153	2	Country glazba potječe iz:	Europe	Ruralne Amerike (Jug SAD-a)	Azije	Afrike	1	Johnny Cash, Dolly Parton, Taylor Swift.
+154	2	Flamenco je:	Brazilski	Španjolski glazbeno-plesni žanr	Talijanski	Francuski	1	Gitara, ritam, ples — Andaluzija.
+155	2	Bossa nova potječe iz:	Argentine	Brazila	Meksika	Portugala	1	Jobim, Gilberto — samba + jazz.
+156	1	Enharmonski ton znači:	Različit ton	Isti ton s različitim imenom (C# = Db)	Samo dur	Samo mol	1	Na klaviru — ista tipka.
+157	1	Transpozicija u glazbi je:	Promjena ritma	Premještanje melodije u drugi tonalitet	Promjena tempa	Promjena dinamike	1	Npr. iz C-dura u G-dur.
+158	2	Lo-fi glazba karakterizira:	Savršena produkcija	Namjerno nesavršeran zvuk za opuštenu atmosferu	Samo glasni zvukovi	Samo klasika	1	Popularna za učenje i opuštanje.
+159	2	Cilj glazbe u videograma:	Samo pozadinski šum	Stvaranje atmosfere i reakcije na akcije igrača	Samo reklama	Nema cilja	1	Interaktivna, adaptivna glazba.
+160	1	Pauza u glazbi:	Samo greška	Tišina određenog trajanja — jednako važna kao ton	Samo za bubnjeve	Niet bitna	1	Cijela, polovinska, četvrtinska, osminska pauza.
+161	1	Da capo (D.C.) znači:	Kraj	Od početka (ponovno)	Brže	Tiše	1	D.C. al Fine = od početka do oznake Fine.
+162	1	Dal segno (D.S.) znači:	Od kraja	Od znaka (§) ponovo	Brže	Glasnije	1	Navigacijski znakovi u notnom tekstu.
+163	2	Leitmotiv je:	Samo melodija	Kratki glazbeni motiv povezan s likom, situacijom ili idejom	Samo ritam	Samo akord	1	Wagner — operni leitmotivi. Star Wars teme.
+164	2	Tonski slikanje (tone painting) je:	Samo crtanje	Korištenje glazbe da dočara nemuzičke ideje (kiša, ptica)	Samo boja	Samo tonalitet	1	Vivaldi: Četiri godišnja doba — zvukovi prirode.
+165	2	Disharmonija/disonanca u glazbi:	Uvijek negativna	Napetost koja se obično razrješava u konsonancu	Samo greška	Samo u modernoj	1	Disonanca stvara napetost, konsonanca mir.
+166	1	Čajkovskijev Orašar je:	Opera	Balet	Simfonija	Koncert	1	Ples šećerne vile — božićni klasik.
+167	1	Rossinijev Wilhelm Tell poznait je po:	Ariji	Uvertiri (galop na kraju)	Baletu	Zboru	1	Jedna od najpoznatijih uvertira ikada.
+168	2	Freddie Mercury bio je:	Klasični kompozitor	Frontman benda Queen	Jazz trubač	DJ	1	Bohemian Rhapsody, We Will Rock You.
+169	2	Michael Jackson nazivan je:	Kralj rocka	Kralj popa	Kralj jazza	Kralj bluesa	1	Thriller, Billie Jean, Beat It.
+170	2	David Bowie bio je poznat po:	Samo jednom žanru	Stalnom glazbenom i vizualnom reinventiranju	Samo klasici	Samo jazzu	1	Ziggy Stardust, Space Oddity, Changes.
+171	1	Tko svira solo u koncertu (concerto)?	Zbor	Solist uz pratnju orkestra	Samo dirigent	Samo prvi violinist	1	Klavirski koncert, violinski koncert.
+172	1	Simfonijski orkestar obično ima:	10-20 glazbenika	60-100+ glazbenika	200 glazbenika	5 glazbenika	1	Veliki ansambl za klasičnu glazbu.
+173	2	Jimi Hendrix bio je:	Klasični pijanist	Legendarni rock gitarist	Jazz saxofonist	Blues harmoničar	1	Purple Haze, Voodoo Child.
+174	2	Bob Dylan je dobio Nobelovu nagradu za:	Fiziku	Književnost (za tekstove pjesama)	Mir	Kemiju	1	2016. — za poetske izraze u pjesničkoj tradiciji.
+175	1	Marš je glazbena forma za:	Ples	Hodanje/koračanje u pravilnom ritmu	Pjevanje	Meditaciju	1	Vojni maršen, svečani marševi.
+176	1	Valcer je:	Ples u 4/4 mjeri	Ples u 3/4 mjeri	Ples u 2/4 mjeri	Ples u 6/8 mjeri	1	Strauss — Na lijkepom plavom Dunavu.
+177	2	Polka je:	Lagani ples	Brz ples u 2/4 mjeri	Spori ples	Ples u 3/4 mjeri	1	Češkog podrijetla — vesela, brza.
+178	2	Slavonsko kolo je:	Solo ples	Tradicionalni narodni grupni ples	Balet	Modereni ples	1	Dio hrvatske nematerijalne kulturne baštine.
+179	1	Crescendo od pp do ff stvara:	Monotoniju	Dramatičan uspon glasnoće — veliki kontrast	Tišinu	Smanjnje	1	Ravel: Bolero — najpoznatiji dugi crescendo.
+180	2	Glissando je:	Pauza	Klizanje između dva tona	Samo akord	Samo pauza	1	Na klaviru — klizanjeac po tipkama.
+181	1	Metronom se koristi za:	Mjerenje glasnoće	Održavanje stalnog tempa pri vježbanju	Mjerenje visine	Snimanje	1	BPM — otkucaji u minuti.
+182	1	BPM znači:	Beats Per Mile	Beats Per Minute (otkucaji u minuti)	Bass Per Measure	Bars Per Music	1	Mjera tempa.
+183	2	Glazbeni producent:	Samo svira	Vodi proces snimanja, oblikuje zvuk i viziju albuma	Samo pjeva	Samo piše tekstove	1	Quincy Jones, Rick Rubin, Max Martin.
+184	2	Akustika proučava:	Samo svjetlo	Zvuk — nastanak, prijenos i percepciju	Samo boje	Samo pokret	1	Važna za koncertne dvorane i studije.
+185	1	Rezonancija u glazbi:	Samo tišina	Pojačanje zvuka tijelom instrumenta ili prostora	Samo masa	Samo boja	1	Tijelo gitare rezonira i pojačava zvuk.
+186	2	Karaoke znači:	Prazan orkestar (japanski)	Pjevanje uz instrumentalnu podlogu bez vokalnog originala	Samo u Japanu	Samo za profesionalce	1	Kara (prazan) + oke (orkestar).
+187	2	Cover verzija je:	Plagijat	Novo izvođenje postojeće pjesme od drugog izvođača	Original	Remix	1	Legalno uz licenciju — nova interpretacija.
+188	2	Remix je:	Original	Preuređena verzija postojeće snimke	Cover	Plagijat	1	DJ prerađuje postojeću pjesmu.
+189	1	Koja je razlika između ritma i metra?	Nema razlike	Metar je pravilna shema, ritam je slobodniji raspored trajanja	Samo tempo	Samo glasnoća	1	Metar = okvir, ritam = sadržaj unutar okvira.
+190	2	Muzikologija je:	Samo sviranje	Znanost o glazbi	Samo pjevanje	Samo skladanje	1	Proučava povijest, teoriju i kulturu glazbe.
+191	1	Notni crtovlje (notne linije) ima:	4 linije	5 linija	6 linija	3 linije	1	5 linija, 4 praznine.
+192	1	Pjevačka tehnika 'bel canto' znači:	Ružan glas	Lijepo pjevanje (talijanska operska tehnika)	Glasno sviranje	Tiho pjevanje	1	Rossini, Bellini, Donizetti.
+193	2	Glazba i emocije:	Nema veze	Glazba izravno utječe na raspoloženje i emocije	Samo pozitivne	Samo negativne	1	Radost, tuga, sjeta, uzbuđenje.
+194	2	Glazba i matematika:	Nema veze	Dijele zajedničke strukture (proporcije, uzorci, ritam)	Samo brojevi	Samo geometrija	1	Pitagora — matematičke osnove glazbe.
+195	1	Solfeggio (solmizacija) koristi:	Samo brojeve	Do, Re, Mi, Fa, Sol, La, Si za imenovanje tonova	Samo slova	Samo simbole	1	Metoda za učenje intonacije.
+196	2	Absolute pitch (apsolutni sluh) je:	Čest	Rijetka sposobnost označavanja tona bez referentnog tona	Nemoguć	Samo kod djece	1	Mozart je imao apsolutni sluh.
+197	1	Pratnja u pop/rock bendu obično uključuje:	Samo violinu	Gitaru, bas gitaru, bubnjeve, (klavir/tipke)	Samo harfu	Samo flautu	1	Osnovna postava rock/pop benda.
+198	2	Spotify, Apple Music i YouTube Music su:	Radio stanice	Streaming platforme za glazbu	Samo video platforme	Samo podcast platforme	1	Digitalna distribucija glazbe.
+199	1	Važnost sviranje instrumenta za mlade:	Nije bitno	Razvija motoriku, koncentraciju, kreativnost i disciplinu	Samo za profesionalce	Samo za zabavu	1	Dokazani pozitivni učinci na mozak.
+200	2	Glazbena kultura u 8. razredu pomaže:	Samo za ocjene	Razumjeti, cijeniti i aktivno sudjelovati u glazbenom svijetu	Samo za zabavu	Nema koristi	1	Glazba povezuje ljude i kulture!

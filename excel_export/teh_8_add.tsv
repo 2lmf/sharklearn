@@ -1,0 +1,101 @@
+﻿ID	Semestar	Pitanje	Opcija A	Opcija B	Opcija C	Opcija D	Tocan odgovor	Objasnjenje
+101	1	Elektromagnet nastaje kada:	Struja teče kroz vakuum	Električna struja protječe kroz zavojnicu	Magnet se zagrije	Struja se zaustavi	1	Zavojnica s jezgrom — elektromagnetski učinak.
+102	1	Relej je:	Samo otpornik	Elektromagnetski prekidač	Samo kondenzator	Samo dioda	1	Mala struja upravlja velikom strujom.
+103	1	Električna zvonca koriste:	Samo bateriju	Elektromagnet za pokretanje udarača	Samo motor	Samo LED	1	Prekidač → struja → elektromagnet → udarač.
+104	1	Poluga je jednostavan stroj koji:	Proizvodi energiju	Smanjuje silu potrebnu za pomicanje tereta	Samo drži	Samo rezuje	1	Oslonac, sila, teret — tri vrste poluge.
+105	1	Kolotur služi za:	Samo ukrašavanje	Promjenu smjera ili veličine sile	Samo za mjerenje	Samo za zaustavljanje	1	Nepokretni kolotur → mijenja smjer, pokretni → smanjuje silu.
+106	1	Vreteno (vijak) kao jednostavan stroj:	Samo za montažu	Pretvara rotaciju u linearno gibanje	Samo za drvo	Samo za metal	1	Vijačni mehanizam — preša, dizalica.
+107	2	Biogoriva su:	Fosilna goriva	Goriva proizvedena iz biljaka ili organskog otpada	Nuklearna energija	Samo sunčeva energija	1	Biodizel, bioetanol — obnovljivi.
+108	2	Geotermalna energija koristi:	Sunce	Toplinu iz unutrašnjosti Zemlje	Vjetar	Vodu	1	Island, Hrvatska (Zagreb geot. izvan).
+109	2	Energija vodika:	Zagađuje	Čist izvor energije — proizvodi samo vodu pri izgaranju	Proizvodi CO2	Ista kao nafta	1	Vodikove ćelije (fuel cells).
+110	2	Li-ion baterija se koristi u:	Samo satovima	Mobitelima, laptopima, e-autima	Samo u igračkama	Samo u kući	1	Litij-ionska — punjiva, lagana, velika gustoća energije.
+111	1	Otpornost žice ovisi o:	Samo boji	Duljini, presjeku i materijalu žice	Samo temperaturi	Samo masi	1	R = ρ × l / A.
+112	1	Kratki spoj nastaje kada:	Normalan rad	Struja zaobiđe potrošač — struja naglo poraste	Nema struje	Samo pri niskim naponima	1	Opasno! Osigurač reagira.
+113	1	RCD (zaštitni uređaj diferencijalne struje) štiti od:	Prenapona	Strujnog udara — detektira razliku struja	Kratkog spoja	Samo požara	1	FI-sklopka — spašava živote!
+114	2	Optičko vlakno prenosi:	Struju	Podatke pomoću svjetlosti	Vodu	Zrak	1	Internet, telekomunikacije — velika brzina.
+115	2	GPS koristi:	Radio valove	Satelite za određivanje pozicije na Zemlji	Samo internet	Samo radar	1	Global Positioning System — navigacija.
+116	2	Bluetooth služi za:	Samo internet	Bežični prijenos podataka na kratke udaljenosti	Samo telefoniranje	Samo GPS	1	Slušalice, zvučnici, datoteke.
+117	2	Wi-Fi koristi:	Kabel	Radio valove za bežični pristup internetu	Satelit	Optiku	1	Router → uređaji — lokalna mreža.
+118	1	Termostat služi za:	Samo mjerenje	Automatsku regulaciju temperature	Samo grijanje	Samo hlađenje	1	Uključuje/isključuje grijanje prema zadanoj temperaturi.
+119	1	Bimetalni termostats funkcionira na principu:	Magnetizma	Različitog širenja dva spojena metala pri zagrijavanju	Samo elektriciteta	Samo pritiska	1	Savija se pri promjeni temperature.
+120	2	Solarne ćelije rade na principu:	Magnetskog	Fotonaponskog efekta	Termoelektričnog	Piezoelektričnog	1	Svjetlost → elekteone-rupepari → struja.
+121	1	Indukcijsko kuhalo koristi:	Plin	Elektromagnetsku indukciju za zagrijavanje posude	Infracrveno zračenje	Otvoreni plamen	1	Samo feromagnetske posude — brzo, učinkovito.
+122	1	Električna žarulja s volframovom niti:	Najučinkovitija	Samo 5% energije pretvara u svjetlost, ostatak u toplinu	Ne proizvodi toplinu	Potpuno učinkovita	1	LED je 5-10× učinkovitiji.
+123	2	Smart grid je:	Samo kabel	Pametna električna mreža s dvosmjernom komunikacijom	Samo trafostanica	Samo dalekovod	1	Optimizira distribuciju i potrošnju energije.
+124	2	Mikrokontroler je:	Veliki računalos	Mali 'računalo na čipu' za upravljanje uređajima	Samo memorija	Samo procesor	1	U perilicama, autima, igračkama, Arduino.
+125	1	Logički krug AND daje 1 kada:	Barem jedan ulaz je 1	Svi ulazi su 1	Nijedan ulaz nije 1	Samo jedan je 1	1	1 AND 1 = 1, inače 0.
+126	1	Logički krug OR daje 1 kada:	Svi ulazi su 0	Barem jedan ulaz je 1	Nijedan nije 1	Samo oba su 1	1	1 OR 0 = 1, 0 OR 0 = 0.
+127	1	Logički krug NOT:	Svira signal	Invertira ulaz (1→0, 0→1)	Pojačava	Smanjuje	1	NOT 1 = 0, NOT 0 = 1.
+128	2	Binani brojevni sustav koristi:	10 znamenki	2 znamenke (0 i 1)	16 znamenki	8 znamenki	1	Osnova digitalnih sustava.
+129	2	1 bajt (byte) ima:	4 bita	8 bitova	16 bitova	32 bita	1	1 byte = 8 bits.
+130	2	1 kilobajt (KB) ima:	100 bajta	1000 bajta (ili 1024)	10000 bajta	500 bajta	1	KB → MB → GB → TB.
+131	1	Mehanički prijenos energije uključuje:	Samo struju	Zupčanike, remene, lance, poluge	Samo topliinu	Samo svjetlost	1	Prijenos sile i gibanja.
+132	1	Zupčanik služi za:	Samo ukrašavanje	Prijenos rotacijskog gibanja i promjenu brzine/momenta	Samo kočenje	Samo mjerenje	1	Veliki zupčanik → mali = ubrzanje, obrnuto = usporenje.
+133	1	Remenski prijenos koristi:	Žicu	Remen i remenice za prijenos gibanja	Lanac	Samo zupčanike	1	Elastični prijenos — perilice, motori.
+134	1	Lančani prijenos koristi:	Remen	Lanac i lančanike	Žicu	Samo zupčanike	1	Bicikl — tipičan primjer.
+135	2	Servo motor koristi se za:	Samo vrtnju	Precizno upravljanje pozicijom i brzinom	Samo grijanye	Samo osvjetljenje	1	Roboti, CNC strojevi, modelarstvo.
+136	2	Koračni (stepper) motor:	Samo konstantna brzina	Rotira u diskretnim koracima — precizna kontrola	Samo za AC	Samo za DC	1	3D pr, CNC — precizno pozicijniranje.
+137	2	Fotoelektrični senzor detektira:	Zvuk	Svjetlost	Temperaturu	Pritisak	1	Fotroelektrični efekt — automatska rasvjeta.
+138	2	Termistor detektira:	Svjetlost	Pokret	Temperaturu	Zvuk	2	Otpor se mjenja s temperaturom.
+139	2	Piezoelektrični senzor detektira:	Svjetlost	Temperaturu	Pritisak/mehanički stres	Magnetsko polje	2	Generira napon pri mehaničkom pritisku.
+140	1	Pleksiglas (akrilno staklo) je:	Pravo staklo	Prozirna plastika — lakša i otpornija od stakla	Metal	Keramika	1	Za akvarije, zaštitne naočale, displeje.
+141	1	Aluminij je:	Teški metal	Lagani metal — otporan na koroziju	Plemeniti metal	Samo u prirodi	1	Limenke, zrakoplovi, prozori.
+142	1	Bakar se koristi za:	Samo nakit	Električne vodove — odličan vodič	Samo posuđe	Samo krovove	1	Drugi je najbolji vodič (nakon srebra).
+143	2	Virtualna stvarnost (VR) je:	Samo igra	Računalom stvorena simulirana trodimenzionalna okolina	Samo film	Samo TV	1	VR naočale — imerzivno iskustvo.
+144	2	Proširena stvarnost (AR) je:	Isto kao VR	Nadopuna stvarnog svijeta digitalnim elementima	Samo igra	Samo fotografija	1	Pokémon GO, AR navigacija.
+145	2	Umjetna inteligencija (AI) je:	Samo robot	Sposobnost računala da imitira ljudsko razmišljanje	Samo igra	Samo softver	1	ChatGPT, autonomna vozila, prepoznavanje lica.
+146	2	Cloud computing (oblak) znači:	Samo meteorologija	Korištenje udaljenih poslužitelja za pohranu i obradu podataka	Samo lokalno računalo	Samo mobilni telefon	1	Google Drive, iCloud, OneDrive.
+147	1	Lemilo za elektroniku radi na temperaturi od:	50°C	200-400°C	1000°C	0°C	1	Lemni kositar se tali na cca 183°C.
+148	1	Baterija pretvara:	Mehaničku u električnu	Kemijsku energiju u električnu	Toplinsku u mehaničku	Svijetlosnu u toplinsku	1	Galvanski člankovi — anoda, katoda, elektrolit.
+149	2	Pametni sat (smartwatch) kombinira:	Samo sat	Sat, fitness treker, notifikacije, senzore	Samo telefon	Samo GPS	1	Apple Watch, Samsung Galaxy Watch.
+150	2	E-otpad (elektronički otpad) treba:	Baciti u smeće	Reciklirati na posebnim mjestima za zbriinjavanje	Spaliti	Zakopati	1	Sadrži štetne tvari i vrijedne metale.
+151	1	Električna shema koristi simbole za:	Samo boje	Prikaz elektroničkih komponenti i njihovih veza	Samo tekst	Samo dimenzije	1	Standardizirani IEC/DIN simboli.
+152	1	Prototip je:	Konačni proizvod	Radna verzija proizvoda za testiranje prije serijske proizvodnjie	Samo crtež	Samo ideja	1	Testiranje funkcionalnosti i dizajna.
+153	2	Lean proizvodnja nastoji:	Povećati otpad	Smanjiti otpad i povećati efikanost	Samo ubrzati	Samo pojeftiniti	1	Toyota Production System — minimalni otpad.
+154	2	Industrijski dizajn se bavi:	Samo estetikom	Oblikovanjem proizvoda — funkcija, estetika, ergonomija	Samo bojama	Samo marketingom	1	Od mobitela do namještaja.
+155	1	Vijčani ključ (ključ za vijke) služi za:	Rezanje	Pritezanje i popuštanje vijaka i matica	Bušenje	Brušenje	1	Viljuškasti, okasti, nasadni ključ.
+156	1	Kliješta služe za:	Samo rezanje	Držanje, savijanje, rezanje žice i dr.	Samo bušenje	Samo mjerenje	1	Kombinirana, ravna, šiljasta, bočna kliješta.
+157	2	Solarni termalni kolektor:	Proizvodi struju	Koristi sunce za zagrijavanje vode	Proizvodi hladnoću	Samo za dekoraciju	1	Različito od fotonaponskog — toplina, ne struja.
+158	2	Toplinska pumpa:	Samo hladi	Prenosi toplinu iz okoliša u prostoriju (ili obrnuto)	Samo grije	Samo ventilira	1	Učinkovitiji no klasično grijanje — COP faktor.
+159	1	Galvanizacija je:	Samo bojanje	Zaštitno presvlačenje metala slojem drugog metala (npr. cink)	Samo poliranje	Samo lemljenje	1	Zaštita od korozije (hrđe).
+160	1	Korozija metala je:	Samo boja	Razaranje metala kemijskom reakcijom s okolinom (npr. hrđa)	Samo toplina	Samo trenje	1	Fe + O2 + H2O → Fe2O3 (hrđa).
+161	2	Silicij je ključan za:	Samo staklo	Poluvodičke čipove u elektronici	Samo plastiku	Samo beton	1	Silicon Valley — silicij = temelj računala.
+162	2	Integrirani krug (microchip) sadrži:	Samo jedan tranzistor	Milijarde tranzistora na malom komadu silicija	Samo jedan otpornik	Samo jedan kondenzator	1	Mooreov zakon — udvostruči se svakih ~2 godine.
+163	1	Izometrijaska projekcija prikazuje:	Samo 2D	3D prikaz s jednako raspoređenim osima (120°)	Samo tlocrt	Samo nacrt	1	x, y, z pod 120° — pregledna vizualizacija.
+164	1	Šrafura u tehničkom crtežu označava:	Prazno	Presjek materijala	Samo ukras	Samo boju	1	Paralelne crte pod 45° — vrsta materijala.
+165	2	Supravodljivost je:	Veliki otpor	Nulti električni otpor pri vrlo niskim temperaturama	Samo u vakuumu	Samo kod plastike	1	MRI uređaji, CERN — potencijal za revoluciju.
+166	2	Grafene je:	Samo ugen	Jednoslojni ugljik — jači od čelika, odlični vodič	Samo plastika	Samo staklo	1	Materijal budućnosti — fleksibilan, jak, vodljiv.
+167	2	Bioplast ika je:	Sintetička plastika	Plastika proizvedena iz obnovljivih sirovina	Samo za ambalažu	Nerazgradiva	1	Škrob, celuloza — biorazgradiva alternativa.
+168	1	Toplinski vodič je materijal koji:	Slabo vodi toplinu	Dobro prenosi toplinu (metali)	Samo izolator	Samo plastika	1	Bakar, aluminij — dobri toplinski vodič.
+169	1	Toplinski izolator je:	Metal	Materijal koji slabo prenosi toplinu (drvo, stiropor, vuna)	Samo bakar	Samo aluminij	1	Zidna izolacija — štedi energiju.
+170	2	Pametni materijali:	Samo klasični	Mijenjaju svojstva kao odgovor na vanjski podražaj	Samo metal	Samo plastika	1	Shape memory alloys, piezoelektrici, termokromni.
+171	1	Zaštitne naočale u radionici:	Opcija	Obavezne pri radu sa strojevima i kemikalijama	Samo za sunce	Nepotrebne	1	Sigurnost na prvom mjestu!
+172	1	Zaštitne rukavice koriste se:	Samo zimi	Pri radu s oštrim, vrućim ili kemijski opasnim materijalima	Samo za čišćenje	Nikada u radionici	1	Razne vrste za razne opasnosti.
+173	2	Blockchain tehnologija:	Samo kriptovalute	Distribuirana baza podataka za sigurne transakcije	Samo za banke	Samo za igre	1	Bitcoin, Ethereum — ali i logistika, zdravstvo.
+174	2	Kiber sigurnost je:	Samo igra	Zaštita računalnih sustava od digitalnih prijetnji	Samo za vojsku	Samo antivirusi	1	Lozinke, enkripcija, firewall, 2FA.
+175	1	Ergonomski dizajn radnog mjesta:	Samo estetika	Optimizira položaj tijela za zdravlje i produktivnost	Samo boje	Samo opremu	1	Pravilna visina stola, kut zaslona, stolac.
+176	2	Pametni semafori koriste:	Samo timer	Senzori i AI za optimizaciju prometa	Samo ručno upravljanje	Samo kamere	1	Prilagođavaju se gustoći prometa.
+177	2	Autonomno vozilo:	Uvijek treba vozača	Koristi senzore, kamere i AI za vožnju bez ljudskog upravljanja	Samo u znanstvenoj fantastici	Samo za igre	1	Tesla Autopilot, Waymo — budućnost prijevoza.
+178	1	Kvaliteta proizvoda ovisi o:	Samo cijeni	Materijalu, dizajnu, izradi i kontroli kvalitete	Samo boji	Samo marki	1	ISO standardi — sustav upravljanja kvalitetom.
+179	2	Zelena gradnja (green building) uključuje:	Samo zelenu boju	Energetski učinkovite materijale, solarne panele, prirodnu ventilaciju	Samo drvo	Samo reciklirano	1	Održiva arhitektura — LEED certifikat.
+180	2	Pasivna kuća je:	Kuća bez struje	Zgrada s minimalnom potrošnjom energije za grijanje/hlađenje	Samo drvena kuća	Samo mala kuća	1	Izvrsna izolacija, rekuperacija, solardobitak.
+181	1	Strugotine nastaju pri:	Lemljenju	Obradi materijala rezanjem (tokarenje, glodanje)	Zavarivanju	Lijepljenju	1	Metalne ili drvene — recikliraju se.
+182	1	Tokarenje je:	Spajanje	Obrada rotacijom obratka uz rezni alat	Samo brušenje	Samo bušenje	1	Tokarski stroj — cilindričnih oblici.
+183	1	Glodanje je:	Lemljenje	Obrada materijala rotirajućim glodalicvm	Samo rezanje	Samo bušenje	1	CNC glodalica — složeni oblici.
+184	2	Sustav automatske regulacije koristi:	Samo on/off	Senzor, regulator i aktuator u povratnoj sprezi	Samo ručno	Samo timer	1	Feedback loop — termostat, PID regulator.
+185	2	PLC (programabilni logički kontroler) koristi se u:	Samo kući	Industrijskoj automatizaciji	Samo u igrama	Samo u školama	1	Upravljanje proizvodnim procesima.
+186	1	Brusni papir služi za:	Rezanje	Fino zaglađivanje i oblikovanje površine	Bušenje	Lemljenje	1	Zrnatost: P60 (grubo) do P2000 (fino).
+187	1	Vaga služi za:	Mjerenje dužine	Mjerenje mase	Mjerenje napona	Mjerenje temperature	1	Digitalna ili analsgna — grami, kilogrami.
+188	2	Električni grijač pretvara:	Mehaničku u toplinsku	Električnu energiju u toplinsku	Toplinsku u električnu	Kemijsku u električnu	1	Otporni element se zagrijava — Jouleov zakon.
+189	2	Dizajnersko razmišljanje (Design Thinking) uključuje:	Samo kresat	Empatiju, definiciju problema, ideaciju, prototip, testiranje	Samo programiranje	Samo crtanje	1	Metodologija za inovativno rješavanje problema.
+190	2	Patent štiti:	Samo dizajn	Tehnički izum na određeno vrijeme	Samo brend	Samo softver	1	20 godina zaštite — DZIV u Hrvatskoj.
+191	1	Lijevanje metala je:	Samo rezanje	Oblikovanje metala ulijevanjem taline u kalup	Samo kovanjem	Samo savijanje	1	Pješčani, kokilni, centrifugalni lijev.
+192	1	Kovanje je:	Lijepljenje	Oblikovanje metala udaranjum/pritiskom u vrućem stanju	Samo rezamje	Samo bušenye	1	Kovač — tradicionalni zanat.
+193	2	3D skeniranje je:	Samo fotografiranje	Digitalizacija trodimenzionalnog oblika predmeta	Samo tiskanje	Samo crtamje	1	Reverzni inženjering, muzejska dokumentacija.
+194	2	BIM (Building Information Modeling) je:	Samo crtanje	Digitalno modeliranje zgrade s informacijama o svim elementima	Samo fotografiranje	Samo mjerenje	1	Revit, ArchiCAD — suvremena gradnja.
+195	1	Reciklirajući simboli na ambalaži:	Samo ukras	Označavaju vrstu materijala i mogućnost recikliranja	Samo za boju	Samo za oblik	1	PET 1, HDPE 2, PP 5 — sortiranje otpada.
+196	2	Vodik kao gorivo budućnosti:	Zagađuje	Čist — proizvodi samo vodu, ali skladištenje je izazov	Jeftino	Lako dostupno	1	Green hydrogen — elektrroliomza obnovljivom energijom.
+197	1	Mreža (mesh) u 3D modeliranju:	Samo tekst	Skup poligona koji definiraju površinu objekta	Samo boja	Samo zvuk	1	Triangulacija — osnova 3D grafike.
+198	2	Kvantno računarstvo:	Isto kao klasično	Koristi kvantne bitove (kubite) za super-brze kalkulacije	Samo za igre	Ne postoji	1	Google, IBM — budućnost kompjuterstva.
+199	1	Projektnii rad u tehničkoj kulturi:	Samo pisanje	Osmišljavanje, planiranje, izrada i prezentacija vlastiten projekta	Samo crtanje	Samo učenje	1	Od ideje do gotovog proizvoda — praktično učenje.
+200	2	Tehnička kultura u 8. razredu priprema:	Samo za ocjene	Za razumijevanje i snalaženje u suvremenom tehničkom svijetu	Samo za zabavu	Nema koristi	1	Tehenologija oblikuje našu svakodnevicu!

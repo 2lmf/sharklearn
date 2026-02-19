@@ -1,0 +1,101 @@
+﻿ID	Semestar	Pitanje	Opcija A	Opcija B	Opcija C	Opcija D	Tocan odgovor	Objasnjenje
+101	1	Kako se kaže 'život' na njemačkom?	Tod	Leben	Liebe	Arbeit	1	das Leben.
+102	1	Kako se kaže 'posao/rad' na njemačkom?	Spiel	Schule	Arbeit	Freizeit	2	die Arbeit.
+103	1	Kako se kaže 'prijateljstvo' na njemačkom?	Liebe	Freundschaft	Familie	Feindschaft	1	die Freundschaft.
+104	1	Kako se kaže 'boja' na njemačkom?	Form	Farbe	Licht	Schatten	1	die Farbe.
+105	2	Koji je Partizip II. glagola 'sprechen'?	gesprochen	gesprecht	gesprechen	sprecht	0	Ich habe gesprochen = Govorio sam.
+106	2	Koji je Partizip II. glagola 'nehmen'?	genehmt	genommen	genommt	genehmen	1	Ich habe genommen = Uzeo sam.
+107	2	Koji je Partizip II. glagola 'finden'?	gefindet	gefunden	gefinden	findet	1	Ich habe gefunden = Pronašao sam.
+108	2	Koji je Partizip II. glagola 'sehen'?	geseht	gesehen	gesieht	gesehet	1	Ich habe gesehen = Vidio sam.
+109	1	Kako se kaže 'stan' na njemačkom?	Haus	Wohnung	Zimmer	Gebäude	1	die Wohnung.
+110	1	Kako se kaže 'soba' na njemačkom?	Wohnung	Haus	Zimmer	Küche	2	das Zimmer.
+111	1	Kako se kaže 'kuhinja' na njemačkom?	Zimmer	Küche	Bad	Garten	1	die Küche.
+112	1	Kako se kaže 'kupaonica' na njemačkom?	Küche	Schlafzimmer	Badezimmer	Wohnzimmer	2	das Badezimmer.
+113	2	Konjunkcija 'deshalb' znači:	Ali	Zato / stoga	Premda	Jer	1	Hauptsatz-Konjunktion — inverzija!
+114	2	Konjunkcija 'trotzdem' znači:	Zato	Jer	Usprkos tome / ipak	Ako	2	Trotzdem gehe ich. = Ipak idem.
+115	2	Konjunkcija 'jedoch' znači:	Zato	Ipak / međutim	Jer	Kada	1	Er ist müde, jedoch arbeitet er weiter.
+116	1	Kako se kaže 'automobil' na njemačkom?	Fahrrad	Motorrad	Auto / Wagen	Bus	2	das Auto, der Wagen.
+117	1	Kako se kaže 'bicikl' na njemačkom?	Auto	Fahrrad	Motorrad	Roller	1	das Fahrrad.
+118	1	Kako se kaže 'slobodno vrijeme' na njemačkom?	Arbeitszeit	Freizeit	Schulzeit	Urlaubszeit	1	die Freizeit.
+119	1	Kako se kaže 'glazba' na njemačkom?	Kunst	Sport	Musik	Theater	2	die Musik.
+120	1	Kako se kaže 'sport' na njemačkom?	Musik	Kunst	Sport	Spiel	2	der Sport.
+121	2	N-deklinacija se primjenjuje na:	Sve imenice	Neke muške imenice (der Junge, der Student)	Sve ženske imenice	Sve srednje imenice	1	den Jungen, dem Jungen, des Jungen.
+122	2	Kako se kaže 'sjećati se' na njemačkom?	sich freuen	sich erinnern an	sich beschweren	sich wundern	1	sich erinnern an + Akuzativ.
+123	2	Kako se kaže 'brinuti se za' na njemačkom?	sich ärgern über	sich kümmern um	sich freuen auf	sich bedanken bei	1	sich kümmern um + Akuzativ.
+124	2	Kako se kaže 'veseliti se nečemu (budućem)' na njem.?	sich freuen über	sich freuen auf	sich ärgern über	sich wundern über	1	sich freuen auf + Akuzativ (buduće).
+125	2	Kako se kaže 'veseliti se nečemu (sadašnjem)' na njem.?	sich freuen auf	sich freuen über	sich ärgern über	sich wundern über	1	sich freuen über + Akuzativ (sadašnje).
+126	1	Kako se kaže 'more' na njemačkom?	See	Meer	Fluss	Bach	1	das Meer. (der See = jezero, die See = more)
+127	1	Kako se kaže 'planina' na njemačkom?	Tal	Wald	Berg	Wiese	2	der Berg, die Berge.
+128	1	Kako se kaže 'šuma' na njemačkom?	Berg	Wald	Feld	Wiese	1	der Wald.
+129	1	Kako se kaže 'vrijeme (meteorološko)' na njemačkom?	Zeit	Wetter	Uhr	Stunde	1	das Wetter. (die Zeit = vrijeme/kronološko)
+130	1	Kako se kaže 'kiša pada' na njemačkom?	Es schneit	Es regnet	Es ist sonnig	Es donnert	1	Es regnet.
+131	2	Kako se kaže 'snijeg pada' na njemačkom?	Es regnet	Es schneit	Es hagelt	Es weht	1	Es schneit.
+132	2	Koji red riječi ima zavisna rečenica (Nebensatz)?	Glagol na 2. mjestu	Glagol na 1. mjestu	Glagol na kraju	Glagol iza subjekta	2	..., weil ich müde bin.
+133	2	Indirektni govor (Indirekte Rede) u njemačkom koristi:	Imperativ	Konjunktiv I.	Samo prezent	Samo perfekt	1	Er sagt, er sei müde.
+134	1	Kako se kaže 'restoran' na njemačkom?	Geschäft	Restaurant	Büro	Fabrik	1	das Restaurant.
+135	1	Kako se kaže 'kino' na njemačkom?	Theater	Kino	Museum	Bibliothek	1	das Kino.
+136	1	Kako se kaže 'knjižnica' na njemačkom?	Buchhandlung	Bibliothek	Museum	Schule	1	die Bibliothek.
+137	1	Kako se kaže 'pekara' na njemačkom?	Metzgerei	Bäckerei	Apotheke	Drogerie	1	die Bäckerei.
+138	2	Kako se kaže 'ljekarna' na njemačkom?	Bäckerei	Metzgerei	Apotheke	Drogerie	2	die Apotheke.
+139	2	Doppelkonjunktionen 'sowohl...als auch' znači:	Ili...ili	Kako...tako i	Ni...ni	Ili...ili	1	Sowohl du als auch ich = I ti i ja.
+140	2	'Weder...noch' znači:	I...i	Ili...ili	Ni...ni	Kako...tako	2	Weder ich noch du = Ni ja ni ti.
+141	2	'Entweder...oder' znači:	I...i	Ni...ni	Ili...ili	Kako...tako	2	Entweder du oder ich = Ili ti ili ja.
+142	1	Kako se kaže 'put/putovanje' na njemačkom?	Fahrt	Reise	Straße	Weg	1	die Reise.
+143	1	Kako se kaže 'ulica' na njemačkom?	Weg	Straße	Platz	Brücke	1	die Straße.
+144	1	Kako se kaže 'most' na njemačkom?	Straße	Platz	Brücke	Turm	2	die Brücke.
+145	2	Kako se kaže 'iskustvo' na njemačkom?	Ergebnis	Erfahrung	Erziehung	Erfindung	1	die Erfahrung.
+146	2	Kako se kaže 'razvoj' na njemačkom?	Forschung	Bildung	Entwicklung	Erfindung	2	die Entwicklung.
+147	2	Kako se kaže 'obrazovanje' na njemačkom?	Erziehung	Bildung	Ausbildung	Sve navedeno	3	Bildung (opće), Ausbildung (stručno), Erziehung (odgoj).
+148	1	Koji prijedlog koristimo za dani u tjednu?	in	auf	am (an + dem)	um	2	Am Montag, am Dienstag...
+149	1	Koji prijedlog koristimo za sate?	am	in	auf	um	3	Um 10 Uhr = u 10 sati.
+150	1	Koji prijedlog koristimo za mjesece i godišnja doba?	um	am	im (in + dem)	auf	2	Im Januar, im Sommer...
+151	2	Kako se kaže 'čestitati' na njemačkom?	danken	gratulieren	helfen	schenken	1	gratulieren + Dativ.
+152	2	Kako se kaže 'pokloniti' na njemačkom?	kaufen	schenken	geben	bringen	1	schenken + Dativ + Akuzativ.
+153	1	Kako se kaže 'mobitel' na njemačkom?	Telefon	Handy	Computer	Laptop	1	das Handy.
+154	1	Kako se kaže 'računalo' na njemačkom?	Handy	Fernseher	Computer/Rechner	Radio	2	der Computer / der Rechner.
+155	2	Pridjev 'interessant' na njemačkom znači:	Dosadan	Zanimljiv	Težak	Lak	1	Ein interessantes Buch = Zanimljiva knjiga.
+156	2	Pridjev 'langweilig' na njemačkom znači:	Zanimljiv	Dosadan	Veseo	Tužan	1	Der Film ist langweilig.
+157	2	Kako se kaže 'preporučiti' na njemačkom?	bestellen	empfehlen	erklären	erzählen	1	empfehlen + Dativ + Akuzativ.
+158	2	Kako se kaže 'objasniti' na njemačkom?	erzählen	empfehlen	erklären	erlauben	2	erklären + Dativ + Akuzativ.
+159	1	Koji je ispravni genitiv: 'Das ist das Buch ___ Lehrers.'?	der	die	dem	des	3	des Lehrers — genitiv muškog roda.
+160	1	Kako se izgovara 'ch' u 'ich'?	Kao 'k'	Kao meki 'h' (palatalni frikativ)	Kao 'š'	Kao 'c'	1	Ich-Laut nakon prednjih vokala (i, e, ä, ö, ü).
+161	1	Kako se izgovara 'ch' u 'Buch'?	Kao 'k'	Kao meki 'h'	Kao tvrdi 'h' (velarni frikativ)	Kao 'š'	2	Ach-Laut nakon stražnjih vokala (a, o, u).
+162	2	Kako se kaže 'zaštita okoliša' na njemačkom?	Naturschutz	Umweltschutz	Tierschutz	Klimaschutz	1	der Umweltschutz.
+163	2	Kako se kaže 'recikliranje' na njemačkom?	Mülltrennig	Recycling / Wiederverwertung	Abfallbeseitigung	Kompostierung	1	das Recycling / die Wiederverwertung.
+164	2	Kako se kaže 'obnovljivi izvori energije' na njem.?	Fossile Energien	Erneuerbare Energien	Atomenergie	Kohleenergie	1	Sonne, Wind, Wasser = erneuerbare Energien.
+165	1	Kako se kaže 'zemlja' (država) na njemačkom?	Erde	Land	Staat	Sve može	3	das Land (zemlja/država), die Erde (planet), der Staat (država).
+166	1	Koji je glavni grad Njemačke?	München	Hamburg	Berlin	Frankfurt	2	Berlin ist die Hauptstadt Deutschlands.
+167	1	Koji je glavni grad Austrije?	Salzburg	Graz	Innsbruck	Wien	3	Wien (Beč) ist die Hauptstadt Österreichs.
+168	1	Koji je glavni grad Švicarske?	Zürich	Genf	Bern	Basel	2	Bern ist die Hauptstadt der Schweiz.
+169	2	Kako se kaže 'sloboda' na njemačkom?	Gleichheit	Freiheit	Gerechtigkeit	Wahrheit	1	die Freiheit.
+170	2	Kako se kaže 'jednakost' na njemačkom?	Freiheit	Gleichheit	Brüderlichkeit	Wahrheit	1	die Gleichheit.
+171	2	Kako se kaže 'mir' na njemačkom?	Krieg	Frieden	Kampf	Streit	1	der Frieden.
+172	2	Kako se kaže 'rat' na njemačkom?	Frieden	Krieg	Kampf	Streit	1	der Krieg.
+173	1	Kako se kaže 'Božić' na njemačkom?	Ostern	Pfingsten	Weihnachten	Silvester	2	Weihnachten = Božić.
+174	1	Kako se kaže 'Uskrs' na njemačkom?	Weihnachten	Ostern	Pfingsten	Karneval	1	Ostern = Uskrs.
+175	1	Glagol 'empfehlen' u prezentu za 'er':	empfehlt	empfiehlt	empfählt	empfehlet	1	Er empfiehlt — promjena e → ie.
+176	1	Glagol 'lesen' u prezentu za 'du':	lest	list	liest	leset	2	Du liest — promjena e → ie.
+177	1	Glagol 'fahren' u prezentu za 'er':	fahrt	fährt	fahret	färht	1	Er fährt — promjena a → ä.
+178	2	Kako se kaže 'mišljenje' na njemačkom?	Gedanke	Meinung	Ahnung	Vermutung	1	die Meinung. Meiner Meinung nach = Po mojem mišljenju.
+179	2	Kako se kaže 'predlagati' na njemačkom?	bestellen	bestimmen	vorschlagen	versprechen	2	vorschlagen — trennbares Verb.
+180	2	Trennbare Verben (rastavljivi glagoli) su:	Glagoli bez prefiksa	Glagoli čiji se prefiks odvaja u prezentu	Reflexivni glagoli	Modalni glagoli	1	Npr. aufstehen → Ich stehe auf.
+181	2	Untrennbare Verben (nerastavljivi glagoli) imaju prefikse:	ab-, an-, auf-	be-, emp-, ent-, er-, ge-, miss-, ver-, zer-	vor-, mit-	hin-, her-	1	Npr. verstehen → Ich verstehe.
+182	1	Kako se kaže 'volim te' na njemačkom?	Ich mag dich	Ich liebe dich	Ich hasse dich	Ich brauche dich	1	Ich liebe dich. Ich mag dich = Sviđaš mi se.
+183	1	Kako se kaže 'hvala' na njemačkom?	Bitte	Danke	Entschuldigung	Tschüss	1	Danke = Hvala. Bitte = Molim.
+184	1	Kako se kaže 'oprostite' na njemačkom?	Danke	Bitte	Entschuldigung	Tschüss	2	Entschuldigung = Oprostite.
+185	2	Wie viel Uhr ist es? Es ist halb drei. To znači:	2:00	2:30	3:00	3:30	1	halb drei = pola tri = 2:30.
+186	2	Es ist Viertel vor fünf. To znači:	4:15	4:45	5:15	5:45	1	Viertel vor fünf = 15 do 5 = 4:45.
+187	2	Es ist Viertel nach sieben. To znači:	6:45	7:15	7:45	8:15	1	Viertel nach sieben = 15 poslije 7 = 7:15.
+188	1	Kako se kaže 'broj' na njemačkom?	Buchstabe	Zahl / Nummer	Wort	Satz	1	die Zahl (apstraktno), die Nummer (redni).
+189	1	Kako se kaže 'rečenica' na njemačkom?	Wort	Buchstabe	Satz	Text	2	der Satz.
+190	1	Kako se kaže 'riječ' na njemačkom?	Satz	Wort	Buchstabe	Zeile	1	das Wort, množina: die Wörter.
+191	2	Kako se kaže 'sanjati' na njemačkom?	schlafen	träumen	denken	wünschen	1	träumen = sanjati. der Traum = san.
+192	2	Kako se kaže 'nadati se' na njemačkom?	wünschen	hoffen	glauben	denken	1	hoffen = nadati se. die Hoffnung = nada.
+193	2	Kako se kaže 'željeti' na njemačkom?	hoffen	wünschen / sich wünschen	denken	träumen	1	Ich wünsche mir... = Želim si...
+194	1	Kako se kaže 'velik' na njemačkom?	klein	groß	dick	dünn	1	groß = velik. klein = mali.
+195	1	Kako se kaže 'lijep' na njemačkom?	hässlich	schön	schlecht	nett	1	schön = lijep.
+196	2	Kako se kaže 'odlučiti' na njemačkom?	beschließen	sich entscheiden	bestimmen	Sve može	3	sich entscheiden für = odlučiti se za.
+197	2	Kako se kaže 'pogrješno' na njemačkom?	richtig	falsch	genau	korrekt	1	falsch = pogrešno. richtig = ispravno.
+198	2	Kako se kaže 'ispravno' na njemačkom?	falsch	richtig / korrekt	schlecht	dumm	1	richtig = ispravno.
+199	1	U kojim se zemljama govori njemački?	Samo u Njemačkoj	Njemačka, Austrija, Švicarska, Lihtenštajn, Luksemburg	Samo Njemačka i Austrija	Samo Švicarska	1	Njemački je službeni jezik u 6 europskih zemalja.
+200	2	Njemački jezik za Hrvate koristan je jer:	Nije koristan	Njemačka, Austrija i Švicarska su važni gospodarski partneri	Samo za turizam	Samo za razonodu	1	Mnogi Hrvati žive i rade u DACH zemljama!

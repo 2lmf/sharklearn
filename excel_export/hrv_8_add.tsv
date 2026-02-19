@@ -1,0 +1,100 @@
+﻿ID	Semestar	Pitanje	Opcija A	Opcija B	Opcija C	Opcija D	Tocan odgovor	Objasnjenje
+101	1	Što je stilska figura oksimoron?	Pretjerivanje	Spajanje proturječnih pojmova	Usporedba	Ponavljanje	1	Npr. 'živi mrtvac', 'glasna tišina'.
+102	1	Paradoks je:	Usporedba	Izjava koja je naizgled proturječna, ali sadrži istinu	Pretjerivanje	Ponavljanje	1	Npr. 'Manje je više.'
+103	1	Onomatopeja je:	Pretjerivanje	Oponašanje zvukova riječima	Usporedba	Ironija	1	Npr. 'šuškati', 'cvrkutati', 'bum'.
+104	1	Epiteti su:	Glagoli	Ukrasni pridjevi	Imenice	Veznici	1	Npr. 'bijeli grad', 'plavo more'.
+105	1	Gradacija je:	Ponavljanje istog	Stupnjevito nizanje pojmova po jakosti	Suprotnost	Usporedba	1	Npr. 'Dobar, bolji, najbolji.'
+106	2	Pasivna rečenica je:	Rečenica s aktivnim subjektom	Rečenica u kojoj subjekt trpi radnju	Usklična rečenica	Upitna rečenica	1	Npr. 'Knjiga je pročitana od učenika.'
+107	2	Koji je glagolski oblik 'bio bih čitao'?	Futur II.	Kondicional II.	Perfekt	Aorist	1	Neostvarena radnja u prošlosti.
+108	2	Futur II. tvori se od:	Prezenta i infinitiva	Svršenog prezenta glagola 'biti' + glagolskog pridjeva radnog	Perfekta + prezenta	Imperativa + infinitiva	1	Npr. 'Kad budem pročitao...'
+109	1	Marin Držić napisao je:	Antigonu	Dundu Marojе	Zlatarovo zlato	Kiklop	1	Najvažnija hrvatska komedija — renesansa.
+110	1	Ivan Gundulić napisao je:	Dundo Maroje	Osman	Priče iz davnine	Kiklop	1	Barokni ep — dubrovačka književnost.
+111	1	Slobodan Novak poznati je po:	Romanu Mirisi, zlato i tamjan	Poeziji	Glazbi	Slikarstvu	0	Modernistički roman.
+112	2	Ponašanje glasova na spojevima riječi zove se:	Derivacija	Glasovne promjene (sibilarizacija, palatalizacija...)	Konjugacija	Deklinacija	1	Npr. k → c (junak → junaci).
+113	2	Sibilarizacija je glasovna promjena:	c → č	k → c, g → z, h → s (ispred i)	s → š	t → d	1	Npr. vojnik → vojnici, drug → druzi.
+114	2	Palatalizacija je glasovna promjena:	k → c	k → č, g → ž, h → š	s → z	t → d	1	Npr. junak → junače, duh → duše.
+115	2	Jotacija je:	Promjena s → z	Stapanje suglasnika s j	Promjena k → c	Promjena g → z	1	Npr. ljut (l + j = lj), grožđe (d + j = đ).
+116	2	Nepostojano 'a' je:	Uvijek prisutno	Samoglasnik koji se pojavljuje ili gubi u promjenu oblika	Suglasnik	Naglasak	1	Npr. momak → momka, kotac → kotca.
+117	2	Jednačenje po zvučnosti znači:	Ista boja	Zvučni suglasnik postaje bezvučan ispred bezvučnoga i obratno	Isti naglasak	Isti rod	1	Npr. svadba → [svazba], otac → [odac].
+118	2	Jednačenje po mjestu tvorbe znači:	Ista boja	Suglasnik se prilagođava mjestu tvorbe sljedećeg	Isti naglasak	Isti rod	1	Npr. s njim → š njim.
+119	1	Slavko Mihalić bio je:	Glazbenik	Istaknuti hrvatski pjesnik	Slikar	Sportaš	1	Zbirka Komorna muzika.
+120	1	Milka Pogačić poznata je kao:	Pjevačica	Pedagoginja i autorica dječje književnosti	Znanstvenica	Sportašica	1	Doprinijela razvoju dječje literature u Hrvatskoj.
+121	1	Ivo Vojnović napisao je:	Dubrovačku trilogiju	Zlatarovo zlato	Priče iz davnine	Kiklop	0	Tri dramska teksta o propasti Dubrovačke Republike.
+122	2	Umanjenice (deminutivi) izražavaju:	Povećanje	Malu veličinu ili nježnost	Suprotnos	Neutralnost	1	Npr. kućica, cvjetić.
+123	2	Uvećanice (augmentativi) izražavaju:	Malu veličinu	Veliku veličinu ili grubost	Nježnost	Neutralnost	1	Npr. kućetina, vjetruština.
+124	2	Eufemizam je:	Gruba riječ	Ublažen izraz za nešto neugodno	Psovka	Ponavljanje	1	Npr. 'preminuo' umjesto 'umro'.
+125	1	Esej je:	Drama	Prozni oblik koji izlaže osobna razmišljanja o nekoj temi	Samo poezija	Samo novela	1	Montaigne — otac eseja.
+126	1	Kritika je:	Samo pohrva	Vrednovanje i analiza umjetničkog djela	Samo naracija	Samo opis	1	Književna, filmska, glazbena kritika.
+127	2	Koliko vrsta zamjenica postoji?	2	4	7	10	2	Osobne, posvojne, pokazne, upitne, odnosne, neodređene, povratna.
+128	2	Povratna zamjenica 'se' nema:	Akuzativ	Genitiv	Vokativ	Nominativ	3	Nema nominativa jer se uvijek odnosi na subjekt — sebe, sebi, se, sobom...
+129	1	Tin Ujević spada u književni pokret:	Realizam	Moderna/ekspresionizam	Romantizam	Barok	1	Izrazito lirski pjesnik.
+130	1	Marija Jurić Zagorka napisala je:	Zlatarovo zlato	Grička vještica	Antigonu	Matiju Gupca	1	Prva hrvatska novinarka i popularni romansijer.
+131	2	Tvorba riječi u hrvatskom uključuje:	Samo prefiksalnu	Prefiksalnu, sufiksalnu i slaganje	Samo sufiksalnu	Samo slaganje	1	Tri osnovna načina tvorbe novih riječi.
+132	2	Prefiks 'ne-' služi za:	Uvećavanje	Tvorbu negacije	Tvorbu umanjenice	Množinu	1	Npr. nestati, neznanje, nervozan.
+133	2	Sufiks '-ar' tvori imenice koje označavaju:	Životinje	Zanimanje ili osobu	Boje	Brojeve	1	Npr. zidar, mesar, ljekar.
+134	1	Fantastika u književnosti:	Koristi samo stvarne događaje	Uvodi natprirodne, čudesne elemente	Samo dokumentira	Samo opisuje prirodu	1	Npr. elementi u bajkama i fantasy romanima.
+135	1	Realizam kao književni pravac:	Prikazuje idealizirani svijet	Prikazuje svakodnevnu stvarnost objektivno	Samo fantaziju	Samo simbole	1	19. st. — Balzac, Flaubert, Šenoa.
+136	1	Modernizam u književnosti:	Konzervativan	Eksperimentira s formom, jezikom i perspektivom	Tradicionalan	Samo klasičan	1	Kafka, Joyce, Krleža.
+137	2	Glagolsko stanje može biti:	Samo aktivno	Aktivno i pasivno	Samo pasivno	Samo refleksivno	1	Npr. 'Čitam knjigu' (aktiv) vs. 'Knjiga je čitana' (pasiv).
+138	2	Bezlična rečenica je:	Rečenica s jasnim subjektom	Rečenica bez subjekta	Rečenica bez predikata	samo usklična	1	Npr. 'Sviće.' 'Grmi.'
+139	1	Dragutin Tadijanović bio je:	Slikar	Hrvatski pjesnik poznat po lirici zavičaja	Glazbenik	Sportaš	1	Dugo toplo ljeto — poznata zbirka.
+140	1	Vesna Parun poznata je po:	Romanima	Lirskoj poeziji (Zore i vihori)	Dramima	Feljtonima	1	Jedna od najvažnijih hrvatskih pjesnica 20. st.
+141	2	Dijalog je:	Govor jedne osobe	Razgovor između dviju ili više osoba	Unutarnji monolog	Opis	1	Ključan element u drami i prozi.
+142	2	Monolog je:	Razgovor dviju osoba	Govor jedne osobe	Opis krajolika	Samo u poeziji	1	Npr. Hamletov 'Biti ili ne biti'.
+143	1	Soliloquy je:	Dopis	Monolog u kojem lik govori sam sa sobom na pozornici	Dijalog	Naracija	1	Razotrkriva likove misli publici.
+144	1	Komedija je:	Tužna drama	Dramsko djelo humornog sadržaja	Samo Roman	Samo pjesma	1	Npr. Dundo Maroje.
+145	1	Tragedija je:	Smiješna drama	Dramsko djelo s tragičnim ishodom za protagonista	Samo komedija	Samo roman	1	Npr. Antigona, Hamlet.
+146	1	Bajka je:	Stvarna priča	Fantastična priča s čudesnim elementima	Samo biografija	Samo putopis	1	Perrault, Grimm, H. C. Andersen.
+147	1	Basna je:	Samo ljubavna priča	Kratka priča s porukom u kojoj životinje govore	Samo putopis	Samo drama	1	Ezop — otac basne.
+148	2	Zarez se stavlja:	Samo na kraj rečenice	Ispred veznika ali, nego, no; prije zavisne surečenice	Nikada	Samo ispred 'i'	1	Pravopisno pravilo.
+149	2	Ne piše se zarez ispred:	Ali	Nego	I, ni, niti, ili, te, pa (kad spajaju surečenice)	No	2	Sastavni i rastavni veznici bez zareza.
+150	2	Razlika između 'je li' i 'da li':	Nema razlike	'Je li' je standardno hrvatsko, 'da li' nije	Oba su jednako ispravna	'Da li' je ispravnije	1	U standardnom hrvatskom: 'Je li dobar?' a ne 'Da li je dobar?'
+151	2	Razlika 'također' i 'isto tako' — obje su:	Neispravne	Ispravne, ali 'također' je formalnija	Samo dijalekatalne	Zastarjele	1	Obje su standardne.
+152	1	Eugen Kumičić bio je:	Glazbenik	Istaknuti hrvatski romansijer naturalizma	Sportaš	Političar	1	Urota zrinsko-frankopanska.
+153	1	Vjenceslav Novak napisao je:	Zlatarovo zlato	Posljednji Stipančići	Dundo Maroje	Osman	1	Realistički roman o propasti patricijske obitelji.
+154	2	Izreći → nominalizirati znači:	Staviti u pasiv	Pretvoriti glagol u imenicu	Niknuti glagol	Promijeniti rod	1	Npr. 'analizirati' → 'analiza'.
+155	2	Funkcionalni stilovi hrvatskog jezika su:	Samo jedan	Svakodnevni, administrativni, publicistički, književnoumjetnički, znanstveni	Samo dva	Samo tri	1	Svaki ima svoja pravila i posebnosti.
+156	2	Znanstveni stil karakterizira:	Emocionalnost	Objektivnost, preciznost, stručni termini	Kolokvijalni izraz	Sleng	1	Koristi se u stručnim radovima.
+157	2	Publicistički stil karakterizira:	Samo emocije	Informativnost, aktualnost, pristupačan jezik	Samo formule	Samo stručne termine	1	Novine, TV, internet mediji.
+158	1	Pismo se dijeli na:	Samo latinično	Latinično, ćirilično, glagoljsko (za hrvatski)	Samo glagoljaško	Samo arapsko	1	Hrvatsko glagoljaštvo — unikatan kulturni doprinos.
+159	1	Bašćanska ploča je:	Slika	Najstariji hrvatski glagoljski natpis	Skulptura	Mozaik	1	Oko 1100. g. — na otoku Krku.
+160	1	Petar Preradović bio je:	Glazbenik	Pjesnik hrvatskog romantizma	Slikar	Sportaš	1	Himna: Bože, živi!
+161	2	Posvojni pridjev se tvori od:	Glagola	Imenice s nastavkom -ov, -ev, -in, -ski...	Prijedloga	Broja	1	Npr. mamin, tatina, zagrebački.
+162	2	Odnosni pridjev označava:	Osobinu	Pripadnost ili povezanost s nečim	Boju	Veličinu	1	Npr. drveni, morski, školski.
+163	2	Opisni pridjev označava:	Pripadnost	Osobinu predmeta (lijepa, velika, plava)	Podrijetlo	Tvornicu	1	može se stupnjevati.
+164	1	Tema 'odrastanja' u književnosti naziva se:	Avanturistička	Bildungsroman (roman o odrastanju)	Kriminalistička	Ljubavna	1	Npr. Lovac u žitu (Salinger).
+165	1	Ivan Mažuranić napisao je:	Zlatarovo zlato	Smrt Smail-age Čengića	Dundo Maroje	Kiklop	1	Ep — vrhunac hrvatskog romantizma.
+166	1	Dinko Šimunović napisao je:	Dugu	Alkar	Kiklop	Antigonu	1	Pripovijest iz dalmatinskog zaleđa.
+167	2	Vezane strukture u tekstu uključuju:	Samo nabrajanje	Koheziju (jezičnu povezanost) i koherenciju (logičku povezanost)	Samo ponavljanje	Samo zareze	1	Dobar tekst je i kohezivan i koherentan.
+168	2	Redukcija je:	Dodavanje glasova	Ispuštanje glasova u govoru	Premještanje glasova	Ništa	1	Npr. 'čov'ek' umjesto 'čovjek' u govoru.
+169	1	Neven Madunić je:	Slikar	Autor udžbenika i priručnika za hrvatski jezik	Glazbenik	Sportaš	1	Doprinio standardizaciji hrvatskoga.
+170	2	Frazem (frazeološki izraz) je:	Jedna riječ	Ustaljeni izraz čije značenje nije doslovno	Samo imenica	Samo glagol	1	Npr. 'baciti oko' = pogledati, 'pasti u vodu' = propasti.
+171	2	Žargon je:	Standardni jezik	Govor specifične skupine (mladih, struke)	Dijalekt	Književni jezik	1	Npr. IT žargon, studentski žargon.
+172	2	Arhaizmi su:	Nove riječi	Zastarjele riječi koje se više ne koriste aktivno	Samo tuđice	Samo sleng	1	Npr. 'čestitka' umjesto 'telegram'.
+173	2	Neologizmi su:	Zastarjele riječi	Novostvorene riječi	Samo tuđice	Samo posuđenice	1	Npr. 'dojavljivač' za 'whistleblower'.
+174	1	Haiku je:	Dugačka pjesma	Kratka japanska pjesma od tri stiha (5-7-5 slogova)	Roman	Drama	1	Slavi prirodu i trenutak.
+175	1	Domoljubna lirika se bavi:	Samo ljubavi	Ljubavlju prema domovini	Samo prirodom	Samo sportom	1	Npr. Preradović, Ujević, Cesarić.
+176	1	Pejzažna lirika opisuje:	Samo ljude	Prirodu i krajolore	Samo gradove	Samo životinje	1	Osobni doživljaj prirode.
+177	2	Sinkronijska lingvistika proučava:	Jezik kroz povijest	Jezik u jednom vremenskom razdoblju	Samo pravopis	Samo gramatiku	1	Nasuprot dijakronijskoj (povijesnoj).
+178	2	Dijakronijska lingvistika proučava:	Jezik u jednom trenutku	Razvoj jezika kroz vrijeme	Samo izgovor	Samo pisanje	1	Kako se hrvatski mijenjao kroz stoljeća.
+179	1	Petar Zoranić napisao je:	Zlatarovo zlato	Planine (prvi hrvatski roman)	Dundo Maroje	Kiklop	1	1536. — pastoralni roman.
+180	1	Hanibal Lucić napisao je:	Osman	Robinja (prva hrvatska drama)	Zlatarovo zlato	Kiklop	1	Renesansna ljubavna drama iz Hvara.
+181	2	Prijedlog služi za:	Spajanje surečenica	Izricanje odnosa među riječima u rečenici	Tvorbu rečenica	Imenovanje	1	Npr. u, na, iz, s, za, prema, kod...
+182	2	Veznik služi za:	Imenovanje	Spajanje riječi, skupova riječi ili surečenica	Opisivanje	Zapovijedanje	1	Npr. i, ali, jer, da, kad...
+183	2	Uzvik služi za:	Imenovanje	Izražavanje emocija, dozivanja ili oponašanja zvukova	Spajanje surečenica	Opisivanje	1	Npr. Oh! Ah! Jao! Hej!
+184	2	Čestica je:	Imenica	Nepromjenjiva riječ za isticanje, pitanje, negaciju	Glagol	Pridjev	1	Npr. li, ne, da, baš, čak, možda.
+185	1	Antun Branko Šimić bio je:	Učenik moderne	Ekspresionistički pjesnik	Realistički romanopisac	Sportaš	1	Preobraženja — poznata zbirka.
+186	1	Gustav Krklec bio je:	Slikar	Poznati hrvatski pjesnik	Glazbenik	Sportaš	1	Lirika sklad i vedrine.
+187	2	'Ne' se piše odvojeno od:	Svih riječi	Glagola (ne pijem, ne čitam)	Samo imenica	Samo pridjeva	1	Ali zajedno kod pridjeva i imenica: neznanje, nepravedan.
+188	2	Razlika između 'neću' i 'ne ću':	Nema razlike	'Neću' je ispravno (niječni oblik glagola 'htjeti')	Oba su jednako ispravna	'Ne ću' je ispravnije	1	Piše se kao jedna riječ.
+189	1	Poslovica je:	Dugačka priča	Kratka narodna mudrost u jednoj rečenici	Samo roman	Samo pjesma	1	Npr. 'Tko rano rani, dva sreća grabi.'
+190	1	Zagonetka je:	Samo šala	Kratka forma koja traži dosjetljiv odgovor	Samo pitalica	Samo basna	1	Npr. 'Što ima korijen, a nije biljka? — Zub.'
+192	2	Crtica (-) se koristi za:	Samo odvajanje	Odvajanje u dijalozima, apozicije, umjesto zareza	Samo na kraju rečenice	Samo u naslovima	1	Npr. 'Zagreb — glavni grad Hrvatske — je lijep.'
+193	1	Pojam 'intertekstualnost' znači:	Tekst u tekstu	Međusobno upućivanje jednog teksta na druge tekstove	Samo plagijat	Samo citat	1	Moderna književna teorija.
+194	1	Alegorija je:	Usporedba	Proširena metafora — djelo s dvostrukim značenjem	Ironija	Ponavljanje	1	Npr. Orwellova Životinjska farma.
+195	1	Ambiguitet u tekstu znači:	Jasnoća	Višeznačnost — mogućnost više tumačenja	Samo jedno značenje	Nepismenost	1	Književni tekstovi često koriste ambiguitet.
+196	2	Medijska pismenost uključuje:	Samo čitanje	Sposobnost kritičkog vrednovanja medijskih poruka	Samo gledanje TV-a	Samo korištenje interneta	1	Važno za razlikovanje vijesti od dezinformacija.
+197	2	Argumentacijski esej zahtijeva:	Samo opinion	Tezu, argumente i protuargumente	Samo naraciju	Samo opis	1	Strukturirani oblik izlaganja.
+198	2	Razlika između govora i pisma:	Nema razlike	Govor je spontaniji, pismo formalnije i trajnije	Pismo je spontanije	Isti su	1	Pismo zahtijeva veću preciznost.
+199	1	Koliko glasova ima standardni hrvatski jezik?	25	30	32	35	1	5 samoglasnika + 25 suglasnika.
+200	2	Hrvatski jezik nam omogućuje:	Samo pričati	Razumjeti kulturu, izraziti misli i povezati se s drugima	Samo pisati	Samo čitati	1	Jezik je ogledalo naroda i identiteta!

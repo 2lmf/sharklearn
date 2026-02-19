@@ -334,7 +334,7 @@ function sendDailySummaries() {
       for (const key in grouped) {
         const g = grouped[key];
         const gradeColor = COLORS[g.grade] || COLORS.default;
-        const semesterText = g.semester === "all" ? "Sve teme" : (g.semester + ". polugodište");
+        const semesterText = g.semester === "all" ? "Cijela godina" : (g.semester + ". polugodište");
         const avgPoints = g.scores.length > 0 ? (g.scores.reduce((a, b) => a + b, 0) / g.scores.length) : 0;
         const finalGrade = calculateGradeFromPoints(avgPoints);
 
@@ -359,8 +359,9 @@ function sendDailySummaries() {
     // Footer with Logo
     htmlBody += `<hr style="border: 0; border-top: 2px solid #eee; margin-top: 30px;">`;
     htmlBody += `<div style="text-align: center; color: #999; font-size: 12px;">`;
-    htmlBody += `<p>Powered by<br><b style="color: #333; font-size: 16px;">Sharpsharkdigital</b></p>`;
-    htmlBody += `<p>SharkLearn v1.2 - Automatski sustav izvještavanja</p>`;
+    htmlBody += `<p style="margin-bottom: 8px; letter-spacing: 1px;">Powered by</p>`;
+    htmlBody += `<a href="https://2lmf-pro.hr" target="_blank"><img src="https://2lmf-pro.hr/assets/sharpshark_blue_large.png" alt="SharpShark Digital" style="width: 140px; height: auto;"></a>`;
+    htmlBody += `<p style="margin-top: 15px;">SharkLearn v1.2 - Automatski sustav izvještavanja</p>`;
     htmlBody += `</div></div>`;
     
     r.emails.forEach(email => {

@@ -1,0 +1,101 @@
+﻿ID	Semestar	Pitanje	Opcija A	Opcija B	Opcija C	Opcija D	Tocan odgovor	Objasnjenje
+1	1	Koliko kontinenata ima na Zemlji?	5	6	7	8	2	Europa, Azija, Afrika, S. Amerika, J. Amerika, Australija, Antarktika.
+2	1	Najveći kontinent po površini je:	Afrika	Europa	Azija	Sjeverna Amerika	2	Oko 44 milijuna km^2.
+3	1	Najmanji kontinent po površini je:	Europa	Antarktika	Australija (Oceanija)	Južna Amerika	2	Oko 7,7 milijuna km^2.
+4	1	Najveći ocean je:	Atlantski	Indijski	Tihi (Pacifik)	Sjeverni ledeni	2	Pokriva trećinu površine Zemlje.
+5	1	Europa je dio koje veće kopnene mase?	Afro-Azije	Euroazije	Amerike	Antarktike	1	Europa i Azija tvore Euroaziju.
+6	1	Uralsko gorje razdvaja:	Europu i Afriku	Aziju i Afriku	Europu i Aziju	Sjevernu i Južnu Ameriku	2	Prirodna granica na istoku Europe.
+7	1	Najduža rijeka u Europi je:	Dunav	Rajna	Volga	Dnjepar	2	3 530 km, teče kroz Rusiju.
+8	1	Najduža rijeka na svijetu je:	Amazonka	Nil	Misisipi	Jangce	1	Oko 6 650 km (prema nekim mjerenjima Amazonka).
+9	1	Najviši vrh na svijetu je:	K2	Kilimandžaro	Mont Blanc	Mount Everest	3	8 849 m, u Himalaji.
+10	1	Najviši vrh u Europi je:	Mont Blanc	Elbrus	Matterhorn	Dinara	1	5 642 m, na Kavkazu (Rusija/Gruzija granica).
+11	1	Sahara se nalazi u:	Aziji	Sjevernoj Americi	Europi	Africi	3	Najveća topla pustinja na svijetu.
+12	1	Amazonska prašuma nalazi se u:	Africi	Aziji	Južnoj Americi	Australiji	2	Najveća tropska prašuma na svijetu.
+13	1	Što je ekvatorialna klima?	Hladna i suha	Topla i vlažna cijelu godinu	Umjerena s godišnjim dobima	Polarna	1	Na ekvatoru, temperature oko 25-28 °C.
+14	1	Monsunska klima karakteristična je za:	Europu	Južnu i jugoistočnu Aziju	Antarktiku	Australiju	1	Sezonski vjetrovi donose kišne i suhe periode.
+15	1	Sredozemna klima ima:	Hladna ljeta i topla zima	Topla i suha ljeta, blage i kišne zime	Jednoliku temperaturu	Stalno snijeg	1	Karakteristična za obale Sredozemnog mora.
+16	1	Što je savana?	Gusta šuma	Travnati prostor s rijetkim drvećem u tropima	Ledena pustinja	Morsko dno	1	Između tropske prašume i pustinje.
+17	1	Tundra se nalazi:	Na ekvatoru	U pustinjama	U polarnim i subpolarnim područjima	U tropima	2	Zamrznuto tlo (permafrost), malo vegetacije.
+18	1	Tajga je:	Tropska šuma	Bjelogorična šuma umjerenog pojasa	Crnogorična šuma subarktičkog pojasa	Pustinja	2	Najveći kopneni biom — četinjače.
+19	1	Koliko je stanovnika na Zemlji (otprilike)?	5 milijardi	Oko 8 milijardi	15 milijardi	1 milijarda	1	Oko 8 milijardi (2024.).
+20	1	Najmnogoljudnija država na svijetu je:	SAD	Rusija	Indija	Brazil	2	Preko 1,4 milijarde stanovnika.
+21	1	Najveća država po površini je:	Kanada	Kina	SAD	Rusija	3	Preko 17 milijuna km^2.
+22	1	Što je BDP (bruto domaći proizvod)?	Broj stanovnika	Ukupna vrijednost dobara i usluga proizvedenih u državi	Površina države	Broj gradova	1	Pokazatelj ekonomske snage.
+23	1	Razvijene zemlje karakterizira:	Nizak BDP	Visok BDP, obrazovanje, zdravstvo	Malo gradova	Samo poljoprivreda	1	Npr. Njemačka, Japan, Norveška.
+24	1	Nerazvijene (zemlje u razvoju) karakterizira:	Visok BDP	Nizak BDP, slabija infrastruktura	Mnogo industrije	Niska gustoća naseljenosti	1	Npr. mnoge države u Africi i Aziji.
+25	1	Urbanizacija je:	Odlazak u selo	Proces preseljenja stanovništva u gradove	Smanjenje gradova	Širenje šuma	1	Više od 55% svjetskog stanovništva živi u gradovima.
+26	2	Glavni grad Hrvatske je:	Split	Rijeka	Zagreb	Osijek	2	Politički, kulturni i gospodarski centar.
+27	2	Hrvatska je članica EU od:	2004.	2007.	2020.	2013.	3	28. članica Europske unije.
+28	2	Hrvatska ima izlaz na:	Crno more	Baltičko more	Jadransko more	Sjeverno more	2	Obala duljine oko 1 778 km (kopnena).
+29	2	Najveća rijeka u Hrvatskoj je:	Drava	Sava	Kupa	Neretva	1	Sava je najduža rijeka koja teče kroz Hrvatsku.
+30	2	Plitvička jezera su zaštićena kao:	Park prirode	Nacionalni park (UNESCO)	Regionalni park	Strogi rezervat	1	Upisana na UNESCO listu 1979.
+31	2	Europska unija ima sjedište u:	Parizu	Berlinu	Bruxellesu	Londonu	2	Belgija — sjedište EU institucija.
+32	2	NATO je:	Ekonomska organizacija	Vojni savez	Sportska organizacija	Humanitarna organizacija	1	Sjevernoatlantski ugovor — kolektivna obrana.
+33	1	Što je Golfska struja?	Hladna morska struja	Topla morska struja u Atlantiku	Zračna masa	Rijeka u SAD-u	1	Zagrijava zapadnu Europu.
+34	1	Sueski kanal povezuje:	Tihi i Atlantski ocean	Sredozemno i Crveno more	Crno i Kaspijsko more	Indijski i Tihi ocean	1	U Egiptu, otvoren 1869.
+35	1	Panamski kanal povezuje:	Atlantski i Tihi ocean	Sredozemno i Crno more	Indijski i Atlantski ocean	Arktički i Tihi ocean	0	U Panami, otvoren 1914.
+36	1	Rasni pojam u geografiji je:	Važan i opravdan	Zastario i znanstveno nevažan (ljudske rase ne postoje)	Samo za životinje	Samo za biljke	1	Moderna znanost odbacuje rasnu klasifikaciju.
+37	1	Gustoća naseljenosti mjeri:	Visinu zgrada	Broj stanovnika po km^2	Površinu države	BDP po stanovniku	1	Npr. Bangladeš ima vrlo visoku, Kanada nisku gustoću.
+38	2	Turizam je važan za Hrvatsku jer:	Nije važan	Donosi značajan dio BDP-a	Samo za sport	Samo za kulturu	1	Oko 20% BDP-a dolazi od turizma.
+39	2	Dubrovnik je poznat kao:	Glavni grad	Biser Jadrana	Industrijski centar	Luka za teretne brodove	1	UNESCO zaštićena stara jezgra.
+40	1	Tektonske ploče su:	Umjetne strukture	Veliki komadi Zemljine kore koji se gibaju	Samo u oceanima	Samo u planinama	1	Uzrokuju potrese i vulkansku aktivnost.
+41	1	Vatreni prsten (Ring of Fire) nalazi se oko:	Atlantskog oceana	Sredozemnog mora	Tihog oceana	Indijskog oceana	2	Zona čestih potresa i vulkana.
+42	1	Erupcija vulkana može izazvati:	Samo kišu	Lavu, pepeo, cunami, klimatske promjene	Samo zemljotres	Ništa opasno	1	Kompleksne posljedice.
+43	2	Kina je:	Europska država	Afrička država	Azijska država, druga ekonomija svijeta	Američka država	2	Peking je glavni grad.
+44	2	Japan se nalazi na:	Kontinentu	Poluotoku	Otočju u Tihom oceanu	Jezeru	2	4 glavna otoka: Honshu, Hokkaido, Kyushu, Shikoku.
+45	2	Indija je poznata po:	Maloj populaciji	Velikoj populaciji, IT industriji, raznolikosti kultura	Arktičkoj klimi	Maloj površini	1	Preko 1,4 milijarde stanovnika.
+46	2	SAD ima koliko saveznih država?	48	52	50	45	2	50 država, Washington D.C. je glavni grad.
+47	1	Globalno zatopljenje uzrokovano je:	Prirodnim ciklusima samo	Povećanom emisijom stakleničkih plinova	Smanjenjem CO2	Ozonskim slojem	1	Ljudska aktivnost ubrzava zatopljenje.
+48	1	Posljedice globalnog zatopljenja uključuju:	Samo toplije ljeto	Topljenje ledenjaka, porast morske razine, ekstremni vremenski uvjeti	Samo više kiše	Ništa značajno	1	Ugrožava ekosustave i ljudska naselja.
+49	2	Njemačka je:	Najmnogoljudnija EU država	Najmanja EU država	Jedina EU država	Europska država koja nije u EU	0	Oko 84 milijuna stanovnika, Berlin je glavni grad.
+50	2	Ujedinjeno Kraljevstvo izašlo je iz EU:	2015.	2020. (Brexit)	2025.	Nikada	1	Referendum 2016., formalni izlazak 2020.
+51	1	Meridijani su:	Vodoravne linije	Zamišljene linije koje spajaju polove (okomite)	Samo na karti	Samo na globusu	1	Od Sjevernog do Južnog pola.
+52	1	Paralele su:	Okomite linije	Vodoravne linije paralelne s ekvatorom	Samo na Antarktici	Samo u Europi	1	Određuju geografsku širinu.
+53	1	Nulti meridijan prolazi kroz:	Pariz	New York	Greenwich (London)	Rim	2	Greenwich meridijan dijeli Zemlju na istok i zapad.
+54	1	Geografska širina ekvatora je:	90°	180°	45°	0°	3	Ekvator dijeli Zemlju na sjevernu i južnu polutku.
+55	1	Obratnik Raka nalazi se na:	66,5° S	23,5° S	23,5° N	0°	2	Najsjevernije mjesto gdje Sunce može biti u zenitu.
+56	1	Obratnik Jarca nalazi se na:	23,5° N	66,5° S	23,5° S	0°	2	Najjužnije mjesto gdje Sunce može biti u zenitu.
+57	1	Vremenske zone nastaju jer:	Zemlje su različitih veličina	Zemlja rotira oko svoje osi	Sunce se kreće	Mjesec utječe	1	360° / 24 h = 15° po vremenskoj zoni.
+58	2	Rijeka Nil teče kroz:	Južnu Ameriku	Europu	Aziju	Afrika (Egipat, Sudan...)	3	Najduža rijeka u Africi.
+59	2	Australija je ujedno i:	Dio Azije	Kontinent i država	Europska kolonija	Jedan od dva pola	1	Jedina država-kontinent.
+60	2	Antarktika je:	Naseljeni kontinent	Kontinent prekriven ledom, bez stalne populacije	Otok	Ocean	1	Najhladniji, najsušniji i najvjetrovitiji kontinent.
+61	2	Brazil je:	Mala država u Europi	Najveća država u Južnoj Americi	Azijska država	Afrička država	1	Brasília je glavni grad, São Paulo najveći grad.
+62	1	Glavni resursi se dijele na:	Samo obnovljive	Obnovljive i neobnovljive	Samo neobnovljive	Ni jedne ni druge	1	Nafta (neobnovljiv) vs. šuma (obnovljiv, ako se upravlja).
+63	1	Nafta se naziva i:	Bijelo zlato	Crno zlato	Zelena energija	Plavo zlato	1	Zbog velike ekonomske vrijednosti.
+64	2	Rusija se prostire na:	Jednom kontinentu	Dva kontinenta (Europa i Azija)	Tri kontinenta	Otoku	1	Najveća država — od Baltika do Pacifika.
+65	1	Deforestacija znači:	Sađenje drveća	Krčenje (uništavanje) šuma	Zaštita šuma	Pošumljavanje	1	Posebno ozbiljan problem u tropima.
+66	1	Dezertifikacija je:	Stvaranje pustinje (širenje pustinja)	Pošumljavanje	Stvaranje jezera	Urbanizacija	0	Pretvaranje plodnog tla u pustinju.
+67	2	Koliko otoka ima Hrvatska?	Oko 50	Oko 1244	Oko 500	Samo 10	1	Od toga 47 naseljenih.
+68	2	Najdulji hrvatski otok je:	Krk	Brač	Hvar	Cres	2	Hvar je dug oko 68 km.
+69	2	Dinarski sustav je:	Ravnica	Planinski sustav koji se proteže paralelno s Jadranom	Ocean	Rijeka	1	Od Alpa do Albanije.
+70	1	Demografski prijelaz opisuje:	Promjenu klime	Prijelaz od visokog na nizak natalitet i mortalitet	Migracije životinja	Tektonske promjene	1	Razvojne zemlje prolaze kroz ove faze.
+71	1	Migracija je:	Rast stanovništva	Preseljenje ljudi iz jednog područja u drugo	Samo turizam	Samo selidba životinja	1	Imigracija = dolazak, emigracija = odlazak.
+72	2	Euro je valuta:	SAD-a	Eurozone (uključujući Hrvatsku od 2023.)	Japana	Kine	1	Hrvatska je uvela euro 1. siječnja 2023.
+73	2	Schengenski prostor znači:	Zajedničku vojsku	Slobodno kretanje bez graničnih kontrola	Zajedničku valutu	Zajedničku državu	1	Hrvatska ušla u Schengen 1. siječnja 2023.
+74	2	Slavonija je poznata po:	Planinama i moru	Ravnicama, poljoprivredi i riječnim tokovima	Otocima	Vulkanima	1	Panonska nizina, plodno tlo.
+75	2	Istra je:	Otok	Planina	Najveći poluotok u Jadranskom moru	Rijeka	2	Poznata po turizmu, vinu, maslinovom ulju i tartufima.
+76	1	GIS (geografski informacijski sustav) služi za:	Snimanje filmova	Prikupljanje, analizu i prikaz prostornih podataka	Samo crtanje karata	Samo mjerenje udaljenosti	1	Digitalna kartografija i prostorne analize.
+77	1	Mjerilo karte 1:100 000 znači:	1 cm na karti = 100 cm u stvarnosti	1 cm na karti = 1 km u stvarnosti	1 cm na karti = 100 km	1 cm na karti = 10 m	1	100 000 cm = 1 km.
+78	1	Topografska karta prikazuje:	Samo političke granice	Reljef, vode, naselja, prometnice	Samo temperature	Samo oborine	1	Izohipse prikazuju visinu terena.
+79	2	Kaspijsko more je zapravo:	Pravo more	Najveće jezero na svijetu	Rijeka	Kanal	1	Slano jezero između Europe i Azije.
+80	2	Najdublje jezero na svijetu je:	Kaspijsko	Bajkalsko jezero	Ženevsko	Viktorijino	1	U Sibiru, dubina 1 642 m.
+81	1	Krški reljef karakterističan je za:	Samo Saharu	Područja građena od vapnenca (npr. Dinaridi)	Samo ravnice	Samo obale	1	Špilje, ponori, polja u kršu.
+82	1	Tsunami je:	Vrsta oluje	Veliki morski val uzrokovan podmorskim potresom	Vrsta oblaka	Vrsta vjetra	1	Može biti razoran na obalama.
+83	2	Glavni grad Francuske je:	Lyon	Marseille	Pariz	Nice	2	Grad svjetla, 2,1 milijuna u gradu.
+84	2	Glavni grad Italije je:	Milano	Venecija	Napulj	Rim	3	Vječni grad, sjedište Vatikana.
+85	2	Glavni grad Španjolske je:	Barcelona	Madrid	Sevilla	Valencia	1	U središtu Iberskog poluotoka.
+86	1	Primarni sektor gospodarstva uključuje:	Industriju	Usluge	Tehnologiju	Poljoprivredu, rudarstvo, ribolov	3	Djelatnosti vezane uz sirovine.
+87	1	Sekundarni sektor gospodarstva uključuje:	Poljoprivredu	Prerađivačku industriju	Usluge	Rudarstvo	1	Obrada sirovina u gotove proizvode.
+88	1	Tercijarni sektor gospodarstva uključuje:	Rudarstvo	Industriju	Usluge (turizam, trgovina, IT, zdravstvo)	Poljoprivredu	2	Najveći sektor u razvijenim zemljama.
+89	2	Egipat je poznat po:	Fjordovima	Piramidama i rijeci Nil	Šumama	Glečerima	1	Drevna civilizacija uz Nil.
+90	2	Južnoafrička Republika je poznata kao:	Država duginih boja (Rainbow Nation)	Ledena zemlja	Pustinjska država	Otočna država	0	Raznolikost naroda i kultura.
+91	1	Koraljni grebeni ugroženi su zbog:	Previše riba	Zagrijavanja oceana i zakiseljavanja	Previše vode	Previše soli	1	Izbjeljuju i umiru.
+92	1	Vodni otisak (water footprint) je:	Oblik vode	Ukupna potrošnja vode za proizvodnju dobara	Samo pitkha voda	Samo industrijska voda	1	Npr. 1 kg mesa troši više vode od 1 kg povrća.
+93	2	Skandinavija uključuje:	Španjolsku i Portugal	Švajcarsku i Austriju	Norvešku, Švedsku i Dansku	Grčku i Tursku	2	Sjevernoeuropske države.
+94	2	Beneluks čine:	Belgija, Nizozemska, Luksemburg	Njemačka, Austrija, Švicarska	Francuska, Italija, Španjolska	Norveška, Finska, Švedska	0	BE-NE-LUX — naziv od prvih slova.
+95	2	Balkanski poluotok uključuje:	Skandinavske zemlje	Iberske zemlje	Hrvatsku, Srbiju, BiH, Crnu Goru, Sjevernu Makedoniju, Albaniju, Bugjarsku, Grčku	Baltičke zemlje	2	Jugoistočna Europa.
+96	1	Energetska tranzicija znači:	Više ugljena	Prijelaz s fosilnih goriva na obnovljive izvore energije	Samo nuklearna energija	Manje energije	1	Za smanjenje emisija CO2.
+97	2	Svila put bio je:	Pomorska ruta	Drevna trgovačka ruta između Europe i Azije	Moderna autocesta	Samo lokalni put	1	Povezivala Kinu s Rimskim Carstvom.
+98	2	UN (Ujedinjeni narodi) ima sjedište u:	Ženevi	New Yorku	Londonu	Parizu	1	Osnovani 1945., cilj: mir i suradnja.
+99	1	Razlika između vremena i klime je:	Nema razlike	Vrijeme je stanje atmosfere u kratkom razdoblju, klima dugoročni prosjek	Klima je kratkoročna	Vrijeme je dugoročno	1	Klima = prosjek vremena kroz 30+ godina.
+100	2	Geografija 8. razreda uči nas:	Samo o karti	O svijetu — državama, klimi, gospodarstvu i ljudima	Samo o Hrvatskoj	Samo o Europi	1	Od lokalne do globalne razine — razumijemo svoj svijet!
