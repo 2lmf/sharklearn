@@ -448,45 +448,63 @@ class QuizEngine {
             // Maps subject names to their global variable data sources
             const dataMap = {
                 // 5. RAZRED
-                "Matematika5": "MAT_DATA",
-                "Hrvatski5": "HRV_5_DATA",
                 "Engleski5": "ENG_DATA",
-                "Njemacki5": "GER_DATA",
                 "Geografija5": "GEO_DATA",
+                "Glazbeni5": "GLA_5_DATA",
+                "Hrvatski5": "HRV_5_DATA",
+                "Informatika5": "INF_5_DATA",
+                "Likovni5": "LIK_5_DATA",
+                "Matematika5": "MAT_DATA",
+                "Njemacki5": "GER_DATA",
                 "Povijest5": "HIS_5_DATA",
                 "prirodaidrustvo5": "PRI_5_DATA",
-                "Informatika5": "INF_5_DATA",
                 "Tehnicki5": "TEH_5_DATA",
-                "Likovni5": "LIK_5_DATA",
-                "Glazbeni5": "GLA_5_DATA",
+                "Vjeronauk5": "VJE_5_DATA",
 
                 // 6. RAZRED
-                "Matematika6": "MAT_6_DATA",
-                "Hrvatski6": "HRV_6_DATA",
                 "Engleski6": "ENG_6_DATA",
-                "Njemacki6": "GER_6_DATA",
                 "Geografija6": "GEO_6_DATA",
+                "Glazbeni6": "GLA_6_DATA",
+                "Hrvatski6": "HRV_6_DATA",
+                "Informatika6": "INF_6_DATA",
+                "Likovni6": "LIK_6_DATA",
+                "Matematika6": "MAT_6_DATA",
+                "Njemacki6": "GER_6_DATA",
                 "Povijest6": "HIS_6_DATA",
                 "Priroda6": "PRI_6_DATA",
-                "Informatika6": "INF_6_DATA",
                 "Tehnicki6": "TEH_6_DATA",
-                "Likovni6": "LIK_6_DATA",
-                "Glazbeni6": "GLA_6_DATA",
+                "Vjeronauk6": "VJE_6_DATA",
 
                 // 7. RAZRED
                 "Biologija7": "QUIZ_DATA", // Legacy name kept for safety
-                "Matematika7": "MAT_7_DATA",
-                "Hrvatski7": "HRV_7_DATA",
                 "Engleski7": "ENG_7_DATA",
-                "njemacki7": "GER_7_DATA", // Small 'n' legacy check
-                "Geografija7": "GEO_7_DATA",
-                "Povijest7": "HIS_DATA", // Legacy name
-                "Kemija7": "KEM_DATA",
                 "Fizika7": "FIZ_DATA",
+                "Geografija7": "GEO_7_DATA",
+                "Glazbeni7": "GLAZ_7_DATA",
+                "Hrvatski7": "HRV_7_DATA",
                 "Informatika7": "INF_7_DATA",
-                "Tehnicki7": "TEH_7_DATA",
+                "Kemija7": "KEM_DATA",
                 "Likovni7": "LIK_7_DATA",
-                "Glazbeni7": "GLAZ_7_DATA"
+                "Matematika7": "MAT_7_DATA",
+                "njemacki7": "GER_7_DATA", // Small 'n' legacy check
+                "Povijest7": "HIS_DATA", // Legacy name
+                "Tehnicki7": "TEH_7_DATA",
+                "Vjeronauk7": "VJE_7_DATA",
+
+                // 8. RAZRED
+                "Biologija8": "BIO_8_DATA",
+                "Engleski8": "ENG_8_DATA",
+                "Fizika8": "FIZ_8_DATA",
+                "Geografija8": "GEO_8_DATA",
+                "Glazbeni8": "GLA_8_DATA",
+                "Hrvatski8": "HRV_8_DATA",
+                "Kemija8": "KEM_8_DATA",
+                "Likovni8": "LIK_8_DATA",
+                "Matematika8": "MAT_8_DATA",
+                "Njemacki8": "GER_8_DATA",
+                "Povijest8": "HIS_8_DATA",
+                "Tehnicki8": "TEH_8_DATA",
+                "Vjeronauk8": "VJE_8_DATA"
             };
 
             // Normalize subject name just in case (e.g. "Njemacki7" vs "njemacki7")
@@ -496,6 +514,18 @@ class QuizEngine {
             if (varName && window[varName]) {
                 console.log(`SharkLearn: Using local fallback for ${this.selectedSubject} (${varName})`);
                 this.allQuestions = window[varName];
+
+                // Check for additional data (e.g. MAT_8_DATA -> MAT_8_ADD_DATA)
+                // We assume the suffix is always _ADD_DATA appended to the base name minus _DATA, or just appended?
+                // Based on file inspection: mat_8.js -> MAT_8_DATA, mat_8_add.js -> MAT_8_ADD_DATA
+                // So we replace '_DATA' with '_ADD_DATA'
+                if (varName.endsWith('_DATA')) {
+                    const addVarName = varName.replace('_DATA', '_ADD_DATA');
+                    if (window[addVarName]) {
+                        console.log(`SharkLearn: Found additional data ${addVarName}`);
+                        this.allQuestions = this.allQuestions.concat(window[addVarName]);
+                    }
+                }
             } else {
                 console.error(`SharkLearn: No local data found for ${this.selectedSubject}`);
             }
