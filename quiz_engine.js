@@ -132,7 +132,7 @@ class QuizEngine {
 
         // Back to Grades Logic
         if (this.elements.backToGradesBtn) {
-            this.elements.backToGradesBtn.onclick = () => this.handleEarlyExit(() => this.showGradeSelection());
+            this.elements.backToGradesBtn.onclick = () => this.showGradeSelection();
         }
 
         // Subject Card Selection Logic
