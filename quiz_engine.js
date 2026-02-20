@@ -132,7 +132,17 @@ class QuizEngine {
 
         // Back to Grades Logic
         if (this.elements.backToGradesBtn) {
-            this.elements.backToGradesBtn.onclick = () => this.showGradeSelection();
+            this.elements.backToGradesBtn.onclick = () => {
+                // Reset mission state before switching
+                if (this.heartbeat) clearInterval(this.heartbeat);
+                this.startTime = null;
+                this.duration = 0;
+
+                this.elements.quizWrapper.style.display = 'none';
+                this.elements.resultScreen.style.display = 'none';
+                this.elements.explanationModal.style.display = 'none';
+                this.showGradeSelection();
+            };
         }
 
         // Subject Card Selection Logic
