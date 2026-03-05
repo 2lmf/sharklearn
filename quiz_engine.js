@@ -642,37 +642,37 @@ class QuizEngine {
         const availableSubjects = [];
         const gradeStr = this.selectedGrade.toString();
 
-        // Subject to internal variable mapping
+        // Subject to internal variable mapping - Comprehensive for p1, p2 and add variants
         const dataMap = {
             "5": [
-                { id: "Engleski5", var: "ENG_DATA" },
-                { id: "Geografija5", var: "GEO_DATA" },
-                { id: "Glazbeni5", var: "GLA_5_DATA" },
-                { id: "Hrvatski5", var: "HRV_5_DATA" },
-                { id: "Informatika5", var: "INF_5_DATA" },
-                { id: "Likovni5", var: "LIK_5_DATA" },
-                { id: "Matematika5", var: "MAT_DATA" }, // Fixed from global check
-                { id: "Njemacki5", var: "GER_DATA" },
-                { id: "Povijest5", var: "HIS_5_DATA" },
-                { id: "prirodaidrustvo5", var: "PRI_5_DATA" },
-                { id: "Tehnicki5", var: "TEH_5_DATA" },
-                { id: "Vjeronauk5", var: "VJE_5_DATA" }
+                { id: "Engleski5", vars: ["ENG_DATA", "ENG_5_DATA", "ENG_5_P1_DATA", "ENG_5_P2_DATA", "ENG_5_ADD_DATA"] },
+                { id: "Geografija5", vars: ["GEO_DATA", "GEO_5_DATA", "GEO_5_P1_DATA", "GEO_5_P2_DATA", "GEO_5_ADD_DATA"] },
+                { id: "Glazbeni5", vars: ["GLA_5_DATA", "GLA_5_P1_DATA", "GLA_5_P2_DATA", "GLA_5_ADD_DATA"] },
+                { id: "Hrvatski5", vars: ["HRV_5_DATA", "HRV_5_P1_DATA", "HRV_5_P2_DATA", "HRV_5_ADD_DATA"] },
+                { id: "Informatika5", vars: ["INF_5_DATA", "INF_5_P1_DATA", "INF_5_P2_DATA", "INF_5_ADD_DATA"] },
+                { id: "Likovni5", vars: ["LIK_5_DATA", "LIK_5_P1_DATA", "LIK_5_P2_DATA", "LIK_5_ADD_DATA"] },
+                { id: "Matematika5", vars: ["MAT_DATA", "MAT_5_DATA", "MAT_5_P1_DATA", "MAT_5_P2_DATA", "MAT_5_ADD_DATA"] },
+                { id: "Njemacki5", vars: ["GER_DATA", "GER_5_DATA", "GER_5_P1_DATA", "GER_5_P2_DATA", "GER_5_ADD_DATA"] },
+                { id: "Povijest5", vars: ["HIS_5_DATA", "HIS_5_P1_DATA", "HIS_5_P2_DATA", "HIS_5_ADD_DATA"] },
+                { id: "prirodaidrustvo5", vars: ["PRI_5_DATA", "PRI_5_P1_DATA", "PRI_5_P2_DATA", "PRI_5_ADD_DATA"] },
+                { id: "Tehnicki5", vars: ["TEH_5_DATA", "TEH_5_P1_DATA", "TEH_5_P2_DATA", "TEH_5_ADD_DATA"] },
+                { id: "Vjeronauk5", vars: ["VJE_5_DATA", "VJE_5_P1_DATA", "VJE_5_P2_DATA", "VJE_5_ADD_DATA"] }
             ],
             "7": [
-                { id: "Biologija7", var: "QUIZ_DATA" },
-                { id: "Engleski7", var: "ENG_7_DATA" },
-                { id: "Fizika7", var: "FIZ_DATA" },
-                { id: "Geografija7", var: "GEO_7_DATA" },
-                { id: "Glazbeni7", var: "GLAZ_7_DATA" },
-                { id: "Hrvatski7", var: "HRV_7_DATA" },
-                { id: "Informatika7", var: "INF_7_DATA" },
-                { id: "Kemija7", var: "KEM_DATA" },
-                { id: "Likovni7", var: "LIK_7_DATA" },
-                { id: "Matematika7", var: "MAT_7_DATA" },
-                { id: "Njemacki7", var: "GER_7_DATA" }, // Fixed capitalization
-                { id: "Povijest7", var: "HIS_DATA" },
-                { id: "Tehnicki7", var: "TEH_7_DATA" },
-                { id: "Vjeronauk7", var: "VJE_7_DATA" }
+                { id: "Biologija7", vars: ["BIO_7_DATA", "BIO_7_P1_DATA", "BIO_7_P2_DATA", "BIO_7_ADD_DATA", "QUIZ_DATA"] },
+                { id: "Engleski7", vars: ["ENG_7_DATA", "ENG_7_P1_DATA", "ENG_7_P2_DATA", "ENG_7_ADD_DATA"] },
+                { id: "Fizika7", vars: ["FIZ_DATA", "FIZ_7_DATA", "FIZ_7_P1_DATA", "FIZ_7_P2_DATA", "FIZ_7_ADD_DATA"] },
+                { id: "Geografija7", vars: ["GEO_7_DATA", "GEO_7_P1_DATA", "GEO_7_P2_DATA", "GEO_7_ADD_DATA"] },
+                { id: "Glazbeni7", vars: ["GLAZ_7_DATA", "GLAZ_7_P1_DATA", "GLAZ_7_P2_DATA", "GLAZ_7_ADD_DATA"] },
+                { id: "Hrvatski7", vars: ["HRV_7_DATA", "HRV_7_P1_DATA", "HRV_7_P2_DATA", "HRV_7_ADD_DATA"] },
+                { id: "Informatika7", vars: ["INF_7_DATA", "INF_7_P1_DATA", "INF_7_P2_DATA", "INF_7_ADD_DATA"] },
+                { id: "Kemija7", vars: ["KEM_DATA", "KEM_7_DATA", "KEM_7_P1_DATA", "KEM_7_P2_DATA", "KEM_7_ADD_DATA"] },
+                { id: "Likovni7", vars: ["LIK_7_DATA", "LIK_7_P1_DATA", "LIK_7_P2_DATA", "LIK_7_ADD_DATA"] },
+                { id: "Matematika7", vars: ["MAT_7_DATA", "MAT_7_P1_DATA", "MAT_7_P2_DATA", "MAT_7_ADD_DATA"] },
+                { id: "Njemacki7", vars: ["GER_7_DATA", "GER_7_P1_DATA", "GER_7_P2_DATA", "GER_7_ADD_DATA"] },
+                { id: "Povijest7", vars: ["HIS_DATA", "HIS_7_DATA", "HIS_7_P1_DATA", "HIS_7_P2_DATA", "HIS_7_ADD_DATA"] },
+                { id: "Tehnicki7", vars: ["TEH_7_DATA", "TEH_7_P1_DATA", "TEH_7_P2_DATA", "TEH_7_ADD_DATA"] },
+                { id: "Vjeronauk7", vars: ["VJE_7_DATA", "VJE_7_P1_DATA", "VJE_7_P2_DATA", "VJE_7_ADD_DATA"] }
             ]
         };
 
@@ -686,16 +686,19 @@ class QuizEngine {
         this.examBreakdown = []; // Track which questions belong to which subject for scoring
 
         selectedSubjectVars.forEach(sub => {
-            const varName = sub.var;
-            if (window[varName]) {
-                let questions = Array.isArray(window[varName]) ? [...window[varName]] : [];
+            let questions = [];
 
-                // Add additional data if exists
-                const addVarName = varName.replace('_DATA', '_ADD_DATA');
-                if (window[addVarName] && Array.isArray(window[addVarName])) {
-                    questions = questions.concat(window[addVarName]);
-                }
+            // Loop through all potential variable names for this subject
+            if (sub.vars && Array.isArray(sub.vars)) {
+                sub.vars.forEach(vName => {
+                    if (window[vName] && Array.isArray(window[vName])) {
+                        console.log(`SharkLearn: Merging ${window[vName].length} questions from ${vName}`);
+                        questions = questions.concat(window[vName]);
+                    }
+                });
+            }
 
+            if (questions.length > 0) {
                 // Filter by semester
                 if (activeSemester !== "all") {
                     questions = questions.filter(q => q.semester == activeSemester);
@@ -705,17 +708,17 @@ class QuizEngine {
                     const sampledCount = Math.min(questions.length, 10);
                     const sampled = this.getRandomSubarray(questions, sampledCount);
                     examQuestions = examQuestions.concat(sampled);
-                    console.log(`SharkLearn: Subject ${sub.id} added ${sampled.length} questions.`);
+                    console.log(`SharkLearn: Subject ${sub.id} total pool: ${questions.length}, added ${sampled.length} questions.`);
                     this.examBreakdown.push({
                         label: sub.id.replace(gradeStr, '').replace(/^\w/, c => c.toUpperCase()), // e.g. "Matematika"
                         questionIds: sampled.map(q => q.id),
                         correctCount: 0
                     });
                 } else {
-                    console.warn(`SharkLearn: No questions for ${sub.id} in semester ${activeSemester}`);
+                    console.warn(`SharkLearn: No questions for ${sub.id} in semester ${activeSemester} after filtering.`);
                 }
             } else {
-                console.error(`SharkLearn: CRITICAL - Global variable ${varName} NOT FOUND for ${sub.id}`);
+                console.error(`SharkLearn: CRITICAL - NO DATA FOUND for any variance of ${sub.id} (looked for: ${sub.vars.join(', ')})`);
             }
         });
 
