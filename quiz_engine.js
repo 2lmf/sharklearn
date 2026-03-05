@@ -634,98 +634,92 @@ class QuizEngine {
         }
     }
 
-    startExamMode(chosenSemester = null) {
+    async startExamMode(chosenSemester = null) {
         console.log("SharkLearn: Starting Exam Mode for Grade", this.selectedGrade, "Semester:", chosenSemester);
+
+        // Pokaži indikator učitavanja na glavnom gumbu
+        const oldBtnText = this.elements.startBtn.innerText;
+        this.elements.startBtn.innerText = "UČITAVANJE ISPITA...";
+        this.elements.startBtn.disabled = true;
 
         // Use provided semester or fallback to global if somehow missing
         const activeSemester = chosenSemester || this.selectedSemester || "all";
-        const availableSubjects = [];
         const gradeStr = this.selectedGrade.toString();
 
-        // Subject to internal variable mapping - Comprehensive for p1, p2 and add variants
-        const dataMap = {
-            "5": [
-                { id: "Engleski5", vars: ["ENG_DATA", "ENG_5_DATA", "ENG_5_P1_DATA", "ENG_5_P2_DATA", "ENG_5_ADD_DATA"] },
-                { id: "Geografija5", vars: ["GEO_DATA", "GEO_5_DATA", "GEO_5_P1_DATA", "GEO_5_P2_DATA", "GEO_5_ADD_DATA"] },
-                { id: "Glazbeni5", vars: ["GLA_5_DATA", "GLA_5_P1_DATA", "GLA_5_P2_DATA", "GLA_5_ADD_DATA"] },
-                { id: "Hrvatski5", vars: ["HRV_5_DATA", "HRV_5_P1_DATA", "HRV_5_P2_DATA", "HRV_5_ADD_DATA"] },
-                { id: "Informatika5", vars: ["INF_5_DATA", "INF_5_P1_DATA", "INF_5_P2_DATA", "INF_5_ADD_DATA"] },
-                { id: "Likovni5", vars: ["LIK_5_DATA", "LIK_5_P1_DATA", "LIK_5_P2_DATA", "LIK_5_ADD_DATA"] },
-                { id: "Matematika5", vars: ["MAT_DATA", "MAT_5_DATA", "MAT_5_P1_DATA", "MAT_5_P2_DATA", "MAT_5_ADD_DATA"] },
-                { id: "Njemacki5", vars: ["GER_DATA", "GER_5_DATA", "GER_5_P1_DATA", "GER_5_P2_DATA", "GER_5_ADD_DATA"] },
-                { id: "Povijest5", vars: ["HIS_5_DATA", "HIS_5_P1_DATA", "HIS_5_P2_DATA", "HIS_5_ADD_DATA"] },
-                { id: "prirodaidrustvo5", vars: ["PRI_5_DATA", "PRI_5_P1_DATA", "PRI_5_P2_DATA", "PRI_5_ADD_DATA"] },
-                { id: "Tehnicki5", vars: ["TEH_5_DATA", "TEH_5_P1_DATA", "TEH_5_P2_DATA", "TEH_5_ADD_DATA"] },
-                { id: "Vjeronauk5", vars: ["VJE_5_DATA", "VJE_5_P1_DATA", "VJE_5_P2_DATA", "VJE_5_ADD_DATA"] }
-            ],
-            "7": [
-                { id: "Biologija7", vars: ["BIO_7_DATA", "BIO_7_P1_DATA", "BIO_7_P2_DATA", "BIO_7_ADD_DATA", "QUIZ_DATA"] },
-                { id: "Engleski7", vars: ["ENG_7_DATA", "ENG_7_P1_DATA", "ENG_7_P2_DATA", "ENG_7_ADD_DATA"] },
-                { id: "Fizika7", vars: ["FIZ_DATA", "FIZ_7_DATA", "FIZ_7_P1_DATA", "FIZ_7_P2_DATA", "FIZ_7_ADD_DATA"] },
-                { id: "Geografija7", vars: ["GEO_7_DATA", "GEO_7_P1_DATA", "GEO_7_P2_DATA", "GEO_7_ADD_DATA"] },
-                { id: "Glazbeni7", vars: ["GLAZ_7_DATA", "GLAZ_7_P1_DATA", "GLAZ_7_P2_DATA", "GLAZ_7_ADD_DATA"] },
-                { id: "Hrvatski7", vars: ["HRV_7_DATA", "HRV_7_P1_DATA", "HRV_7_P2_DATA", "HRV_7_ADD_DATA"] },
-                { id: "Informatika7", vars: ["INF_7_DATA", "INF_7_P1_DATA", "INF_7_P2_DATA", "INF_7_ADD_DATA"] },
-                { id: "Kemija7", vars: ["KEM_DATA", "KEM_7_DATA", "KEM_7_P1_DATA", "KEM_7_P2_DATA", "KEM_7_ADD_DATA"] },
-                { id: "Likovni7", vars: ["LIK_7_DATA", "LIK_7_P1_DATA", "LIK_7_P2_DATA", "LIK_7_ADD_DATA"] },
-                { id: "Matematika7", vars: ["MAT_7_DATA", "MAT_7_P1_DATA", "MAT_7_P2_DATA", "MAT_7_ADD_DATA"] },
-                { id: "Njemacki7", vars: ["GER_7_DATA", "GER_7_P1_DATA", "GER_7_P2_DATA", "GER_7_ADD_DATA"] },
-                { id: "Povijest7", vars: ["HIS_DATA", "HIS_7_DATA", "HIS_7_P1_DATA", "HIS_7_P2_DATA", "HIS_7_ADD_DATA"] },
-                { id: "Tehnicki7", vars: ["TEH_7_DATA", "TEH_7_P1_DATA", "TEH_7_P2_DATA", "TEH_7_ADD_DATA"] },
-                { id: "Vjeronauk7", vars: ["VJE_7_DATA", "VJE_7_P1_DATA", "VJE_7_P2_DATA", "VJE_7_ADD_DATA"] }
-            ]
+        // Lista predmeta koji postoje u Google Sheetu prema razredima
+        const subjectIdsByGrade = {
+            "5": ["Engleski5", "Geografija5", "Glazbeni5", "Hrvatski5", "Informatika5", "Likovni5", "Matematika5", "Njemacki5", "Povijest5", "prirodaidrustvo5", "Tehnicki5", "Vjeronauk5"],
+            "7": ["Biologija7", "Engleski7", "Fizika7", "Geografija7", "Glazbeni7", "Hrvatski7", "Informatika7", "Kemija7", "Likovni7", "Matematika7", "Njemacki7", "Povijest7", "Tehnicki7", "Vjeronauk7"]
         };
 
-        const subjectsPool = dataMap[gradeStr] || [];
+        const subjectsPool = subjectIdsByGrade[gradeStr] || [];
 
         // 2. Pick 5 random subjects
-        const selectedSubjectVars = this.getRandomSubarray(subjectsPool, 5);
+        const selectedSubjects = this.getRandomSubarray(subjectsPool, 5);
 
-        // 3. Collect 10 questions from each subject
+        // 3. Collect 10 questions from each subject using Google Sheets API
         let examQuestions = [];
         this.examBreakdown = []; // Track which questions belong to which subject for scoring
 
-        selectedSubjectVars.forEach(sub => {
-            let questions = [];
+        try {
+            console.log(`SharkLearn: Fetching exam questions from cloud for: ${selectedSubjects.join(', ')}`);
 
-            // Loop through all potential variable names for this subject
-            if (sub.vars && Array.isArray(sub.vars)) {
-                sub.vars.forEach(vName => {
-                    if (window[vName] && Array.isArray(window[vName])) {
-                        console.log(`SharkLearn: Merging ${window[vName].length} questions from ${vName}`);
-                        questions = questions.concat(window[vName]);
-                    }
-                });
-            }
+            // Radimo 5 paralelnih fetch poziva prema Google Sheetu
+            const fetchPromises = selectedSubjects.map(subjectId =>
+                fetch(`${this.apiUrl}?action=get_questions&subject=${subjectId}`)
+                    .then(res => res.json())
+                    .then(data => ({ subjectId, data }))
+                    .catch(e => {
+                        console.error(`Greška pri dohvaćanju za ${subjectId}`, e);
+                        return { subjectId, data: [] }; // Fallback na prazno u slučaju greške
+                    })
+            );
 
-            if (questions.length > 0) {
-                // Filter by semester
-                if (activeSemester !== "all") {
-                    questions = questions.filter(q => q.semester == activeSemester);
-                }
+            const results = await Promise.all(fetchPromises);
+
+            results.forEach(result => {
+                let questions = Array.isArray(result.data) ? result.data : [];
 
                 if (questions.length > 0) {
-                    const sampledCount = Math.min(questions.length, 10);
-                    const sampled = this.getRandomSubarray(questions, sampledCount);
-                    examQuestions = examQuestions.concat(sampled);
-                    console.log(`SharkLearn: Subject ${sub.id} total pool: ${questions.length}, added ${sampled.length} questions.`);
-                    this.examBreakdown.push({
-                        label: sub.id.replace(gradeStr, '').replace(/^\w/, c => c.toUpperCase()), // e.g. "Matematika"
-                        questionIds: sampled.map(q => q.id),
-                        correctCount: 0
-                    });
+                    // Filter by semester
+                    if (activeSemester !== "all") {
+                        questions = questions.filter(q => q.semester == activeSemester);
+                    }
+
+                    if (questions.length > 0) {
+                        const sampledCount = Math.min(questions.length, 10);
+                        const sampled = this.getRandomSubarray(questions, sampledCount);
+                        examQuestions = examQuestions.concat(sampled);
+                        console.log(`SharkLearn: Subject ${result.subjectId} added ${sampled.length} questions from cloud pool of ${questions.length}.`);
+
+                        this.examBreakdown.push({
+                            label: result.subjectId.replace(gradeStr, '').replace(/^\w/, c => c.toUpperCase()),
+                            questionIds: sampled.map(q => q.id),
+                            correctCount: 0
+                        });
+                    } else {
+                        console.warn(`SharkLearn: No questions for ${result.subjectId} in semester ${activeSemester} after filtering.`);
+                    }
                 } else {
-                    console.warn(`SharkLearn: No questions for ${sub.id} in semester ${activeSemester} after filtering.`);
+                    console.warn(`SharkLearn: Google Sheet returned empty data for ${result.subjectId}.`);
                 }
-            } else {
-                console.error(`SharkLearn: CRITICAL - NO DATA FOUND for any variance of ${sub.id} (looked for: ${sub.vars.join(', ')})`);
-            }
-        });
+            });
+
+        } catch (error) {
+            console.error("SharkLearn: Critical error in Cloud Fetch for Exam Mode", error);
+            alert("Došlo je do greške pri dohvaćanju ispita. Provjeri vezu.");
+            this.elements.startBtn.innerText = oldBtnText;
+            this.elements.startBtn.disabled = false;
+            return;
+        }
 
         console.log(`SharkLearn: Exam Build Finished. Total Questions: ${examQuestions.length}`);
 
+        this.elements.startBtn.innerText = oldBtnText; // vracamo stari tekst gumba
+        this.elements.startBtn.disabled = false;
+
         if (examQuestions.length < 5) {
-            alert(`Nedovoljno pitanja za ispitni mod (${examQuestions.length} pronađeno). Provjeri jesu li svi predmeti učitani.`);
+            alert(`Nedovoljno pitanja za ispitni mod (${examQuestions.length} pronađeno u Sheetu). Provjeri jesu li pitanja unesena u Google tablicu.`);
             return;
         }
 
