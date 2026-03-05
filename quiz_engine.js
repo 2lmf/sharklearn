@@ -457,14 +457,18 @@ class QuizEngine {
 
         // Load Questions for selected subject
         try {
-            console.log(`SharkLearn: Loading ${this.selectedSubject} (Sem: ${this.selectedSemester})...`);
-            const response = await fetch(`${this.apiUrl}?action=get_questions&subject=${this.selectedSubject}`);
-            const cloudData = await response.json();
-
-            if (Array.isArray(cloudData) && cloudData.length > 0) {
-                this.allQuestions = cloudData;
+            if (this.selectedSubject === 'SPECIAL_EXAM') {
+                console.log("SharkLearn: Exam Mode detected, skipping cloud fetch.");
             } else {
-                throw new Error("Empty response");
+                console.log(`SharkLearn: Loading ${this.selectedSubject} (Sem: ${this.selectedSemester})...`);
+                const response = await fetch(`${this.apiUrl}?action=get_questions&subject=${this.selectedSubject}`);
+                const cloudData = await response.json();
+
+                if (Array.isArray(cloudData) && cloudData.length > 0) {
+                    this.allQuestions = cloudData;
+                } else {
+                    throw new Error("Empty response");
+                }
             }
         } catch (e) {
             console.warn("SharkLearn: Cloud error, trying local fallback...", e);
@@ -586,10 +590,9 @@ class QuizEngine {
         console.log("SharkLearn: Starting Exam Mode for Grade", this.selectedGrade);
 
         // 1. Identify all available subjects for this grade
-        const availableSubjects = [];
         const gradeStr = this.selectedGrade.toString();
 
-        // Subject to internal variable mapping
+        // Subject to internal variable mapping (Synced with content files)
         const dataMap = {
             "5": [
                 { id: "Engleski5", var: "ENG_DATA" },
@@ -606,71 +609,78 @@ class QuizEngine {
                 { id: "Vjeronauk5", var: "VJE_5_DATA" }
             ],
             "7": [
-                { id: "Biologija7", var: "QUIZ_DATA" },
+                { id: "Biologija7", var: "QUIZ_DATA" }, // Biologija uses QUIZ_DATA
                 { id: "Engleski7", var: "ENG_7_DATA" },
                 { id: "Fizika7", var: "FIZ_DATA" },
                 { id: "Geografija7", var: "GEO_7_DATA" },
-                { id: "Glazbeni7", var: "GLAZ_7_DATA" },
+                { id: "Glazbeni7", var: "GLA_7_DATA" },
                 { id: "Hrvatski7", var: "HRV_7_DATA" },
-                { id: "Informatika7", var: "INF_7_DATA" },
+                { id: "Informatika7", var: "INF_7_P1_DATA" },
                 { id: "Kemija7", var: "KEM_DATA" },
                 { id: "Likovni7", var: "LIK_7_DATA" },
                 { id: "Matematika7", var: "MAT_7_DATA" },
                 { id: "njemacki7", var: "GER_7_DATA" },
                 { id: "Povijest7", var: "HIS_DATA" },
-                { id: "Tehnicki7", var: "TEH_7_DATA" },
+                { id: "Tehnicki7", var: "TEH_7_P1_DATA" },
                 { id: "Vjeronauk7", var: "VJE_7_DATA" }
             ]
         };
 
         const subjectsPool = dataMap[gradeStr] || [];
 
-        // 2. Pick 5 random subjects
-        const selectedSubjectVars = this.getRandomSubarray(subjectsPool, 5);
+        // 2. Pick 5 random subjects (Only if they actually exist in window)
+        const selectedSubjectVars = this.getRandomSubarray(subjectsPool.filter(s => window[s.var]), 5);
 
         // 3. Collect 10 questions from each subject
         let examQuestions = [];
-        this.examBreakdown = []; // Track which questions belong to which subject for scoring
+        this.examBreakdown = [];
 
         selectedSubjectVars.forEach(sub => {
             const varName = sub.var;
-            if (window[varName]) {
-                let questions = window[varName];
+            let questions = window[varName];
 
-                // Add additional data if exists
-                const addVarName = varName.replace('_DATA', '_ADD_DATA');
-                if (window[addVarName]) {
-                    questions = questions.concat(window[addVarName]);
-                }
+            // Comprehensive ADD_DATA check
+            const addVarNames = [
+                varName.replace('_DATA', '_ADD_DATA'),      // e.g. HRV_5_ADD_DATA
+                varName.replace('_DATA', '_7_ADD_DATA'),    // e.g. HIS_7_ADD_DATA
+                sub.id + '_ADD_DATA'                        // e.g. Engleski5_ADD_DATA
+            ];
 
-                // Filter by semester
-                if (this.selectedSemester !== "all") {
-                    questions = questions.filter(q => q.semester == this.selectedSemester);
+            addVarNames.forEach(an => {
+                if (window[an] && Array.isArray(window[an])) {
+                    questions = questions.concat(window[an]);
                 }
+            });
 
-                if (questions.length > 0) {
-                    const sampled = this.getRandomSubarray(questions, 10);
-                    examQuestions = examQuestions.concat(sampled);
-                    this.examBreakdown.push({
-                        label: sub.id.replace(gradeStr, ''), // e.g. "Matematika"
-                        questionIds: sampled.map(q => q.id),
-                        correctCount: 0
-                    });
-                }
+            // Filter by semester
+            if (this.selectedSemester !== "all") {
+                questions = questions.filter(q => q.semester == this.selectedSemester);
+            }
+
+            if (questions.length > 0) {
+                const sampled = this.getRandomSubarray(questions, 10);
+                examQuestions = examQuestions.concat(sampled);
+                this.examBreakdown.push({
+                    label: sub.id.replace(gradeStr, '').replace('7', '').replace('5', ''),
+                    questionIds: sampled.map(q => q.id),
+                    correctCount: 0
+                });
             }
         });
 
         if (examQuestions.length < 10) {
-            alert("Nedovoljno pitanja za ispitni mod u ovom polugodištu.");
+            alert("Nedovoljno pitanja za ispitni mod u ovom polugodištu. Provjerite jeste li odabrali ispravno polugodište (ili 'Cijela godina').");
+            this.elements.startBtn.disabled = false;
+            this.elements.startBtn.innerText = "ZAPOČNI MISIJU";
             return;
         }
 
-        // 4. Setup Mission
+        // 4. Final Setup
         this.allQuestions = examQuestions;
-        this.currentMission = examQuestions; // No further slicing, use all 50 (or less if pool was small)
+        this.currentMission = examQuestions;
         this.currentIndex = 0;
         this.score = 0;
-        this.lives = 99; // Essentially infinite for exam mode, or we can keep it at 5 if preferred
+        this.lives = 99;
         this.isExamMode = true;
 
         this.elements.welcomeScreen.style.display = 'none';
