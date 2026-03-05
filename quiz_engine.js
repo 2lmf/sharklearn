@@ -380,6 +380,9 @@ class QuizEngine {
             this.elements.subjectCards.forEach(c => c.classList.remove('active'));
             firstVisible.classList.add('active');
             this.elements.subjectHidden.value = firstVisible.getAttribute('data-subject');
+            this.selectedSubject = this.elements.subjectHidden.value; // CRITICAL: Update state too
+            this.selectedSemester = "all";
+            console.log("SharkLearn: Auto-selected subject", this.selectedSubject);
         }
 
         console.log("SharkLearn: Grade selected", grade);
@@ -647,11 +650,11 @@ class QuizEngine {
         selectedSubjectVars.forEach(sub => {
             const varName = sub.var;
             if (window[varName]) {
-                let questions = window[varName];
+                let questions = Array.isArray(window[varName]) ? [...window[varName]] : [];
 
                 // Add additional data if exists
                 const addVarName = varName.replace('_DATA', '_ADD_DATA');
-                if (window[addVarName]) {
+                if (window[addVarName] && Array.isArray(window[addVarName])) {
                     questions = questions.concat(window[addVarName]);
                 }
 
@@ -661,14 +664,17 @@ class QuizEngine {
                 }
 
                 if (questions.length > 0) {
-                    const sampled = this.getRandomSubarray(questions, 10);
+                    const sampledCount = Math.min(questions.length, 10);
+                    const sampled = this.getRandomSubarray(questions, sampledCount);
                     examQuestions = examQuestions.concat(sampled);
                     this.examBreakdown.push({
-                        label: sub.id.replace(gradeStr, ''), // e.g. "Matematika"
+                        label: sub.id.replace(gradeStr, '').replace(/^\w/, c => c.toUpperCase()), // e.g. "Matematika"
                         questionIds: sampled.map(q => q.id),
                         correctCount: 0
                     });
                 }
+            } else {
+                console.warn(`SharkLearn: Missing data for ${sub.id} (var ${varName})`);
             }
         });
 
