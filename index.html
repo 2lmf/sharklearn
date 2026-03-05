@@ -93,7 +93,7 @@
                         style="width: 100%; margin-top: 10px; padding: 18px;">SPREMI I KRENI</button>
 
                     <div class="card-branding"
-                        style="margin-top: 25px; pt: 15px; border-top: 1px solid rgba(255,157,0,0.2);">
+                        style="margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,157,0,0.2);">
                         <p
                             style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 2px;">
                             POWERED BY:</p>
@@ -155,6 +155,20 @@
 
             <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
                 <div class="subject-cards" id="subject-cards-container">
+                    <!-- EXAM MODE CARD (Visible for Grade 5 and 7) -->
+                    <div class="subject-card exam-card" id="exam-mode-card" data-subject="SPECIAL_EXAM"
+                        data-grade="MIXED"
+                        style="grid-column: 1 / -1; background: linear-gradient(135deg, #FF9D00, #FF5E00); border: 2px solid #FFD700; box-shadow: 0 0 20px rgba(255, 157, 0, 0.4); display: none;">
+                        <span class="icon" style="font-size: 2rem;">🏆</span>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <span class="label"
+                                style="font-weight: 800; font-size: 1.1rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">ISPIT
+                                ZA 30 MINUTA</span>
+                            <span style="font-size: 0.7rem; color: rgba(255,255,255,0.9); letter-spacing: 1px;">5 RANDOM
+                                PREDMETA • 5 OCJENA</span>
+                        </div>
+                    </div>
+
                     <!-- 5. RAZRED -->
                     <div class="subject-card" data-subject="Engleski5" data-grade="5"><span
                             class="icon">🇬🇧</span><span class="label">Engleski</span></div>

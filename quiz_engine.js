@@ -338,7 +338,22 @@ class QuizEngine {
 
         // Filter Subject Cards
         let firstVisible = null;
+        const examCard = document.getElementById('exam-mode-card');
+
+        // Show exam card only for 5th and 7th grade
+        if (examCard) {
+            if (grade === "5" || grade === "7") {
+                examCard.style.display = 'flex';
+                examCard.setAttribute('data-grade', grade); // Sync grade for exam mode
+                firstVisible = examCard;
+            } else {
+                examCard.style.display = 'none';
+            }
+        }
+
         this.elements.subjectCards.forEach(card => {
+            if (card === examCard) return; // Already handled
+
             const cardGrade = card.getAttribute('data-grade');
             if (cardGrade === grade) {
                 card.style.display = 'flex';
@@ -541,15 +556,20 @@ class QuizEngine {
             }
         }
 
-        if (this.allQuestions.length > 0) {
+        if (this.allQuestions.length > 0 || this.selectedSubject === 'SPECIAL_EXAM') {
             // Apply Semester Filter locally if not already done by backend
-            if (this.selectedSemester !== "all") {
+            if (this.selectedSemester !== "all" && this.selectedSubject !== 'SPECIAL_EXAM') {
                 const filtered = this.allQuestions.filter(q => q.semester == this.selectedSemester);
                 if (filtered.length > 0) {
                     this.allQuestions = filtered;
                 } else {
                     console.warn(`No questions for semester ${this.selectedSemester}, showing all.`);
                 }
+            }
+
+            if (this.selectedSubject === 'SPECIAL_EXAM') {
+                this.startExamMode();
+                return;
             }
 
             this.elements.welcomeScreen.style.display = 'none';
@@ -560,6 +580,104 @@ class QuizEngine {
             this.elements.startBtn.disabled = false;
             this.elements.startBtn.innerText = "ZAPOČNI MISIJU";
         }
+    }
+
+    startExamMode() {
+        console.log("SharkLearn: Starting Exam Mode for Grade", this.selectedGrade);
+
+        // 1. Identify all available subjects for this grade
+        const availableSubjects = [];
+        const gradeStr = this.selectedGrade.toString();
+
+        // Subject to internal variable mapping
+        const dataMap = {
+            "5": [
+                { id: "Engleski5", var: "ENG_DATA" },
+                { id: "Geografija5", var: "GEO_DATA" },
+                { id: "Glazbeni5", var: "GLA_5_DATA" },
+                { id: "Hrvatski5", var: "HRV_5_DATA" },
+                { id: "Informatika5", var: "INF_5_DATA" },
+                { id: "Likovni5", var: "LIK_5_DATA" },
+                { id: "Matematika5", var: "MAT_DATA" },
+                { id: "Njemacki5", var: "GER_DATA" },
+                { id: "Povijest5", var: "HIS_5_DATA" },
+                { id: "prirodaidrustvo5", var: "PRI_5_DATA" },
+                { id: "Tehnicki5", var: "TEH_5_DATA" },
+                { id: "Vjeronauk5", var: "VJE_5_DATA" }
+            ],
+            "7": [
+                { id: "Biologija7", var: "QUIZ_DATA" },
+                { id: "Engleski7", var: "ENG_7_DATA" },
+                { id: "Fizika7", var: "FIZ_DATA" },
+                { id: "Geografija7", var: "GEO_7_DATA" },
+                { id: "Glazbeni7", var: "GLAZ_7_DATA" },
+                { id: "Hrvatski7", var: "HRV_7_DATA" },
+                { id: "Informatika7", var: "INF_7_DATA" },
+                { id: "Kemija7", var: "KEM_DATA" },
+                { id: "Likovni7", var: "LIK_7_DATA" },
+                { id: "Matematika7", var: "MAT_7_DATA" },
+                { id: "njemacki7", var: "GER_7_DATA" },
+                { id: "Povijest7", var: "HIS_DATA" },
+                { id: "Tehnicki7", var: "TEH_7_DATA" },
+                { id: "Vjeronauk7", var: "VJE_7_DATA" }
+            ]
+        };
+
+        const subjectsPool = dataMap[gradeStr] || [];
+
+        // 2. Pick 5 random subjects
+        const selectedSubjectVars = this.getRandomSubarray(subjectsPool, 5);
+
+        // 3. Collect 10 questions from each subject
+        let examQuestions = [];
+        this.examBreakdown = []; // Track which questions belong to which subject for scoring
+
+        selectedSubjectVars.forEach(sub => {
+            const varName = sub.var;
+            if (window[varName]) {
+                let questions = window[varName];
+
+                // Add additional data if exists
+                const addVarName = varName.replace('_DATA', '_ADD_DATA');
+                if (window[addVarName]) {
+                    questions = questions.concat(window[addVarName]);
+                }
+
+                // Filter by semester
+                if (this.selectedSemester !== "all") {
+                    questions = questions.filter(q => q.semester == this.selectedSemester);
+                }
+
+                if (questions.length > 0) {
+                    const sampled = this.getRandomSubarray(questions, 10);
+                    examQuestions = examQuestions.concat(sampled);
+                    this.examBreakdown.push({
+                        label: sub.id.replace(gradeStr, ''), // e.g. "Matematika"
+                        questionIds: sampled.map(q => q.id),
+                        correctCount: 0
+                    });
+                }
+            }
+        });
+
+        if (examQuestions.length < 10) {
+            alert("Nedovoljno pitanja za ispitni mod u ovom polugodištu.");
+            return;
+        }
+
+        // 4. Setup Mission
+        this.allQuestions = examQuestions;
+        this.currentMission = examQuestions; // No further slicing, use all 50 (or less if pool was small)
+        this.currentIndex = 0;
+        this.score = 0;
+        this.lives = 99; // Essentially infinite for exam mode, or we can keep it at 5 if preferred
+        this.isExamMode = true;
+
+        this.elements.welcomeScreen.style.display = 'none';
+        this.elements.quizWrapper.style.display = 'block';
+
+        this.updateStatsUI();
+        this.renderQuestion();
     }
 
     setupMission() {
@@ -634,6 +752,13 @@ class QuizEngine {
             btn.classList.add('correct');
             this.score += 100;
             this.markAsSeen(q.id);
+
+            // Track for Exam Mode breakdown
+            if (this.isExamMode && this.examBreakdown) {
+                const sub = this.examBreakdown.find(b => b.questionIds.includes(q.id));
+                if (sub) sub.correctCount++;
+            }
+
             this.updateStatsUI();
             setTimeout(() => this.nextQuestion(), 800);
         } else {
@@ -707,13 +832,39 @@ class QuizEngine {
         this.elements.progressBar.style.width = '100%';
 
         if (success) {
-            this.elements.finalStats.innerText = `Misija uspješna, ${this.studentName}! Osvojio si ${this.score} bodova.`;
+            if (this.isExamMode && this.examBreakdown) {
+                let gradeSum = 0;
+                let detailsHtml = '<div style="text-align:left; margin: 20px 0; font-size: 0.9rem; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid var(--border);">';
+
+                this.examBreakdown.forEach(sub => {
+                    const points = (sub.correctCount / 10) * 100;
+                    const grade = parseInt(this.calculateGradeFromPoints(points));
+                    gradeSum += grade;
+                    detailsHtml += `<div style="display:flex; justify-content:space-between; margin-bottom: 5px;">
+                        <span>${sub.label}:</span>
+                        <span style="color:var(--neon-cyan); font-weight:bold;">${sub.correctCount}/10 (Ocjena: ${grade})</span>
+                    </div>`;
+                });
+
+                const avgGradeRaw = gradeSum / this.examBreakdown.length;
+                // Rounding: 4.5 -> 5
+                const finalGradeRounded = Math.round(avgGradeRaw);
+
+                detailsHtml += `<div style="margin-top: 15px; pt: 10px; border-top: 1px solid rgba(255,255,255,0.1); font-weight: 800; font-size: 1.1rem; text-align: center;">
+                    PROSJEČNA OCJENA: <span style="color: var(--neon-orange); font-size: 1.5rem;">${finalGradeRounded}</span>
+                </div></div>`;
+
+                this.elements.finalStats.innerHTML = `Ispit završen, ${this.studentName}! ${detailsHtml}`;
+            } else {
+                this.elements.finalStats.innerText = `Misija uspješna, ${this.studentName}! Osvojio si ${this.score} bodova.`;
+            }
         } else {
-            this.elements.finalStats.innerText = `Misija neuspješna. Tvoja ocjena je 1. Pokušaj ponovno, ${this.studentName}!`;
+            this.elements.finalStats.innerText = `Ispit neuspješan. Tvoja ocjena je 1. Više sreće drugi put, ${this.studentName}!`;
             this.elements.finalStats.style.color = "var(--neon-orange)";
         }
         // Save as COMPLETED even if failed (Game Over counts as Grade 1 attempt)
         this.saveStatsToCloud(true);
+        this.isExamMode = false; // Reset
     }
 
     async saveStatsToCloud(isCompleted = false) {
