@@ -893,6 +893,7 @@ class QuizEngine {
             if (this.isExamMode && this.examBreakdown) {
                 let gradeSum = 0;
                 let detailsHtml = '<div style="text-align:left; margin: 20px 0; font-size: 0.9rem; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border: 1px solid var(--border);">';
+                let examSummaryText = []; // Za Google Sheets
 
                 this.examBreakdown.forEach(sub => {
                     const points = (sub.correctCount / 10) * 100;
@@ -902,6 +903,7 @@ class QuizEngine {
                         <span>${sub.label}:</span>
                         <span style="color:var(--neon-cyan); font-weight:bold;">${sub.correctCount}/10 (Ocjena: ${grade})</span>
                     </div>`;
+                    examSummaryText.push(`${sub.label} ${grade}`); // Npr. "Matematika 5"
                 });
 
                 const avgGradeRaw = gradeSum / this.examBreakdown.length;
@@ -913,13 +915,21 @@ class QuizEngine {
                 </div></div>`;
 
                 this.elements.finalStats.innerHTML = `Ispit završen, ${this.studentName}! ${detailsHtml}`;
+
+                // CRITICAL: Formatiramo 'subject' varijablu tako da u Google Sheetu pišu svi detalji i prosjek!
+                this.selectedSubject = `ISPIT PROSJEK: ${finalGradeRounded} (${examSummaryText.join(', ')})`;
+
             } else {
                 this.elements.finalStats.innerText = `Misija uspješna, ${this.studentName}! Osvojio si ${this.score} bodova.`;
             }
         } else {
             this.elements.finalStats.innerText = `Ispit neuspješan. Tvoja ocjena je 1. Više sreće drugi put, ${this.studentName}!`;
             this.elements.finalStats.style.color = "var(--neon-orange)";
+            if (this.isExamMode) {
+                this.selectedSubject = "ISPIT PROSJEK: 1 (Game Over / Prekid)";
+            }
         }
+
         // Save as COMPLETED even if failed (Game Over counts as Grade 1 attempt)
         this.saveStatsToCloud(true);
         this.isExamMode = false; // Reset
