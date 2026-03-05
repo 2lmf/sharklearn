@@ -77,7 +77,11 @@ class QuizEngine {
             bugNote: document.getElementById('bug-note'),
             bugStatus: document.getElementById('bug-status'),
             editProfileBtn: document.getElementById('edit-profile-btn'),
-            regValidationMsg: document.getElementById('reg-validation-msg')
+            regValidationMsg: document.getElementById('reg-validation-msg'),
+            // Exam Semester Modal
+            examSemModal: document.getElementById('exam-semester-modal'),
+            examSemBtns: document.querySelectorAll('.exam-sem-btn'),
+            closeExamModal: document.getElementById('close-exam-modal')
         };
 
         this.init();
@@ -186,6 +190,22 @@ class QuizEngine {
 
         if (this.elements.editProfileBtn) {
             this.elements.editProfileBtn.onclick = () => this.editProfile();
+        }
+
+        // Exam Semester Modal Selection
+        this.elements.examSemBtns.forEach(btn => {
+            btn.onclick = () => {
+                const semester = btn.getAttribute('data-exam-sem');
+                console.log("SharkLearn: Exam semester chosen:", semester);
+                this.elements.examSemModal.style.display = 'none';
+                this.startExamMode(semester); // Start immediately with chosen semester
+            };
+        });
+
+        if (this.elements.closeExamModal) {
+            this.elements.closeExamModal.onclick = () => {
+                this.elements.examSemModal.style.display = 'none';
+            };
         }
 
         // Safety Save on Tab Close / App Switch
@@ -400,6 +420,13 @@ class QuizEngine {
         // Also update selectedSubject if tracked live
         this.selectedSubject = this.elements.subjectHidden.value;
         console.log("SharkLearn: Subject Card Activated:", this.selectedSubject);
+
+        // SPECIAL CASE: EXAM MODE TRIGGER
+        if (this.selectedSubject === 'SPECIAL_EXAM') {
+            this.elements.examSemModal.style.display = 'flex';
+            return;
+        }
+
         this.selectedSemester = "all";
 
         // Reset semester UI to 'all'
@@ -607,10 +634,11 @@ class QuizEngine {
         }
     }
 
-    startExamMode() {
-        console.log("SharkLearn: Starting Exam Mode for Grade", this.selectedGrade);
+    startExamMode(chosenSemester = null) {
+        console.log("SharkLearn: Starting Exam Mode for Grade", this.selectedGrade, "Semester:", chosenSemester);
 
-        // 1. Identify all available subjects for this grade
+        // Use provided semester or fallback to global if somehow missing
+        const activeSemester = chosenSemester || this.selectedSemester || "all";
         const availableSubjects = [];
         const gradeStr = this.selectedGrade.toString();
 
@@ -669,8 +697,8 @@ class QuizEngine {
                 }
 
                 // Filter by semester
-                if (this.selectedSemester !== "all") {
-                    questions = questions.filter(q => q.semester == this.selectedSemester);
+                if (activeSemester !== "all") {
+                    questions = questions.filter(q => q.semester == activeSemester);
                 }
 
                 if (questions.length > 0) {
