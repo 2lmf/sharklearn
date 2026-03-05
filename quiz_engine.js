@@ -651,7 +651,7 @@ class QuizEngine {
                 { id: "Hrvatski5", var: "HRV_5_DATA" },
                 { id: "Informatika5", var: "INF_5_DATA" },
                 { id: "Likovni5", var: "LIK_5_DATA" },
-                { id: "Matematika5", var: "MAT_DATA" },
+                { id: "Matematika5", var: "MAT_DATA" }, // Fixed from global check
                 { id: "Njemacki5", var: "GER_DATA" },
                 { id: "Povijest5", var: "HIS_5_DATA" },
                 { id: "prirodaidrustvo5", var: "PRI_5_DATA" },
@@ -669,7 +669,7 @@ class QuizEngine {
                 { id: "Kemija7", var: "KEM_DATA" },
                 { id: "Likovni7", var: "LIK_7_DATA" },
                 { id: "Matematika7", var: "MAT_7_DATA" },
-                { id: "njemacki7", var: "GER_7_DATA" },
+                { id: "Njemacki7", var: "GER_7_DATA" }, // Fixed capitalization
                 { id: "Povijest7", var: "HIS_DATA" },
                 { id: "Tehnicki7", var: "TEH_7_DATA" },
                 { id: "Vjeronauk7", var: "VJE_7_DATA" }
@@ -705,19 +705,24 @@ class QuizEngine {
                     const sampledCount = Math.min(questions.length, 10);
                     const sampled = this.getRandomSubarray(questions, sampledCount);
                     examQuestions = examQuestions.concat(sampled);
+                    console.log(`SharkLearn: Subject ${sub.id} added ${sampled.length} questions.`);
                     this.examBreakdown.push({
                         label: sub.id.replace(gradeStr, '').replace(/^\w/, c => c.toUpperCase()), // e.g. "Matematika"
                         questionIds: sampled.map(q => q.id),
                         correctCount: 0
                     });
+                } else {
+                    console.warn(`SharkLearn: No questions for ${sub.id} in semester ${activeSemester}`);
                 }
             } else {
-                console.warn(`SharkLearn: Missing data for ${sub.id} (var ${varName})`);
+                console.error(`SharkLearn: CRITICAL - Global variable ${varName} NOT FOUND for ${sub.id}`);
             }
         });
 
-        if (examQuestions.length < 10) {
-            alert("Nedovoljno pitanja za ispitni mod u ovom polugodištu.");
+        console.log(`SharkLearn: Exam Build Finished. Total Questions: ${examQuestions.length}`);
+
+        if (examQuestions.length < 5) {
+            alert(`Nedovoljno pitanja za ispitni mod (${examQuestions.length} pronađeno). Provjeri jesu li svi predmeti učitani.`);
             return;
         }
 
