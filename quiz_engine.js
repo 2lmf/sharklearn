@@ -399,6 +399,7 @@ class QuizEngine {
 
         // Also update selectedSubject if tracked live
         this.selectedSubject = this.elements.subjectHidden.value;
+        console.log("SharkLearn: Subject Card Activated:", this.selectedSubject);
         this.selectedSemester = "all";
 
         // Reset semester UI to 'all'
@@ -453,6 +454,8 @@ class QuizEngine {
         this.selectedSemester = this.elements.semesterHidden.value;
         localStorage.setItem('sharklearn_user_name', this.studentName);
 
+        console.log(`SharkLearn: startGame CLICKED! Subject: ${this.selectedSubject}, Grade: ${this.selectedGrade}, Sem: ${this.selectedSemester}`);
+
         // Tracking Init
         this.startTime = new Date();
         this.duration = 0;
@@ -470,7 +473,14 @@ class QuizEngine {
 
         // UI Transition
 
-        // Load Questions for selected subject
+        // IMMEDIATE EXAM START (Skip unnecessary cloud fetch for exam mode)
+        if (this.selectedSubject === 'SPECIAL_EXAM') {
+            console.log("SharkLearn: Instant exam mode detected.");
+            this.startExamMode();
+            return;
+        }
+
+        // Load Questions for selected subject from Cloud
         try {
             console.log(`SharkLearn: Loading ${this.selectedSubject} (Sem: ${this.selectedSemester})...`);
             const response = await fetch(`${this.apiUrl}?action=get_questions&subject=${this.selectedSubject}`);
