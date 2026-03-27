@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharkLearn | Biologija 7</title>
+    <link rel="stylesheet" href="shark_style.css?v=62">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#020817">
+
+    <!-- Mobile Standalone Support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SharkLearn">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="assets/img/shark_icon.svg">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service_worker.js')
+                    .then(reg => {
+                        console.log('SharkLearn: ServiceWorker registered!');
+                        reg.onupdatefound = () => {
+                            const installingWorker = reg.installing;
+                            installingWorker.onstatechange = () => {
+                                if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New version found, reload!
+                                    window.location.reload();
+                                }
+                            };
+                        };
+                    })
+                    .catch(err => console.error('SharkLearn: ServiceWorker registration failed!', err));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="ocean-bg"></div>
+    <div class="grid-overlay"></div>
+
+    <div class="app-container">
+        <!-- WELCOME BACK MODAL (For returning users) -->
+        <div id="welcome-back-modal" class="modal-overlay" style="display: none;">
+            <div class="glass-card modal-content" style="max-width: 400px; padding: 40px 30px;">
+                <h1 class="logo-text" style="font-size: 1.5rem; margin-bottom: 10px;">
+                    <span class="logo-shark">POVRATAK U BAZU</span>
+                </h1>
+                <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">
+                    Bok, <span id="welcome-back-name" style="color: var(--neon-cyan); font-weight: bold;">Učenik</span>!
+                    👋
+                </p>
+
+                <button class="btn-primary" id="continue-btn"
+                    style="width: 100%; margin-bottom: 15px; padding: 18px;">NASTAVI LEARNAT ;)</button>
+
+                <button id="new-user-btn"
+                    style="background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.8rem; font-family: var(--font-body); transition: all 0.3s ease;">
+                    👤 PRIJAVI NOVOG KORISNIKA
+                </button>
+
+                <div class="card-branding" style="border-top: 1px solid rgba(255,157,0,0.2);">
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 2px;">
+                        POWERED BY:</p>
+                    <img src="SharpShark_Logo.png" alt="SharpShark" class="card-logo"
+                        style="width: 120px; height: auto; filter: drop-shadow(0 0 10px rgba(0,243,255,0.3));">
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTRATION MODAL -->
+        <div id="registration-modal" class="modal-overlay" style="display: none;">
+            <div class="glass-card modal-content" style="max-width: 400px; padding: 40px 30px;">
+                <h1 class="logo-text" style="font-size: 1.8rem; margin-bottom: 5px;">
+                    <span class="logo-shark">DOBRODOŠAO</span>
+                </h1>
+                <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 0.95rem;">Postavi svoj profil za
+                    početak avanture.</p>
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" id="reg-student-name" placeholder="Tvoje ime i prezime" class="reg-input"
+                        autocomplete="chrome-off">
+                    <input type="email" id="reg-parent-email-1" placeholder="Email roditelja 1" class="reg-input"
+                        autocomplete="one-time-code">
+                    <input type="email" id="reg-parent-email-2" placeholder="Email roditelja 2 (opcionalno)"
+                        class="reg-input" autocomplete="one-time-code">
+                    <div id="reg-validation-msg"
+                        style="color: #ff4444; font-size: 0.8rem; display: none; margin-bottom: 5px;"></div>
+                    <button class="btn-primary" id="save-profile-btn"
+                        onclick="if(window.gameEngine) window.gameEngine.saveProfile()"
+                        style="width: 100%; margin-top: 10px; padding: 18px;">SPREMI I KRENI</button>
+
+                    <div class="card-branding"
+                        style="margin-top: 25px; padding-top: 15px; border-top: 1px solid rgba(255,157,0,0.2);">
+                        <p
+                            style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 8px; letter-spacing: 2px;">
+                            POWERED BY:</p>
+                        <img src="SharpShark_Logo.png" alt="SharpShark" class="card-logo"
+                            style="width: 120px; height: auto; filter: drop-shadow(0 0 10px rgba(0,243,255,0.3));">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- USER INFO BAR (Visible after registration) -->
+        <div id="user-info-bar" class="user-info-bar" style="display: none;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="logo-shark"
+                    style="font-size: 0.7rem; filter: drop-shadow(0 0 5px var(--neon-cyan));">●</span>
+                <span id="display-student-name">Učenik</span>
+            </div>
+            <div id="display-parent-emails" class="parent-tag" style="text-align: right; opacity: 0.8; flex: 1;"></div>
+            <button id="edit-profile-btn"
+                style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 4px; padding: 2px 8px; font-size: 0.7rem; cursor: pointer; margin-left: 10px;">UREDI
+                ✏️</button>
+        </div>
+
+        <!-- GRADE SELECTION SCREEN -->
+        <section id="grade-selection-screen" class="glass-card" style="text-align: center; margin-top: 20px;">
+            <h1 class="logo-text" style="font-size: 2.2rem; margin-bottom: 30px;">
+                <span class="logo-shark">ODABERI</span> <span class="logo-learn">RAZRED</span>
+            </h1>
+            <div class="grade-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 320px; margin: 0 auto;">
+                <button class="grade-btn" data-grade="5">5. r</button>
+                <button class="grade-btn" data-grade="6">6. r</button>
+                <button class="grade-btn" data-grade="7">7. r</button>
+                <button class="grade-btn" data-grade="8">8. r</button>
+            </div>
+            <p style="margin-top: 35px; font-size: 0.9rem; color: #00f3ff; opacity: 0.9; font-weight: 600;">Možeš ući u
+                bilo koji razred bez obzira koji razred trenutno pohađaš.</p>
+
+            <div class="card-branding" style="margin-top: 35px; border-top: 1px solid rgba(0,243,255,0.2);">
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 3px;">
+                    POWERED BY:</p>
+                <img src="SharpShark_Logo.png" alt="SharpShark" class="card-logo"
+                    style="width: 150px; height: auto; filter: drop-shadow(0 0 15px rgba(0,243,255,0.4));">
+            </div>
+        </section>
+
+        <!-- WELCOME SCREEN (Subject Selection - Hidden by default) -->
+        <section id="welcome-screen" class="glass-card" style="text-align: center; margin-top: 20px; display: none;">
+            <div class="welcome-header">
+                <div class="back-nav">
+                    <button id="back-to-grades">← PROMIJENI RAZRED</button>
+                </div>
+                <h1 class="logo-text subject-title">
+                    <span id="selected-grade-title" class="logo-shark">7. razred</span>
+                </h1>
+            </div>
+
+            <p style="margin-bottom: 25px; color: var(--text-muted);">Spreman za misiju?</p>
+
+            <div style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+                <div class="subject-cards" id="subject-cards-container">
+                    <!-- EXAM MODE CARD (Visible for Grade 5 and 7) -->
+                    <div class="subject-card exam-card" id="exam-mode-card" data-subject="SPECIAL_EXAM"
+                        data-grade="MIXED"
+                        style="grid-column: 1 / -1; background: linear-gradient(135deg, #FF9D00, #FF5E00); border: 2px solid #FFD700; box-shadow: 0 0 20px rgba(255, 157, 0, 0.4); display: none;">
+                        <span class="icon" style="font-size: 2.5rem;">🏆</span>
+                        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                            <span class="label"
+                                style="font-weight: 800; font-size: 1.1rem; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5); text-align: center; line-height: 1.2;">ISPIT
+                                ZA 30 MINUTA VREMENA NA MOBITELU</span>
+                            <span
+                                style="font-size: 0.7rem; color: rgba(255,255,255,0.9); letter-spacing: 1px; margin-top: 5px;">5
+                                RANDOM
+                                PREDMETA • 5 OCJENA</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. RAZRED -->
+                    <div class="subject-card" data-subject="Engleski5" data-grade="5"><span
+                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
+                    <div class="subject-card" data-subject="Geografija5" data-grade="5"><span
+                            class="icon">🌍</span><span class="label">Geografija</span></div>
+                    <div class="subject-card" data-subject="Glazbeni5" data-grade="5"><span class="icon">🎵</span><span
+                            class="label">Glazbeni</span></div>
+                    <div class="subject-card" data-subject="Hrvatski5" data-grade="5"><span
+                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
+                    <div class="subject-card" data-subject="Informatika5" data-grade="5"><span
+                            class="icon">💻</span><span class="label">Informatika</span></div>
+                    <div class="subject-card" data-subject="Likovni5" data-grade="5"><span class="icon">🎨</span><span
+                            class="label">Likovni</span></div>
+                    <div class="subject-card" data-subject="Matematika5" data-grade="5"><span
+                            class="icon">🧮</span><span class="label">Matematika</span></div>
+                    <div class="subject-card" data-subject="Njemacki5" data-grade="5"><span
+                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
+                    <div class="subject-card" data-subject="Povijest5" data-grade="5"><span class="icon">📜</span><span
+                            class="label">Povijest</span></div>
+                    <div class="subject-card" data-subject="prirodaidrustvo5" data-grade="5"><span
+                            class="icon">🌿</span><span class="label">Priroda</span></div>
+                    <div class="subject-card" data-subject="Tehnicki5" data-grade="5"><span class="icon">🔧</span><span
+                            class="label">Tehnički</span></div>
+                    <div class="subject-card" data-subject="Vjeronauk5" data-grade="5"><span
+                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
+
+                    <!-- 6. RAZRED -->
+                    <div class="subject-card" data-subject="Engleski6" data-grade="6"><span
+                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
+                    <div class="subject-card" data-subject="Geografija6" data-grade="6"><span
+                            class="icon">🌍</span><span class="label">Geografija</span></div>
+                    <div class="subject-card" data-subject="Glazbeni6" data-grade="6"><span class="icon">🎵</span><span
+                            class="label">Glazbeni</span></div>
+                    <div class="subject-card" data-subject="Hrvatski6" data-grade="6"><span
+                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
+                    <div class="subject-card" data-subject="Informatika6" data-grade="6"><span
+                            class="icon">💻</span><span class="label">Informatika</span></div>
+                    <div class="subject-card" data-subject="Likovni6" data-grade="6"><span class="icon">🎨</span><span
+                            class="label">Likovni</span></div>
+                    <div class="subject-card" data-subject="Matematika6" data-grade="6"><span
+                            class="icon">🧮</span><span class="label">Matematika</span></div>
+                    <div class="subject-card" data-subject="Njemacki6" data-grade="6"><span
+                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
+                    <div class="subject-card" data-subject="Povijest6" data-grade="6"><span class="icon">📜</span><span
+                            class="label">Povijest</span></div>
+                    <div class="subject-card" data-subject="Priroda6" data-grade="6"><span class="icon">🌿</span><span
+                            class="label">Priroda</span></div>
+                    <div class="subject-card" data-subject="Tehnicki6" data-grade="6"><span class="icon">🔧</span><span
+                            class="label">Tehnički</span></div>
+                    <div class="subject-card" data-subject="Vjeronauk6" data-grade="6"><span
+                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
+
+                    <!-- 7. RAZRED -->
+                    <div class="subject-card" data-subject="Biologija7" data-grade="7"><span class="icon">🧬</span><span
+                            class="label">Biologija</span></div>
+                    <div class="subject-card" data-subject="Engleski7" data-grade="7"><span
+                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
+                    <div class="subject-card" data-subject="Fizika7" data-grade="7"><span class="icon">⚡</span><span
+                            class="label">Fizika</span></div>
+                    <div class="subject-card" data-subject="Geografija7" data-grade="7"><span
+                            class="icon">🌍</span><span class="label">Geografija</span></div>
+                    <div class="subject-card" data-subject="Glazbeni7" data-grade="7"><span class="icon">🎵</span><span
+                            class="label">Glazbeni</span></div>
+                    <div class="subject-card" data-subject="Hrvatski7" data-grade="7"><span
+                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
+                    <div class="subject-card" data-subject="Informatika7" data-grade="7"><span
+                            class="icon">💻</span><span class="label">Informatika</span></div>
+                    <div class="subject-card" data-subject="Kemija7" data-grade="7"><span class="icon">🧪</span><span
+                            class="label">Kemija</span></div>
+                    <div class="subject-card" data-subject="Likovni7" data-grade="7"><span class="icon">🎨</span><span
+                            class="label">Likovni</span></div>
+                    <div class="subject-card" data-subject="Matematika7" data-grade="7"><span
+                            class="icon">🧮</span><span class="label">Matematika</span></div>
+                    <div class="subject-card" data-subject="njemacki7" data-grade="7"><span
+                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
+                    <div class="subject-card" data-subject="Povijest7" data-grade="7"><span class="icon">📜</span><span
+                            class="label">Povijest</span></div>
+                    <div class="subject-card" data-subject="Tehnicki7" data-grade="7"><span class="icon">🔧</span><span
+                            class="label">Tehnički</span></div>
+                    <div class="subject-card" data-subject="Vjeronauk7" data-grade="7"><span
+                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
+
+                    <!-- 8. RAZRED -->
+                    <div class="subject-card" data-subject="Biologija8" data-grade="8"><span class="icon">🧬</span><span
+                            class="label">Biologija</span></div>
+                    <div class="subject-card" data-subject="Engleski8" data-grade="8"><span
+                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
+                    <div class="subject-card" data-subject="Fizika8" data-grade="8"><span class="icon">⚡</span><span
+                            class="label">Fizika</span></div>
+                    <div class="subject-card" data-subject="Geografija8" data-grade="8"><span
+                            class="icon">🌍</span><span class="label">Geografija</span></div>
+                    <div class="subject-card" data-subject="Glazbeni8" data-grade="8"><span class="icon">🎵</span><span
+                            class="label">Glazbeni</span></div>
+                    <div class="subject-card" data-subject="Hrvatski8" data-grade="8"><span
+                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
+                    <div class="subject-card" data-subject="Kemija8" data-grade="8"><span class="icon">🧪</span><span
+                            class="label">Kemija</span></div>
+                    <div class="subject-card" data-subject="Likovni8" data-grade="8"><span class="icon">🎨</span><span
+                            class="label">Likovni</span></div>
+                    <div class="subject-card" data-subject="Matematika8" data-grade="8"><span
+                            class="icon">🧮</span><span class="label">Matematika</span></div>
+                    <div class="subject-card" data-subject="Njemacki8" data-grade="8"><span
+                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
+                    <div class="subject-card" data-subject="Povijest8" data-grade="8"><span class="icon">📜</span><span
+                            class="label">Povijest</span></div>
+                    <div class="subject-card" data-subject="Tehnicki8" data-grade="8"><span class="icon">🔧</span><span
+                            class="label">Tehnički</span></div>
+                    <div class="subject-card" data-subject="Vjeronauk8" data-grade="8"><span
+                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
+                </div>
+                <input type="hidden" id="selected-subject-hidden" value="Biologija7">
+
+                <!-- Semester Selector -->
+                <div class="semester-selector" style="margin-top: 10px;">
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px;">Odaberi period:</p>
+                    <div class="semester-options" style="display: flex; gap: 10px; justify-content: center;">
+                        <div class="sem-opt active" data-semester="all">Sve</div>
+                        <div class="sem-opt" data-semester="1">1. Pol.</div>
+                        <div class="sem-opt" data-semester="2">2. Pol.</div>
+                    </div>
+                    <input type="hidden" id="selected-semester-hidden" value="all">
+                </div>
+                <button class="btn-primary" id="start-btn" disabled>UČITAVAM BAZU...</button>
+            </div>
+        </section>
+
+        <!-- QUIZ UI (Hidden until start) -->
+        <div id="quiz-ui-wrapper" style="display: none;">
+            <!-- HEADER -->
+            <header class="header">
+                <div class="logo-text">
+                    <span class="logo-shark">SHARK</span><span class="logo-learn">LEARN</span>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>❤️</span><span id="lives" class="lives-count">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>⭐</span><span id="score" class="score-count">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- PROGRESS -->
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <!-- MAIN QUIZ AREA -->
+            <main id="quiz-area">
+                <div class="glass-card">
+                    <div id="media-container" class="question-media">
+                        <img id="question-image" src="" alt="Pitanje" class="question-img">
+                    </div>
+                    <div id="question" class="question-text">
+                        Učitavam misiju...
+                    </div>
+                    <div id="options" class="options-grid">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- EXPLANATION MODAL (Hidden) -->
+        <div id="explanation-modal" class="modal-overlay" style="display: none;">
+            <div class="glass-card modal-content">
+                <h2 style="color: var(--neon-orange); margin-bottom: 10px;">UPS! SKORO... 🦈</h2>
+                <div id="explanation-text" style="margin-bottom: 20px; font-size: 1.1rem;"></div>
+
+                <div class="bug-report-container"
+                    style="margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); text-align: left;">
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">Nešto nije u redu s
+                        ovim pitanjem?</p>
+                    <textarea id="bug-note" placeholder="Napomena (opcionalno)..."
+                        style="width: 100%; min-height: 60px; padding: 10px; border-radius: 8px; background: rgba(0,0,0,0.2); color: white; border: 1px solid rgba(0,243,255,0.3); margin-bottom: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                    <button class="btn-primary" id="report-bug-btn"
+                        style="background: var(--neon-orange); border-color: var(--neon-orange); font-size: 0.9rem; height: 40px; width: auto; padding: 0 20px;">PRIJAVI
+                        BUG 🐞</button>
+                    <span id="bug-status"
+                        style="margin-left: 10px; font-size: 0.85rem; color: var(--neon-blue); display: none;">Prijava
+                        poslana! 🦈</span>
+                </div>
+
+                <button class="btn-primary" id="next-after-exp-btn" style="margin-top: 20px;">NASTAVI DALJE</button>
+            </div>
+        </div>
+
+        <!-- RESULT SCREEN (Hidden initially) -->
+        <section id="result-screen" class="result-screen" style="display: none;">
+            <div class="glass-card">
+                <h1 class="result-title">MISIJA GOTOVA!</h1>
+                <p id="final-stats" style="font-size: 1.2rem; margin-bottom: 20px;">
+                    Osvojio si 0 bodova.
+                </p>
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn-primary" onclick="location.reload()">IGRAJ PONOVNO</button>
+                    <button class="btn-primary" id="stats-btn" style="background: var(--neon-blue);">📊
+                        STATISTIKA</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATISTICS OVERLAY -->
+        <div id="stats-overlay" class="modal-overlay" style="display: none; z-index: 1000;">
+            <div class="glass-card modal-content"
+                style="max-width: 800px; width: 95%; max-height: 90vh; overflow-y: auto;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="color: var(--neon-orange); margin: 0;">📊 TVOJA STATISTIKA</h2>
+                    <button class="btn-primary" onclick="document.getElementById('stats-overlay').style.display='none'"
+                        style="padding: 5px 15px;">ZATVORI</button>
+                </div>
+
+                <div class="stats-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                    <!-- Activity Chart -->
+                    <div class="glass-card" style="padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1rem; text-align: center; margin-bottom: 15px;">AKTIVNOST MISIJA</h3>
+                        <canvas id="activityChart"></canvas>
+                    </div>
+
+                    <!-- Grades Chart -->
+                    <div class="glass-card" style="padding: 15px; background: rgba(0,0,0,0.2);">
+                        <h3 style="font-size: 1rem; text-align: center; margin-bottom: 15px;">USPJEŠNOST (OCJENE)</h3>
+                        <canvas id="gradesChart"></canvas>
+                    </div>
+                </div>
+
+                <div id="stats-summary-text"
+                    style="margin-top: 20px; padding: 15px; text-align: center; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <!-- Textual summary injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- 5. RAZRED CONTENT -->
+        <script src="content/geo_5.js?v=14"></script>
+        <script src="content/eng_5.js?v=14"></script>
+        <script src="content/ger_5.js?v=14"></script>
+        <script src="content/his_5.js?v=14"></script>
+        <script src="content/hrv_5.js?v=14"></script>
+        <script src="content/mat_5.js?v=14"></script>
+        <script src="content/pri_5.js?v=14"></script>
+        <script src="content/gla_5.js?v=14"></script>
+        <script src="content/lik_5.js?v=14"></script>
+        <script src="content/inf_5_p1.js?v=14"></script>
+        <script src="content/inf_5_p2.js?v=14"></script>
+        <script src="content/teh_5.js?v=14"></script>
+
+        <!-- 6. RAZRED CONTENT -->
+        <script src="content/mat_6_p1.js?v=14"></script>
+        <script src="content/mat_6_p2.js?v=14"></script>
+        <script src="content/hrv_6_p1.js?v=14"></script>
+        <script src="content/hrv_6_p2.js?v=14"></script>
+        <script src="content/eng_6_p1.js?v=14"></script>
+        <script src="content/eng_6_p2.js?v=14"></script>
+        <script src="content/ger_6_p1.js?v=14"></script>
+        <script src="content/ger_6_p2.js?v=14"></script>
+        <script src="content/geo_6_p1.js?v=14"></script>
+        <script src="content/geo_6_p2.js?v=14"></script>
+        <script src="content/his_6_p1.js?v=14"></script>
+        <script src="content/his_6_p2.js?v=14"></script>
+        <script src="content/pri_6_p1.js?v=14"></script>
+        <script src="content/pri_6_p2.js?v=14"></script>
+        <script src="content/gla_6_p1.js?v=14"></script>
+        <script src="content/gla_6_p2.js?v=14"></script>
+        <script src="content/lik_6_p1.js?v=14"></script>
+        <script src="content/lik_6_p2.js?v=14"></script>
+        <script src="content/teh_6_p1.js?v=14"></script>
+        <script src="content/teh_6_p2.js?v=14"></script>
+        <script src="content/inf_6_p1.js?v=14"></script>
+        <script src="content/inf_6_p2.js?v=14"></script>
+
+        <!-- 7. RAZRED CONTENT -->
+        <script src="content/bio_7.js?v=14"></script>
+        <script src="content/bio_7_p2.js?v=14"></script>
+        <script src="content/eng_7.js?v=14"></script>
+        <script src="content/eng_7_p1.js?v=14"></script>
+        <script src="content/eng_7_p2.js?v=14"></script>
+        <script src="content/ger_7.js?v=14"></script>
+        <script src="content/ger_7_add.js?v=14"></script>
+        <script src="content/his_7.js?v=14"></script>
+        <script src="content/his_7_add.js?v=14"></script>
+        <script src="content/geo_7.js?v=14"></script>
+        <script src="content/geo_7_add.js?v=14"></script>
+        <script src="content/hrv_7.js?v=14"></script>
+        <script src="content/hrv_7_add.js?v=14"></script>
+        <script src="content/kem_7.js?v=14"></script>
+        <script src="content/kem_7_add.js?v=14"></script>
+        <script src="content/fiz_7.js?v=14"></script>
+        <script src="content/fiz_7_add.js?v=14"></script>
+        <script src="content/mat_7.js?v=14"></script>
+        <script src="content/mat_7_add.js?v=14"></script>
+        <script src="content/teh_7_p1.js?v=14"></script>
+        <script src="content/teh_7_p2.js?v=14"></script>
+        <script src="content/inf_7_p1.js?v=14"></script>
+        <script src="content/inf_7_p2.js?v=14"></script>
+        <script src="content/lik_7.js?v=14"></script>
+        <script src="content/gla_7.js?v=14"></script>
+
+        <!-- 8. RAZRED CONTENT -->
+        <script src="content/bio_8.js?v=14"></script>
+        <script src="content/bio_8_add.js?v=14"></script>
+        <script src="content/eng_8.js?v=14"></script>
+        <script src="content/eng_8_add.js?v=14"></script>
+        <script src="content/fiz_8.js?v=14"></script>
+        <script src="content/fiz_8_add.js?v=14"></script>
+        <script src="content/geo_8.js?v=14"></script>
+        <script src="content/geo_8_add.js?v=14"></script>
+        <script src="content/ger_8.js?v=14"></script>
+        <script src="content/ger_8_add.js?v=14"></script>
+        <script src="content/gla_8.js?v=14"></script>
+        <script src="content/gla_8_add.js?v=14"></script>
+        <script src="content/his_8.js?v=14"></script>
+        <script src="content/his_8_add.js?v=14"></script>
+        <script src="content/hrv_8.js?v=14"></script>
+        <script src="content/hrv_8_add.js?v=14"></script>
+        <script src="content/kem_8.js?v=14"></script>
+        <script src="content/kem_8_add.js?v=14"></script>
+        <script src="content/lik_8.js?v=14"></script>
+        <script src="content/lik_8_add.js?v=14"></script>
+        <script src="content/mat_8.js?v=14"></script>
+        <script src="content/mat_8_add.js?v=14"></script>
+        <script src="content/teh_8.js?v=14"></script>
+        <script src="content/teh_8_add.js?v=14"></script>
+        <script src="content/vje_8.js?v=14"></script>
+
+        <!-- VJERONAUK (5-7) -->
+        <script src="content/vje_5.js?v=14"></script>
+        <script src="content/vje_6.js?v=14"></script>
+        <script src="content/vje_7.js?v=14"></script>
+
+        <!-- EXAM SEMESTER SELECTION MODAL -->
+        <div id="exam-semester-modal" class="modal-overlay"
+            style="display: none; z-index: 10000; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px;">
+            <div class="modal-content glass-card"
+                style="max-width: 350px; width: 100%; text-align: center; border: 2px solid #FFD700; box-shadow: 0 0 40px rgba(255, 157, 0, 0.4); padding: 30px; border-radius: 24px; position: relative; background: rgba(15, 15, 25, 0.95);">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🏆</div>
+                <h2 style="color: #FFD700; margin-bottom: 8px; font-size: 1.5rem; letter-spacing: 1px;">ISPITNI MOD</h2>
+                <p style="font-size: 0.95rem; color: #fff; margin-bottom: 25px; opacity: 0.9; line-height: 1.4;">Odaberi
+                    gradivo koje želiš na ispitu:</p>
+
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <button class="exam-sem-btn" data-exam-sem="1"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 18px; border-radius: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem;">1.
+                        POLUGODIŠTE</button>
+                    <button class="exam-sem-btn" data-exam-sem="2"
+                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 18px; border-radius: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem;">2.
+                        POLUGODIŠTE</button>
+                    <button class="exam-sem-btn" data-exam-sem="all"
+                        style="background: linear-gradient(135deg, #FF9D00, #FF5E00); border: none; color: white; padding: 20px; border-radius: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(255, 94, 0, 0.4); font-size: 1.05rem; margin-top: 5px;">CIJELA
+                        GODINA (MIX)</button>
+                </div>
+
+                <button id="close-exam-modal"
+                    style="margin-top: 25px; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 0.85rem; text-decoration: underline; cursor: pointer; letter-spacing: 1px;">ODUSTANI</button>
+            </div>
+        </div>
+
+        <script src="quiz_engine.js?v=21"></script>
+</body>
+
+</html>

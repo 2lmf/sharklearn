@@ -32,16 +32,16 @@ class QuizEngine {
 
         // DOM Elements
         this.elements = {
-            gradeScreen: document.getElementById('grade-selection-screen'),
+            gradeScreen: document.getElementById('grade-selection-section'),
             gradeBtns: document.querySelectorAll('.grade-btn'),
             gradeTitle: document.getElementById('selected-grade-title'),
             backToGradesBtn: document.getElementById('back-to-grades'),
-            welcomeScreen: document.getElementById('welcome-screen'),
+            welcomeScreen: document.getElementById('subject-selection-section'),
             subjectHidden: document.getElementById('selected-subject-hidden'),
             subjectCards: document.querySelectorAll('.subject-card'),
             startBtn: document.getElementById('start-btn'),
             // ... (keep others)
-            quizWrapper: document.getElementById('quiz-ui-wrapper'),
+            quizWrapper: document.getElementById('quiz-section'),
             question: document.getElementById('question'),
             mediaContainer: document.getElementById('media-container'),
             questionImage: document.getElementById('question-image'),
@@ -59,7 +59,7 @@ class QuizEngine {
             semesterHidden: document.getElementById('selected-semester-hidden'),
 
             // Registration Elements
-            registrationModal: document.getElementById('registration-modal'),
+            registrationModal: document.getElementById('registration-section'),
             welcomeBackModal: document.getElementById('welcome-back-modal'),
             welcomeBackName: document.getElementById('welcome-back-name'),
             continueBtn: document.getElementById('continue-btn'),
@@ -122,7 +122,7 @@ class QuizEngine {
             }
         } else {
             // New user -> Show Registration
-            this.elements.registrationModal.style.display = 'flex';
+            this.elements.registrationModal.style.display = 'block';
             this.elements.saveProfileBtn.onclick = () => this.saveProfile();
         }
 
@@ -265,7 +265,7 @@ class QuizEngine {
 
         // Change button text and show modal
         this.elements.saveProfileBtn.innerText = "SPREMI PROMJENE";
-        this.elements.registrationModal.style.display = 'flex';
+        this.elements.registrationModal.style.display = 'block';
         this.elements.regValidationMsg.style.display = 'none';
     }
 
@@ -375,7 +375,7 @@ class QuizEngine {
         // Show exam card only for 5th and 7th grade
         if (examCard) {
             if (grade === "5" || grade === "7") {
-                examCard.style.display = 'flex';
+                examCard.style.display = 'block';
                 examCard.setAttribute('data-grade', grade); // Sync grade for exam mode
                 firstVisible = examCard;
             } else {
@@ -455,7 +455,7 @@ class QuizEngine {
 
             // Switch modals
             this.elements.welcomeBackModal.style.display = 'none';
-            this.elements.registrationModal.style.display = 'flex';
+            this.elements.registrationModal.style.display = 'block';
 
             // Clear inputs just in case
             this.elements.regStudentName.value = "";
@@ -474,7 +474,7 @@ class QuizEngine {
 
     async startGame() {
         if (!this.isRegistered) {
-            this.elements.registrationModal.style.display = 'flex';
+            this.elements.registrationModal.style.display = 'block';
             return;
         }
         this.selectedSubject = this.elements.subjectHidden.value;
@@ -625,7 +625,7 @@ class QuizEngine {
             }
 
             this.elements.welcomeScreen.style.display = 'none';
-            this.elements.quizWrapper.style.display = 'block';
+            this.elements.quizWrapper.style.display = 'flex';
             this.setupMission();
         } else {
             alert("Greška: Nema pitanja za ovaj predmet u oblaku. Učitelj mora dodati pitanja u " + this.selectedSubject + " tablicu.");
@@ -732,7 +732,7 @@ class QuizEngine {
         this.isExamMode = true;
 
         this.elements.welcomeScreen.style.display = 'none';
-        this.elements.quizWrapper.style.display = 'block';
+        this.elements.quizWrapper.style.display = 'flex';
 
         this.updateStatsUI();
         this.renderQuestion();
@@ -886,7 +886,7 @@ class QuizEngine {
         }
 
         this.elements.quizWrapper.style.display = 'none';
-        this.elements.resultScreen.style.display = 'block';
+        this.elements.resultScreen.style.display = 'flex';
         this.elements.progressBar.style.width = '100%';
 
         if (success) {

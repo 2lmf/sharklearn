@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const oldHtml = fs.readFileSync('index_old.html', 'utf8');
+
+// Match the scripts
+const scriptsMatch = oldHtml.match(/<!-- 5\. RAZRED CONTENT -->[\s\S]*?<script src="quiz_engine\.js\?v=\d+"><\/script>/);
+const scriptsHtml = scriptsMatch ? scriptsMatch[0] : '<script src="quiz_engine.js"></script>';
+
+// Match the subject cards
+const subjectsMatch = oldHtml.match(/<div class="subject-cards" id="subject-cards-container">([\s\S]*?)<\/div>\s*<input type="hidden" id="selected-subject-hidden"/);
+let subjectsHtml = subjectsMatch ? subjectsMatch[1] : '';
+
+// Convert subject card classes to Tailwind 
+subjectsHtml = subjectsHtml.replace(/<div class="subject-card"([^>]*)>\s*<span class="icon"[^>]*>([^<]+)<\/span>\s*<span class="label"[^>]*>([^<]+)<\/span>\s*<\/div>/g,
+    '<button class="glass-card p-4 rounded-2xl flex flex-col items-center text-center subject-card w-full hover:bg-[#fe9d00]/10 transition-colors border-b-4 border-transparent active:scale-95"$1><div class="bg-[#fe9d00]/10 p-2 rounded-xl mb-2"><span class="text-3xl">$2</span></div><span class="font-bold text-[10px] uppercase tracking-widest text-white/80">$3</span></button>'
+);
+
+// Remove the old exam card, we will put our own Tailwind version
+subjectsHtml = subjectsHtml.replace(/<div class="subject-card exam-card"[^>]*>[\s\S]*?<\/div>\s*<\/div>/g, '');
+
+const finalHtml = `<!DOCTYPE html>
 <html lang="hr">
 <head>
     <meta charset="UTF-8">
@@ -197,120 +216,7 @@
                 </div>
                 
                 <!-- Injected via Script Map -->
-                
-                    <!-- EXAM MODE CARD (Visible for Grade 5 and 7) -->
-                    
-
-                    <!-- 5. RAZRED -->
-                    <div class="subject-card" data-subject="Engleski5" data-grade="5"><span
-                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
-                    <div class="subject-card" data-subject="Geografija5" data-grade="5"><span
-                            class="icon">🌍</span><span class="label">Geografija</span></div>
-                    <div class="subject-card" data-subject="Glazbeni5" data-grade="5"><span class="icon">🎵</span><span
-                            class="label">Glazbeni</span></div>
-                    <div class="subject-card" data-subject="Hrvatski5" data-grade="5"><span
-                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
-                    <div class="subject-card" data-subject="Informatika5" data-grade="5"><span
-                            class="icon">💻</span><span class="label">Informatika</span></div>
-                    <div class="subject-card" data-subject="Likovni5" data-grade="5"><span class="icon">🎨</span><span
-                            class="label">Likovni</span></div>
-                    <div class="subject-card" data-subject="Matematika5" data-grade="5"><span
-                            class="icon">🧮</span><span class="label">Matematika</span></div>
-                    <div class="subject-card" data-subject="Njemacki5" data-grade="5"><span
-                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
-                    <div class="subject-card" data-subject="Povijest5" data-grade="5"><span class="icon">📜</span><span
-                            class="label">Povijest</span></div>
-                    <div class="subject-card" data-subject="prirodaidrustvo5" data-grade="5"><span
-                            class="icon">🌿</span><span class="label">Priroda</span></div>
-                    <div class="subject-card" data-subject="Tehnicki5" data-grade="5"><span class="icon">🔧</span><span
-                            class="label">Tehnički</span></div>
-                    <div class="subject-card" data-subject="Vjeronauk5" data-grade="5"><span
-                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
-
-                    <!-- 6. RAZRED -->
-                    <div class="subject-card" data-subject="Engleski6" data-grade="6"><span
-                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
-                    <div class="subject-card" data-subject="Geografija6" data-grade="6"><span
-                            class="icon">🌍</span><span class="label">Geografija</span></div>
-                    <div class="subject-card" data-subject="Glazbeni6" data-grade="6"><span class="icon">🎵</span><span
-                            class="label">Glazbeni</span></div>
-                    <div class="subject-card" data-subject="Hrvatski6" data-grade="6"><span
-                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
-                    <div class="subject-card" data-subject="Informatika6" data-grade="6"><span
-                            class="icon">💻</span><span class="label">Informatika</span></div>
-                    <div class="subject-card" data-subject="Likovni6" data-grade="6"><span class="icon">🎨</span><span
-                            class="label">Likovni</span></div>
-                    <div class="subject-card" data-subject="Matematika6" data-grade="6"><span
-                            class="icon">🧮</span><span class="label">Matematika</span></div>
-                    <div class="subject-card" data-subject="Njemacki6" data-grade="6"><span
-                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
-                    <div class="subject-card" data-subject="Povijest6" data-grade="6"><span class="icon">📜</span><span
-                            class="label">Povijest</span></div>
-                    <div class="subject-card" data-subject="Priroda6" data-grade="6"><span class="icon">🌿</span><span
-                            class="label">Priroda</span></div>
-                    <div class="subject-card" data-subject="Tehnicki6" data-grade="6"><span class="icon">🔧</span><span
-                            class="label">Tehnički</span></div>
-                    <div class="subject-card" data-subject="Vjeronauk6" data-grade="6"><span
-                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
-
-                    <!-- 7. RAZRED -->
-                    <div class="subject-card" data-subject="Biologija7" data-grade="7"><span class="icon">🧬</span><span
-                            class="label">Biologija</span></div>
-                    <div class="subject-card" data-subject="Engleski7" data-grade="7"><span
-                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
-                    <div class="subject-card" data-subject="Fizika7" data-grade="7"><span class="icon">⚡</span><span
-                            class="label">Fizika</span></div>
-                    <div class="subject-card" data-subject="Geografija7" data-grade="7"><span
-                            class="icon">🌍</span><span class="label">Geografija</span></div>
-                    <div class="subject-card" data-subject="Glazbeni7" data-grade="7"><span class="icon">🎵</span><span
-                            class="label">Glazbeni</span></div>
-                    <div class="subject-card" data-subject="Hrvatski7" data-grade="7"><span
-                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
-                    <div class="subject-card" data-subject="Informatika7" data-grade="7"><span
-                            class="icon">💻</span><span class="label">Informatika</span></div>
-                    <div class="subject-card" data-subject="Kemija7" data-grade="7"><span class="icon">🧪</span><span
-                            class="label">Kemija</span></div>
-                    <div class="subject-card" data-subject="Likovni7" data-grade="7"><span class="icon">🎨</span><span
-                            class="label">Likovni</span></div>
-                    <div class="subject-card" data-subject="Matematika7" data-grade="7"><span
-                            class="icon">🧮</span><span class="label">Matematika</span></div>
-                    <div class="subject-card" data-subject="njemacki7" data-grade="7"><span
-                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
-                    <div class="subject-card" data-subject="Povijest7" data-grade="7"><span class="icon">📜</span><span
-                            class="label">Povijest</span></div>
-                    <div class="subject-card" data-subject="Tehnicki7" data-grade="7"><span class="icon">🔧</span><span
-                            class="label">Tehnički</span></div>
-                    <div class="subject-card" data-subject="Vjeronauk7" data-grade="7"><span
-                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
-
-                    <!-- 8. RAZRED -->
-                    <div class="subject-card" data-subject="Biologija8" data-grade="8"><span class="icon">🧬</span><span
-                            class="label">Biologija</span></div>
-                    <div class="subject-card" data-subject="Engleski8" data-grade="8"><span
-                            class="icon">🇬🇧</span><span class="label">Engleski</span></div>
-                    <div class="subject-card" data-subject="Fizika8" data-grade="8"><span class="icon">⚡</span><span
-                            class="label">Fizika</span></div>
-                    <div class="subject-card" data-subject="Geografija8" data-grade="8"><span
-                            class="icon">🌍</span><span class="label">Geografija</span></div>
-                    <div class="subject-card" data-subject="Glazbeni8" data-grade="8"><span class="icon">🎵</span><span
-                            class="label">Glazbeni</span></div>
-                    <div class="subject-card" data-subject="Hrvatski8" data-grade="8"><span
-                            class="icon">🇭🇷</span><span class="label">Hrvatski</span></div>
-                    <div class="subject-card" data-subject="Kemija8" data-grade="8"><span class="icon">🧪</span><span
-                            class="label">Kemija</span></div>
-                    <div class="subject-card" data-subject="Likovni8" data-grade="8"><span class="icon">🎨</span><span
-                            class="label">Likovni</span></div>
-                    <div class="subject-card" data-subject="Matematika8" data-grade="8"><span
-                            class="icon">🧮</span><span class="label">Matematika</span></div>
-                    <div class="subject-card" data-subject="Njemacki8" data-grade="8"><span
-                            class="icon">🇩🇪</span><span class="label">Njemački</span></div>
-                    <div class="subject-card" data-subject="Povijest8" data-grade="8"><span class="icon">📜</span><span
-                            class="label">Povijest</span></div>
-                    <div class="subject-card" data-subject="Tehnicki8" data-grade="8"><span class="icon">🔧</span><span
-                            class="label">Tehnički</span></div>
-                    <div class="subject-card" data-subject="Vjeronauk8" data-grade="8"><span
-                            class="icon">🕊️</span><span class="label">Vjeronauk</span></div>
-                
+                ${subjectsHtml}
             </div>
 
             <!-- Fixed Start Button Area -->
@@ -508,130 +414,9 @@
             // QuizEngine handles this in init() mostly.
         });
     </script>
-    <!-- 5. RAZRED CONTENT -->
-        <script src="content/geo_5.js?v=14"></script>
-        <script src="content/eng_5.js?v=14"></script>
-        <script src="content/ger_5.js?v=14"></script>
-        <script src="content/his_5.js?v=14"></script>
-        <script src="content/hrv_5.js?v=14"></script>
-        <script src="content/mat_5.js?v=14"></script>
-        <script src="content/pri_5.js?v=14"></script>
-        <script src="content/gla_5.js?v=14"></script>
-        <script src="content/lik_5.js?v=14"></script>
-        <script src="content/inf_5_p1.js?v=14"></script>
-        <script src="content/inf_5_p2.js?v=14"></script>
-        <script src="content/teh_5.js?v=14"></script>
-
-        <!-- 6. RAZRED CONTENT -->
-        <script src="content/mat_6_p1.js?v=14"></script>
-        <script src="content/mat_6_p2.js?v=14"></script>
-        <script src="content/hrv_6_p1.js?v=14"></script>
-        <script src="content/hrv_6_p2.js?v=14"></script>
-        <script src="content/eng_6_p1.js?v=14"></script>
-        <script src="content/eng_6_p2.js?v=14"></script>
-        <script src="content/ger_6_p1.js?v=14"></script>
-        <script src="content/ger_6_p2.js?v=14"></script>
-        <script src="content/geo_6_p1.js?v=14"></script>
-        <script src="content/geo_6_p2.js?v=14"></script>
-        <script src="content/his_6_p1.js?v=14"></script>
-        <script src="content/his_6_p2.js?v=14"></script>
-        <script src="content/pri_6_p1.js?v=14"></script>
-        <script src="content/pri_6_p2.js?v=14"></script>
-        <script src="content/gla_6_p1.js?v=14"></script>
-        <script src="content/gla_6_p2.js?v=14"></script>
-        <script src="content/lik_6_p1.js?v=14"></script>
-        <script src="content/lik_6_p2.js?v=14"></script>
-        <script src="content/teh_6_p1.js?v=14"></script>
-        <script src="content/teh_6_p2.js?v=14"></script>
-        <script src="content/inf_6_p1.js?v=14"></script>
-        <script src="content/inf_6_p2.js?v=14"></script>
-
-        <!-- 7. RAZRED CONTENT -->
-        <script src="content/bio_7.js?v=14"></script>
-        <script src="content/bio_7_p2.js?v=14"></script>
-        <script src="content/eng_7.js?v=14"></script>
-        <script src="content/eng_7_p1.js?v=14"></script>
-        <script src="content/eng_7_p2.js?v=14"></script>
-        <script src="content/ger_7.js?v=14"></script>
-        <script src="content/ger_7_add.js?v=14"></script>
-        <script src="content/his_7.js?v=14"></script>
-        <script src="content/his_7_add.js?v=14"></script>
-        <script src="content/geo_7.js?v=14"></script>
-        <script src="content/geo_7_add.js?v=14"></script>
-        <script src="content/hrv_7.js?v=14"></script>
-        <script src="content/hrv_7_add.js?v=14"></script>
-        <script src="content/kem_7.js?v=14"></script>
-        <script src="content/kem_7_add.js?v=14"></script>
-        <script src="content/fiz_7.js?v=14"></script>
-        <script src="content/fiz_7_add.js?v=14"></script>
-        <script src="content/mat_7.js?v=14"></script>
-        <script src="content/mat_7_add.js?v=14"></script>
-        <script src="content/teh_7_p1.js?v=14"></script>
-        <script src="content/teh_7_p2.js?v=14"></script>
-        <script src="content/inf_7_p1.js?v=14"></script>
-        <script src="content/inf_7_p2.js?v=14"></script>
-        <script src="content/lik_7.js?v=14"></script>
-        <script src="content/gla_7.js?v=14"></script>
-
-        <!-- 8. RAZRED CONTENT -->
-        <script src="content/bio_8.js?v=14"></script>
-        <script src="content/bio_8_add.js?v=14"></script>
-        <script src="content/eng_8.js?v=14"></script>
-        <script src="content/eng_8_add.js?v=14"></script>
-        <script src="content/fiz_8.js?v=14"></script>
-        <script src="content/fiz_8_add.js?v=14"></script>
-        <script src="content/geo_8.js?v=14"></script>
-        <script src="content/geo_8_add.js?v=14"></script>
-        <script src="content/ger_8.js?v=14"></script>
-        <script src="content/ger_8_add.js?v=14"></script>
-        <script src="content/gla_8.js?v=14"></script>
-        <script src="content/gla_8_add.js?v=14"></script>
-        <script src="content/his_8.js?v=14"></script>
-        <script src="content/his_8_add.js?v=14"></script>
-        <script src="content/hrv_8.js?v=14"></script>
-        <script src="content/hrv_8_add.js?v=14"></script>
-        <script src="content/kem_8.js?v=14"></script>
-        <script src="content/kem_8_add.js?v=14"></script>
-        <script src="content/lik_8.js?v=14"></script>
-        <script src="content/lik_8_add.js?v=14"></script>
-        <script src="content/mat_8.js?v=14"></script>
-        <script src="content/mat_8_add.js?v=14"></script>
-        <script src="content/teh_8.js?v=14"></script>
-        <script src="content/teh_8_add.js?v=14"></script>
-        <script src="content/vje_8.js?v=14"></script>
-
-        <!-- VJERONAUK (5-7) -->
-        <script src="content/vje_5.js?v=14"></script>
-        <script src="content/vje_6.js?v=14"></script>
-        <script src="content/vje_7.js?v=14"></script>
-
-        <!-- EXAM SEMESTER SELECTION MODAL -->
-        <div id="exam-semester-modal" class="modal-overlay"
-            style="display: none; z-index: 10000; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; padding: 20px;">
-            <div class="modal-content glass-card"
-                style="max-width: 350px; width: 100%; text-align: center; border: 2px solid #FFD700; box-shadow: 0 0 40px rgba(255, 157, 0, 0.4); padding: 30px; border-radius: 24px; position: relative; background: rgba(15, 15, 25, 0.95);">
-                <div style="font-size: 3rem; margin-bottom: 10px;">🏆</div>
-                <h2 style="color: #FFD700; margin-bottom: 8px; font-size: 1.5rem; letter-spacing: 1px;">ISPITNI MOD</h2>
-                <p style="font-size: 0.95rem; color: #fff; margin-bottom: 25px; opacity: 0.9; line-height: 1.4;">Odaberi
-                    gradivo koje želiš na ispitu:</p>
-
-                <div style="display: flex; flex-direction: column; gap: 14px;">
-                    <button class="exam-sem-btn" data-exam-sem="1"
-                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 18px; border-radius: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem;">1.
-                        POLUGODIŠTE</button>
-                    <button class="exam-sem-btn" data-exam-sem="2"
-                        style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 18px; border-radius: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 1rem;">2.
-                        POLUGODIŠTE</button>
-                    <button class="exam-sem-btn" data-exam-sem="all"
-                        style="background: linear-gradient(135deg, #FF9D00, #FF5E00); border: none; color: white; padding: 20px; border-radius: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s; box-shadow: 0 8px 20px rgba(255, 94, 0, 0.4); font-size: 1.05rem; margin-top: 5px;">CIJELA
-                        GODINA (MIX)</button>
-                </div>
-
-                <button id="close-exam-modal"
-                    style="margin-top: 25px; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 0.85rem; text-decoration: underline; cursor: pointer; letter-spacing: 1px;">ODUSTANI</button>
-            </div>
-        </div>
-
-        <script src="quiz_engine.js?v=21"></script>
+    ${scriptsHtml}
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync('C:\\Users\\Karlo\\.gemini\\antigravity\\scratch\\sharklearn\\index.html', finalHtml);
+console.log('Successfully generated complete modern index.html');
