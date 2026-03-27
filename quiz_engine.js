@@ -49,7 +49,7 @@ class QuizEngine {
             livesDisplay: document.getElementById('lives'),
             scoreDisplay: document.getElementById('score'),
             progressBar: document.getElementById('progress-bar'),
-            quizArea: document.getElementById('quiz-area'),
+            quizArea: document.getElementById('quiz-section'),
             resultScreen: document.getElementById('result-screen'),
             finalStats: document.getElementById('final-stats'),
             explanationModal: document.getElementById('explanation-modal'),
