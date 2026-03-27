@@ -131,13 +131,13 @@
             background: rgba(11, 23, 45, 0.6);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem;
-            padding: 1.25rem 1rem;
+            border-radius: 1.25rem;
+            padding: 0.75rem 0.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.25rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             text-align: center;
@@ -156,15 +156,15 @@
         }
 
         .subject-card .icon {
-            font-size: 2.25rem;
+            font-size: 1.75rem;
             filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
         }
 
         .subject-card .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 800;
             color: white;
-            letter-spacing: 0.025em;
+            letter-spacing: 0.01em;
         }
 
         .force-hidden {
@@ -320,18 +320,7 @@
                 </p>
             </div>
 
-            <!-- Semesters -->
-            <div class="flex justify-center gap-3 mb-8 bg-black/40 p-2 rounded-full border border-white/5 shadow-inner">
-                <button
-                    class="sem-opt active flex-1 bg-white/5 px-4 py-2.5 rounded-full text-xs font-black shadow-sm transition-all"
-                    data-semester="all">Cijela god.</button>
-                <button
-                    class="sem-opt flex-1 bg-transparent text-white/50 px-4 py-2.5 rounded-full text-xs font-black transition-all hover:bg-white/5"
-                    data-semester="1">1. Pol.</button>
-                <button
-                    class="sem-opt flex-1 bg-transparent text-white/50 px-4 py-2.5 rounded-full text-xs font-black transition-all hover:bg-white/5"
-                    data-semester="2">2. Pol.</button>
-            </div>
+            <!-- Semester Selection moved to bottom fixed bar -->
 
             <input type="hidden" id="selected-subject-hidden" value="Biologija7">
             <input type="hidden" id="selected-semester-hidden" value="all">
@@ -339,7 +328,7 @@
             <div class="grid grid-cols-2 gap-4" id="subject-cards-container">
                 <!-- EXAM MODE PROMO -->
                 <div id="exam-mode-card"
-                    class="subject-card exam-card col-span-2 bg-gradient-to-br from-[#fe9d00] to-[#ff5e00] rounded-[24px] p-6 shadow-[0_10px_30px_rgba(254,157,0,0.3)] relative overflow-hidden text-left hover:scale-[1.02] active:scale-95 transition-transform border border-white/20 cursor-pointer"
+                    class="subject-card exam-card col-span-2 bg-gradient-to-br from-[#fe9d00] to-[#ff5e00] rounded-[24px] p-4 shadow-[0_10px_30px_rgba(254,157,0,0.3)] relative overflow-hidden text-left hover:scale-[1.02] active:scale-95 transition-transform border border-white/20 cursor-pointer"
                     data-subject="SPECIAL_EXAM" data-grade="MIXED" style="display: none;">
                     <div class="relative z-10 flex items-center justify-between">
                         <div>
@@ -471,11 +460,25 @@
 
             </div>
 
-            <!-- Fixed Start Button Area -->
             <div class="fixed bottom-24 left-0 w-full px-6 z-20 pointer-events-none">
                 <!-- Gradient mask for smooth fade into start button -->
-                <div class="absolute -top-12 left-0 w-full h-12 bg-gradient-to-t from-[#060e1d] to-transparent"></div>
-                <div class="max-w-md mx-auto pointer-events-auto bg-[#060e1d] pb-2 pt-2">
+                <div class="absolute -top-16 left-0 w-full h-16 bg-gradient-to-t from-[#060e1d] to-transparent"></div>
+                <div
+                    class="max-w-md mx-auto pointer-events-auto bg-[#060e1d]/90 backdrop-blur-sm pb-2 pt-2 rounded-t-3xl border-t border-white/5">
+                    <!-- Semesters (Floating above start button) -->
+                    <div
+                        class="flex justify-center gap-1.5 mb-3 bg-black/40 p-1.5 rounded-2xl border border-white/5 shadow-inner mx-4">
+                        <button
+                            class="sem-opt active flex-1 bg-white/5 py-2 rounded-xl text-[9px] font-black shadow-sm transition-all tracking-wider uppercase"
+                            data-semester="all">Cijela god.</button>
+                        <button
+                            class="sem-opt flex-1 bg-transparent text-white/50 py-2 rounded-xl text-[9px] font-black transition-all hover:bg-white/5 tracking-wider uppercase"
+                            data-semester="1">1. Pol.</button>
+                        <button
+                            class="sem-opt flex-1 bg-transparent text-white/50 py-2 rounded-xl text-[9px] font-black transition-all hover:bg-white/5 tracking-wider uppercase"
+                            data-semester="2">2. Pol.</button>
+                    </div>
+
                     <button id="start-btn"
                         class="w-full bg-[#fe9d00] text-[#060e1d] font-black py-4 rounded-2xl shadow-[0_0_30px_rgba(254,157,0,0.4)] hover:scale-[1.02] active:scale-95 transition-transform text-lg border-2 border-[#ffb333] tracking-widest uppercase">
                         ZAPOČNI MISIJU
