@@ -496,6 +496,10 @@
                         class="w-full bg-[#fe9d00] text-[#060e1d] font-black py-4 rounded-2xl shadow-[0_0_30px_rgba(254,157,0,0.4)] hover:scale-[1.02] active:scale-95 transition-transform text-lg border-2 border-[#ffb333] tracking-widest uppercase">
                         ZAPOČNI MISIJU
                     </button>
+                    <button id="duel-btn"
+                        class="w-full mt-2 bg-transparent border border-[#fe9d00]/40 text-[#fe9d00] font-black py-3 rounded-2xl hover:bg-[#fe9d00]/10 active:scale-95 transition-all text-sm tracking-widest uppercase">
+                        ⚔️ DUEL MOD
+                    </button>
                 </div>
             </div>
         </section>
@@ -518,6 +522,15 @@
                     <span class="text-yellow-400 text-lg">⭐</span>
                     <span id="score" class="font-black text-white text-base tracking-wider">0</span>
                 </div>
+            </div>
+
+            <!-- OPPONENT WIDGET (duel mode only) -->
+            <div id="mp-opponent-widget" style="display:none"
+                class="flex items-center justify-between bg-black/40 border border-red-500/20 rounded-2xl px-4 py-2 mb-3 text-xs font-bold">
+                <span class="text-white/60 uppercase tracking-widest">⚔️ <span id="mp-op-widget-name">Protivnik</span></span>
+                <span class="text-white/60"><span id="mp-op-widget-lives">❤️❤️❤️❤️❤️</span></span>
+                <span class="text-[#fe9d00]">⭐ <span id="mp-op-widget-score">0</span></span>
+                <span id="mp-op-widget-finished" style="display:none" class="text-green-400">✓ GOTOVO</span>
             </div>
 
             <div class="w-full bg-black/60 h-2 rounded-full mb-8 overflow-hidden border border-white/5 shadow-inner">
@@ -749,6 +762,102 @@
 
     </div>
 
+    <!-- ===== MULTIPLAYER OVERLAYS ===== -->
+
+    <!-- LOBBY -->
+    <div id="mp-lobby-overlay" style="display:none"
+        class="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md">
+        <div class="glass-card w-full max-w-sm rounded-[2rem] p-8 border-t-2 border-[#fe9d00]/50 shadow-[0_0_50px_rgba(254,157,0,0.2)]">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-black text-white tracking-widest">⚔️ DUEL MOD</h2>
+                <button id="mp-close-lobby" class="text-white/40 hover:text-white text-2xl font-black">✕</button>
+            </div>
+            <!-- Tabs -->
+            <div class="flex border-b border-white/10 mb-6">
+                <button id="mp-tab-create" class="flex-1 pb-3 text-sm font-black tracking-widest uppercase border-b-2 border-[#fe9d00] text-[#fe9d00]">KREIRAJ</button>
+                <button id="mp-tab-join" class="flex-1 pb-3 text-sm font-black tracking-widest uppercase text-white/40">PRIDRUŽI SE</button>
+            </div>
+            <!-- Create Panel -->
+            <div id="mp-panel-create">
+                <p class="text-white/60 text-xs mb-6 leading-relaxed">Odaberi predmet i razred pa kreiraj sobu. Protivnik treba unijeti tvoj kod.</p>
+                <button id="mp-create-btn"
+                    class="w-full bg-[#fe9d00] text-[#060e1d] font-black py-4 rounded-2xl hover:scale-[1.02] active:scale-95 transition-transform text-sm tracking-widest uppercase shadow-[0_8px_20px_rgba(254,157,0,0.3)]">
+                    🦈 KREIRAJ SOBU
+                </button>
+            </div>
+            <!-- Join Panel -->
+            <div id="mp-panel-join" style="display:none">
+                <p class="text-white/60 text-xs mb-4 leading-relaxed">Unesi 6-znamenkasti kod koji ti je dao protivnik.</p>
+                <input id="mp-join-code" type="text" maxlength="6" placeholder="npr. SHARK7"
+                    class="w-full bg-[#0b172d]/80 border border-white/10 rounded-2xl p-4 text-white text-center text-xl font-black uppercase tracking-[0.3em] focus:outline-none focus:border-[#fe9d00] transition placeholder-white/20 mb-4">
+                <button id="mp-join-btn"
+                    class="w-full bg-[#fe9d00] text-[#060e1d] font-black py-4 rounded-2xl hover:scale-[1.02] active:scale-95 transition-transform text-sm tracking-widest uppercase shadow-[0_8px_20px_rgba(254,157,0,0.3)]">
+                    🔗 SPOJI SE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- WAITING -->
+    <div id="mp-waiting-overlay" style="display:none"
+        class="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md">
+        <div class="glass-card w-full max-w-sm rounded-[2rem] p-8 text-center border-t-2 border-[#fe9d00]/50">
+            <div class="text-5xl mb-4 animate-pulse">🦈</div>
+            <h2 class="text-xl font-black text-white tracking-widest mb-2">KOD SOBE</h2>
+            <div id="mp-room-code" class="text-4xl font-black text-[#fe9d00] tracking-[0.4em] my-6 bg-black/40 py-4 rounded-2xl border border-[#fe9d00]/20">------</div>
+            <p id="mp-waiting-text" class="text-white/50 text-sm font-bold mb-8">Čekam protivnika...</p>
+            <div class="flex gap-2 justify-center mb-2">
+                <span class="w-2 h-2 bg-[#fe9d00] rounded-full animate-bounce" style="animation-delay:0s"></span>
+                <span class="w-2 h-2 bg-[#fe9d00] rounded-full animate-bounce" style="animation-delay:0.2s"></span>
+                <span class="w-2 h-2 bg-[#fe9d00] rounded-full animate-bounce" style="animation-delay:0.4s"></span>
+            </div>
+            <button id="mp-cancel-wait" class="mt-6 text-white/30 hover:text-white text-xs font-bold uppercase tracking-widest transition">Odustani</button>
+        </div>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div id="mp-countdown-overlay" style="display:none"
+        class="fixed inset-0 z-[250] flex items-center justify-center bg-black/95 backdrop-blur-xl">
+        <div class="text-center">
+            <p class="text-white/50 text-sm font-black uppercase tracking-widest mb-4">IGRA POČINJE ZA</p>
+            <div id="mp-countdown-num"
+                class="text-[120px] font-black text-[#fe9d00] leading-none drop-shadow-[0_0_60px_rgba(254,157,0,0.8)] animate-pulse">3</div>
+        </div>
+    </div>
+
+    <!-- DUEL RESULT -->
+    <div id="mp-result-overlay" style="display:none"
+        class="fixed inset-0 z-[300] flex items-center justify-center p-6 bg-[#060e1d]/95 backdrop-blur-xl">
+        <div class="glass-card w-full max-w-sm rounded-[2rem] p-8 text-center border-t-2 border-[#fe9d00]/50 shadow-[0_0_60px_rgba(254,157,0,0.2)]">
+            <div class="text-4xl mb-2">⚔️</div>
+            <h2 class="text-xl font-black text-white tracking-widest mb-6">REZULTAT DVOBOJA</h2>
+            <!-- Score comparison -->
+            <div class="flex justify-around items-center mb-6">
+                <div class="text-center">
+                    <p class="text-[10px] text-[#fe9d00] font-black uppercase tracking-widest mb-1">TI</p>
+                    <p id="mp-my-name" class="text-white font-black text-sm mb-2">---</p>
+                    <p id="mp-my-score" class="text-2xl font-black text-[#fe9d00]">0 ⭐</p>
+                </div>
+                <div class="text-3xl font-black text-white/20">VS</div>
+                <div class="text-center">
+                    <p class="text-[10px] text-white/40 font-black uppercase tracking-widest mb-1">PROTIVNIK</p>
+                    <p id="mp-op-name" class="text-white font-black text-sm mb-2">---</p>
+                    <p id="mp-op-score" class="text-2xl font-black text-white/60">0 ⭐</p>
+                </div>
+            </div>
+            <!-- Waiting indicator -->
+            <div id="mp-waiting-result" class="flex items-center justify-center gap-2 text-white/40 text-xs font-bold mb-4">
+                <span class="animate-spin">⏳</span> Čekam protivnikov rezultat...
+            </div>
+            <!-- Winner text -->
+            <div id="mp-winner-text" style="display:none" class="text-2xl font-black text-[#fe9d00] mt-4"></div>
+            <button id="mp-play-again"
+                class="w-full mt-8 bg-[#fe9d00] text-[#060e1d] font-black py-4 rounded-2xl hover:scale-[1.02] active:scale-95 transition-transform text-sm tracking-widest uppercase shadow-[0_8px_20px_rgba(254,157,0,0.3)]">
+                IGRAJ PONOVO 🔄
+            </button>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Inline patch for elements missing their JS listeners if any, though quiz_engine does most.
@@ -857,6 +966,11 @@
     <script src="content/vje_7.js?v=14"></script>
 
 
+
+    <!-- FIREBASE + MULTIPLAYER -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script src="multiplayer.js?v=1"></script>
 
     <script src="quiz_engine.js?v=21"></script>
 </body>

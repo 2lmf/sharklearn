@@ -760,7 +760,11 @@ class QuizEngine {
             pool = this.getRandomSubarray(this.allQuestions, Math.min(this.questionsPerMission, this.allQuestions.length));
         }
 
-        this.currentMission = this.shuffleArray([...pool]);
+        if (window.MP && window.MP.isActive()) {
+            this.currentMission = window.MP.getSeededMission(this.allQuestions, this.questionsPerMission);
+        } else {
+            this.currentMission = this.shuffleArray([...pool]);
+        }
         this.currentIndex = 0;
         this.score = 0;
         this.lives = 5;
@@ -829,6 +833,7 @@ class QuizEngine {
             }
 
             this.updateStatsUI();
+            if (window.MP && window.MP.isActive()) window.MP.syncState(this.score, this.lives, this.currentIndex, false);
             setTimeout(() => this.nextQuestion(), 800);
         } else {
             btn.classList.add('wrong');
@@ -837,6 +842,7 @@ class QuizEngine {
 
             this.lives -= 1;
             this.updateStatsUI();
+            if (window.MP && window.MP.isActive()) window.MP.syncState(this.score, this.lives, this.currentIndex, false);
 
             // Modal Explanation
             setTimeout(() => {
@@ -944,6 +950,12 @@ class QuizEngine {
         // Save as COMPLETED even if failed (Game Over counts as Grade 1 attempt)
         this.saveStatsToCloud(true);
         this.isExamMode = false; // Reset
+
+        // Multiplayer: sync finished state and show duel result
+        if (window.MP && window.MP.isActive()) {
+            window.MP.syncState(this.score, this.lives, this.currentIndex, true);
+            window.MP.showDuelResult(this.score);
+        }
     }
 
     // --- NAVIGATION & DYNAMIC UI ---
