@@ -170,12 +170,25 @@
         .force-hidden {
             display: none !important;
         }
+
+        .formula-item {
+            position: absolute;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.08);
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            transition: all 2s ease-in-out;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body class="bg-[#060e1d] text-[#dde5fb] min-h-screen">
     <div class="ocean-bg"></div>
     <div class="grid-overlay"></div>
+    <div id="dynamic-bg" class="fixed inset-0 pointer-events-none z-[-1] overflow-hidden opacity-30 select-none"></div>
 
     <!-- USER INFO BAR -->
     <div id="user-info-bar"
@@ -683,6 +696,27 @@
             </div>
         </section>
 
+        <!-- EXIT CONFIRMATION MODAL -->
+        <section id="exit-confirmation-modal"
+            class="hidden fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md transition-opacity">
+            <div
+                class="glass-card w-full max-w-sm rounded-[2rem] p-8 text-center border-t-2 border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.2)]">
+                <div class="text-6xl mb-4">🚪</div>
+                <h2 class="text-2xl font-black text-white mb-2 tracking-tight">ŽELIŠ LI PREDATI ISPIT?</h2>
+                <p
+                    class="text-red-400 text-sm font-bold mb-8 p-4 bg-red-500/10 rounded-2xl border border-red-500/20 leading-relaxed uppercase tracking-tighter shadow-inner">
+                    Odlazak iz misije se bilježi kao <span class="underline">NEUSPJEH</span> (Ocjena 1)!
+                </p>
+                <div class="flex flex-col gap-3">
+                    <button id="confirm-exit-btn"
+                        class="w-full bg-red-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform uppercase tracking-widest text-sm">DA,
+                        ODUSTAJEM</button>
+                    <button onclick="document.getElementById('exit-confirmation-modal').classList.add('hidden')"
+                        class="w-full bg-white/5 border border-white/10 text-white/60 font-black py-3 rounded-2xl hover:bg-white/10 transition uppercase tracking-widest text-[10px] active:scale-95">OTKAŽI</button>
+                </div>
+            </div>
+        </section>
+
         <!-- BOTTOM NAVIGATION -->
         <!-- Hidden on registration/result pages by JS or CSS z-index, but we'll manage z-index so it doesn't overlap modals -->
         <nav id="bottom-nav"
@@ -690,10 +724,10 @@
             <div
                 class="pointer-events-auto bg-[#0b172d]/90 backdrop-blur-xl border border-white/10 rounded-[2rem] py-2 px-3 flex justify-between items-center shadow-2xl max-w-sm mx-auto">
 
-                <!-- Home / Reset Button (Big Center-Left) -->
-                <button onclick="location.reload()"
+                <!-- Back / Level Down Button (Big Center-Left) -->
+                <button id="nav-back-btn"
                     class="flex flex-col items-center justify-center bg-gradient-to-br from-[#fe9d00] to-[#ff7a00] text-[#060e1d] rounded-[1.5rem] w-16 h-16 -mt-8 shadow-[0_10px_20px_rgba(254,157,0,0.4)] hover:scale-105 active:scale-95 transition-all shrink-0 border-4 border-[#060e1d]">
-                    <span class="text-2xl drop-shadow-sm">🏠</span>
+                    <span class="text-2xl drop-shadow-sm font-bold">←</span>
                 </button>
 
                 <!-- Other Actions -->

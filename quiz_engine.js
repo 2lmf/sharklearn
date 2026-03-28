@@ -81,7 +81,10 @@ class QuizEngine {
             // Exam Semester Modal
             examSemModal: document.getElementById('exam-semester-modal'),
             examSemBtns: document.querySelectorAll('.exam-sem-btn'),
-            closeExamModal: document.getElementById('close-exam-modal')
+            closeExamModal: document.getElementById('close-exam-modal'),
+            navBackBtn: document.getElementById('nav-back-btn'),
+            exitModal: document.getElementById('exit-confirmation-modal'),
+            confirmExitBtn: document.getElementById('confirm-exit-btn')
         };
 
         this.init();
@@ -121,10 +124,16 @@ class QuizEngine {
                 };
             }
         } else {
-            // New user -> Show Registration
             this.elements.registrationModal.style.display = 'block';
             this.elements.saveProfileBtn.onclick = () => this.saveProfile();
         }
+
+        // Navigation & Confirmation
+        this.elements.navBackBtn.onclick = () => this.handleBack();
+        this.elements.confirmExitBtn.onclick = () => this.confirmExit();
+
+        // Initial Background
+        this.updateDynamicBackground();
 
         // Grade Selection Logic
         this.elements.gradeBtns.forEach(btn => {
@@ -341,6 +350,7 @@ class QuizEngine {
     }
 
     showGradeSelection() {
+        this.updateDynamicBackground();
         this.elements.gradeScreen.style.display = 'block';
         this.elements.welcomeScreen.style.display = 'none';
         this.elements.quizWrapper.style.display = 'none';
@@ -760,6 +770,7 @@ class QuizEngine {
     }
 
     renderQuestion() {
+        this.updateDynamicBackground();
         const q = this.currentMission[this.currentIndex];
         if (!q) return;
 
@@ -933,6 +944,67 @@ class QuizEngine {
         // Save as COMPLETED even if failed (Game Over counts as Grade 1 attempt)
         this.saveStatsToCloud(true);
         this.isExamMode = false; // Reset
+    }
+
+    // --- NAVIGATION & DYNAMIC UI ---
+    handleBack() {
+        console.log("SharkLearn: Handle Back Triggered");
+        
+        // If in Result Screen -> Go back to Subject Selection
+        if (this.elements.resultScreen && this.elements.resultScreen.style.display === 'flex') {
+            this.elements.resultScreen.style.display = 'none';
+            this.elements.welcomeScreen.style.display = 'block';
+            this.updateDynamicBackground();
+            return;
+        }
+
+        // If in Quiz
+        if (this.elements.quizArea && this.elements.quizArea.style.display === 'flex') {
+            this.elements.exitModal.classList.remove('hidden');
+        }
+        // If in Subject Selection
+        else if (this.elements.welcomeScreen && this.elements.welcomeScreen.style.display === 'block') {
+            this.showGradeSelection();
+        }
+        // If in Grade Selection
+        else if (this.elements.gradeScreen && this.elements.gradeScreen.style.display === 'block') {
+            this.elements.gradeScreen.style.display = 'none';
+            this.elements.registrationModal.style.display = 'block';
+        }
+        // Stats overlay etc are handled by their own close buttons usually
+        else if (this.elements.statsOverlay && this.elements.statsOverlay.style.display === 'flex') {
+            this.elements.statsOverlay.style.display = 'none';
+        }
+    }
+
+    confirmExit() {
+        console.log("SharkLearn: Exit Confirmed (Force Fail)");
+        this.elements.exitModal.classList.add('hidden');
+        
+        // Force score and lives to zero to ensure a grade of 1 is recorded
+        this.score = 0;
+        this.lives = 0;
+        
+        // Ensure failure message is clear
+        this.endGame(false);
+    }
+
+    updateDynamicBackground() {
+        const bg = document.getElementById('dynamic-bg');
+        if (!bg) return;
+        bg.innerHTML = '';
+        const items = ["E=mc²", "a²+b²=c²", "H₂O", "F=ma", "sin²x+cos²x=1", "∫f(x)dx", "Σn", "CO₂", "NaCl", "v=s/t", "P=UI", "x=(-b±√D)/2a", "Hrvatski", "Povijest", "Biologija", "Kemija", "Molekula", "Galaksija", "Jednadžba", "Fotosinteza", "Arhimed", "Tesla", "Shakespeare", "Einstein", "Newton", "DNA"];
+
+        for (let i = 0; i < 15; i++) {
+            const span = document.createElement('span');
+            span.className = 'formula-item';
+            span.innerText = items[Math.floor(Math.random() * items.length)];
+            span.style.left = Math.random() * 100 + '%';
+            span.style.top = Math.random() * 100 + '%';
+            span.style.transform = `rotate(${Math.random() * 60 - 30}deg) scale(${0.6 + Math.random() * 1.2})`;
+            span.style.opacity = 0.05 + Math.random() * 0.15;
+            bg.appendChild(span);
+        }
     }
 
     async saveStatsToCloud(isCompleted = false) {

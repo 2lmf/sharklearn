@@ -382,9 +382,9 @@ const finalHtml = `<!DOCTYPE html>
         <nav id="bottom-nav" class="fixed bottom-0 left-0 w-full px-4 pb-6 pt-8 bg-gradient-to-t from-[#060e1d] via-[#060e1d]/90 to-transparent z-[30] pointer-events-none">
             <div class="pointer-events-auto bg-[#0b172d]/90 backdrop-blur-xl border border-white/10 rounded-[2rem] py-2 px-3 flex justify-between items-center shadow-2xl max-w-sm mx-auto">
                 
-                <!-- Home / Reset Button (Big Center-Left) -->
-                <button onclick="location.reload()" class="flex flex-col items-center justify-center bg-gradient-to-br from-[#fe9d00] to-[#ff7a00] text-[#060e1d] rounded-[1.5rem] w-16 h-16 -mt-8 shadow-[0_10px_20px_rgba(254,157,0,0.4)] hover:scale-105 active:scale-95 transition-all shrink-0 border-4 border-[#060e1d]">
-                    <span class="text-2xl drop-shadow-sm">🏠</span>
+                <!-- Back / Level Down Button (Big Center-Left) -->
+                <button id="nav-back-btn" class="flex flex-col items-center justify-center bg-gradient-to-br from-[#fe9d00] to-[#ff7a00] text-[#060e1d] rounded-[1.5rem] w-16 h-16 -mt-8 shadow-[0_10px_20px_rgba(254,157,0,0.4)] hover:scale-105 active:scale-95 transition-all shrink-0 border-4 border-[#060e1d]">
+                    <span class="text-2xl drop-shadow-sm font-bold">←</span>
                 </button>
                 
                 <!-- Other Actions -->
