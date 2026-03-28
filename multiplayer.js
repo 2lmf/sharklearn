@@ -17,8 +17,16 @@ class MultiplayerManager {
   }
 
   _initFirebase() {
-    // Config se učitava iz firebase_config.js (gitignored)
-    if (!firebase.apps.length) firebase.initializeApp(FIREBASE_CONFIG);
+    const config = {
+      apiKey: "AIzaSyA1QYK9BP0oAYZoVTy6vkY1Br1hqyii8Ds",
+      authDomain: "sharklearn-multiplayer.firebaseapp.com",
+      databaseURL: "https://sharklearn-multiplayer-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "sharklearn-multiplayer",
+      storageBucket: "sharklearn-multiplayer.firebasestorage.app",
+      messagingSenderId: "433577062074",
+      appId: "1:433577062074:web:989892e9ed5da56fcbdc83"
+    };
+    if (!firebase.apps.length) firebase.initializeApp(config);
     this.db = firebase.database();
   }
 
